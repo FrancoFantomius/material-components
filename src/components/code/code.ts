@@ -29,7 +29,7 @@ export class MdCode extends MdBaseElement {
    * Alias for language.
    */
   @property({ type: String })
-  lang = '';
+  override lang = '';
 
   /**
    * Optional filename or label to display in the header bar.

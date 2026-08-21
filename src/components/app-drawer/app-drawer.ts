@@ -537,6 +537,10 @@ export class MdAppDrawer extends MdBaseElement {
     const itemToMove = items[fromIndex];
     const targetItem = items[toIndex];
 
+    if (!itemToMove || !targetItem) {
+      return;
+    }
+
     this.isReordering = true;
     if (fromIndex < toIndex) {
       targetItem.after(itemToMove);

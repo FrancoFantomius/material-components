@@ -241,8 +241,8 @@ export class MdSearchBar extends MdFormAssociatedElement {
 
   private handleTrailingTriggerClick = (event: MouseEvent) => {
     event.stopPropagation();
-    const customEvt = this.emitEvent('trailing-icon-click', { icon: this.trailingIcon }, true);
-    if (!customEvt.defaultPrevented) {
+    const allowed = this.emitEvent('trailing-icon-click', { icon: this.trailingIcon });
+    if (allowed) {
       this.show();
     }
   };
