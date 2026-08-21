@@ -1,0 +1,62 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [1.0.0] - 2026-08-21
+
+### Added
+
+#### Core & Architecture
+- **Lit 3 Foundation**: Built natively with Lit 3, TypeScript, and modern standard Web Components.
+- **Granular Subpath Exports**: Support for tree-shakeable individual component imports (e.g. `@francofantomius/material-components/button`) alongside full bundle imports.
+- **Form-Associated Custom Elements (FACE)**: Seamless form participation, validation constraint handling, and FormData support for all input components (`md-text-field`, `md-checkbox`, `md-radio`, `md-switch`).
+- **Internal State & Interaction Mixins**:
+  - `MdRipple`: Material Design 3 interactive ripple state layer.
+  - `MdFocusRing`: Accessible high-contrast focus rings for keyboard navigation.
+  - `MdBaseComponent`: Unified base class with token inheritance and theming utilities.
+- **Custom Elements Manifest**: Generated `custom-elements.json` for IDE autocomplete and documentation tooling.
+
+#### Design Tokens & Theming
+- **Material Design 3 (M3) Color System**: Full tokenized color system with tonal palettes, surface tints, containers, and contrast-compliant roles.
+- **Dynamic Theming**: Support for light, dark, and custom theme overrides via CSS custom properties and `data-theme` attribute.
+- **Elevation Tokens**: Elevation levels 0 through 5 with corresponding box shadows and surface tint opacities.
+- **Motion & Typography**: M3 standard easing curves, durations, and typography type scales (Display, Headline, Title, Body, Label).
+- **Shape Tokens**: Corner radius scales from `none` (0px) to `full` (9999px).
+
+#### Components
+- **Buttons & FABs**:
+  - `md-button`: Filled, elevated, tonal, outlined, and text button variants with leading and trailing icon slots.
+  - `md-icon-button`: Standard, filled, tonal, and outlined icon buttons with toggle support.
+  - `md-fab`: Floating action buttons with small, regular, and large sizes, plus extended FAB styling.
+- **Form & Input Controls**:
+  - `md-text-field`: Filled and outlined variants, label animations, helper text, error text, prefix/suffix icons, character counters, and native form integration.
+  - `md-checkbox`: Controlled and uncontrolled states, indeterminate state, and custom touch targets.
+  - `md-switch`: Material 3 toggle switch with icon customization for checked and unchecked states.
+  - `md-radio` & `md-radio-group`: Accessible radio buttons with grouped keyboard arrow navigation.
+- **Navigation & App Bars**:
+  - `md-top-app-bar`: Small, center-aligned, medium, and large variants with navigation slots, action item slots, and scroll-elevation behaviors.
+  - `md-navigation-drawer`: Standard and modal navigation drawers with `md-navigation-drawer-item` sub-components, active indicator pill styles, and badge indicators.
+  - `md-app-drawer`: Google Apps style grid launcher with customizable apps, drag-and-drop reordering, edit mode, search filter, fullscreen display, and back button support.
+  - `md-account-menu`: Profile switcher drawer and menu supporting multiple user accounts, account switching, sign-out actions, management links, fullscreen mode, and back navigation.
+  - `md-tabs` & `md-tab`: Primary and secondary tab bars with animated active indicator lines.
+- **Data Display & Feedback**:
+  - `md-card`: Elevated, filled, and outlined card containers with header, media, content, and action sections.
+  - `md-dialog`: Accessible modal dialogs with customizable headline, body, and action buttons.
+  - `md-table`: Feature-packed data table with sortable columns, row selection checkboxes, pagination controls, sticky headers, and dense mode.
+  - `md-list` & `md-list-item`: Single-line, two-line, and three-line list items supporting leading icons/avatars, headline/supporting text, trailing metadata, and interactive states.
+  - `md-progress`: Linear and circular progress indicators supporting determinate, indeterminate, and M3 Expressive wavy indicator modes.
+  - `md-badge`: Small dot badges, numeric count badges, and maximum threshold capping (e.g. `99+`).
+  - `md-chip`: Assist, filter, input, and suggestion chips with selectable and removable capabilities.
+  - `md-snackbar`: Toast notification system with custom duration, action triggers, and dismiss options.
+  - `md-search-bar`: Expandable search bar and search view with suggestion slots, trailing icons, clear button, and mobile full-screen transitions.
+- **Media & Developer Tools**:
+  - `md-player`: Media player supporting video and audio playback (`md-video-player`, `md-audio-player`), custom play/pause/seek controls, volume slider, fullscreen toggle, time displays, and keyboard accessibility.
+  - `md-code`: Code block viewer with built-in syntax highlighting, copy-to-clipboard button, line numbers, and error / lint annotation support.
+  - `md-icon`: Material Symbols icon renderer supporting font-based and custom SVG icons.
+
+#### Documentation & Testing
+- Comprehensive documentation site with live interactive code examples, component playgrounds, and guides for framework integration (React, Vue, Angular, Svelte, Solid), form handling, and theming.
+- Automated unit and integration test suite powered by Vitest and Happy-DOM.

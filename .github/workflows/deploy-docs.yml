@@ -1,8 +1,10 @@
-name: Deploy VitePress site to Pages
+name: Deploy Documentation to Pages
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - v-1-0-0
   workflow_dispatch:
 
 permissions:
@@ -26,7 +28,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
 
       - name: Install dependencies
@@ -35,7 +37,7 @@ jobs:
       - name: Build Library
         run: npm run build
 
-      - name: Build VitePress Documentation
+      - name: Build Documentation
         run: npm run docs:build
         env:
           BASE_PATH: /${{ github.event.repository.name }}/
@@ -43,7 +45,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/.vitepress/dist
+          path: dist-docs
 
   deploy:
     environment:
@@ -56,4 +58,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
