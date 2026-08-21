@@ -2,6 +2,14 @@
   "name": "@francofantomius/material-components",
   "version": "1.0.0",
   "description": "Reusable, accessible, and lightweight Material Design 3 Web Components built with Lit.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrancoFantomius/material-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FrancoFantomius/material-components/issues"
+  },
+  "homepage": "https://github.com/FrancoFantomius/material-components#readme",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
