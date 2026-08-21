@@ -3,9 +3,9 @@ import { resolve } from 'path';
 
 export default defineConfig({
   base: process.env.BASE_PATH || './',
-  root: resolve(__dirname, 'docs'),
+  root: resolve(import.meta.dirname, 'docs'),
   build: {
-    outDir: resolve(__dirname, 'dist-docs'),
+    outDir: resolve(import.meta.dirname, 'dist-docs'),
     emptyOutDir: true,
     target: 'es2022',
   },
