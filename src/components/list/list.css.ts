@@ -6,6 +6,8 @@ export const listStyles = css`
     flex-direction: column;
     padding: 8px 0;
     box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
   }
 `;
 
@@ -15,6 +17,9 @@ export const listItemStyles = css`
     outline: none;
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   :host([disabled]) {
@@ -76,6 +81,12 @@ export const listItemStyles = css`
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  .headline:empty,
+  .supporting-text:empty,
+  .trailing-supporting-text:empty {
+    display: none;
   }
 
   .end {

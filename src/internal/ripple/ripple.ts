@@ -1,4 +1,4 @@
-import { html, nothing } from 'lit';
+import { html } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { MdBaseElement } from '../base-component.js';
 import { rippleStyles } from './ripple.css.js';
@@ -12,9 +12,6 @@ export class MdRipple extends MdBaseElement {
 
   @property({ type: Boolean, reflect: true })
   disabled = false;
-
-  @state()
-  private isHovered = false;
 
   @state()
   private isFocused = false;
@@ -33,12 +30,10 @@ export class MdRipple extends MdBaseElement {
   }
 
   private setupControl(): void {
-    // Attach to parent element or host
-    this.control = (this.parentElement || (this.getRootNode() as ShadowRoot)?.host) as HTMLElement | null;
+    const host = (this.getRootNode() as ShadowRoot)?.host as HTMLElement | null;
+    this.control = host || this.parentElement;
     if (!this.control) return;
 
-    this.control.addEventListener('pointerenter', this.handlePointerEnter);
-    this.control.addEventListener('pointerleave', this.handlePointerLeave);
     this.control.addEventListener('pointerdown', this.handlePointerDown);
     this.control.addEventListener('focusin', this.handleFocusIn);
     this.control.addEventListener('focusout', this.handleFocusOut);
@@ -46,21 +41,10 @@ export class MdRipple extends MdBaseElement {
 
   private cleanupControl(): void {
     if (!this.control) return;
-    this.control.removeEventListener('pointerenter', this.handlePointerEnter);
-    this.control.removeEventListener('pointerleave', this.handlePointerLeave);
     this.control.removeEventListener('pointerdown', this.handlePointerDown);
     this.control.removeEventListener('focusin', this.handleFocusIn);
     this.control.removeEventListener('focusout', this.handleFocusOut);
   }
-
-  private handlePointerEnter = (): void => {
-    if (this.disabled) return;
-    this.isHovered = true;
-  };
-
-  private handlePointerLeave = (): void => {
-    this.isHovered = false;
-  };
 
   private handleFocusIn = (): void => {
     if (this.disabled) return;
@@ -78,8 +62,8 @@ export class MdRipple extends MdBaseElement {
     const size = Math.max(rect.width, rect.height);
     const radius = size / 2;
 
-    const x = this.unbounded ? rect.width / 2 : event.clientX - rect.left;
-    const y = this.unbounded ? rect.height / 2 : event.clientY - rect.top;
+    const x = rect.width / 2;
+    const y = rect.height / 2;
 
     const ripple = document.createElement('div');
     ripple.className = 'ripple';
@@ -111,7 +95,7 @@ export class MdRipple extends MdBaseElement {
   override render() {
     return html`
       <div class="surface-container">
-        <div class="surface ${this.isHovered ? 'hovered' : ''} ${this.isFocused ? 'focused' : ''}"></div>
+        <div class="surface ${this.isFocused ? 'focused' : ''}"></div>
       </div>
     `;
   }
@@ -122,4 +106,3 @@ declare global {
     'md-ripple': MdRipple;
   }
 }
-

@@ -56,7 +56,7 @@ export class MdIconButton extends MdBaseElement {
     const iconName = (this.selected && this.selectedIcon) ? this.selectedIcon : this.icon;
 
     const content = html`
-      <md-ripple ?disabled=${this.disabled} unbounded></md-ripple>
+      <md-ripple ?disabled=${this.disabled}></md-ripple>
       <md-focus-ring></md-focus-ring>
       <span class="content">
         <slot>

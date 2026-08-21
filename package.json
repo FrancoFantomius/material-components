@@ -1,6 +1,6 @@
 {
   "name": "@francofantomius/material-components",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Reusable, accessible, and lightweight Material Design 3 Web Components built with Lit.",
   "type": "module",
   "main": "./dist/index.js",
@@ -90,6 +90,42 @@
       "types": "./dist/components/snackbar/snackbar.d.ts",
       "import": "./dist/components/snackbar/snackbar.js"
     },
+    "./top-app-bar": {
+      "types": "./dist/components/top-app-bar/top-app-bar.d.ts",
+      "import": "./dist/components/top-app-bar/top-app-bar.js"
+    },
+    "./top-bar": {
+      "types": "./dist/components/top-app-bar/top-app-bar.d.ts",
+      "import": "./dist/components/top-app-bar/top-app-bar.js"
+    },
+    "./navigation-drawer": {
+      "types": "./dist/components/navigation-drawer/navigation-drawer.d.ts",
+      "import": "./dist/components/navigation-drawer/navigation-drawer.js"
+    },
+    "./drawer": {
+      "types": "./dist/components/navigation-drawer/navigation-drawer.d.ts",
+      "import": "./dist/components/navigation-drawer/navigation-drawer.js"
+    },
+    "./menu-bar": {
+      "types": "./dist/components/navigation-drawer/navigation-drawer.d.ts",
+      "import": "./dist/components/navigation-drawer/navigation-drawer.js"
+    },
+    "./table": {
+      "types": "./dist/components/table/table.d.ts",
+      "import": "./dist/components/table/table.js"
+    },
+    "./data-table": {
+      "types": "./dist/components/table/table.d.ts",
+      "import": "./dist/components/table/table.js"
+    },
+    "./search-bar": {
+      "types": "./dist/components/search-bar/search-bar.d.ts",
+      "import": "./dist/components/search-bar/search-bar.js"
+    },
+    "./search": {
+      "types": "./dist/components/search-bar/search-bar.d.ts",
+      "import": "./dist/components/search-bar/search-bar.js"
+    },
     "./ripple": {
       "types": "./dist/internal/ripple/ripple.d.ts",
       "import": "./dist/internal/ripple/ripple.js"
@@ -102,9 +138,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "analyze": "cem analyze --litelement",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs",
+    "docs:build": "node docs/generate.js",
+    "docs:dev": "vite",
     "prepublishOnly": "npm run typecheck && npm run test && npm run build"
   },
   "keywords": [
@@ -127,7 +162,6 @@
     "typescript": "^5.6.3",
     "vite": "^6.0.1",
     "vite-plugin-dts": "^4.3.0",
-    "vitepress": "^1.6.4",
     "vitest": "^2.1.8"
   }
 }

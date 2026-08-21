@@ -69,6 +69,14 @@ export class MdTextField extends MdFormAssociatedElement {
   override connectedCallback() {
     super.connectedCallback();
     this.setFormValue(this.value);
+    this.toggleAttribute('has-value', Boolean(this.value));
+    this.toggleAttribute('has-placeholder', Boolean(this.placeholder));
+    this.toggleAttribute('has-leading-icon', Boolean(this.leadingIcon));
+  }
+
+  override firstUpdated(changedProperties: Map<string, unknown>) {
+    super.firstUpdated(changedProperties);
+    this.handleSlotChange();
   }
 
   override willUpdate(changedProperties: Map<string, unknown>) {
@@ -78,18 +86,18 @@ export class MdTextField extends MdFormAssociatedElement {
       this.toggleAttribute('has-value', Boolean(this.value));
       this.validateInput();
     }
-  }
-
-  override updated(changedProperties: Map<string, unknown>) {
-    super.updated(changedProperties);
     if (changedProperties.has('placeholder')) {
       this.toggleAttribute('has-placeholder', Boolean(this.placeholder));
+    }
+    if (changedProperties.has('leadingIcon')) {
+      this.toggleAttribute('has-leading-icon', Boolean(this.leadingIcon));
     }
   }
 
   override formResetCallback() {
     this.value = '';
     this.error = false;
+    this.toggleAttribute('has-value', false);
     this.setFormValue(null);
   }
 

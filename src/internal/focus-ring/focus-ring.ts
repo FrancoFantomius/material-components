@@ -17,7 +17,8 @@ export class MdFocusRing extends MdBaseElement {
 
   override connectedCallback(): void {
     super.connectedCallback();
-    this.control = (this.parentElement || (this.getRootNode() as ShadowRoot)?.host) as HTMLElement | null;
+    const host = (this.getRootNode() as ShadowRoot)?.host as HTMLElement | null;
+    this.control = host || this.parentElement;
     if (this.control) {
       this.control.addEventListener('focusin', this.handleFocusIn);
       this.control.addEventListener('focusout', this.handleFocusOut);
@@ -33,7 +34,12 @@ export class MdFocusRing extends MdBaseElement {
   }
 
   private handleFocusIn = (): void => {
-    if (this.control?.matches(':focus-visible') || this.control?.querySelector(':focus-visible')) {
+    const host = (this.getRootNode() as ShadowRoot)?.host as HTMLElement | null;
+    if (
+      this.control?.matches(':focus-visible') ||
+      this.control?.querySelector(':focus-visible') ||
+      host?.matches(':focus-visible')
+    ) {
       this.visible = true;
     }
   };

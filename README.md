@@ -149,11 +149,8 @@ applyTheme({
 ## Development and Testing
 
 ```bash
-# Start local interactive Vite playground
+# Start local interactive documentation & playground
 npm run dev
-
-# Start local VitePress documentation
-npm run docs:dev
 
 # Run unit tests
 npm test
@@ -163,9 +160,6 @@ npm run typecheck
 
 # Build library & custom elements manifest
 npm run build
-
-# Build documentation for production
-npm run docs:build
 ```
 
 ---

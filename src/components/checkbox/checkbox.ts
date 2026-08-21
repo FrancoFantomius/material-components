@@ -90,9 +90,9 @@ export class MdCheckbox extends MdFormAssociatedElement {
   override render() {
     return html`
       <div class="container">
-        <md-ripple ?disabled=${this.disabled} unbounded></md-ripple>
-        <md-focus-ring></md-focus-ring>
         <div class="box">
+          <md-ripple ?disabled=${this.disabled}></md-ripple>
+          <md-focus-ring></md-focus-ring>
           <!-- Checkmark SVG -->
           <svg class="mark check" viewBox="0 0 18 18">
             <polyline points="3.5,9.5 7,13 14.5,5.5"></polyline>
