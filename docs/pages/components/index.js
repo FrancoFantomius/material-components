@@ -21,6 +21,8 @@ import icon from './icon.js';
 import searchBar from './search-bar.js';
 import code from './code.js';
 import player from './player.js';
+import appDrawer from './app-drawer.js';
+import accountMenu from './account-menu.js';
 
 export const COMPONENTS = [
   button,
@@ -46,6 +48,8 @@ export const COMPONENTS = [
   searchBar,
   code,
   player,
+  appDrawer,
+  accountMenu,
 ];
 
 export {
@@ -72,6 +76,8 @@ export {
   searchBar,
   code,
   player,
+  appDrawer,
+  accountMenu,
 };
 
 export default COMPONENTS;

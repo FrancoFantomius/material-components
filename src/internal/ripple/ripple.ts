@@ -60,11 +60,11 @@ export class MdRipple extends MdBaseElement {
     if (this.disabled || event.button !== 0) return;
 
     const rect = this.getBoundingClientRect();
-    const size = Math.max(rect.width, rect.height);
+    const size = Math.max(rect.width, rect.height) * 2;
     const radius = size / 2;
 
-    const x = rect.width / 2;
-    const y = rect.height / 2;
+    const x = this.unbounded || !event.clientX ? rect.width / 2 : event.clientX - rect.left;
+    const y = this.unbounded || !event.clientY ? rect.height / 2 : event.clientY - rect.top;
 
     const ripple = document.createElement('div');
     ripple.className = 'ripple';

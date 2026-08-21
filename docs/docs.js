@@ -1041,6 +1041,28 @@ function attachPostRenderHandlers() {
       showToast(`Selected: ${e.detail.label || e.detail.value}`);
     });
   }
+
+  // Demo: Account Menu Component
+  const demoAccountMenu = document.getElementById('demo-account-menu');
+  if (demoAccountMenu) {
+    demoAccountMenu.addEventListener('account-select', (e) => {
+      showToast(`Selected account: ${e.detail.name || e.detail.email}`);
+    });
+    demoAccountMenu.addEventListener('manage-click', () => {
+      showToast('Manage Account clicked');
+    });
+    demoAccountMenu.addEventListener('sign-out', () => {
+      showToast('Sign out clicked');
+    });
+  }
+
+  // Demo: App Drawer Component
+  const demoAppDrawer = document.getElementById('demo-app-drawer');
+  if (demoAppDrawer) {
+    demoAppDrawer.addEventListener('item-click', (e) => {
+      showToast(`Selected app: ${e.detail.label}`);
+    });
+  }
 }
 
 // --- SPA Router ---

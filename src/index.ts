@@ -31,5 +31,5 @@ export * from './components/table/table.js';
 export * from './components/search-bar/search-bar.js';
 export * from './components/code/code.js';
 export * from './components/player/player.js';
-
-
+export * from './components/app-drawer/app-drawer.js';
+export * from './components/account-menu/account-menu.js';

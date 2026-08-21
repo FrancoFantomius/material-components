@@ -54,6 +54,8 @@ import '@francofantomius/material-components/top-app-bar';
 import '@francofantomius/material-components/navigation-drawer';
 import '@francofantomius/material-components/table';
 import '@francofantomius/material-components/search-bar';
+import '@francofantomius/material-components/app-drawer';
+import '@francofantomius/material-components/account-menu';
 import '@francofantomius/material-components/code';
 import '@francofantomius/material-components/player';
 ```
@@ -182,6 +184,31 @@ import '@francofantomius/material-components';
 ></md-player>
 ```
 
+### App Drawer & Account Menu
+```html
+<!-- App Launcher Grid -->
+<md-app-drawer headline="Apps">
+  <md-app-drawer-item icon="mail" label="Mail" badge="3"></md-app-drawer-item>
+  <md-app-drawer-item icon="calendar_today" label="Calendar"></md-app-drawer-item>
+  <md-app-drawer-item icon="folder" label="Drive"></md-app-drawer-item>
+</md-app-drawer>
+
+<!-- Account Menu & Switcher -->
+<md-account-menu
+  name="Franco Fantomius"
+  email="franco.fantomius@example.com"
+  initials="F"
+  role-title="Lead Architect"
+  organization="Material Components Team"
+  storage-used="10.4 GB"
+  storage-total="15 GB"
+  storage-progress="0.69"
+>
+  <md-account-item slot="accounts" name="Franco Fantomius" email="franco.fantomius@example.com" initials="F" active></md-account-item>
+  <md-account-item slot="accounts" name="Work Profile" email="franco@company.com" initials="W"></md-account-item>
+</md-account-menu>
+```
+
 ---
 
 ## Theming and Dark Mode
@@ -244,6 +271,8 @@ applyTheme({
 | **Snackbar** | `<md-snackbar>` | `/snackbar` | `open`, `message`, `action-text`, `closeable`, `timeout-ms`, `stacked` |
 | **Top App Bar** | `<md-top-app-bar>`, `<md-top-bar>` | `/top-app-bar` | `variant` (center-aligned, small, medium, large), `headline`, `subtitle`, `elevated`, `fixed` |
 | **Navigation Drawer** | `<md-navigation-drawer>`, `<md-drawer>`, `<md-menu-bar>`, `<md-navigation-drawer-item>` | `/navigation-drawer` | `open`, `type` (modal, standard, responsive), `pivot` (left, right), `headline`, `responsive`, `closed` |
+| **App Drawer** | `<md-app-drawer>`, `<md-app-launcher>`, `<md-apps-menu>`, `<md-app-drawer-item>`, `<md-app-item>` | `/app-drawer` | `open`, `headline`, `icon`, `columns`, `reorderable`, `editable`, `modal`, `alignment`, `pivot` |
+| **Account Menu** | `<md-account-menu>`, `<md-account-drawer>`, `<md-account-profile>`, `<md-account-item>` | `/account-menu` | `open`, `name`, `email`, `avatar`, `initials`, `storage-used`, `storage-total`, `show-tabs`, `modal`, `alignment` |
 | **Table / Data Table** | `<md-table>`, `<md-data-table>`, `<md-table-head>`, `<md-table-body>`, `<md-table-row>`, `<md-table-cell>`, `<md-table-header-cell>`, `<md-table-pagination>` | `/table` | `columns`, `rows`, `selectable`, `sortable`, `paginated`, `page`, `page-size`, `bordered`, `striped`, `sticky-header`, `loading` |
 | **Search Bar** | `<md-search-bar>`, `<md-search>` | `/search-bar` | `value`, `placeholder`, `active`, `suggestions`, `leading-icon`, `trailing-icon`, `responsive`, `fullscreen` |
 | **Code Block & Linter** | `<md-code>`, `<md-code-block>` | `/code` | `code`, `language`, `label` / `filename`, `line-numbers`, `highlight-lines`, `lint`, `copyable`, `wrap-lines`, `max-height` |
@@ -275,6 +304,8 @@ import { MdList, MdListItem } from '@francofantomius/material-components/list';
 import { MdSnackbar } from '@francofantomius/material-components/snackbar';
 import { MdTopAppBar, MdTopBar } from '@francofantomius/material-components/top-app-bar';
 import { MdNavigationDrawer, MdDrawer, MdMenuBar, MdNavigationDrawerItem } from '@francofantomius/material-components/navigation-drawer';
+import { MdAppDrawer, MdAppDrawerItem, MdAppLauncher, MdAppsMenu } from '@francofantomius/material-components/app-drawer';
+import { MdAccountMenu, MdAccountItem, MdAccountDrawer, MdAccountProfile } from '@francofantomius/material-components/account-menu';
 import { MdTable, MdDataTable, MdTableHeaderCell, MdTableCell, MdTableRow } from '@francofantomius/material-components/table';
 import { MdSearchBar, MdSearch } from '@francofantomius/material-components/search-bar';
 import { MdCode, MdCodeBlock } from '@francofantomius/material-components/code';
