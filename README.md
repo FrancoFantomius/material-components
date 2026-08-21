@@ -360,14 +360,11 @@ npm test
 # Type check TypeScript codebase
 npm run typecheck
 
-# Build ESM library & generate Custom Elements Manifest
+# Build ESM library, docs & generate Custom Elements Manifest
 npm run build
 
-# Generate Custom Elements Manifest
-npm run analyze
-
-# Generate static documentation
-npm run docs:build
+# Preview docs site build
+npm run preview
 ```
 
 ---

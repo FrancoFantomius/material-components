@@ -186,14 +186,12 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && npm run analyze",
+    "build": "tsc && vite build && node docs/generate.js && vite build --config vite.docs.config.ts && npm run analyze",
+    "preview": "vite preview --config vite.docs.config.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
     "analyze": "cem analyze --litelement",
-    "docs:build": "node docs/generate.js && vite build --config vite.docs.config.ts",
-    "docs:dev": "vite",
-    "docs:preview": "vite preview --config vite.docs.config.ts",
     "prepublishOnly": "npm run typecheck && npm run test && npm run build"
   },
   "keywords": [
@@ -213,22 +211,19 @@
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "^0.10.4",
     "@typescript/typescript6": "^6.0.2",
-    "happy-dom": "^15.11.7",
+    "happy-dom": "^20.11.6",
     "typescript": "^7.0.2",
     "vite": "^8.2.2",
     "vite-plugin-dts": "^5.0.3",
-    "vitest": "^2.1.8"
+    "vitest": "^4.1.11"
   },
   "allowScripts": {
-    "esbuild@0.21.5": true
-    "happy-dom": "^20.11.6",
-    "typescript": "^5.6.3",
-    "vite": "^8.2.2",
-    "vite-plugin-dts": "^4.3.0",
-    "vitest": "^3.2.6"
-  },
-  "allowScripts": {
-    "rs-module-lexer@2.8.0": true,
-    "esbuild@0.28.2": true
+    "esbuild@0.21.5": true,
+    "happy-dom": true,
+    "typescript": true,
+    "vite": true,
+    "vite-plugin-dts": true,
+    "vitest": true,
+    "rs-module-lexer@2.8.0": true
   }
 }
