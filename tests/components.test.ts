@@ -230,6 +230,35 @@ describe('Material Design Web Components Suite', () => {
       expect(progress.getAttribute('aria-valuenow')).toBe('0.5');
     });
 
+    it('should render linear wavy line when determinate with a value', async () => {
+      const progress = document.createElement('md-progress') as MdProgress;
+      progress.type = 'linear';
+      progress.value = 0.75;
+      document.body.appendChild(progress);
+      await progress.updateComplete;
+
+      const sinusWave = progress.shadowRoot?.querySelector('.linear-sinus-wave') as HTMLElement;
+      expect(sinusWave).not.toBeNull();
+      expect(sinusWave?.style.width).toBe('75%');
+
+      const trackBg = progress.shadowRoot?.querySelector('.linear-track-bg') as HTMLElement;
+      expect(trackBg).not.toBeNull();
+      expect(trackBg?.style.clipPath).toBe('inset(0 0 0 75%)');
+    });
+
+    it('should support linear buffer bar', async () => {
+      const progress = document.createElement('md-progress') as MdProgress;
+      progress.type = 'linear';
+      progress.value = 0.4;
+      progress.buffer = 0.8;
+      document.body.appendChild(progress);
+      await progress.updateComplete;
+
+      const bufferBar = progress.shadowRoot?.querySelector('.linear-buffer') as HTMLElement;
+      expect(bufferBar).not.toBeNull();
+      expect(bufferBar?.style.width).toBe('80%');
+    });
+
     it('should render circular progress', async () => {
       const progress = document.createElement('md-progress') as MdProgress;
       progress.type = 'circular';
@@ -238,6 +267,46 @@ describe('Material Design Web Components Suite', () => {
 
       const svg = progress.shadowRoot?.querySelector('svg');
       expect(svg).not.toBeNull();
+    });
+
+    it('should render circular wavy indicator when determinate with a value', async () => {
+      const progress = document.createElement('md-progress') as MdProgress;
+      progress.type = 'circular';
+      progress.value = 0.6;
+      document.body.appendChild(progress);
+      await progress.updateComplete;
+
+      const waveIndicator = progress.shadowRoot?.querySelector('.circle-wave-indicator') as SVGPathElement;
+      expect(waveIndicator).not.toBeNull();
+      expect(waveIndicator?.getAttribute('pathLength')).toBe('100');
+      expect(waveIndicator?.getAttribute('stroke-dasharray')).toBe('100');
+      expect(waveIndicator?.getAttribute('stroke-dashoffset')).toBe('40');
+    });
+
+    it('should support wavy = false fallback to standard indicator', async () => {
+      const progressLinear = document.createElement('md-progress') as MdProgress;
+      progressLinear.type = 'linear';
+      progressLinear.value = 0.5;
+      progressLinear.wavy = false;
+      document.body.appendChild(progressLinear);
+      await progressLinear.updateComplete;
+
+      const sinusWave = progressLinear.shadowRoot?.querySelector('.linear-sinus-wave');
+      expect(sinusWave).toBeNull();
+      const standardBar = progressLinear.shadowRoot?.querySelector('.linear-bar');
+      expect(standardBar).not.toBeNull();
+
+      const progressCircular = document.createElement('md-progress') as MdProgress;
+      progressCircular.type = 'circular';
+      progressCircular.value = 0.5;
+      progressCircular.wavy = false;
+      document.body.appendChild(progressCircular);
+      await progressCircular.updateComplete;
+
+      const circularWave = progressCircular.shadowRoot?.querySelector('.circle-wave-indicator');
+      expect(circularWave).toBeNull();
+      const standardCircle = progressCircular.shadowRoot?.querySelector('.circle-indicator');
+      expect(standardCircle).not.toBeNull();
     });
   });
 
@@ -1925,6 +1994,56 @@ describe('Material Design Web Components Suite', () => {
       expect(resetEventFired).toBe(true);
       expect(localStorage.getItem('md-app-drawer-order-test-drawer-reset-btn')).toBeNull();
     });
+
+    it('should render a back button in header and close on back button click', async () => {
+      const drawer = document.createElement('md-app-drawer') as MdAppDrawer;
+      drawer.headline = 'Apps';
+      document.body.appendChild(drawer);
+      await drawer.updateComplete;
+
+      drawer.show();
+      await drawer.updateComplete;
+      expect(drawer.open).toBe(true);
+
+      const backBtn = drawer.shadowRoot?.querySelector('.back-btn') as HTMLElement;
+      expect(backBtn).not.toBeNull();
+      expect(backBtn.getAttribute('icon')).toBe('arrow_back');
+
+      let closeEventFired = false;
+      drawer.addEventListener('close', () => {
+        closeEventFired = true;
+      });
+
+      backBtn.click();
+      await drawer.updateComplete;
+
+      expect(drawer.open).toBe(false);
+      expect(closeEventFired).toBe(true);
+    });
+
+    it('should support fullscreen property and custom back-button slot', async () => {
+      const drawer = document.createElement('md-app-drawer') as MdAppDrawer;
+      drawer.fullscreen = true;
+
+      const customBackBtn = document.createElement('md-icon-button') as MdIconButton;
+      customBackBtn.setAttribute('slot', 'back-button');
+      customBackBtn.setAttribute('icon', 'close');
+      customBackBtn.setAttribute('aria-label', 'Dismiss');
+      drawer.appendChild(customBackBtn);
+
+      document.body.appendChild(drawer);
+      await drawer.updateComplete;
+      await customBackBtn.updateComplete;
+
+      expect(drawer.hasAttribute('fullscreen')).toBe(true);
+      expect(drawer.fullscreen).toBe(true);
+
+      const slot = drawer.shadowRoot?.querySelector('slot[name="back-button"]') as HTMLSlotElement;
+      expect(slot).not.toBeNull();
+      const assigned = slot.assignedElements();
+      expect(assigned.length).toBe(1);
+      expect(assigned[0]).toBe(customBackBtn);
+    });
   });
 
   describe('md-account-menu & md-account-item', () => {
@@ -2090,6 +2209,55 @@ describe('Material Design Web Components Suite', () => {
 
       expect(avatarRippleEl).not.toBeNull();
       expect(manageRippleEl).toBeNull();
+    });
+
+    it('should render a back button in header and close on back button click', async () => {
+      const accountMenu = document.createElement('md-account-menu') as MdAccountMenu;
+      document.body.appendChild(accountMenu);
+      await accountMenu.updateComplete;
+
+      accountMenu.show();
+      await accountMenu.updateComplete;
+      expect(accountMenu.open).toBe(true);
+
+      const backBtn = accountMenu.shadowRoot?.querySelector('.back-btn') as HTMLElement;
+      expect(backBtn).not.toBeNull();
+      expect(backBtn.getAttribute('icon')).toBe('arrow_back');
+
+      let closeEventFired = false;
+      accountMenu.addEventListener('close', () => {
+        closeEventFired = true;
+      });
+
+      backBtn.click();
+      await accountMenu.updateComplete;
+
+      expect(accountMenu.open).toBe(false);
+      expect(closeEventFired).toBe(true);
+    });
+
+    it('should support fullscreen property and custom back-button slot', async () => {
+      const accountMenu = document.createElement('md-account-menu') as MdAccountMenu;
+      accountMenu.fullscreen = true;
+
+      const customBackBtn = document.createElement('md-icon-button') as MdIconButton;
+      customBackBtn.setAttribute('slot', 'back-button');
+      customBackBtn.setAttribute('icon', 'arrow_back');
+      customBackBtn.setAttribute('aria-label', 'Back');
+      accountMenu.appendChild(customBackBtn);
+
+      document.body.appendChild(accountMenu);
+      await accountMenu.updateComplete;
+      await customBackBtn.updateComplete;
+
+      expect(accountMenu.hasAttribute('fullscreen')).toBe(true);
+      expect(accountMenu.fullscreen).toBe(true);
+
+      const slot = accountMenu.shadowRoot?.querySelector('slot[name="back-button"]') as HTMLSlotElement;
+      expect(slot).not.toBeNull();
+      const assigned = slot.assignedElements();
+      expect(assigned.length).toBe(1);
+      expect(assigned[0]).toBe(customBackBtn);
     });
   });
 });

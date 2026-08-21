@@ -226,6 +226,9 @@ export class MdAccountMenu extends MdBaseElement {
   @property({ type: Boolean, reflect: true })
   modal = false;
 
+  @property({ type: Boolean, reflect: true })
+  fullscreen = false;
+
   @property({ type: Boolean, attribute: 'show-tabs' })
   showTabs = true;
 
@@ -272,6 +275,11 @@ export class MdAccountMenu extends MdBaseElement {
   };
 
   private handleBackdropClick = () => {
+    this.close();
+  };
+
+  private handleBackClick = (event: MouseEvent) => {
+    event.stopPropagation();
     this.close();
   };
 
@@ -389,6 +397,19 @@ export class MdAccountMenu extends MdBaseElement {
       >
         <!-- Popover Header -->
         <div class="popover-header">
+          <div class="header-leading">
+            <slot name="back-button">
+              <md-icon-button
+                class="back-btn"
+                variant="standard"
+                icon="arrow_back"
+                aria-label="Back"
+                title="Back"
+                @click=${this.handleBackClick}
+              ></md-icon-button>
+            </slot>
+            ${this.headline ? html`<span class="headline">${this.headline}</span>` : nothing}
+          </div>
           <slot name="header">
             <button
               type="button"

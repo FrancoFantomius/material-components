@@ -84,6 +84,22 @@ export const appDrawerStyles = css`
     justify-content: space-between;
     padding: 0 4px;
     min-height: 40px;
+    box-sizing: border-box;
+  }
+
+  .header-leading {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .back-btn,
+  slot[name="back-button"] {
+    display: none;
+    --md-icon-size: 24px;
+    font-size: 24px;
+    flex-shrink: 0;
   }
 
   .header-actions {
@@ -111,6 +127,9 @@ export const appDrawerStyles = css`
     font-weight: 500;
     line-height: 24px;
     color: var(--md-sys-color-on-surface, #1D1B20);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .grid {
@@ -159,6 +178,128 @@ export const appDrawerStyles = css`
 
   .footer:empty {
     display: none;
+  }
+
+  /* Responsive Fullscreen / Mobile Mode */
+  @media (max-width: 768px) {
+    .back-btn,
+    slot[name="back-button"] {
+      display: inline-flex;
+    }
+
+    :host([open]) .popover {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100vw;
+      max-width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      max-height: 100vh;
+      max-height: 100dvh;
+      border-radius: 0;
+      box-shadow: none;
+      z-index: 10000;
+      padding: 12px 16px env(safe-area-inset-bottom, 16px) 16px;
+      margin: 0;
+      gap: 16px;
+      animation: md-app-drawer-mobile-in 200ms cubic-bezier(0.2, 0, 0, 1) forwards;
+    }
+
+    .header {
+      min-height: 48px;
+      padding: 0;
+      gap: 8px;
+    }
+
+    .header-leading {
+      gap: 8px;
+    }
+
+    .headline {
+      font-size: var(--md-sys-typescale-title-large-size, 20px);
+      font-weight: 500;
+      line-height: 28px;
+    }
+
+    .grid {
+      grid-template-columns: repeat(var(--md-app-drawer-columns, 3), 1fr);
+      gap: 12px 8px;
+      flex: 1;
+      align-content: start;
+    }
+
+    .footer {
+      padding-top: 16px;
+      padding-bottom: 8px;
+    }
+  }
+
+  @keyframes md-app-drawer-mobile-in {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Explicit Fullscreen Mode */
+  :host([fullscreen]) .back-btn,
+  :host([fullscreen]) slot[name="back-button"] {
+    display: inline-flex;
+  }
+
+  :host([fullscreen][open]) .popover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    max-height: 100vh;
+    max-height: 100dvh;
+    border-radius: 0;
+    box-shadow: none;
+    z-index: 10000;
+    padding: 12px 16px env(safe-area-inset-bottom, 16px) 16px;
+    margin: 0;
+    gap: 16px;
+  }
+
+  :host([fullscreen]) .header {
+    min-height: 48px;
+    padding: 0;
+    gap: 8px;
+  }
+
+  :host([fullscreen]) .header-leading {
+    gap: 8px;
+  }
+
+  :host([fullscreen]) .headline {
+    font-size: var(--md-sys-typescale-title-large-size, 20px);
+    font-weight: 500;
+    line-height: 28px;
+  }
+
+  :host([fullscreen]) .grid {
+    grid-template-columns: repeat(var(--md-app-drawer-columns, 3), 1fr);
+    gap: 12px 8px;
+    flex: 1;
+    align-content: start;
+  }
+
+  :host([fullscreen]) .footer {
+    padding-top: 16px;
+    padding-bottom: 8px;
   }
 `;
 

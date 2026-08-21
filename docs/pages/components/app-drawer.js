@@ -16,6 +16,7 @@ export default {
     { name: 'alignment', type: "'start' | 'end'", default: "'end'", description: 'Horizontal alignment of the popover relative to the trigger' },
     { name: 'pivot', type: "'left' | 'right'", default: "'right'", description: 'Anchor pivot edge' },
     { name: 'modal', type: 'boolean', default: 'false', description: 'Shows a dimming modal backdrop when open' },
+    { name: 'fullscreen', type: 'boolean', default: 'false', description: 'Forces full-screen display (automatic on mobile viewports)' },
     { name: 'columns', type: 'number', default: '3', description: 'Number of columns in the app grid' },
     { name: 'reorderable', type: 'boolean', default: 'true', description: 'Enables drag-and-drop and keyboard reordering of apps' },
     { name: 'editable', type: 'boolean', default: 'true', description: 'Shows an edit icon button on the top-right corner to toggle reordering' },
@@ -41,6 +42,7 @@ export default {
   ],
   slots: [
     { name: 'trigger', description: 'Custom trigger element replacing the default icon button' },
+    { name: 'back-button', description: 'Custom back/close button element for full-screen / mobile view' },
     { name: 'header', description: 'Header content above the app grid' },
     { name: 'edit-button', description: 'Custom edit button replacing the default header reorder toggle button' },
     { name: 'reset-button', description: 'Custom reset/back button replacing the default button to restore default order' },

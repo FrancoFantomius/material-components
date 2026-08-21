@@ -200,6 +200,9 @@ export class MdAppDrawer extends MdBaseElement {
   @property({ type: Boolean, reflect: true })
   modal = false;
 
+  @property({ type: Boolean, reflect: true })
+  fullscreen = false;
+
   @property({ type: Number })
   columns = 3;
 
@@ -299,6 +302,11 @@ export class MdAppDrawer extends MdBaseElement {
   };
 
   private handleBackdropClick = () => {
+    this.close();
+  };
+
+  private handleBackClick = (event: MouseEvent) => {
+    event.stopPropagation();
     this.close();
   };
 
@@ -809,6 +817,19 @@ export class MdAppDrawer extends MdBaseElement {
       ? html`<span class="headline">${this.headline}</span>`
       : nothing;
 
+    const backButton = html`
+      <slot name="back-button">
+        <md-icon-button
+          class="back-btn"
+          variant="standard"
+          icon="arrow_back"
+          aria-label="Close"
+          title="Close"
+          @click=${this.handleBackClick}
+        ></md-icon-button>
+      </slot>
+    `;
+
     const editButton = this.reorderable && this.editable
       ? html`
           <div class="header-actions">
@@ -870,9 +891,12 @@ export class MdAppDrawer extends MdBaseElement {
         aria-hidden=${this.open ? 'false' : 'true'}
       >
         <div class="header">
-          <slot name="header">
-            ${headerContent}
-          </slot>
+          <div class="header-leading">
+            ${backButton}
+            <slot name="header">
+              ${headerContent}
+            </slot>
+          </div>
           ${editButton}
         </div>
 

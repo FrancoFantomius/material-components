@@ -26,7 +26,8 @@ export default {
     { name: 'show-tabs', type: 'boolean', default: 'true', description: 'Renders interactive Overview, Security, Storage, and Accounts tabs' },
     { name: 'alignment', type: "'start' | 'end'", default: "'end'", description: 'Horizontal alignment of the popover relative to the trigger' },
     { name: 'pivot', type: "'left' | 'right'", default: "'right'", description: 'Anchor pivot edge' },
-    { name: 'modal', type: 'boolean', default: 'false', description: 'Shows a dimming modal backdrop when open' }
+    { name: 'modal', type: 'boolean', default: 'false', description: 'Shows a dimming modal backdrop when open' },
+    { name: 'fullscreen', type: 'boolean', default: 'false', description: 'Forces full-screen display (automatic on mobile viewports)' }
   ],
   subComponentProperties: [
     {
@@ -45,6 +46,7 @@ export default {
   ],
   slots: [
     { name: 'trigger', description: 'Custom trigger element replacing the default avatar button' },
+    { name: 'back-button', description: 'Custom back/close button element for full-screen / mobile view' },
     { name: 'header', description: 'Custom header content' },
     { name: 'overview', description: 'Custom content for the Overview tab' },
     { name: 'security', description: 'Custom content for the Security tab' },

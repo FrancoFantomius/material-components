@@ -97,5 +97,11 @@ export const listItemStyles = css`
     font-size: var(--md-sys-typescale-label-small-size, 11px);
     flex-shrink: 0;
   }
+
+  @media (max-width: 600px) {
+    .trailing-supporting-text {
+      display: none;
+    }
+  }
 `;
 
