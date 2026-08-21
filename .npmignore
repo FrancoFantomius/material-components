@@ -1,0 +1,27 @@
+# Source files & sandbox
+src/
+tests/
+dev/
+
+# Documentation site
+docs/
+
+# CI / GitHub workflows
+.github/
+
+# Tooling & Configs
+tsconfig.json
+tsconfig.build.json
+vite.config.ts
+vitest.config.ts
+custom-elements-manifest.config.mjs
+
+# Development HTML
+index.html
+
+# Logs & Coverage
+*.log
+coverage/
+.DS_Store
+Thumbs.db
+

@@ -1,0 +1,133 @@
+{
+  "name": "@francofantomius/material-components",
+  "version": "0.1.0",
+  "description": "Reusable, accessible, and lightweight Material Design 3 Web Components built with Lit.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "customElements": "custom-elements.json",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "custom-elements.json"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./theme": {
+      "types": "./dist/tokens/index.d.ts",
+      "import": "./dist/tokens/index.js"
+    },
+    "./button": {
+      "types": "./dist/components/button/button.d.ts",
+      "import": "./dist/components/button/button.js"
+    },
+    "./icon-button": {
+      "types": "./dist/components/icon-button/icon-button.d.ts",
+      "import": "./dist/components/icon-button/icon-button.js"
+    },
+    "./fab": {
+      "types": "./dist/components/fab/fab.d.ts",
+      "import": "./dist/components/fab/fab.js"
+    },
+    "./icon": {
+      "types": "./dist/components/icon/icon.d.ts",
+      "import": "./dist/components/icon/icon.js"
+    },
+    "./text-field": {
+      "types": "./dist/components/text-field/text-field.d.ts",
+      "import": "./dist/components/text-field/text-field.js"
+    },
+    "./checkbox": {
+      "types": "./dist/components/checkbox/checkbox.d.ts",
+      "import": "./dist/components/checkbox/checkbox.js"
+    },
+    "./switch": {
+      "types": "./dist/components/switch/switch.d.ts",
+      "import": "./dist/components/switch/switch.js"
+    },
+    "./radio": {
+      "types": "./dist/components/radio/radio.d.ts",
+      "import": "./dist/components/radio/radio.js"
+    },
+    "./card": {
+      "types": "./dist/components/card/card.d.ts",
+      "import": "./dist/components/card/card.js"
+    },
+    "./dialog": {
+      "types": "./dist/components/dialog/dialog.d.ts",
+      "import": "./dist/components/dialog/dialog.js"
+    },
+    "./divider": {
+      "types": "./dist/components/divider/divider.d.ts",
+      "import": "./dist/components/divider/divider.js"
+    },
+    "./progress": {
+      "types": "./dist/components/progress/progress.d.ts",
+      "import": "./dist/components/progress/progress.js"
+    },
+    "./badge": {
+      "types": "./dist/components/badge/badge.d.ts",
+      "import": "./dist/components/badge/badge.js"
+    },
+    "./chip": {
+      "types": "./dist/components/chip/chip.d.ts",
+      "import": "./dist/components/chip/chip.js"
+    },
+    "./tabs": {
+      "types": "./dist/components/tabs/tabs.d.ts",
+      "import": "./dist/components/tabs/tabs.js"
+    },
+    "./list": {
+      "types": "./dist/components/list/list.d.ts",
+      "import": "./dist/components/list/list.js"
+    },
+    "./snackbar": {
+      "types": "./dist/components/snackbar/snackbar.d.ts",
+      "import": "./dist/components/snackbar/snackbar.js"
+    },
+    "./ripple": {
+      "types": "./dist/internal/ripple/ripple.d.ts",
+      "import": "./dist/internal/ripple/ripple.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build && npm run analyze",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "analyze": "cem analyze --litelement",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "prepublishOnly": "npm run typecheck && npm run test && npm run build"
+  },
+  "keywords": [
+    "material-design",
+    "material-3",
+    "web-components",
+    "lit",
+    "custom-elements",
+    "ui-library",
+    "components"
+  ],
+  "author": "francofantomius",
+  "license": "MIT",
+  "dependencies": {
+    "lit": "^3.2.1"
+  },
+  "devDependencies": {
+    "@custom-elements-manifest/analyzer": "^0.10.4",
+    "happy-dom": "^15.11.7",
+    "typescript": "^5.6.3",
+    "vite": "^6.0.1",
+    "vite-plugin-dts": "^4.3.0",
+    "vitepress": "^1.6.4",
+    "vitest": "^2.1.8"
+  }
+}

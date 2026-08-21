@@ -1,0 +1,5448 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/components/button/button.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdButton",
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "ButtonVariant"
+              },
+              "default": "'filled'",
+              "attribute": "variant",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "loading",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "loading",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "'button' | 'submit' | 'reset'"
+              },
+              "default": "'button'",
+              "attribute": "type"
+            },
+            {
+              "kind": "field",
+              "name": "href",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "href"
+            },
+            {
+              "kind": "field",
+              "name": "target",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "target"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "icon"
+            },
+            {
+              "kind": "field",
+              "name": "trailingIcon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "trailing-icon"
+            },
+            {
+              "kind": "field",
+              "name": "assignedIcons",
+              "type": {
+                "text": "HTMLElement[]"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "assignedTrailingIcons",
+              "type": {
+                "text": "HTMLElement[]"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleClick",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleSlotChange",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "ButtonVariant"
+              },
+              "default": "'filled'",
+              "fieldName": "variant"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "loading",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "loading"
+            },
+            {
+              "name": "type",
+              "type": {
+                "text": "'button' | 'submit' | 'reset'"
+              },
+              "default": "'button'",
+              "fieldName": "type"
+            },
+            {
+              "name": "href",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "href"
+            },
+            {
+              "name": "target",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "target"
+            },
+            {
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "icon"
+            },
+            {
+              "name": "trailing-icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "trailingIcon"
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-button",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdButton",
+          "declaration": {
+            "name": "MdButton",
+            "module": "src/components/button/button.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-button",
+          "declaration": {
+            "name": "MdButton",
+            "module": "src/components/button/button.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/badge/badge.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdBadge",
+          "members": [
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "value",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "dot",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "dot",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "anchored",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "anchored",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "assignedChildren",
+              "type": {
+                "text": "HTMLElement[]"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleSlotChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "value"
+            },
+            {
+              "name": "dot",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "dot"
+            },
+            {
+              "name": "anchored",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "anchored"
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-badge",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdBadge",
+          "declaration": {
+            "name": "MdBadge",
+            "module": "src/components/badge/badge.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-badge",
+          "declaration": {
+            "name": "MdBadge",
+            "module": "src/components/badge/badge.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/dialog/dialog.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdDialog",
+          "members": [
+            {
+              "kind": "field",
+              "name": "open",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "open",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "headline",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "headline"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "icon"
+            },
+            {
+              "kind": "field",
+              "name": "returnValue",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "return-value"
+            },
+            {
+              "kind": "field",
+              "name": "dialogElement",
+              "type": {
+                "text": "HTMLDialogElement | undefined"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "showModal"
+            },
+            {
+              "kind": "method",
+              "name": "show"
+            },
+            {
+              "kind": "method",
+              "name": "close",
+              "parameters": [
+                {
+                  "name": "returnValue",
+                  "optional": true,
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "handleCancel",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleBackdropClick",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "open",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "open"
+            },
+            {
+              "name": "headline",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "headline"
+            },
+            {
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "icon"
+            },
+            {
+              "name": "return-value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "returnValue"
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-dialog",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdDialog",
+          "declaration": {
+            "name": "MdDialog",
+            "module": "src/components/dialog/dialog.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-dialog",
+          "declaration": {
+            "name": "MdDialog",
+            "module": "src/components/dialog/dialog.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/chip/chip.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdChip",
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "ChipVariant"
+              },
+              "default": "'assist'",
+              "attribute": "variant",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "icon"
+            },
+            {
+              "kind": "field",
+              "name": "selected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "selected",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "removable",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "removable",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "handleClick",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleRemove",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "ChipVariant"
+              },
+              "default": "'assist'",
+              "fieldName": "variant"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "label"
+            },
+            {
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "icon"
+            },
+            {
+              "name": "selected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "selected"
+            },
+            {
+              "name": "removable",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "removable"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled"
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-chip",
+          "customElement": true
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdChipSet",
+          "members": [
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-chip-set",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdChip",
+          "declaration": {
+            "name": "MdChip",
+            "module": "src/components/chip/chip.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-chip",
+          "declaration": {
+            "name": "MdChip",
+            "module": "src/components/chip/chip.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "MdChipSet",
+          "declaration": {
+            "name": "MdChipSet",
+            "module": "src/components/chip/chip.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-chip-set",
+          "declaration": {
+            "name": "MdChipSet",
+            "module": "src/components/chip/chip.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/card/card.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdCard",
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "CardVariant"
+              },
+              "default": "'elevated'",
+              "attribute": "variant",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "interactive",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "interactive",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "href",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "href"
+            },
+            {
+              "kind": "field",
+              "name": "target",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "target"
+            },
+            {
+              "kind": "field",
+              "name": "handleClick",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "CardVariant"
+              },
+              "default": "'elevated'",
+              "fieldName": "variant"
+            },
+            {
+              "name": "interactive",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "interactive"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "href",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "href"
+            },
+            {
+              "name": "target",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "target"
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-card",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdCard",
+          "declaration": {
+            "name": "MdCard",
+            "module": "src/components/card/card.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-card",
+          "declaration": {
+            "name": "MdCard",
+            "module": "src/components/card/card.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/fab/fab.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdFab",
+          "members": [
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "FabSize"
+              },
+              "default": "'medium'",
+              "attribute": "size",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "icon"
+            },
+            {
+              "kind": "field",
+              "name": "lowered",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "lowered",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "extended",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "extended",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "size",
+              "type": {
+                "text": "FabSize"
+              },
+              "default": "'medium'",
+              "fieldName": "size"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "label"
+            },
+            {
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "icon"
+            },
+            {
+              "name": "lowered",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "lowered"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "extended",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "extended"
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-fab",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdFab",
+          "declaration": {
+            "name": "MdFab",
+            "module": "src/components/fab/fab.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-fab",
+          "declaration": {
+            "name": "MdFab",
+            "module": "src/components/fab/fab.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/divider/divider.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdDivider",
+          "members": [
+            {
+              "kind": "field",
+              "name": "vertical",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "vertical",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "inset",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "inset",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "insetStart",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "inset-start",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "insetEnd",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "inset-end",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "vertical",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "vertical"
+            },
+            {
+              "name": "inset",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "inset"
+            },
+            {
+              "name": "inset-start",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "insetStart"
+            },
+            {
+              "name": "inset-end",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "insetEnd"
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-divider",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdDivider",
+          "declaration": {
+            "name": "MdDivider",
+            "module": "src/components/divider/divider.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-divider",
+          "declaration": {
+            "name": "MdDivider",
+            "module": "src/components/divider/divider.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/icon/icon.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdIcon",
+          "members": [
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "filled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "size"
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "name"
+            },
+            {
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "filled"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "size"
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-icon",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdIcon",
+          "declaration": {
+            "name": "MdIcon",
+            "module": "src/components/icon/icon.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-icon",
+          "declaration": {
+            "name": "MdIcon",
+            "module": "src/components/icon/icon.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/icon-button/icon-button.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdIconButton",
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "IconButtonVariant"
+              },
+              "default": "'standard'",
+              "attribute": "variant",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "toggle",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "toggle",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "selected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "selected",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "icon"
+            },
+            {
+              "kind": "field",
+              "name": "selectedIcon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "selected-icon"
+            },
+            {
+              "kind": "field",
+              "name": "ariaLabelText",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "aria-label"
+            },
+            {
+              "kind": "field",
+              "name": "href",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "href"
+            },
+            {
+              "kind": "field",
+              "name": "target",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "target"
+            },
+            {
+              "kind": "field",
+              "name": "handleClick",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "IconButtonVariant"
+              },
+              "default": "'standard'",
+              "fieldName": "variant"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "toggle",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "toggle"
+            },
+            {
+              "name": "selected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "selected"
+            },
+            {
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "icon"
+            },
+            {
+              "name": "selected-icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "selectedIcon"
+            },
+            {
+              "name": "aria-label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "ariaLabelText"
+            },
+            {
+              "name": "href",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "href"
+            },
+            {
+              "name": "target",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "target"
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-icon-button",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdIconButton",
+          "declaration": {
+            "name": "MdIconButton",
+            "module": "src/components/icon-button/icon-button.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-icon-button",
+          "declaration": {
+            "name": "MdIconButton",
+            "module": "src/components/icon-button/icon-button.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/list/list.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdListItem",
+          "members": [
+            {
+              "kind": "field",
+              "name": "headline",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "headline"
+            },
+            {
+              "kind": "field",
+              "name": "supportingText",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "supporting-text"
+            },
+            {
+              "kind": "field",
+              "name": "trailingSupportingText",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "trailing-supporting-text"
+            },
+            {
+              "kind": "field",
+              "name": "interactive",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "interactive",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "href",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "href"
+            },
+            {
+              "kind": "field",
+              "name": "target",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "target"
+            },
+            {
+              "kind": "field",
+              "name": "handleClick",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "headline",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "headline"
+            },
+            {
+              "name": "supporting-text",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "supportingText"
+            },
+            {
+              "name": "trailing-supporting-text",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "trailingSupportingText"
+            },
+            {
+              "name": "interactive",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "interactive"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "href",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "href"
+            },
+            {
+              "name": "target",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "target"
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-list-item",
+          "customElement": true
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdList",
+          "members": [
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-list",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdListItem",
+          "declaration": {
+            "name": "MdListItem",
+            "module": "src/components/list/list.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-list-item",
+          "declaration": {
+            "name": "MdListItem",
+            "module": "src/components/list/list.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "MdList",
+          "declaration": {
+            "name": "MdList",
+            "module": "src/components/list/list.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-list",
+          "declaration": {
+            "name": "MdList",
+            "module": "src/components/list/list.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/checkbox/checkbox.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdCheckbox",
+          "members": [
+            {
+              "kind": "field",
+              "name": "checked",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "checked",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "indeterminate",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "indeterminate",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "error",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "error",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "'on'",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "inputElement",
+              "type": {
+                "text": "HTMLInputElement | undefined"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "updateFormValue",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleClick",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleKeyDown",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "toggle",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "formAssociated",
+              "type": {
+                "text": "boolean"
+              },
+              "static": true,
+              "default": "true",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "internals",
+              "type": {
+                "text": "ElementInternals | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "name",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "required",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "_customValidityMessage",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "''",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "_valid",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "true",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "form",
+              "type": {
+                "text": "HTMLFormElement | null"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "validity",
+              "type": {
+                "text": "ValidityState"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "validationMessage",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "willValidate",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "checkValidity",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "reportValidity",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "setFormValue",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | File | FormData | null"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "setValidity",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "flags",
+                  "optional": true,
+                  "type": {
+                    "text": "ValidityStateFlags"
+                  }
+                },
+                {
+                  "name": "message",
+                  "optional": true,
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "anchor",
+                  "optional": true,
+                  "type": {
+                    "text": "HTMLElement"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "formDisabledCallback",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "disabled",
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "checked",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "checked"
+            },
+            {
+              "name": "indeterminate",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "indeterminate"
+            },
+            {
+              "name": "error",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "error"
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "'on'",
+              "fieldName": "value"
+            },
+            {
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "name",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "required",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "MdFormAssociatedElement",
+            "module": "/src/internal/form-associated.js"
+          },
+          "tagName": "md-checkbox",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdCheckbox",
+          "declaration": {
+            "name": "MdCheckbox",
+            "module": "src/components/checkbox/checkbox.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-checkbox",
+          "declaration": {
+            "name": "MdCheckbox",
+            "module": "src/components/checkbox/checkbox.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/progress/progress.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdProgress",
+          "members": [
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "ProgressType"
+              },
+              "default": "'linear'",
+              "attribute": "type",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "number | null"
+              },
+              "default": "null",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "max",
+              "type": {
+                "text": "number"
+              },
+              "default": "1",
+              "attribute": "max"
+            },
+            {
+              "kind": "field",
+              "name": "buffer",
+              "type": {
+                "text": "number"
+              },
+              "default": "1",
+              "attribute": "buffer"
+            },
+            {
+              "kind": "field",
+              "name": "indeterminate",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "true",
+              "attribute": "indeterminate",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "type",
+              "type": {
+                "text": "ProgressType"
+              },
+              "default": "'linear'",
+              "fieldName": "type"
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "number | null"
+              },
+              "default": "null",
+              "fieldName": "value"
+            },
+            {
+              "name": "max",
+              "type": {
+                "text": "number"
+              },
+              "default": "1",
+              "fieldName": "max"
+            },
+            {
+              "name": "buffer",
+              "type": {
+                "text": "number"
+              },
+              "default": "1",
+              "fieldName": "buffer"
+            },
+            {
+              "name": "indeterminate",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "true",
+              "fieldName": "indeterminate"
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-progress",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdProgress",
+          "declaration": {
+            "name": "MdProgress",
+            "module": "src/components/progress/progress.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-progress",
+          "declaration": {
+            "name": "MdProgress",
+            "module": "src/components/progress/progress.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/radio/radio.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdRadio",
+          "members": [
+            {
+              "kind": "field",
+              "name": "checked",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "checked",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "'on'",
+              "attribute": "value"
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "updateFormValue",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleClick",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleKeyDown",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "select"
+            },
+            {
+              "kind": "field",
+              "name": "formAssociated",
+              "type": {
+                "text": "boolean"
+              },
+              "static": true,
+              "default": "true",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "internals",
+              "type": {
+                "text": "ElementInternals | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "name",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "required",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "_customValidityMessage",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "''",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "_valid",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "true",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "form",
+              "type": {
+                "text": "HTMLFormElement | null"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "validity",
+              "type": {
+                "text": "ValidityState"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "validationMessage",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "willValidate",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "checkValidity",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "reportValidity",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "setFormValue",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | File | FormData | null"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "setValidity",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "flags",
+                  "optional": true,
+                  "type": {
+                    "text": "ValidityStateFlags"
+                  }
+                },
+                {
+                  "name": "message",
+                  "optional": true,
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "anchor",
+                  "optional": true,
+                  "type": {
+                    "text": "HTMLElement"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "formDisabledCallback",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "disabled",
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "checked",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "checked"
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "'on'",
+              "fieldName": "value"
+            },
+            {
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "name",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "required",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "MdFormAssociatedElement",
+            "module": "/src/internal/form-associated.js"
+          },
+          "tagName": "md-radio",
+          "customElement": true
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdRadioGroup",
+          "members": [
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "row",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "row",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "radios",
+              "type": {
+                "text": "MdRadio[]"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleSlotChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "syncRadios",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleKeyDown",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "name"
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "value"
+            },
+            {
+              "name": "row",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "row"
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-radio-group",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdRadio",
+          "declaration": {
+            "name": "MdRadio",
+            "module": "src/components/radio/radio.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-radio",
+          "declaration": {
+            "name": "MdRadio",
+            "module": "src/components/radio/radio.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "MdRadioGroup",
+          "declaration": {
+            "name": "MdRadioGroup",
+            "module": "src/components/radio/radio.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-radio-group",
+          "declaration": {
+            "name": "MdRadioGroup",
+            "module": "src/components/radio/radio.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/switch/switch.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdSwitch",
+          "members": [
+            {
+              "kind": "field",
+              "name": "selected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "selected",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "icons",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "icons",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "'on'",
+              "attribute": "value"
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "updateFormValue",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleClick",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleKeyDown",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "toggle",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "formAssociated",
+              "type": {
+                "text": "boolean"
+              },
+              "static": true,
+              "default": "true",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "internals",
+              "type": {
+                "text": "ElementInternals | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "name",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "required",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "_customValidityMessage",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "''",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "_valid",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "true",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "form",
+              "type": {
+                "text": "HTMLFormElement | null"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "validity",
+              "type": {
+                "text": "ValidityState"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "validationMessage",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "willValidate",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "checkValidity",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "reportValidity",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "setFormValue",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | File | FormData | null"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "setValidity",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "flags",
+                  "optional": true,
+                  "type": {
+                    "text": "ValidityStateFlags"
+                  }
+                },
+                {
+                  "name": "message",
+                  "optional": true,
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "anchor",
+                  "optional": true,
+                  "type": {
+                    "text": "HTMLElement"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "formDisabledCallback",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "disabled",
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "selected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "selected"
+            },
+            {
+              "name": "icons",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "icons"
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "'on'",
+              "fieldName": "value"
+            },
+            {
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "name",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "required",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "MdFormAssociatedElement",
+            "module": "/src/internal/form-associated.js"
+          },
+          "tagName": "md-switch",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdSwitch",
+          "declaration": {
+            "name": "MdSwitch",
+            "module": "src/components/switch/switch.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-switch",
+          "declaration": {
+            "name": "MdSwitch",
+            "module": "src/components/switch/switch.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/snackbar/snackbar.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdSnackbar",
+          "members": [
+            {
+              "kind": "field",
+              "name": "open",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "open",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "message",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "message"
+            },
+            {
+              "kind": "field",
+              "name": "actionText",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "action-text"
+            },
+            {
+              "kind": "field",
+              "name": "closeable",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "closeable",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "timeoutMs",
+              "type": {
+                "text": "number"
+              },
+              "default": "4000",
+              "attribute": "timeout-ms"
+            },
+            {
+              "kind": "field",
+              "name": "timerId",
+              "type": {
+                "text": "number | null"
+              },
+              "privacy": "private",
+              "default": "null"
+            },
+            {
+              "kind": "method",
+              "name": "show"
+            },
+            {
+              "kind": "method",
+              "name": "close"
+            },
+            {
+              "kind": "method",
+              "name": "startTimer",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "clearTimer",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleAction",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleClose",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "open",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "open"
+            },
+            {
+              "name": "message",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "message"
+            },
+            {
+              "name": "action-text",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "actionText"
+            },
+            {
+              "name": "closeable",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "closeable"
+            },
+            {
+              "name": "timeout-ms",
+              "type": {
+                "text": "number"
+              },
+              "default": "4000",
+              "fieldName": "timeoutMs"
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-snackbar",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdSnackbar",
+          "declaration": {
+            "name": "MdSnackbar",
+            "module": "src/components/snackbar/snackbar.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-snackbar",
+          "declaration": {
+            "name": "MdSnackbar",
+            "module": "src/components/snackbar/snackbar.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/text-field/text-field.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdTextField",
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "TextFieldVariant"
+              },
+              "default": "'filled'",
+              "attribute": "variant",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "placeholder",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "placeholder"
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "string"
+              },
+              "default": "'text'",
+              "attribute": "type"
+            },
+            {
+              "kind": "field",
+              "name": "readonly",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "readonly",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "error",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "error",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "errorText",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "error-text"
+            },
+            {
+              "kind": "field",
+              "name": "supportingText",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "supporting-text"
+            },
+            {
+              "kind": "field",
+              "name": "prefixText",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "prefix-text"
+            },
+            {
+              "kind": "field",
+              "name": "suffixText",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "suffix-text"
+            },
+            {
+              "kind": "field",
+              "name": "maxLength",
+              "type": {
+                "text": "number"
+              },
+              "default": "-1",
+              "attribute": "maxlength"
+            },
+            {
+              "kind": "field",
+              "name": "pattern",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "pattern"
+            },
+            {
+              "kind": "field",
+              "name": "leadingIcon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "leading-icon"
+            },
+            {
+              "kind": "field",
+              "name": "trailingIcon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "trailing-icon"
+            },
+            {
+              "kind": "field",
+              "name": "focused",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "inputElement",
+              "type": {
+                "text": "HTMLInputElement | undefined"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "assignedLeadingIcons",
+              "type": {
+                "text": "HTMLElement[]"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "handleFocus",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleBlur",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleInput",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "validateInput",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleSlotChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "formAssociated",
+              "type": {
+                "text": "boolean"
+              },
+              "static": true,
+              "default": "true",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "internals",
+              "type": {
+                "text": "ElementInternals | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "name",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "required",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "_customValidityMessage",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "''",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "_valid",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "true",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "form",
+              "type": {
+                "text": "HTMLFormElement | null"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "validity",
+              "type": {
+                "text": "ValidityState"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "validationMessage",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "willValidate",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "checkValidity",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "reportValidity",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "setFormValue",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | File | FormData | null"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "setValidity",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "flags",
+                  "optional": true,
+                  "type": {
+                    "text": "ValidityStateFlags"
+                  }
+                },
+                {
+                  "name": "message",
+                  "optional": true,
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "anchor",
+                  "optional": true,
+                  "type": {
+                    "text": "HTMLElement"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "formDisabledCallback",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "disabled",
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "TextFieldVariant"
+              },
+              "default": "'filled'",
+              "fieldName": "variant"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "label"
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "value"
+            },
+            {
+              "name": "placeholder",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "placeholder"
+            },
+            {
+              "name": "type",
+              "type": {
+                "text": "string"
+              },
+              "default": "'text'",
+              "fieldName": "type"
+            },
+            {
+              "name": "readonly",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "readonly"
+            },
+            {
+              "name": "error",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "error"
+            },
+            {
+              "name": "error-text",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "errorText"
+            },
+            {
+              "name": "supporting-text",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "supportingText"
+            },
+            {
+              "name": "prefix-text",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "prefixText"
+            },
+            {
+              "name": "suffix-text",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "suffixText"
+            },
+            {
+              "name": "maxlength",
+              "type": {
+                "text": "number"
+              },
+              "default": "-1",
+              "fieldName": "maxLength"
+            },
+            {
+              "name": "pattern",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "pattern"
+            },
+            {
+              "name": "leading-icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "leadingIcon"
+            },
+            {
+              "name": "trailing-icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "trailingIcon"
+            },
+            {
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "name",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            },
+            {
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "required",
+              "inheritedFrom": {
+                "name": "MdFormAssociatedElement",
+                "module": "src/internal/form-associated.ts"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "MdFormAssociatedElement",
+            "module": "/src/internal/form-associated.js"
+          },
+          "tagName": "md-text-field",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdTextField",
+          "declaration": {
+            "name": "MdTextField",
+            "module": "src/components/text-field/text-field.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-text-field",
+          "declaration": {
+            "name": "MdTextField",
+            "module": "src/components/text-field/text-field.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/tabs/tabs.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdTab",
+          "members": [
+            {
+              "kind": "field",
+              "name": "active",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "active",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "icon"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "label"
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "active",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "active"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "icon"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "label"
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-tab",
+          "customElement": true
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdTabs",
+          "members": [
+            {
+              "kind": "field",
+              "name": "activeIndex",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "attribute": "active-index",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "tabs",
+              "type": {
+                "text": "MdTab[]"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "indicatorElement",
+              "type": {
+                "text": "HTMLElement | undefined"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleSlotChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "syncActiveTab",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateIndicator",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleClick",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleKeyDown",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "active-index",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "fieldName": "activeIndex"
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-tabs",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdTab",
+          "declaration": {
+            "name": "MdTab",
+            "module": "src/components/tabs/tabs.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-tab",
+          "declaration": {
+            "name": "MdTab",
+            "module": "src/components/tabs/tabs.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "MdTabs",
+          "declaration": {
+            "name": "MdTabs",
+            "module": "src/components/tabs/tabs.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-tabs",
+          "declaration": {
+            "name": "MdTabs",
+            "module": "src/components/tabs/tabs.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/internal/base-component.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Base element class for all Material Web Components.\nProvides standard reset styles and event dispatch helpers.",
+          "name": "MdBaseElement",
+          "members": [
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults."
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdBaseElement",
+          "declaration": {
+            "name": "MdBaseElement",
+            "module": "src/internal/base-component.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/internal/form-associated.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Base element class for Form-Associated Custom Elements (FACE).\nProvides seamless integration with native HTML <form> elements.",
+          "name": "MdFormAssociatedElement",
+          "members": [
+            {
+              "kind": "field",
+              "name": "formAssociated",
+              "type": {
+                "text": "boolean"
+              },
+              "static": true,
+              "default": "true"
+            },
+            {
+              "kind": "field",
+              "name": "internals",
+              "type": {
+                "text": "ElementInternals | undefined"
+              },
+              "privacy": "protected"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "name",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "required",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "_customValidityMessage",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "''"
+            },
+            {
+              "kind": "field",
+              "name": "_valid",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "true"
+            },
+            {
+              "kind": "field",
+              "name": "form",
+              "type": {
+                "text": "HTMLFormElement | null"
+              },
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "validity",
+              "type": {
+                "text": "ValidityState"
+              },
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "validationMessage",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "willValidate",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "checkValidity",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "reportValidity",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "setFormValue",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | File | FormData | null"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "setValidity",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "flags",
+                  "optional": true,
+                  "type": {
+                    "text": "ValidityStateFlags"
+                  }
+                },
+                {
+                  "name": "message",
+                  "optional": true,
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "anchor",
+                  "optional": true,
+                  "type": {
+                    "text": "HTMLElement"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "formDisabledCallback",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "disabled",
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "name"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "required"
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdFormAssociatedElement",
+          "declaration": {
+            "name": "MdFormAssociatedElement",
+            "module": "src/internal/form-associated.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/internal/focus-ring/focus-ring.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdFocusRing",
+          "members": [
+            {
+              "kind": "field",
+              "name": "visible",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "visible",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "inward",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "inward",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "control",
+              "type": {
+                "text": "HTMLElement | null"
+              },
+              "privacy": "private",
+              "default": "null"
+            },
+            {
+              "kind": "field",
+              "name": "handleFocusIn",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleFocusOut",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "visible",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "visible"
+            },
+            {
+              "name": "inward",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "inward"
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-focus-ring",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdFocusRing",
+          "declaration": {
+            "name": "MdFocusRing",
+            "module": "src/internal/focus-ring/focus-ring.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-focus-ring",
+          "declaration": {
+            "name": "MdFocusRing",
+            "module": "src/internal/focus-ring/focus-ring.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/internal/ripple/ripple.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdRipple",
+          "members": [
+            {
+              "kind": "field",
+              "name": "unbounded",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "unbounded",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "isHovered",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "isFocused",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "ripples",
+              "type": {
+                "text": "HTMLElement[]"
+              },
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "control",
+              "type": {
+                "text": "HTMLElement | null"
+              },
+              "privacy": "private",
+              "default": "null"
+            },
+            {
+              "kind": "method",
+              "name": "setupControl",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "cleanupControl",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "field",
+              "name": "handlePointerEnter",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handlePointerLeave",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleFocusIn",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleFocusOut",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handlePointerDown",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "unbounded",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "unbounded"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled"
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-ripple",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdRipple",
+          "declaration": {
+            "name": "MdRipple",
+            "module": "src/internal/ripple/ripple.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-ripple",
+          "declaration": {
+            "name": "MdRipple",
+            "module": "src/internal/ripple/ripple.ts"
+          }
+        }
+      ]
+    }
+  ]
+}
