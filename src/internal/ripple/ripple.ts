@@ -30,8 +30,9 @@ export class MdRipple extends MdBaseElement {
   }
 
   private setupControl(): void {
+    const parent = this.parentElement;
     const host = (this.getRootNode() as ShadowRoot)?.host as HTMLElement | null;
-    this.control = host || this.parentElement;
+    this.control = parent || host;
     if (!this.control) return;
 
     this.control.addEventListener('pointerdown', this.handlePointerDown);

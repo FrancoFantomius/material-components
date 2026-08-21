@@ -744,6 +744,10 @@ p code, li code, td code {
 .demo-preview > md-table,
 .demo-preview > md-data-table,
 .demo-preview > md-tabs,
+.demo-preview > md-player,
+.demo-preview > md-media-player,
+.demo-preview > md-audio-player,
+.demo-preview > md-video-player,
 .demo-preview > div[style*="width: 100%"] {
   width: 100%;
   flex: 1 1 100%;

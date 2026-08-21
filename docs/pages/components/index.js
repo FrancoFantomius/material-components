@@ -19,6 +19,8 @@ import topAppBar from './top-app-bar.js';
 import navigationDrawer from './navigation-drawer.js';
 import icon from './icon.js';
 import searchBar from './search-bar.js';
+import code from './code.js';
+import player from './player.js';
 
 export const COMPONENTS = [
   button,
@@ -42,6 +44,8 @@ export const COMPONENTS = [
   navigationDrawer,
   icon,
   searchBar,
+  code,
+  player,
 ];
 
 export {
@@ -66,7 +70,8 @@ export {
   navigationDrawer,
   icon,
   searchBar,
+  code,
+  player,
 };
 
 export default COMPONENTS;
-

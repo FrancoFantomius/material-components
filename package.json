@@ -129,6 +129,34 @@
     "./ripple": {
       "types": "./dist/internal/ripple/ripple.d.ts",
       "import": "./dist/internal/ripple/ripple.js"
+    },
+    "./focus-ring": {
+      "types": "./dist/internal/focus-ring/focus-ring.d.ts",
+      "import": "./dist/internal/focus-ring/focus-ring.js"
+    },
+    "./code": {
+      "types": "./dist/components/code/code.d.ts",
+      "import": "./dist/components/code/code.js"
+    },
+    "./code-block": {
+      "types": "./dist/components/code/code.d.ts",
+      "import": "./dist/components/code/code.js"
+    },
+    "./player": {
+      "types": "./dist/components/player/player.d.ts",
+      "import": "./dist/components/player/player.js"
+    },
+    "./media-player": {
+      "types": "./dist/components/player/player.d.ts",
+      "import": "./dist/components/player/player.js"
+    },
+    "./audio-player": {
+      "types": "./dist/components/player/player.d.ts",
+      "import": "./dist/components/player/player.js"
+    },
+    "./video-player": {
+      "types": "./dist/components/player/player.d.ts",
+      "import": "./dist/components/player/player.js"
     }
   },
   "scripts": {
@@ -154,13 +182,13 @@
   "author": "francofantomius",
   "license": "MIT",
   "dependencies": {
-    "lit": "^3.2.1"
+    "lit": "^3.3.3"
   },
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "^0.10.4",
     "happy-dom": "^15.11.7",
-    "typescript": "^5.6.3",
-    "vite": "^6.0.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.2",
     "vite-plugin-dts": "^4.3.0",
     "vitest": "^2.1.8"
   }

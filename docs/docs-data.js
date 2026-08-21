@@ -63,6 +63,16 @@ export const CATEGORIES = [
     }))
   },
   {
+    name: 'Media & Playback',
+    items: COMPONENTS.filter(c => c.category === 'Media & Playback' || c.category === 'Media').map(c => ({
+      title: c.title,
+      path: `#/components/${c.id}`,
+      id: `components/${c.id}`,
+      tag: c.tag,
+      icon: 'play_circle'
+    }))
+  },
+  {
     name: 'Utilities & Data',
     items: COMPONENTS.filter(c => c.category === 'Utilities' || c.category === 'Utilities & Data').map(c => ({
       title: c.title,

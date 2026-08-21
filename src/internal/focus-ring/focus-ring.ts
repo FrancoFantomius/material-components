@@ -17,8 +17,9 @@ export class MdFocusRing extends MdBaseElement {
 
   override connectedCallback(): void {
     super.connectedCallback();
+    const parent = this.parentElement;
     const host = (this.getRootNode() as ShadowRoot)?.host as HTMLElement | null;
-    this.control = host || this.parentElement;
+    this.control = parent || host;
     if (this.control) {
       this.control.addEventListener('focusin', this.handleFocusIn);
       this.control.addEventListener('focusout', this.handleFocusOut);

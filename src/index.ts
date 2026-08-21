@@ -29,5 +29,7 @@ export * from './components/top-app-bar/top-app-bar.js';
 export * from './components/navigation-drawer/navigation-drawer.js';
 export * from './components/table/table.js';
 export * from './components/search-bar/search-bar.js';
+export * from './components/code/code.js';
+export * from './components/player/player.js';
 
 

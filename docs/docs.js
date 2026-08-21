@@ -649,12 +649,7 @@ function renderHomePage() {
 
     <section class="docs-section">
       <h2>Quick Install</h2>
-      <div class="code-wrapper">
-        <button class="copy-btn" aria-label="Copy code">
-          <md-icon name="content_copy"></md-icon>
-        </button>
-        <pre><code class="language-bash">npm install @francofantomius/material-components lit</code></pre>
-      </div>
+      <md-code language="bash" label="Terminal" code="npm install @francofantomius/material-components lit"></md-code>
     </section>
 
     <section class="docs-section">
@@ -900,12 +895,7 @@ function renderComponentPage(comp) {
           <div class="demo-preview">
             ${ex.html}
           </div>
-          <div class="code-wrapper">
-            <button class="copy-btn" aria-label="Copy example code">
-              <md-icon name="content_copy"></md-icon>
-            </button>
-            <pre><code class="language-html">${escapeHtml(ex.html)}</code></pre>
-          </div>
+          <md-code language="html" label="HTML Example" code="${escapeHtml(ex.html)}"></md-code>
         </div>
       `).join('\n')}
     </section>`;
@@ -931,12 +921,7 @@ function renderComponentPage(comp) {
 
     <section class="docs-section">
       <h2>Import</h2>
-      <div class="code-wrapper">
-        <button class="copy-btn" aria-label="Copy import code">
-          <md-icon name="content_copy"></md-icon>
-        </button>
-        <pre><code class="language-javascript">import '${escapeHtml(comp.subpath)}';</code></pre>
-      </div>
+      <md-code language="javascript" label="Import" code="import '${escapeHtml(comp.subpath)}';"></md-code>
     </section>
 
     ${examplesHtml}
@@ -959,20 +944,18 @@ function renderNotFoundPage() {
 
 // --- Post-Render Setup (Copy Buttons & Dynamic Component Demos) ---
 function attachPostRenderHandlers() {
-  // Wrap standalone pre elements into code-wrapper containers with copy buttons
+  // Convert any static pre/code elements (e.g. from guides) to md-code web components
   document.querySelectorAll('.docs-content pre').forEach(pre => {
-    if (pre.closest('.code-wrapper')) return;
-    const wrapper = document.createElement('div');
-    wrapper.className = 'code-wrapper';
-    pre.parentNode.insertBefore(wrapper, pre);
+    if (pre.closest('md-code') || pre.closest('.code-container')) return;
+    const codeEl = pre.querySelector('code');
+    const codeText = codeEl ? (codeEl.textContent || '') : (pre.textContent || '');
+    const langClass = Array.from(codeEl?.classList || []).find(c => c.startsWith('language-'));
+    const lang = langClass ? langClass.replace('language-', '') : 'plaintext';
 
-    const copyBtn = document.createElement('button');
-    copyBtn.className = 'copy-btn';
-    copyBtn.setAttribute('aria-label', 'Copy code');
-    copyBtn.innerHTML = '<md-icon name="content_copy"></md-icon>';
-
-    wrapper.appendChild(copyBtn);
-    wrapper.appendChild(pre);
+    const mdCode = document.createElement('md-code');
+    mdCode.language = lang;
+    mdCode.code = codeText;
+    pre.parentNode.replaceChild(mdCode, pre);
   });
 
   // Setup copy buttons

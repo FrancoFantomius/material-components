@@ -25,6 +25,8 @@ import {
   MdTablePagination,
 } from '../src/components/table/table.js';
 import { MdSearchBar, MdSearch } from '../src/components/search-bar/search-bar.js';
+import { MdCode, MdCodeBlock } from '../src/components/code/code.js';
+import { MdPlayer, MdMediaPlayer, MdAudioPlayer, MdVideoPlayer } from '../src/components/player/player.js';
 
 
 describe('Material Design Web Components Suite', () => {
@@ -949,6 +951,488 @@ describe('Material Design Web Components Suite', () => {
       expect(search).toBeInstanceOf(MdSearchBar);
       expect(search.hasAttribute('responsive')).toBe(true);
       expect(search.hasAttribute('fullscreen')).toBe(true);
+    });
+  });
+
+  describe('md-code', () => {
+    it('should render code block from code property and language badge', async () => {
+      const codeEl = document.createElement('md-code') as MdCode;
+      codeEl.language = 'javascript';
+      codeEl.label = 'app.js';
+      codeEl.code = 'const greeting = "Hello world";';
+      document.body.appendChild(codeEl);
+      await codeEl.updateComplete;
+
+      expect(codeEl.effectiveLanguage).toBe('javascript');
+      expect(codeEl.effectiveLabel).toBe('app.js');
+
+      const badge = codeEl.shadowRoot?.querySelector('.lang-badge');
+      expect(badge?.textContent?.trim().toLowerCase()).toBe('javascript');
+
+      const filename = codeEl.shadowRoot?.querySelector('.code-filename');
+      expect(filename?.textContent?.trim()).toBe('app.js');
+
+      const codeContent = codeEl.shadowRoot?.querySelector('code');
+      expect(codeContent?.textContent).toContain('const greeting = "Hello world";');
+    });
+
+    it('should highlight syntax tokens for common languages', async () => {
+      const codeEl = document.createElement('md-code') as MdCode;
+      codeEl.language = 'typescript';
+      codeEl.code = 'const count: number = 42;\nfunction run() { return true; }';
+      document.body.appendChild(codeEl);
+      await codeEl.updateComplete;
+
+      const keywords = codeEl.shadowRoot?.querySelectorAll('.token-keyword');
+      expect(keywords?.length).toBeGreaterThan(0);
+
+      const functions = codeEl.shadowRoot?.querySelectorAll('.token-function');
+      expect(functions?.length).toBeGreaterThan(0);
+
+      const numbers = codeEl.shadowRoot?.querySelectorAll('.token-number');
+      expect(numbers?.length).toBeGreaterThan(0);
+    });
+
+    it('should perform built-in linting for JSON with syntax errors', async () => {
+      const codeEl = document.createElement('md-code') as MdCode;
+      codeEl.language = 'json';
+      codeEl.lint = true;
+      codeEl.code = '{\n  \'name\': "test",\n  "trailing": true,\n}';
+      document.body.appendChild(codeEl);
+      await codeEl.updateComplete;
+
+      const diags = codeEl.runLint();
+      expect(diags.length).toBeGreaterThan(0);
+      await codeEl.updateComplete;
+
+      const errorMarkers = codeEl.shadowRoot?.querySelectorAll('.gutter-marker.error');
+      expect(errorMarkers?.length).toBeGreaterThan(0);
+
+      const summary = codeEl.shadowRoot?.querySelector('.lint-count-item.errors');
+      expect(summary).not.toBeNull();
+    });
+
+    it('should perform built-in linting for JavaScript unmatched brackets', async () => {
+      const codeEl = document.createElement('md-code') as MdCode;
+      codeEl.language = 'javascript';
+      codeEl.lint = true;
+      codeEl.code = 'function test() {\n  const x = [1, 2, 3;\n}';
+      document.body.appendChild(codeEl);
+      await codeEl.updateComplete;
+
+      const diags = codeEl.runLint();
+      expect(diags.some(d => d.message.includes('Mismatched closing') || d.message.includes('Unclosed'))).toBe(true);
+    });
+
+    it('should perform built-in linting for HTML unclosed tags', async () => {
+      const codeEl = document.createElement('md-code') as MdCode;
+      codeEl.language = 'html';
+      codeEl.lint = true;
+      codeEl.code = '<div><span>Hello</div>';
+      document.body.appendChild(codeEl);
+      await codeEl.updateComplete;
+
+      const diags = codeEl.runLint();
+      expect(diags.some(d => d.rule === 'html-mismatched-tag' || d.message.includes('Mismatched'))).toBe(true);
+    });
+
+    it('should perform built-in linting for Python indentation and missing colons', async () => {
+      const codeEl = document.createElement('md-code') as MdCode;
+      codeEl.language = 'python';
+      codeEl.lint = true;
+      codeEl.code = 'def greet(name)\n\tprint("Hello")\n    print("World")';
+      document.body.appendChild(codeEl);
+      await codeEl.updateComplete;
+
+      const diags = codeEl.runLint();
+      expect(diags.some(d => d.rule === 'python-missing-colon')).toBe(true);
+      expect(diags.some(d => d.rule === 'python-mixed-indentation')).toBe(true);
+    });
+
+    it('should support custom external diagnostics', async () => {
+      const codeEl = document.createElement('md-code') as MdCode;
+      codeEl.code = 'const unused = 1;';
+      codeEl.diagnostics = [
+        { line: 1, column: 7, message: '"unused" is defined but never used', severity: 'warning', rule: 'no-unused-vars' }
+      ];
+      document.body.appendChild(codeEl);
+      await codeEl.updateComplete;
+
+      const diags = codeEl.runLint();
+      expect(diags.length).toBe(1);
+      expect(diags[0]?.rule).toBe('no-unused-vars');
+      await codeEl.updateComplete;
+
+      const warnMarker = codeEl.shadowRoot?.querySelector('.gutter-marker.warning');
+      expect(warnMarker).not.toBeNull();
+    });
+
+    it('should render line numbers and highlight designated lines', async () => {
+      const codeEl = document.createElement('md-code') as MdCode;
+      codeEl.lineNumbers = true;
+      codeEl.highlightLines = '2, 4-5';
+      codeEl.code = 'line 1\nline 2\nline 3\nline 4\nline 5';
+      document.body.appendChild(codeEl);
+      await codeEl.updateComplete;
+
+      const gutter = codeEl.shadowRoot?.querySelector('.code-gutter');
+      expect(gutter).not.toBeNull();
+
+      const line2 = codeEl.shadowRoot?.querySelector('[data-line="2"]');
+      expect(line2?.classList.contains('highlighted')).toBe(true);
+
+      const line3 = codeEl.shadowRoot?.querySelector('[data-line="3"]');
+      expect(line3?.classList.contains('highlighted')).toBe(false);
+
+      const line4 = codeEl.shadowRoot?.querySelector('[data-line="4"]');
+      expect(line4?.classList.contains('highlighted')).toBe(true);
+    });
+
+    it('should support copy button and emit copy event', async () => {
+      const codeEl = document.createElement('md-code') as MdCode;
+      codeEl.code = 'console.log("copy test");';
+      document.body.appendChild(codeEl);
+      await codeEl.updateComplete;
+
+      let copiedText = '';
+      codeEl.addEventListener('copy', (e: any) => {
+        copiedText = e.detail.code;
+      });
+
+      const success = await codeEl.copy();
+      expect(success).toBe(true);
+      expect(copiedText).toBe('console.log("copy test");');
+    });
+
+    it('should support md-code-block alias', async () => {
+      const codeBlock = document.createElement('md-code-block') as MdCodeBlock;
+      codeBlock.code = 'test alias';
+      codeBlock.wrapLines = true;
+      document.body.appendChild(codeBlock);
+      await codeBlock.updateComplete;
+
+      expect(codeBlock).toBeInstanceOf(MdCode);
+      expect(codeBlock.hasAttribute('wrap-lines')).toBe(true);
+    });
+
+    it('should perform built-in linting for CSS syntax errors', async () => {
+      const codeEl = document.createElement('md-code') as MdCode;
+      codeEl.language = 'css';
+      codeEl.lint = true;
+      codeEl.code = '.container {\n  color: red\n  background: blue;\n';
+      document.body.appendChild(codeEl);
+      await codeEl.updateComplete;
+
+      const diags = codeEl.runLint();
+      expect(diags.some(d => d.rule === 'css-missing-semicolon' || d.rule === 'css-unclosed-brace')).toBe(true);
+    });
+
+    it('should perform built-in linting for Bash unclosed control blocks', async () => {
+      const codeEl = document.createElement('md-code') as MdCode;
+      codeEl.language = 'bash';
+      codeEl.lint = true;
+      codeEl.code = 'if [ "$1" = "test" ]; then\n  echo "hello"\n';
+      document.body.appendChild(codeEl);
+      await codeEl.updateComplete;
+
+      const diags = codeEl.runLint();
+      expect(diags.some(d => d.rule === 'bash-unclosed-block')).toBe(true);
+    });
+
+    it('should perform built-in linting for YAML tab indentation', async () => {
+      const codeEl = document.createElement('md-code') as MdCode;
+      codeEl.language = 'yaml';
+      codeEl.lint = true;
+      codeEl.code = 'server:\n\tport: 8080';
+      document.body.appendChild(codeEl);
+      await codeEl.updateComplete;
+
+      const diags = codeEl.runLint();
+      expect(diags.some(d => d.rule === 'yaml-no-tabs')).toBe(true);
+    });
+
+    it('should read code from textContent/slot when code property is omitted', async () => {
+      const codeEl = document.createElement('md-code') as MdCode;
+      codeEl.language = 'javascript';
+      codeEl.textContent = '  const a = 10;\n  const b = 20;';
+      document.body.appendChild(codeEl);
+      await codeEl.updateComplete;
+
+      const codeContent = codeEl.shadowRoot?.querySelector('code');
+      expect(codeContent?.textContent).toContain('const a = 10;');
+    });
+
+    it('should hide copy button when hide-copy-button is set', async () => {
+      const codeEl = document.createElement('md-code') as MdCode;
+      codeEl.code = 'const hidden = true;';
+      codeEl.hideCopyButton = true;
+      document.body.appendChild(codeEl);
+      await codeEl.updateComplete;
+
+      const copyBtn = codeEl.shadowRoot?.querySelector('.action-btn');
+      expect(copyBtn).toBeNull();
+    });
+
+    it('should preserve spaces between HTML tags and attribute names', async () => {
+      const codeEl = document.createElement('md-code') as MdCode;
+      codeEl.language = 'html';
+      codeEl.code = '<md-button variant="filled">Filled</md-button>';
+      document.body.appendChild(codeEl);
+      await codeEl.updateComplete;
+
+      const codeContent = codeEl.shadowRoot?.querySelector('code');
+      expect(codeContent?.textContent).toContain('<md-button variant="filled">Filled</md-button>');
+
+      const tag = codeEl.shadowRoot?.querySelector('.token-tag');
+      const attr = codeEl.shadowRoot?.querySelector('.token-attr-name');
+      expect(tag?.textContent).toBe('md-button');
+      expect(attr?.textContent).toBe('variant');
+    });
+  });
+
+  describe('md-player', () => {
+    it('should render default audio player with track info and controls', async () => {
+      const player = document.createElement('md-player') as MdPlayer;
+      player.trackTitle = 'Test Track';
+      player.artist = 'Test Artist';
+      player.album = 'Test Album';
+      player.duration = 200;
+      player.currentTime = 50;
+      document.body.appendChild(player);
+      await player.updateComplete;
+
+      expect(player.type).toBe('audio');
+      expect(player.variant).toBe('elevated');
+      expect(player.paused).toBe(true);
+
+      const title = player.shadowRoot?.querySelector('.track-title');
+      expect(title?.textContent).toBe('Test Track');
+
+      const artist = player.shadowRoot?.querySelector('.track-artist');
+      expect(artist?.textContent).toBe('Test Artist');
+
+      const album = player.shadowRoot?.querySelector('.track-album');
+      expect(album?.textContent).toBe('Test Album');
+
+      const playBtn = player.shadowRoot?.querySelector('.play-pause-btn');
+      expect(playBtn).not.toBeNull();
+      expect(playBtn?.getAttribute('aria-label')).toBe('Play');
+    });
+
+    it('should toggle play and pause states and emit events', async () => {
+      const player = document.createElement('md-player') as MdPlayer;
+      document.body.appendChild(player);
+      await player.updateComplete;
+
+      let played = false;
+      let paused = false;
+      player.addEventListener('play', () => { played = true; });
+      player.addEventListener('pause', () => { paused = true; });
+
+      player.togglePlay();
+      await player.updateComplete;
+      expect(player.paused).toBe(false);
+      expect(played).toBe(true);
+
+      player.togglePlay();
+      await player.updateComplete;
+      expect(player.paused).toBe(true);
+      expect(paused).toBe(true);
+    });
+
+    it('should seek to specific timestamps and seek relative delta', async () => {
+      const player = document.createElement('md-player') as MdPlayer;
+      player.duration = 300;
+      document.body.appendChild(player);
+      await player.updateComplete;
+
+      let seekedTime = -1;
+      player.addEventListener('seeked', (e: any) => {
+        seekedTime = e.detail?.currentTime;
+      });
+
+      player.seek(120);
+      expect(player.currentTime).toBe(120);
+      expect(seekedTime).toBe(120);
+
+      player.seekBy(30);
+      expect(player.currentTime).toBe(150);
+      expect(seekedTime).toBe(150);
+
+      player.seekBy(-50);
+      expect(player.currentTime).toBe(100);
+      expect(seekedTime).toBe(100);
+    });
+
+    it('should adjust volume and toggle mute state', async () => {
+      const player = document.createElement('md-player') as MdPlayer;
+      document.body.appendChild(player);
+      await player.updateComplete;
+
+      let volChanged = false;
+      player.addEventListener('volumechange', () => { volChanged = true; });
+
+      player.setVolume(0.4);
+      expect(player.volume).toBe(0.4);
+      expect(volChanged).toBe(true);
+
+      player.toggleMute();
+      expect(player.muted).toBe(true);
+
+      player.toggleMute();
+      expect(player.muted).toBe(false);
+    });
+
+    it('should cycle playback speeds and emit ratechange', async () => {
+      const player = document.createElement('md-player') as MdPlayer;
+      document.body.appendChild(player);
+      await player.updateComplete;
+
+      let rateChanged = false;
+      player.addEventListener('ratechange', () => { rateChanged = true; });
+
+      expect(player.playbackRate).toBe(1);
+      player.cyclePlaybackRate();
+      expect(player.playbackRate).toBe(1.25);
+      expect(rateChanged).toBe(true);
+
+      player.setPlaybackRate(2);
+      expect(player.playbackRate).toBe(2);
+    });
+
+    it('should support loop and shuffle toggles', async () => {
+      const player = document.createElement('md-player') as MdPlayer;
+      document.body.appendChild(player);
+      await player.updateComplete;
+
+      let shuffled = false;
+      player.addEventListener('shuffle', (e: any) => {
+        shuffled = e.detail?.shuffle;
+      });
+
+      player.toggleLoop();
+      expect(player.loop).toBe(true);
+
+      player.toggleShuffle();
+      expect(player.shuffle).toBe(true);
+      expect(shuffled).toBe(true);
+    });
+
+    it('should emit previous and next events', async () => {
+      const player = document.createElement('md-player') as MdPlayer;
+      document.body.appendChild(player);
+      await player.updateComplete;
+
+      let prevFired = false;
+      let nextFired = false;
+      player.addEventListener('previous', () => { prevFired = true; });
+      player.addEventListener('next', () => { nextFired = true; });
+
+      player.previous();
+      expect(prevFired).toBe(true);
+
+      player.next();
+      expect(nextFired).toBe(true);
+    });
+
+    it('should render in video mode with video viewport and overlays', async () => {
+      const player = document.createElement('md-player') as MdPlayer;
+      player.type = 'video';
+      player.trackTitle = 'Trailer Clip';
+      player.poster = 'https://example.com/poster.jpg';
+      player.src = 'https://example.com/video.mp4';
+      document.body.appendChild(player);
+      await player.updateComplete;
+
+      expect(player.type).toBe('video');
+      const viewport = player.shadowRoot?.querySelector('.video-viewport');
+      expect(viewport).not.toBeNull();
+
+      const title = player.shadowRoot?.querySelector('.video-title');
+      expect(title?.textContent).toBe('Trailer Clip');
+    });
+
+    it('should support compact layout mode and variant', async () => {
+      const player = document.createElement('md-player') as MdPlayer;
+      player.compact = true;
+      player.trackTitle = 'Compact Track';
+      player.artist = 'Compact Artist';
+      document.body.appendChild(player);
+      await player.updateComplete;
+
+      expect(player.hasAttribute('compact')).toBe(true);
+
+      const compactControls = player.shadowRoot?.querySelector('.compact-controls-right');
+      expect(compactControls).not.toBeNull();
+
+      const prevBtn = compactControls?.querySelector('button[aria-label="Previous song"]');
+      const playBtn = compactControls?.querySelector('.compact-play-btn');
+      const nextBtn = compactControls?.querySelector('button[aria-label="Next song"]');
+
+      expect(prevBtn).not.toBeNull();
+      expect(playBtn).not.toBeNull();
+      expect(nextBtn).not.toBeNull();
+
+      const fullScrubber = player.shadowRoot?.querySelector('.full-player-scrubber');
+      expect(fullScrubber).not.toBeNull();
+    });
+
+    it('should instantiate aliases md-media-player, md-audio-player, md-video-player', async () => {
+      const mediaP = document.createElement('md-media-player') as MdMediaPlayer;
+      const audioP = document.createElement('md-audio-player') as MdAudioPlayer;
+      const videoP = document.createElement('md-video-player') as MdVideoPlayer;
+
+      document.body.appendChild(mediaP);
+      document.body.appendChild(audioP);
+      document.body.appendChild(videoP);
+
+      await Promise.all([mediaP.updateComplete, audioP.updateComplete, videoP.updateComplete]);
+
+      expect(mediaP instanceof MdPlayer).toBe(true);
+      expect(audioP instanceof MdPlayer).toBe(true);
+      expect(videoP instanceof MdPlayer).toBe(true);
+      expect(videoP.type).toBe('video');
+    });
+
+    it('should transition between squiggly line and straight line on play/pause, and remain straight for video player', async () => {
+      const audioPlayer = document.createElement('md-player') as MdPlayer;
+      audioPlayer.type = 'audio';
+      audioPlayer.duration = 100;
+      audioPlayer.currentTime = 30;
+      document.body.appendChild(audioPlayer);
+      await audioPlayer.updateComplete;
+
+      // Initially paused: container is not playing-wave
+      expect(audioPlayer.paused).toBe(true);
+      expect(audioPlayer.shadowRoot?.querySelector('.slider-sinus-wave')).not.toBeNull();
+      expect(audioPlayer.shadowRoot?.querySelector('.progress-slider-container')?.classList.contains('playing-wave')).toBe(false);
+
+      // When playing: playing-wave class is added for smooth transition to squiggly line
+      audioPlayer.togglePlay();
+      await audioPlayer.updateComplete;
+      expect(audioPlayer.paused).toBe(false);
+      expect(audioPlayer.shadowRoot?.querySelector('.slider-sinus-wave')).not.toBeNull();
+      expect(audioPlayer.shadowRoot?.querySelector('.progress-slider-container')?.classList.contains('playing-wave')).toBe(true);
+
+      // When paused: playing-wave class is removed for smooth transition to straight line
+      audioPlayer.togglePlay();
+      await audioPlayer.updateComplete;
+      expect(audioPlayer.paused).toBe(true);
+      expect(audioPlayer.shadowRoot?.querySelector('.progress-slider-container')?.classList.contains('playing-wave')).toBe(false);
+
+      // Video player: should never render sinus wave or have playing-wave, even when playing
+      const videoPlayer = document.createElement('md-player') as MdPlayer;
+      videoPlayer.type = 'video';
+      videoPlayer.duration = 100;
+      videoPlayer.currentTime = 30;
+      document.body.appendChild(videoPlayer);
+      await videoPlayer.updateComplete;
+
+      videoPlayer.togglePlay();
+      await videoPlayer.updateComplete;
+      expect(videoPlayer.paused).toBe(false);
+      expect(videoPlayer.shadowRoot?.querySelector('.slider-sinus-wave')).toBeNull();
+      expect(videoPlayer.shadowRoot?.querySelector('.progress-slider-container')?.classList.contains('playing-wave')).toBe(false);
     });
   });
 });
