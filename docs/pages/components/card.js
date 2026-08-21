@@ -1,6 +1,7 @@
 export default {
   id: 'card',
   title: 'Card',
+  icon: 'crop_landscape',
   tag: 'md-card',
   category: 'Surfaces & Containment',
   description: 'Cards contain content and actions about a single subject, available in elevated, filled, and outlined styles with optional ripple interactivity.',

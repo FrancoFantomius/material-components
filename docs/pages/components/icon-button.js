@@ -1,6 +1,7 @@
 export default {
   id: 'icon-button',
   title: 'Icon Button',
+  icon: 'touch_app',
   tag: 'md-icon-button',
   category: 'Actions',
   description: 'Icon buttons allow users to take compact actions and toggle choices with a single tap, supporting standard, filled, tonal, and outlined variants.',

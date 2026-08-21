@@ -1,6 +1,7 @@
 export default {
   id: 'switch',
   title: 'Switch',
+  icon: 'toggle_on',
   tag: 'md-switch',
   category: 'Inputs & Controls',
   description: 'Switches toggle the state of a single setting on or off, with optional check and cross icons inside the thumb.',

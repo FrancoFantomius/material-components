@@ -1,6 +1,7 @@
 export default {
   id: 'top-app-bar',
   title: 'Top App Bar',
+  icon: 'view_headline',
   tag: 'md-top-app-bar',
   category: 'Navigation',
   description: 'Top app bars display branding, titles, navigation controls, and actions at the top of a screen across small, center-aligned, medium, and large variants.',

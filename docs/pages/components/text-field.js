@@ -1,6 +1,7 @@
 export default {
   id: 'text-field',
   title: 'Text Field',
+  icon: 'text_fields',
   tag: 'md-text-field',
   category: 'Inputs & Controls',
   description: 'Text fields allow users to enter and edit text, supporting filled and outlined variants, floating labels, validation states, and prefix/suffix text.',

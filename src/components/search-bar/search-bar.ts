@@ -48,6 +48,9 @@ export class MdSearchBar extends MdFormAssociatedElement {
   @property({ type: Boolean, reflect: true })
   responsive = true;
 
+  @property({ type: Boolean, attribute: 'collapse-on-mobile', reflect: true })
+  collapseOnMobile = true;
+
   @property({ type: Boolean, reflect: true })
   fullscreen = false;
 
@@ -65,6 +68,7 @@ export class MdSearchBar extends MdFormAssociatedElement {
     this.setFormValue(this.value);
     this.toggleAttribute('has-value', Boolean(this.value));
     this.toggleAttribute('active', this.active);
+    this.toggleAttribute('collapse-on-mobile', this.collapseOnMobile);
   }
 
   override willUpdate(changedProperties: Map<string, unknown>) {
@@ -78,6 +82,9 @@ export class MdSearchBar extends MdFormAssociatedElement {
       if (!this.active) {
         this.highlightedIndex = -1;
       }
+    }
+    if (changedProperties.has('collapseOnMobile')) {
+      this.toggleAttribute('collapse-on-mobile', this.collapseOnMobile);
     }
   }
 
@@ -220,6 +227,26 @@ export class MdSearchBar extends MdFormAssociatedElement {
     }
   };
 
+  private handleTriggerClick = (event: MouseEvent) => {
+    event.stopPropagation();
+    this.show();
+  };
+
+  private handleTriggerKeyDown = (event: KeyboardEvent) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      this.show();
+    }
+  };
+
+  private handleTrailingTriggerClick = (event: MouseEvent) => {
+    event.stopPropagation();
+    const customEvt = this.emitEvent('trailing-icon-click', { icon: this.trailingIcon }, true);
+    if (!customEvt.defaultPrevented) {
+      this.show();
+    }
+  };
+
   private handleBackClick = (event: MouseEvent) => {
     event.stopPropagation();
     this.close();
@@ -278,8 +305,47 @@ export class MdSearchBar extends MdFormAssociatedElement {
 
   override render() {
     const showBack = this.active && this.showBackButton;
+    const hasTrailing = Boolean(this.trailingIcon);
 
     return html`
+      <div
+        class="search-trigger-container ${hasTrailing ? 'has-trailing' : ''}"
+        role="button"
+        tabindex="0"
+        aria-label=${this.placeholder || 'Search'}
+        title=${this.placeholder || 'Search'}
+        ?disabled=${this.disabled}
+        @click=${this.handleTriggerClick}
+        @keydown=${this.handleTriggerKeyDown}
+      >
+        <button
+          class="trigger-btn"
+          type="button"
+          aria-label=${this.placeholder || 'Search'}
+          title=${this.placeholder || 'Search'}
+          ?disabled=${this.disabled}
+          @click=${this.handleTriggerClick}
+        >
+          <md-icon name=${this.leadingIcon || 'search'}></md-icon>
+        </button>
+
+        ${hasTrailing
+          ? html`
+              <div class="trigger-divider" aria-hidden="true"></div>
+              <button
+                class="trigger-btn trigger-trailing-btn"
+                type="button"
+                aria-label=${this.trailingIcon}
+                title=${this.trailingIcon}
+                ?disabled=${this.disabled}
+                @click=${this.handleTrailingTriggerClick}
+              >
+                <md-icon name=${this.trailingIcon}></md-icon>
+              </button>
+            `
+          : nothing}
+      </div>
+
       <div class="scrim" @click=${this.handleScrimClick}></div>
 
       <div class="search-container" role="search">

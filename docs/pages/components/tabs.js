@@ -1,6 +1,7 @@
 export default {
   id: 'tabs',
   title: 'Tabs',
+  icon: 'tab',
   tag: 'md-tabs',
   category: 'Navigation',
   description: 'Tabs organize content across different screens, data sets, and other interactions with smooth sliding active indicator bars.',

@@ -1,6 +1,7 @@
 export default {
   id: 'badge',
   title: 'Badge',
+  icon: 'mark_chat_unread',
   tag: 'md-badge',
   category: 'Communication & Feedback',
   description: 'Badges show notification counts, alert statuses, or small indicators anchored to icon buttons or list elements.',

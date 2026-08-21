@@ -968,6 +968,71 @@ describe('Material Design Web Components Suite', () => {
       expect(search.hasAttribute('responsive')).toBe(true);
       expect(search.hasAttribute('fullscreen')).toBe(true);
     });
+
+    it('should toggle active state and emit active-change event via show/close/toggle', async () => {
+      const searchBar = document.createElement('md-search-bar') as MdSearchBar;
+      document.body.appendChild(searchBar);
+      await searchBar.updateComplete;
+
+      const activeEvents: boolean[] = [];
+      searchBar.addEventListener('active-change', (e: any) => {
+        activeEvents.push(e.detail?.active);
+      });
+
+      searchBar.show();
+      await searchBar.updateComplete;
+      expect(searchBar.active).toBe(true);
+
+      searchBar.close();
+      await searchBar.updateComplete;
+      expect(searchBar.active).toBe(false);
+
+      searchBar.toggle();
+      await searchBar.updateComplete;
+      expect(searchBar.active).toBe(true);
+
+      searchBar.toggle();
+      await searchBar.updateComplete;
+      expect(searchBar.active).toBe(false);
+
+      expect(activeEvents).toEqual([true, false, true, false]);
+    });
+
+    it('should support collapse-on-mobile, pill trigger container, and middle divider with trailing icon', async () => {
+      const searchBar = document.createElement('md-search-bar') as MdSearchBar;
+      document.body.appendChild(searchBar);
+      await searchBar.updateComplete;
+
+      expect(searchBar.collapseOnMobile).toBe(true);
+      expect(searchBar.hasAttribute('collapse-on-mobile')).toBe(true);
+
+      // Single icon mode: no .has-trailing class, no divider
+      let triggerContainer = searchBar.shadowRoot?.querySelector('.search-trigger-container') as HTMLElement;
+      expect(triggerContainer).not.toBeNull();
+      expect(triggerContainer.classList.contains('has-trailing')).toBe(false);
+      expect(searchBar.shadowRoot?.querySelector('.trigger-divider')).toBeNull();
+
+      // With trailing icon: has-trailing class and middle divider
+      searchBar.trailingIcon = 'mic';
+      await searchBar.updateComplete;
+
+      triggerContainer = searchBar.shadowRoot?.querySelector('.search-trigger-container') as HTMLElement;
+      expect(triggerContainer.classList.contains('has-trailing')).toBe(true);
+
+      const searchBtn = searchBar.shadowRoot?.querySelector('.trigger-btn') as HTMLButtonElement;
+      expect(searchBtn).not.toBeNull();
+
+      const divider = searchBar.shadowRoot?.querySelector('.trigger-divider') as HTMLElement;
+      expect(divider).not.toBeNull();
+
+      const trailingBtn = searchBar.shadowRoot?.querySelector('.trigger-trailing-btn') as HTMLButtonElement;
+      expect(trailingBtn).not.toBeNull();
+
+      searchBtn.click();
+      await searchBar.updateComplete;
+
+      expect(searchBar.active).toBe(true);
+    });
   });
 
   describe('md-code', () => {

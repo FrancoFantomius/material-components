@@ -1,6 +1,7 @@
 export default {
   id: 'frameworks',
   title: 'Framework Integration',
+  icon: 'integration_instructions',
   category: 'Guides',
   summary: 'Guidelines and patterns for integrating Material Components with React, Vue, Angular, and Svelte.',
   contentHtml: `

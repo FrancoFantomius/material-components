@@ -1,6 +1,7 @@
 export default {
   id: 'chip',
   title: 'Chip & Chip Set',
+  icon: 'label',
   tag: 'md-chip',
   category: 'Inputs & Controls',
   description: 'Chips help users enter information, make selections, filter content, or trigger actions across assist, filter, input, and suggestion variants.',

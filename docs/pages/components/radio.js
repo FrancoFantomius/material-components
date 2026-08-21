@@ -1,6 +1,7 @@
 export default {
   id: 'radio',
   title: 'Radio & Radio Group',
+  icon: 'radio_button_checked',
   tag: 'md-radio',
   category: 'Inputs & Controls',
   description: 'Radio buttons allow users to select exactly one option from a set of mutually exclusive choices, organized within an md-radio-group.',

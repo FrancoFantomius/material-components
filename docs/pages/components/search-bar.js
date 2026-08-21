@@ -1,6 +1,7 @@
 export default {
   id: 'search-bar',
   title: 'Search Bar',
+  icon: 'search',
   tag: 'md-search-bar',
   category: 'Inputs & Controls',
   description: 'Search bars allow users to enter queries and view search suggestions in docked or full-screen responsive views, following Material Design 3 guidelines.',
@@ -15,8 +16,8 @@ export default {
     { name: 'active-leading-icon', type: 'string', default: "'arrow_back'", description: 'Leading icon displayed when active' },
     { name: 'trailing-icon', type: 'string', default: "''", description: 'Optional trailing action icon' },
     { name: 'show-back-button', type: 'boolean', default: 'true', description: 'Whether to show the back button in active mode' },
-    { name: 'show-clear-button', type: 'boolean', default: 'true', description: 'Whether to show the clear button when a query is present' },
-    { name: 'responsive', type: 'boolean', default: 'true', description: 'Automatically switches to full-screen view on mobile viewports (<= 600px)' },
+    { name: 'responsive', type: 'boolean', default: 'true', description: 'Automatically switches to full-screen view and collapsed search icon on mobile viewports (<= 768px)' },
+    { name: 'collapse-on-mobile', type: 'boolean', default: 'true', description: 'Collapses search bar into a compact search icon button on mobile screens when inactive' },
     { name: 'fullscreen', type: 'boolean', default: 'false', description: 'Forces full-screen search view overlay when active' },
     { name: 'disabled', type: 'boolean', default: 'false', description: 'Disables user interaction' }
   ],

@@ -1,6 +1,7 @@
 export default {
   id: 'player',
   title: 'Player',
+  icon: 'play_circle',
   tag: 'md-player',
   category: 'Media & Playback',
   description: 'Material Design 3 media player component supporting audio and video playback, responsive small-screen and large-screen layouts, artwork/posters, interactive progress scrubbing, always-visible volume controls, queue toggle, playback rates, and keyboard shortcuts.',

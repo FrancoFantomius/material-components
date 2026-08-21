@@ -1,6 +1,7 @@
 export default {
   id: 'divider',
   title: 'Divider',
+  icon: 'horizontal_rule',
   tag: 'md-divider',
   category: 'Surfaces & Containment',
   description: 'A divider is a thin line that groups content in lists and page layouts, supporting inset and vertical orientations.',

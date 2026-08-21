@@ -1,6 +1,7 @@
 export default {
   id: 'account-menu',
   title: 'Account Menu',
+  icon: 'account_circle',
   tag: 'md-account-menu',
   category: 'Navigation',
   description: 'Profile menu and account switcher that displays user credentials, role details, security status, storage quotas, and multiple account management.',

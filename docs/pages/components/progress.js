@@ -1,6 +1,7 @@
 export default {
   id: 'progress',
   title: 'Progress Indicators',
+  icon: 'progress_activity',
   tag: 'md-progress',
   category: 'Communication & Feedback',
   description: 'Progress indicators express an unspecified wait time or display the length of a process in linear and circular formats.',

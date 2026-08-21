@@ -1,6 +1,7 @@
 export default {
   id: 'fab',
   title: 'Floating Action Button (FAB)',
+  icon: 'add_circle',
   tag: 'md-fab',
   category: 'Actions',
   description: 'A Floating Action Button (FAB) performs the primary, most common action on a screen. Supports small, medium, large, and extended modes.',

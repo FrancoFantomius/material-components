@@ -1,6 +1,7 @@
 export default {
   id: 'button',
   title: 'Button',
+  icon: 'smart_button',
   tag: 'md-button',
   category: 'Actions',
   description: 'Buttons help users initiate actions and choices with five distinct levels of visual emphasis: filled, elevated, tonal, outlined, and text.',

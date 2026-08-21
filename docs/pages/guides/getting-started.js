@@ -1,6 +1,7 @@
 export default {
   id: 'getting-started',
   title: 'Getting Started',
+  icon: 'rocket_launch',
   category: 'Guides',
   summary: 'Quick guide to installing and configuring Material Components with Lit, fonts, and icons.',
   contentHtml: `

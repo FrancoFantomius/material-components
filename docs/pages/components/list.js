@@ -1,6 +1,7 @@
 export default {
   id: 'list',
   title: 'List & List Item',
+  icon: 'format_list_bulleted',
   tag: 'md-list',
   category: 'Surfaces & Containment',
   description: 'Lists are continuous, vertical indexes of text and images, supporting 1-line, 2-line, and 3-line items with icons, avatars, and trailing text.',

@@ -9,7 +9,7 @@ export const CATEGORIES = [
     name: 'Overview & Guides',
     items: [
       { title: 'Home', path: '#/', id: 'index', icon: 'home' },
-      ...GUIDES.map(g => ({ title: g.title, path: `#/guide/${g.id}`, id: `guide/${g.id}`, icon: 'menu_book' }))
+      ...GUIDES.map(g => ({ title: g.title, path: `#/guide/${g.id}`, id: `guide/${g.id}`, icon: g.icon || 'menu_book' }))
     ]
   },
   {
@@ -19,7 +19,7 @@ export const CATEGORIES = [
       path: `#/components/${c.id}`,
       id: `components/${c.id}`,
       tag: c.tag,
-      icon: 'widgets'
+      icon: c.icon || 'smart_button'
     }))
   },
   {
@@ -29,7 +29,7 @@ export const CATEGORIES = [
       path: `#/components/${c.id}`,
       id: `components/${c.id}`,
       tag: c.tag,
-      icon: 'widgets'
+      icon: c.icon || 'edit_note'
     }))
   },
   {
@@ -39,7 +39,7 @@ export const CATEGORIES = [
       path: `#/components/${c.id}`,
       id: `components/${c.id}`,
       tag: c.tag,
-      icon: 'widgets'
+      icon: c.icon || 'layers'
     }))
   },
   {
@@ -49,7 +49,7 @@ export const CATEGORIES = [
       path: `#/components/${c.id}`,
       id: `components/${c.id}`,
       tag: c.tag,
-      icon: 'widgets'
+      icon: c.icon || 'notifications'
     }))
   },
   {
@@ -59,7 +59,7 @@ export const CATEGORIES = [
       path: `#/components/${c.id}`,
       id: `components/${c.id}`,
       tag: c.tag,
-      icon: 'widgets'
+      icon: c.icon || 'explore'
     }))
   },
   {
@@ -69,7 +69,7 @@ export const CATEGORIES = [
       path: `#/components/${c.id}`,
       id: `components/${c.id}`,
       tag: c.tag,
-      icon: 'play_circle'
+      icon: c.icon || 'play_circle'
     }))
   },
   {
@@ -79,7 +79,7 @@ export const CATEGORIES = [
       path: `#/components/${c.id}`,
       id: `components/${c.id}`,
       tag: c.tag,
-      icon: 'widgets'
+      icon: c.icon || 'code'
     }))
   }
 ];

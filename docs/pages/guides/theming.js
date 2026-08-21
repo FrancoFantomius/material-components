@@ -1,6 +1,7 @@
 export default {
   id: 'theming',
   title: 'Theming & Dark Mode',
+  icon: 'palette',
   category: 'Guides',
   summary: 'Customize palettes, elevations, and toggle light/dark modes using CSS Custom Properties or TypeScript helpers.',
   contentHtml: `

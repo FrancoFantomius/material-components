@@ -1,6 +1,7 @@
 export default {
   id: 'checkbox',
   title: 'Checkbox',
+  icon: 'check_box',
   tag: 'md-checkbox',
   category: 'Inputs & Controls',
   description: 'Checkboxes allow users to select one or more items from a set, or toggle between checked, unchecked, and indeterminate states.',

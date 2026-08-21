@@ -1,6 +1,7 @@
 export default {
   id: 'snackbar',
   title: 'Snackbar',
+  icon: 'announcement',
   tag: 'md-snackbar',
   category: 'Communication & Feedback',
   description: 'Snackbars provide brief feedback about an operation through an elevated message toast at the bottom of the viewport.',

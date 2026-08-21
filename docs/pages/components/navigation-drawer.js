@@ -1,6 +1,7 @@
 export default {
   id: 'navigation-drawer',
   title: 'Navigation Drawer',
+  icon: 'menu_open',
   tag: 'md-navigation-drawer',
   category: 'Navigation',
   description: 'Navigation drawers provide side navigation access to top-level destinations and app features in standard or modal configurations.',

@@ -1,6 +1,7 @@
 export default {
   id: 'code',
   title: 'Code Block & Highlighter',
+  icon: 'code',
   tag: 'md-code',
   category: 'Utilities & Data',
   description: 'Code component with syntax highlighting for popular languages, real-time multi-language linting diagnostics, line numbers, line highlighting, and one-click copy to clipboard.',

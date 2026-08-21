@@ -1,6 +1,7 @@
 export default {
   id: 'dialog',
   title: 'Dialog',
+  icon: 'picture_in_picture',
   tag: 'md-dialog',
   category: 'Surfaces & Containment',
   description: 'Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.',

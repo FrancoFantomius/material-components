@@ -1,6 +1,7 @@
 export default {
   id: 'table',
   title: 'Table & Data Table',
+  icon: 'table_chart',
   tag: 'md-table',
   category: 'Surfaces & Containment',
   description: 'Data tables display information in a structured grid of rows and columns, featuring automatic sorting, pagination, zebra striping, loading states, and multi-row selection.',

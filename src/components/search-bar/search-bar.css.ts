@@ -213,17 +213,106 @@ export const searchBarStyles = css`
     flex-shrink: 0;
   }
 
-  .extra-content {
-    box-sizing: border-box;
+  .search-trigger-container {
+    display: none;
   }
 
-  /* Responsive Fullscreen / Mobile Mode */
-  @media (max-width: 600px) {
-    :host([responsive][active]) .scrim {
+  /* Responsive Fullscreen / Mobile Collapsed Mode */
+  @media (max-width: 768px) {
+    :host([responsive]:not([active]):not([collapse-on-mobile="false"])),
+    :host([collapse-on-mobile]:not([active]):not([collapse-on-mobile="false"])) {
+      display: inline-flex;
+      width: auto;
+      max-width: none;
+      vertical-align: middle;
+    }
+
+    :host([responsive]:not([active]):not([collapse-on-mobile="false"])) .search-trigger-container,
+    :host([collapse-on-mobile]:not([active]):not([collapse-on-mobile="false"])) .search-trigger-container {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      border-radius: 50%;
+      box-shadow: none;
+      cursor: pointer;
+      user-select: none;
+      outline: none;
+      transition: background-color 200ms ease, box-shadow 200ms ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :host([responsive]:not([active]):not([collapse-on-mobile="false"])) .search-trigger-container.has-trailing,
+    :host([collapse-on-mobile]:not([active]):not([collapse-on-mobile="false"])) .search-trigger-container.has-trailing {
+      height: 48px;
+      padding: 0 4px;
+      gap: 2px;
+      background-color: var(--md-search-bar-container-color, var(--md-sys-color-surface-container-high, #ECE6F0));
+      border-radius: var(--md-sys-shape-corner-full, 28px);
+      box-shadow: var(--md-sys-elevation-level1, 0px 1px 3px 1px rgba(0, 0, 0, 0.15));
+    }
+
+    :host([responsive]:not([active]):not([collapse-on-mobile="false"])) .search-trigger-container.has-trailing:hover,
+    :host([collapse-on-mobile]:not([active]):not([collapse-on-mobile="false"])) .search-trigger-container.has-trailing:hover {
+      box-shadow: var(--md-sys-elevation-level2, 0px 2px 6px 2px rgba(0, 0, 0, 0.15));
+    }
+
+    :host([responsive]:not([active]):not([collapse-on-mobile="false"])) .search-trigger-container:focus-visible,
+    :host([collapse-on-mobile]:not([active]):not([collapse-on-mobile="false"])) .search-trigger-container:focus-visible {
+      outline: 2px solid var(--md-sys-color-primary, #6750A4);
+      outline-offset: 2px;
+    }
+
+    .trigger-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      min-height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: transparent;
+      color: var(--md-sys-color-on-surface-variant, #49454F);
+      cursor: pointer;
+      padding: 0;
+      margin: 0;
+      outline: none;
+      position: relative;
+      transition: background-color 150ms ease, color 150ms ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .trigger-btn:hover {
+      background-color: rgba(73, 69, 79, 0.08);
+    }
+
+    .trigger-btn:focus-visible {
+      background-color: rgba(73, 69, 79, 0.12);
+    }
+
+    .trigger-divider {
+      width: 1px;
+      height: 22px;
+      background-color: var(--md-sys-color-outline-variant, #CAC4D0);
+      margin: 0 2px;
+      flex-shrink: 0;
+    }
+
+    :host([responsive]:not([active]):not([collapse-on-mobile="false"])) .search-container,
+    :host([collapse-on-mobile]:not([active]):not([collapse-on-mobile="false"])) .search-container {
       display: none;
     }
 
-    :host([responsive][active]) .search-container {
+    :host([responsive]:not([active]):not([collapse-on-mobile="false"])) .scrim,
+    :host([collapse-on-mobile]:not([active]):not([collapse-on-mobile="false"])) .scrim {
+      display: none;
+    }
+
+    :host([responsive][active]),
+    :host([collapse-on-mobile][active]) {
+      display: block;
       position: fixed;
       top: 0;
       left: 0;
@@ -231,25 +320,52 @@ export const searchBarStyles = css`
       bottom: 0;
       width: 100vw;
       height: 100vh;
+      height: 100dvh;
+      max-width: 100vw;
+      margin: 0;
+      padding: 0;
+      z-index: 99999;
+    }
+
+    :host([responsive][active]) .search-trigger-container,
+    :host([collapse-on-mobile][active]) .search-trigger-container {
+      display: none;
+    }
+
+    :host([responsive][active]) .scrim,
+    :host([collapse-on-mobile][active]) .scrim {
+      display: none;
+    }
+
+    :host([responsive][active]) .search-container,
+    :host([collapse-on-mobile][active]) .search-container {
+      display: flex;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
       max-width: 100vw;
       border-radius: 0;
       box-shadow: none;
-      z-index: 9999;
+      z-index: 99999;
       background-color: var(--md-search-bar-container-color, var(--md-sys-color-surface-container-high, #ECE6F0));
     }
 
-    :host([responsive][active]) .suggestions-container {
+    :host([responsive][active]) .suggestions-container,
+    :host([collapse-on-mobile][active]) .suggestions-container {
       flex: 1;
       max-height: calc(100vh - 57px);
+      max-height: calc(100dvh - 57px);
     }
   }
 
   /* Forced Fullscreen attribute */
-  :host([fullscreen][active]) .scrim {
-    display: none;
-  }
-
-  :host([fullscreen][active]) .search-container {
+  :host([fullscreen][active]) {
+    display: block;
     position: fixed;
     top: 0;
     left: 0;
@@ -257,16 +373,40 @@ export const searchBarStyles = css`
     bottom: 0;
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
+    max-width: 100vw;
+    z-index: 99999;
+  }
+
+  :host([fullscreen][active]) .search-trigger-container {
+    display: none;
+  }
+
+  :host([fullscreen][active]) .scrim {
+    display: none;
+  }
+
+  :host([fullscreen][active]) .search-container {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
     max-width: 100vw;
     border-radius: 0;
     box-shadow: none;
-    z-index: 9999;
+    z-index: 99999;
     background-color: var(--md-search-bar-container-color, var(--md-sys-color-surface-container-high, #ECE6F0));
   }
 
   :host([fullscreen][active]) .suggestions-container {
     flex: 1;
     max-height: calc(100vh - 57px);
+    max-height: calc(100dvh - 57px);
   }
 `;
 

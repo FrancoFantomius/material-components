@@ -1,6 +1,7 @@
 export default {
   id: 'icon',
   title: 'Icon',
+  icon: 'category',
   tag: 'md-icon',
   category: 'Utilities',
   description: 'Icons visually communicate meaning, actions, and status using Google Material Symbols variable font glyphs or custom slotted SVGs.',

@@ -1,6 +1,7 @@
 export default {
   id: 'app-drawer',
   title: 'App Drawer',
+  icon: 'apps',
   tag: 'md-app-drawer',
   category: 'Navigation',
   description: 'App drawers provide a popover grid menu of applications, shortcuts, and services, typically positioned next to the account avatar or in top app bars.',

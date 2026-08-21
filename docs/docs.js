@@ -518,7 +518,7 @@ function setupSearch() {
       value: c.title,
       supportingText: c.description,
       trailingSupportingText: `<${c.tag}>`,
-      icon: 'widgets',
+      icon: c.icon || 'widgets',
       path: `#/components/${c.id}`,
       category: c.category
     })),
@@ -528,7 +528,7 @@ function setupSearch() {
       value: g.title,
       supportingText: g.summary,
       trailingSupportingText: g.category,
-      icon: 'menu_book',
+      icon: g.icon || 'menu_book',
       path: `#/guide/${g.id}`,
       category: g.category
     }))

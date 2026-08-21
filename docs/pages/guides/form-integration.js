@@ -1,6 +1,7 @@
 export default {
   id: 'form-integration',
   title: 'Form Integration',
+  icon: 'dynamic_form',
   category: 'Guides',
   summary: 'Native HTML Form participation, constraint validation, and FormData integration with Form-Associated Custom Elements (FACE).',
   contentHtml: `
