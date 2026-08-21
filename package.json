@@ -221,5 +221,14 @@
   },
   "allowScripts": {
     "esbuild@0.21.5": true
+    "happy-dom": "^20.11.6",
+    "typescript": "^5.6.3",
+    "vite": "^8.2.2",
+    "vite-plugin-dts": "^4.3.0",
+    "vitest": "^3.2.6"
+  },
+  "allowScripts": {
+    "rs-module-lexer@2.8.0": true,
+    "esbuild@0.28.2": true
   }
 }
