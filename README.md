@@ -143,6 +143,8 @@ applyTheme({
 | **Tabs** | `<md-tabs>`, `<md-tab>` | `active-index`, `icon`, `label` |
 | **List** | `<md-list>`, `<md-list-item>` | `headline`, `supporting-text`, `interactive`, `href` |
 | **Snackbar** | `<md-snackbar>` | `open`, `message`, `action-text`, `closeable`, `timeout-ms` |
+| **App Drawer** | `<md-app-drawer>`, `<md-app-drawer-item>` | `open`, `headline`, `icon`, `columns`, `modal`, `alignment` |
+| **Account Menu** | `<md-account-menu>`, `<md-account-item>` | `open`, `name`, `email`, `avatar`, `initials`, `storage-used`, `show-tabs`, `modal` |
 
 ---
 

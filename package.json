@@ -126,6 +126,30 @@
       "types": "./dist/components/search-bar/search-bar.d.ts",
       "import": "./dist/components/search-bar/search-bar.js"
     },
+    "./app-drawer": {
+      "types": "./dist/components/app-drawer/app-drawer.d.ts",
+      "import": "./dist/components/app-drawer/app-drawer.js"
+    },
+    "./app-launcher": {
+      "types": "./dist/components/app-drawer/app-drawer.d.ts",
+      "import": "./dist/components/app-drawer/app-drawer.js"
+    },
+    "./apps-menu": {
+      "types": "./dist/components/app-drawer/app-drawer.d.ts",
+      "import": "./dist/components/app-drawer/app-drawer.js"
+    },
+    "./account-menu": {
+      "types": "./dist/components/account-menu/account-menu.d.ts",
+      "import": "./dist/components/account-menu/account-menu.js"
+    },
+    "./account-drawer": {
+      "types": "./dist/components/account-menu/account-menu.d.ts",
+      "import": "./dist/components/account-menu/account-menu.js"
+    },
+    "./account-profile": {
+      "types": "./dist/components/account-menu/account-menu.d.ts",
+      "import": "./dist/components/account-menu/account-menu.js"
+    },
     "./ripple": {
       "types": "./dist/internal/ripple/ripple.d.ts",
       "import": "./dist/internal/ripple/ripple.js"
