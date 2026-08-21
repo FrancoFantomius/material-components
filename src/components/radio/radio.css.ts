@@ -17,7 +17,7 @@ export const radioStyles = css`
 
   :host([disabled]) {
     cursor: not-allowed;
-    color: rgba(29, 27, 32, 0.38);
+    opacity: 0.38;
     pointer-events: none;
   }
 
@@ -45,12 +45,16 @@ export const radioStyles = css`
     transition: border-color 150ms cubic-bezier(0.2, 0, 0, 1);
   }
 
+  .outer-circle md-ripple {
+    inset: -2px;
+  }
+
   :host([checked]) .outer-circle {
     border-color: var(--md-sys-color-primary, #6750A4);
   }
 
   :host([disabled]) .outer-circle {
-    border-color: rgba(29, 27, 32, 0.38);
+    border-color: var(--md-sys-color-on-surface, #1D1B20);
   }
 
   .inner-circle {
@@ -60,6 +64,7 @@ export const radioStyles = css`
     background-color: var(--md-sys-color-primary, #6750A4);
     transform: scale(0);
     transition: transform 150ms cubic-bezier(0.2, 0, 0, 1);
+    z-index: 1;
   }
 
   :host([checked]) .inner-circle {
@@ -67,7 +72,7 @@ export const radioStyles = css`
   }
 
   :host([disabled][checked]) .inner-circle {
-    background-color: rgba(29, 27, 32, 0.38);
+    background-color: var(--md-sys-color-on-surface, #1D1B20);
   }
 `;
 

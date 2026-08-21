@@ -4,6 +4,318 @@
   "modules": [
     {
       "kind": "javascript-module",
+      "path": "src/components/badge/badge.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdBadge",
+          "members": [
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "value",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "dot",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "dot",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "anchored",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "anchored",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "assignedChildren",
+              "type": {
+                "text": "HTMLElement[]"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleSlotChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "value"
+            },
+            {
+              "name": "dot",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "dot"
+            },
+            {
+              "name": "anchored",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "anchored"
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-badge",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdBadge",
+          "declaration": {
+            "name": "MdBadge",
+            "module": "src/components/badge/badge.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-badge",
+          "declaration": {
+            "name": "MdBadge",
+            "module": "src/components/badge/badge.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/card/card.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdCard",
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "CardVariant"
+              },
+              "default": "'elevated'",
+              "attribute": "variant",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "interactive",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "interactive",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "href",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "href"
+            },
+            {
+              "kind": "field",
+              "name": "target",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "target"
+            },
+            {
+              "kind": "field",
+              "name": "handleClick",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "CardVariant"
+              },
+              "default": "'elevated'",
+              "fieldName": "variant"
+            },
+            {
+              "name": "interactive",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "interactive"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "href",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "href"
+            },
+            {
+              "name": "target",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "target"
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-card",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdCard",
+          "declaration": {
+            "name": "MdCard",
+            "module": "src/components/card/card.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-card",
+          "declaration": {
+            "name": "MdCard",
+            "module": "src/components/card/card.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/button/button.ts",
       "declarations": [
         {
@@ -244,333 +556,6 @@
           "declaration": {
             "name": "MdButton",
             "module": "src/components/button/button.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/badge/badge.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "MdBadge",
-          "members": [
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "value",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "dot",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "dot",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "anchored",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "anchored",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "assignedChildren",
-              "type": {
-                "text": "HTMLElement[]"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "handleSlotChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "emitEvent",
-              "privacy": "protected",
-              "return": {
-                "type": {
-                  "text": "boolean"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "name",
-                  "type": {
-                    "text": "string"
-                  }
-                },
-                {
-                  "name": "detail",
-                  "optional": true,
-                  "type": {
-                    "text": "T"
-                  }
-                },
-                {
-                  "name": "options",
-                  "default": "{}",
-                  "type": {
-                    "text": "CustomEventInit<T>"
-                  }
-                }
-              ],
-              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
-              "inheritedFrom": {
-                "name": "MdBaseElement",
-                "module": "src/internal/base-component.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "value",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "value"
-            },
-            {
-              "name": "dot",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "dot"
-            },
-            {
-              "name": "anchored",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "anchored"
-            }
-          ],
-          "superclass": {
-            "name": "MdBaseElement",
-            "module": "/src/internal/base-component.js"
-          },
-          "tagName": "md-badge",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "MdBadge",
-          "declaration": {
-            "name": "MdBadge",
-            "module": "src/components/badge/badge.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "md-badge",
-          "declaration": {
-            "name": "MdBadge",
-            "module": "src/components/badge/badge.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/dialog/dialog.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "MdDialog",
-          "members": [
-            {
-              "kind": "field",
-              "name": "open",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "open",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "headline",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "headline"
-            },
-            {
-              "kind": "field",
-              "name": "icon",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "icon"
-            },
-            {
-              "kind": "field",
-              "name": "returnValue",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "return-value"
-            },
-            {
-              "kind": "field",
-              "name": "dialogElement",
-              "type": {
-                "text": "HTMLDialogElement | undefined"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "showModal"
-            },
-            {
-              "kind": "method",
-              "name": "show"
-            },
-            {
-              "kind": "method",
-              "name": "close",
-              "parameters": [
-                {
-                  "name": "returnValue",
-                  "optional": true,
-                  "type": {
-                    "text": "string"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "field",
-              "name": "handleCancel",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "handleBackdropClick",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "emitEvent",
-              "privacy": "protected",
-              "return": {
-                "type": {
-                  "text": "boolean"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "name",
-                  "type": {
-                    "text": "string"
-                  }
-                },
-                {
-                  "name": "detail",
-                  "optional": true,
-                  "type": {
-                    "text": "T"
-                  }
-                },
-                {
-                  "name": "options",
-                  "default": "{}",
-                  "type": {
-                    "text": "CustomEventInit<T>"
-                  }
-                }
-              ],
-              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
-              "inheritedFrom": {
-                "name": "MdBaseElement",
-                "module": "src/internal/base-component.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "open",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "open"
-            },
-            {
-              "name": "headline",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "headline"
-            },
-            {
-              "name": "icon",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "icon"
-            },
-            {
-              "name": "return-value",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "returnValue"
-            }
-          ],
-          "superclass": {
-            "name": "MdBaseElement",
-            "module": "/src/internal/base-component.js"
-          },
-          "tagName": "md-dialog",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "MdDialog",
-          "declaration": {
-            "name": "MdDialog",
-            "module": "src/components/dialog/dialog.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "md-dialog",
-          "declaration": {
-            "name": "MdDialog",
-            "module": "src/components/dialog/dialog.ts"
           }
         }
       ]
@@ -835,64 +820,87 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/card/card.ts",
+      "path": "src/components/dialog/dialog.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "MdCard",
+          "name": "MdDialog",
           "members": [
             {
               "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "CardVariant"
-              },
-              "default": "'elevated'",
-              "attribute": "variant",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "interactive",
+              "name": "open",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "attribute": "interactive",
+              "attribute": "open",
               "reflects": true
             },
             {
               "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "disabled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "href",
+              "name": "headline",
               "type": {
                 "text": "string"
               },
               "default": "''",
-              "attribute": "href"
+              "attribute": "headline"
             },
             {
               "kind": "field",
-              "name": "target",
+              "name": "icon",
               "type": {
                 "text": "string"
               },
               "default": "''",
-              "attribute": "target"
+              "attribute": "icon"
             },
             {
               "kind": "field",
-              "name": "handleClick",
+              "name": "returnValue",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "return-value"
+            },
+            {
+              "kind": "field",
+              "name": "dialogElement",
+              "type": {
+                "text": "HTMLDialogElement | undefined"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "showModal"
+            },
+            {
+              "kind": "method",
+              "name": "show"
+            },
+            {
+              "kind": "method",
+              "name": "close",
+              "parameters": [
+                {
+                  "name": "returnValue",
+                  "optional": true,
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "handleCancel",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleBackdropClick",
               "privacy": "private"
             },
             {
@@ -935,69 +943,209 @@
           ],
           "attributes": [
             {
-              "name": "variant",
-              "type": {
-                "text": "CardVariant"
-              },
-              "default": "'elevated'",
-              "fieldName": "variant"
-            },
-            {
-              "name": "interactive",
+              "name": "open",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "fieldName": "interactive"
+              "fieldName": "open"
             },
             {
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "href",
+              "name": "headline",
               "type": {
                 "text": "string"
               },
               "default": "''",
-              "fieldName": "href"
+              "fieldName": "headline"
             },
             {
-              "name": "target",
+              "name": "icon",
               "type": {
                 "text": "string"
               },
               "default": "''",
-              "fieldName": "target"
+              "fieldName": "icon"
+            },
+            {
+              "name": "return-value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "returnValue"
             }
           ],
           "superclass": {
             "name": "MdBaseElement",
             "module": "/src/internal/base-component.js"
           },
-          "tagName": "md-card",
+          "tagName": "md-dialog",
           "customElement": true
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "MdCard",
+          "name": "MdDialog",
           "declaration": {
-            "name": "MdCard",
-            "module": "src/components/card/card.ts"
+            "name": "MdDialog",
+            "module": "src/components/dialog/dialog.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "md-card",
+          "name": "md-dialog",
           "declaration": {
-            "name": "MdCard",
-            "module": "src/components/card/card.ts"
+            "name": "MdDialog",
+            "module": "src/components/dialog/dialog.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/divider/divider.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdDivider",
+          "members": [
+            {
+              "kind": "field",
+              "name": "vertical",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "vertical",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "inset",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "inset",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "insetStart",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "inset-start",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "insetEnd",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "inset-end",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "vertical",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "vertical"
+            },
+            {
+              "name": "inset",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "inset"
+            },
+            {
+              "name": "inset-start",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "insetStart"
+            },
+            {
+              "name": "inset-end",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "insetEnd"
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-divider",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdDivider",
+          "declaration": {
+            "name": "MdDivider",
+            "module": "src/components/divider/divider.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-divider",
+          "declaration": {
+            "name": "MdDivider",
+            "module": "src/components/divider/divider.ts"
           }
         }
       ]
@@ -1180,788 +1328,6 @@
           "declaration": {
             "name": "MdFab",
             "module": "src/components/fab/fab.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/divider/divider.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "MdDivider",
-          "members": [
-            {
-              "kind": "field",
-              "name": "vertical",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "vertical",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "inset",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "inset",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "insetStart",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "inset-start",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "insetEnd",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "inset-end",
-              "reflects": true
-            },
-            {
-              "kind": "method",
-              "name": "emitEvent",
-              "privacy": "protected",
-              "return": {
-                "type": {
-                  "text": "boolean"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "name",
-                  "type": {
-                    "text": "string"
-                  }
-                },
-                {
-                  "name": "detail",
-                  "optional": true,
-                  "type": {
-                    "text": "T"
-                  }
-                },
-                {
-                  "name": "options",
-                  "default": "{}",
-                  "type": {
-                    "text": "CustomEventInit<T>"
-                  }
-                }
-              ],
-              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
-              "inheritedFrom": {
-                "name": "MdBaseElement",
-                "module": "src/internal/base-component.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "vertical",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "vertical"
-            },
-            {
-              "name": "inset",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "inset"
-            },
-            {
-              "name": "inset-start",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "insetStart"
-            },
-            {
-              "name": "inset-end",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "insetEnd"
-            }
-          ],
-          "superclass": {
-            "name": "MdBaseElement",
-            "module": "/src/internal/base-component.js"
-          },
-          "tagName": "md-divider",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "MdDivider",
-          "declaration": {
-            "name": "MdDivider",
-            "module": "src/components/divider/divider.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "md-divider",
-          "declaration": {
-            "name": "MdDivider",
-            "module": "src/components/divider/divider.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/icon/icon.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "MdIcon",
-          "members": [
-            {
-              "kind": "field",
-              "name": "name",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "name"
-            },
-            {
-              "kind": "field",
-              "name": "filled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "filled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "size"
-            },
-            {
-              "kind": "method",
-              "name": "emitEvent",
-              "privacy": "protected",
-              "return": {
-                "type": {
-                  "text": "boolean"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "name",
-                  "type": {
-                    "text": "string"
-                  }
-                },
-                {
-                  "name": "detail",
-                  "optional": true,
-                  "type": {
-                    "text": "T"
-                  }
-                },
-                {
-                  "name": "options",
-                  "default": "{}",
-                  "type": {
-                    "text": "CustomEventInit<T>"
-                  }
-                }
-              ],
-              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
-              "inheritedFrom": {
-                "name": "MdBaseElement",
-                "module": "src/internal/base-component.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "name",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "name"
-            },
-            {
-              "name": "filled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "filled"
-            },
-            {
-              "name": "size",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "size"
-            }
-          ],
-          "superclass": {
-            "name": "MdBaseElement",
-            "module": "/src/internal/base-component.js"
-          },
-          "tagName": "md-icon",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "MdIcon",
-          "declaration": {
-            "name": "MdIcon",
-            "module": "src/components/icon/icon.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "md-icon",
-          "declaration": {
-            "name": "MdIcon",
-            "module": "src/components/icon/icon.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/icon-button/icon-button.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "MdIconButton",
-          "members": [
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "IconButtonVariant"
-              },
-              "default": "'standard'",
-              "attribute": "variant",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "disabled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "toggle",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "toggle",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "selected",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "selected",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "icon",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "icon"
-            },
-            {
-              "kind": "field",
-              "name": "selectedIcon",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "selected-icon"
-            },
-            {
-              "kind": "field",
-              "name": "ariaLabelText",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "aria-label"
-            },
-            {
-              "kind": "field",
-              "name": "href",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "href"
-            },
-            {
-              "kind": "field",
-              "name": "target",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "target"
-            },
-            {
-              "kind": "field",
-              "name": "handleClick",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "emitEvent",
-              "privacy": "protected",
-              "return": {
-                "type": {
-                  "text": "boolean"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "name",
-                  "type": {
-                    "text": "string"
-                  }
-                },
-                {
-                  "name": "detail",
-                  "optional": true,
-                  "type": {
-                    "text": "T"
-                  }
-                },
-                {
-                  "name": "options",
-                  "default": "{}",
-                  "type": {
-                    "text": "CustomEventInit<T>"
-                  }
-                }
-              ],
-              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
-              "inheritedFrom": {
-                "name": "MdBaseElement",
-                "module": "src/internal/base-component.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "variant",
-              "type": {
-                "text": "IconButtonVariant"
-              },
-              "default": "'standard'",
-              "fieldName": "variant"
-            },
-            {
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "toggle",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "toggle"
-            },
-            {
-              "name": "selected",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "selected"
-            },
-            {
-              "name": "icon",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "icon"
-            },
-            {
-              "name": "selected-icon",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "selectedIcon"
-            },
-            {
-              "name": "aria-label",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "ariaLabelText"
-            },
-            {
-              "name": "href",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "href"
-            },
-            {
-              "name": "target",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "target"
-            }
-          ],
-          "superclass": {
-            "name": "MdBaseElement",
-            "module": "/src/internal/base-component.js"
-          },
-          "tagName": "md-icon-button",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "MdIconButton",
-          "declaration": {
-            "name": "MdIconButton",
-            "module": "src/components/icon-button/icon-button.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "md-icon-button",
-          "declaration": {
-            "name": "MdIconButton",
-            "module": "src/components/icon-button/icon-button.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/list/list.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "MdListItem",
-          "members": [
-            {
-              "kind": "field",
-              "name": "headline",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "headline"
-            },
-            {
-              "kind": "field",
-              "name": "supportingText",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "supporting-text"
-            },
-            {
-              "kind": "field",
-              "name": "trailingSupportingText",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "trailing-supporting-text"
-            },
-            {
-              "kind": "field",
-              "name": "interactive",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "interactive",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "disabled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "href",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "href"
-            },
-            {
-              "kind": "field",
-              "name": "target",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "target"
-            },
-            {
-              "kind": "field",
-              "name": "handleClick",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "emitEvent",
-              "privacy": "protected",
-              "return": {
-                "type": {
-                  "text": "boolean"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "name",
-                  "type": {
-                    "text": "string"
-                  }
-                },
-                {
-                  "name": "detail",
-                  "optional": true,
-                  "type": {
-                    "text": "T"
-                  }
-                },
-                {
-                  "name": "options",
-                  "default": "{}",
-                  "type": {
-                    "text": "CustomEventInit<T>"
-                  }
-                }
-              ],
-              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
-              "inheritedFrom": {
-                "name": "MdBaseElement",
-                "module": "src/internal/base-component.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "headline",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "headline"
-            },
-            {
-              "name": "supporting-text",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "supportingText"
-            },
-            {
-              "name": "trailing-supporting-text",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "trailingSupportingText"
-            },
-            {
-              "name": "interactive",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "interactive"
-            },
-            {
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "href",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "href"
-            },
-            {
-              "name": "target",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "target"
-            }
-          ],
-          "superclass": {
-            "name": "MdBaseElement",
-            "module": "/src/internal/base-component.js"
-          },
-          "tagName": "md-list-item",
-          "customElement": true
-        },
-        {
-          "kind": "class",
-          "description": "",
-          "name": "MdList",
-          "members": [
-            {
-              "kind": "method",
-              "name": "emitEvent",
-              "privacy": "protected",
-              "return": {
-                "type": {
-                  "text": "boolean"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "name",
-                  "type": {
-                    "text": "string"
-                  }
-                },
-                {
-                  "name": "detail",
-                  "optional": true,
-                  "type": {
-                    "text": "T"
-                  }
-                },
-                {
-                  "name": "options",
-                  "default": "{}",
-                  "type": {
-                    "text": "CustomEventInit<T>"
-                  }
-                }
-              ],
-              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
-              "inheritedFrom": {
-                "name": "MdBaseElement",
-                "module": "src/internal/base-component.ts"
-              }
-            }
-          ],
-          "superclass": {
-            "name": "MdBaseElement",
-            "module": "/src/internal/base-component.js"
-          },
-          "tagName": "md-list",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "MdListItem",
-          "declaration": {
-            "name": "MdListItem",
-            "module": "src/components/list/list.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "md-list-item",
-          "declaration": {
-            "name": "MdListItem",
-            "module": "src/components/list/list.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "MdList",
-          "declaration": {
-            "name": "MdList",
-            "module": "src/components/list/list.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "md-list",
-          "declaration": {
-            "name": "MdList",
-            "module": "src/components/list/list.ts"
           }
         }
       ]
@@ -2433,6 +1799,640 @@
           "declaration": {
             "name": "MdCheckbox",
             "module": "src/components/checkbox/checkbox.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/icon/icon.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdIcon",
+          "members": [
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "filled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "size"
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "name"
+            },
+            {
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "filled"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "size"
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-icon",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdIcon",
+          "declaration": {
+            "name": "MdIcon",
+            "module": "src/components/icon/icon.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-icon",
+          "declaration": {
+            "name": "MdIcon",
+            "module": "src/components/icon/icon.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/list/list.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdListItem",
+          "members": [
+            {
+              "kind": "field",
+              "name": "headline",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "headline"
+            },
+            {
+              "kind": "field",
+              "name": "supportingText",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "supporting-text"
+            },
+            {
+              "kind": "field",
+              "name": "trailingSupportingText",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "trailing-supporting-text"
+            },
+            {
+              "kind": "field",
+              "name": "interactive",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "interactive",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "href",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "href"
+            },
+            {
+              "kind": "field",
+              "name": "target",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "target"
+            },
+            {
+              "kind": "field",
+              "name": "handleClick",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "headline",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "headline"
+            },
+            {
+              "name": "supporting-text",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "supportingText"
+            },
+            {
+              "name": "trailing-supporting-text",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "trailingSupportingText"
+            },
+            {
+              "name": "interactive",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "interactive"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "href",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "href"
+            },
+            {
+              "name": "target",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "target"
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-list-item",
+          "customElement": true
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdList",
+          "members": [
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-list",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdListItem",
+          "declaration": {
+            "name": "MdListItem",
+            "module": "src/components/list/list.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-list-item",
+          "declaration": {
+            "name": "MdListItem",
+            "module": "src/components/list/list.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "MdList",
+          "declaration": {
+            "name": "MdList",
+            "module": "src/components/list/list.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-list",
+          "declaration": {
+            "name": "MdList",
+            "module": "src/components/list/list.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/icon-button/icon-button.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdIconButton",
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "IconButtonVariant"
+              },
+              "default": "'standard'",
+              "attribute": "variant",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "toggle",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "toggle",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "selected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "selected",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "icon"
+            },
+            {
+              "kind": "field",
+              "name": "selectedIcon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "selected-icon"
+            },
+            {
+              "kind": "field",
+              "name": "ariaLabelText",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "aria-label"
+            },
+            {
+              "kind": "field",
+              "name": "href",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "href"
+            },
+            {
+              "kind": "field",
+              "name": "target",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "target"
+            },
+            {
+              "kind": "field",
+              "name": "handleClick",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "IconButtonVariant"
+              },
+              "default": "'standard'",
+              "fieldName": "variant"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "toggle",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "toggle"
+            },
+            {
+              "name": "selected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "selected"
+            },
+            {
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "icon"
+            },
+            {
+              "name": "selected-icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "selectedIcon"
+            },
+            {
+              "name": "aria-label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "ariaLabelText"
+            },
+            {
+              "name": "href",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "href"
+            },
+            {
+              "name": "target",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "target"
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-icon-button",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdIconButton",
+          "declaration": {
+            "name": "MdIconButton",
+            "module": "src/components/icon-button/icon-button.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-icon-button",
+          "declaration": {
+            "name": "MdIconButton",
+            "module": "src/components/icon-button/icon-button.ts"
           }
         }
       ]
@@ -3176,6 +3176,206 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/snackbar/snackbar.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdSnackbar",
+          "members": [
+            {
+              "kind": "field",
+              "name": "open",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "open",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "message",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "message"
+            },
+            {
+              "kind": "field",
+              "name": "actionText",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "action-text"
+            },
+            {
+              "kind": "field",
+              "name": "closeable",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "closeable",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "timeoutMs",
+              "type": {
+                "text": "number"
+              },
+              "default": "4000",
+              "attribute": "timeout-ms"
+            },
+            {
+              "kind": "field",
+              "name": "timerId",
+              "type": {
+                "text": "number | null"
+              },
+              "privacy": "private",
+              "default": "null"
+            },
+            {
+              "kind": "method",
+              "name": "show"
+            },
+            {
+              "kind": "method",
+              "name": "close"
+            },
+            {
+              "kind": "method",
+              "name": "startTimer",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "clearTimer",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleAction",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleClose",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "open",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "open"
+            },
+            {
+              "name": "message",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "message"
+            },
+            {
+              "name": "action-text",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "actionText"
+            },
+            {
+              "name": "closeable",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "closeable"
+            },
+            {
+              "name": "timeout-ms",
+              "type": {
+                "text": "number"
+              },
+              "default": "4000",
+              "fieldName": "timeoutMs"
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-snackbar",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdSnackbar",
+          "declaration": {
+            "name": "MdSnackbar",
+            "module": "src/components/snackbar/snackbar.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-snackbar",
+          "declaration": {
+            "name": "MdSnackbar",
+            "module": "src/components/snackbar/snackbar.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/switch/switch.ts",
       "declarations": [
         {
@@ -3621,95 +3821,184 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/snackbar/snackbar.ts",
+      "path": "src/components/tabs/tabs.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "MdSnackbar",
+          "name": "MdTab",
           "members": [
             {
               "kind": "field",
-              "name": "open",
+              "name": "active",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "attribute": "open",
+              "attribute": "active",
               "reflects": true
             },
             {
               "kind": "field",
-              "name": "message",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "message"
-            },
-            {
-              "kind": "field",
-              "name": "actionText",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "action-text"
-            },
-            {
-              "kind": "field",
-              "name": "closeable",
+              "name": "disabled",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "attribute": "closeable",
+              "attribute": "disabled",
               "reflects": true
             },
             {
               "kind": "field",
-              "name": "timeoutMs",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "icon"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "label"
+            },
+            {
+              "kind": "method",
+              "name": "emitEvent",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "optional": true,
+                  "type": {
+                    "text": "T"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "type": {
+                    "text": "CustomEventInit<T>"
+                  }
+                }
+              ],
+              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
+              "inheritedFrom": {
+                "name": "MdBaseElement",
+                "module": "src/internal/base-component.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "active",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "active"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "icon"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "label"
+            }
+          ],
+          "superclass": {
+            "name": "MdBaseElement",
+            "module": "/src/internal/base-component.js"
+          },
+          "tagName": "md-tab",
+          "customElement": true
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdTabs",
+          "members": [
+            {
+              "kind": "field",
+              "name": "activeIndex",
               "type": {
                 "text": "number"
               },
-              "default": "4000",
-              "attribute": "timeout-ms"
+              "default": "0",
+              "attribute": "active-index",
+              "reflects": true
             },
             {
               "kind": "field",
-              "name": "timerId",
+              "name": "tabs",
               "type": {
-                "text": "number | null"
+                "text": "MdTab[]"
               },
-              "privacy": "private",
-              "default": "null"
-            },
-            {
-              "kind": "method",
-              "name": "show"
-            },
-            {
-              "kind": "method",
-              "name": "close"
-            },
-            {
-              "kind": "method",
-              "name": "startTimer",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "clearTimer",
               "privacy": "private"
             },
             {
               "kind": "field",
-              "name": "handleAction",
+              "name": "indicatorElement",
+              "type": {
+                "text": "HTMLElement | undefined"
+              },
               "privacy": "private"
             },
             {
               "kind": "field",
-              "name": "handleClose",
+              "name": "handleSlotChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "syncActiveTab",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateIndicator",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleClick",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleKeyDown",
               "privacy": "private"
             },
             {
@@ -3752,69 +4041,53 @@
           ],
           "attributes": [
             {
-              "name": "open",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "open"
-            },
-            {
-              "name": "message",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "message"
-            },
-            {
-              "name": "action-text",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "actionText"
-            },
-            {
-              "name": "closeable",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "closeable"
-            },
-            {
-              "name": "timeout-ms",
+              "name": "active-index",
               "type": {
                 "text": "number"
               },
-              "default": "4000",
-              "fieldName": "timeoutMs"
+              "default": "0",
+              "fieldName": "activeIndex"
             }
           ],
           "superclass": {
             "name": "MdBaseElement",
             "module": "/src/internal/base-component.js"
           },
-          "tagName": "md-snackbar",
+          "tagName": "md-tabs",
           "customElement": true
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "MdSnackbar",
+          "name": "MdTab",
           "declaration": {
-            "name": "MdSnackbar",
-            "module": "src/components/snackbar/snackbar.ts"
+            "name": "MdTab",
+            "module": "src/components/tabs/tabs.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "md-snackbar",
+          "name": "md-tab",
           "declaration": {
-            "name": "MdSnackbar",
-            "module": "src/components/snackbar/snackbar.ts"
+            "name": "MdTab",
+            "module": "src/components/tabs/tabs.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "MdTabs",
+          "declaration": {
+            "name": "MdTabs",
+            "module": "src/components/tabs/tabs.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "md-tabs",
+          "declaration": {
+            "name": "MdTabs",
+            "module": "src/components/tabs/tabs.ts"
           }
         }
       ]
@@ -4500,279 +4773,6 @@
           "declaration": {
             "name": "MdTextField",
             "module": "src/components/text-field/text-field.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/tabs/tabs.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "MdTab",
-          "members": [
-            {
-              "kind": "field",
-              "name": "active",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "active",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "disabled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "icon",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "icon"
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "label"
-            },
-            {
-              "kind": "method",
-              "name": "emitEvent",
-              "privacy": "protected",
-              "return": {
-                "type": {
-                  "text": "boolean"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "name",
-                  "type": {
-                    "text": "string"
-                  }
-                },
-                {
-                  "name": "detail",
-                  "optional": true,
-                  "type": {
-                    "text": "T"
-                  }
-                },
-                {
-                  "name": "options",
-                  "default": "{}",
-                  "type": {
-                    "text": "CustomEventInit<T>"
-                  }
-                }
-              ],
-              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
-              "inheritedFrom": {
-                "name": "MdBaseElement",
-                "module": "src/internal/base-component.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "active",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "active"
-            },
-            {
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "icon",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "icon"
-            },
-            {
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "label"
-            }
-          ],
-          "superclass": {
-            "name": "MdBaseElement",
-            "module": "/src/internal/base-component.js"
-          },
-          "tagName": "md-tab",
-          "customElement": true
-        },
-        {
-          "kind": "class",
-          "description": "",
-          "name": "MdTabs",
-          "members": [
-            {
-              "kind": "field",
-              "name": "activeIndex",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "attribute": "active-index",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "tabs",
-              "type": {
-                "text": "MdTab[]"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "indicatorElement",
-              "type": {
-                "text": "HTMLElement | undefined"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "handleSlotChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "syncActiveTab",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "updateIndicator",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "handleClick",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "handleKeyDown",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "emitEvent",
-              "privacy": "protected",
-              "return": {
-                "type": {
-                  "text": "boolean"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "name",
-                  "type": {
-                    "text": "string"
-                  }
-                },
-                {
-                  "name": "detail",
-                  "optional": true,
-                  "type": {
-                    "text": "T"
-                  }
-                },
-                {
-                  "name": "options",
-                  "default": "{}",
-                  "type": {
-                    "text": "CustomEventInit<T>"
-                  }
-                }
-              ],
-              "description": "Helper to dispatch custom events with standard bubbles/composed defaults.",
-              "inheritedFrom": {
-                "name": "MdBaseElement",
-                "module": "src/internal/base-component.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "active-index",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "fieldName": "activeIndex"
-            }
-          ],
-          "superclass": {
-            "name": "MdBaseElement",
-            "module": "/src/internal/base-component.js"
-          },
-          "tagName": "md-tabs",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "MdTab",
-          "declaration": {
-            "name": "MdTab",
-            "module": "src/components/tabs/tabs.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "md-tab",
-          "declaration": {
-            "name": "MdTab",
-            "module": "src/components/tabs/tabs.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "MdTabs",
-          "declaration": {
-            "name": "MdTabs",
-            "module": "src/components/tabs/tabs.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "md-tabs",
-          "declaration": {
-            "name": "MdTabs",
-            "module": "src/components/tabs/tabs.ts"
           }
         }
       ]

@@ -1,6 +1,6 @@
 {
   "name": "@francofantomius/material-components",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Reusable, accessible, and lightweight Material Design 3 Web Components built with Lit.",
   "type": "module",
   "main": "./dist/index.js",
@@ -10,6 +10,7 @@
   "files": [
     "dist",
     "README.md",
+    "CHANGELOG.md",
     "LICENSE",
     "custom-elements.json"
   ],
@@ -90,21 +91,107 @@
       "types": "./dist/components/snackbar/snackbar.d.ts",
       "import": "./dist/components/snackbar/snackbar.js"
     },
+    "./top-app-bar": {
+      "types": "./dist/components/top-app-bar/top-app-bar.d.ts",
+      "import": "./dist/components/top-app-bar/top-app-bar.js"
+    },
+    "./top-bar": {
+      "types": "./dist/components/top-app-bar/top-app-bar.d.ts",
+      "import": "./dist/components/top-app-bar/top-app-bar.js"
+    },
+    "./navigation-drawer": {
+      "types": "./dist/components/navigation-drawer/navigation-drawer.d.ts",
+      "import": "./dist/components/navigation-drawer/navigation-drawer.js"
+    },
+    "./drawer": {
+      "types": "./dist/components/navigation-drawer/navigation-drawer.d.ts",
+      "import": "./dist/components/navigation-drawer/navigation-drawer.js"
+    },
+    "./menu-bar": {
+      "types": "./dist/components/navigation-drawer/navigation-drawer.d.ts",
+      "import": "./dist/components/navigation-drawer/navigation-drawer.js"
+    },
+    "./table": {
+      "types": "./dist/components/table/table.d.ts",
+      "import": "./dist/components/table/table.js"
+    },
+    "./data-table": {
+      "types": "./dist/components/table/table.d.ts",
+      "import": "./dist/components/table/table.js"
+    },
+    "./search-bar": {
+      "types": "./dist/components/search-bar/search-bar.d.ts",
+      "import": "./dist/components/search-bar/search-bar.js"
+    },
+    "./search": {
+      "types": "./dist/components/search-bar/search-bar.d.ts",
+      "import": "./dist/components/search-bar/search-bar.js"
+    },
+    "./app-drawer": {
+      "types": "./dist/components/app-drawer/app-drawer.d.ts",
+      "import": "./dist/components/app-drawer/app-drawer.js"
+    },
+    "./app-launcher": {
+      "types": "./dist/components/app-drawer/app-drawer.d.ts",
+      "import": "./dist/components/app-drawer/app-drawer.js"
+    },
+    "./apps-menu": {
+      "types": "./dist/components/app-drawer/app-drawer.d.ts",
+      "import": "./dist/components/app-drawer/app-drawer.js"
+    },
+    "./account-menu": {
+      "types": "./dist/components/account-menu/account-menu.d.ts",
+      "import": "./dist/components/account-menu/account-menu.js"
+    },
+    "./account-drawer": {
+      "types": "./dist/components/account-menu/account-menu.d.ts",
+      "import": "./dist/components/account-menu/account-menu.js"
+    },
+    "./account-profile": {
+      "types": "./dist/components/account-menu/account-menu.d.ts",
+      "import": "./dist/components/account-menu/account-menu.js"
+    },
     "./ripple": {
       "types": "./dist/internal/ripple/ripple.d.ts",
       "import": "./dist/internal/ripple/ripple.js"
+    },
+    "./focus-ring": {
+      "types": "./dist/internal/focus-ring/focus-ring.d.ts",
+      "import": "./dist/internal/focus-ring/focus-ring.js"
+    },
+    "./code": {
+      "types": "./dist/components/code/code.d.ts",
+      "import": "./dist/components/code/code.js"
+    },
+    "./code-block": {
+      "types": "./dist/components/code/code.d.ts",
+      "import": "./dist/components/code/code.js"
+    },
+    "./player": {
+      "types": "./dist/components/player/player.d.ts",
+      "import": "./dist/components/player/player.js"
+    },
+    "./media-player": {
+      "types": "./dist/components/player/player.d.ts",
+      "import": "./dist/components/player/player.js"
+    },
+    "./audio-player": {
+      "types": "./dist/components/player/player.d.ts",
+      "import": "./dist/components/player/player.js"
+    },
+    "./video-player": {
+      "types": "./dist/components/player/player.d.ts",
+      "import": "./dist/components/player/player.js"
     }
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && npm run analyze",
+    "build": "tsc && vite build && node docs/generate.js && vite build --config vite.docs.config.ts && npm run analyze",
+    "preview": "vite preview --config vite.docs.config.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
     "analyze": "cem analyze --litelement",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs",
     "prepublishOnly": "npm run typecheck && npm run test && npm run build"
   },
   "keywords": [
@@ -119,15 +206,24 @@
   "author": "francofantomius",
   "license": "MIT",
   "dependencies": {
-    "lit": "^3.2.1"
+    "lit": "^3.3.3"
   },
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "^0.10.4",
+    "@typescript/typescript6": "^6.0.2",
     "happy-dom": "^20.11.6",
-    "typescript": "^5.6.3",
-    "vite": "^6.0.1",
-    "vite-plugin-dts": "^4.3.0",
-    "vitepress": "^1.6.4",
-    "vitest": "^3.2.6"
+    "typescript": "^7.0.2",
+    "vite": "^8.2.2",
+    "vite-plugin-dts": "^5.0.3",
+    "vitest": "^4.1.11"
+  },
+  "allowScripts": {
+    "esbuild@0.21.5": true,
+    "happy-dom": true,
+    "typescript": true,
+    "vite": true,
+    "vite-plugin-dts": true,
+    "vitest": true,
+    "rs-module-lexer@2.8.0": true
   }
 }

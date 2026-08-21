@@ -33,7 +33,14 @@ export default defineConfig({
         'components/tabs/tabs': resolve(__dirname, 'src/components/tabs/tabs.ts'),
         'components/list/list': resolve(__dirname, 'src/components/list/list.ts'),
         'components/snackbar/snackbar': resolve(__dirname, 'src/components/snackbar/snackbar.ts'),
+        'components/top-app-bar/top-app-bar': resolve(__dirname, 'src/components/top-app-bar/top-app-bar.ts'),
+        'components/navigation-drawer/navigation-drawer': resolve(__dirname, 'src/components/navigation-drawer/navigation-drawer.ts'),
+        'components/table/table': resolve(__dirname, 'src/components/table/table.ts'),
+        'components/search-bar/search-bar': resolve(__dirname, 'src/components/search-bar/search-bar.ts'),
+        'components/code/code': resolve(__dirname, 'src/components/code/code.ts'),
+        'components/player/player': resolve(__dirname, 'src/components/player/player.ts'),
         'internal/ripple/ripple': resolve(__dirname, 'src/internal/ripple/ripple.ts'),
+        'internal/focus-ring/focus-ring': resolve(__dirname, 'src/internal/focus-ring/focus-ring.ts'),
       },
       formats: ['es'],
     },
@@ -55,7 +62,7 @@ export default defineConfig({
   },
   server: {
     port: 3000,
-    open: true,
+    open: '/docs/index.html',
   },
 });
 

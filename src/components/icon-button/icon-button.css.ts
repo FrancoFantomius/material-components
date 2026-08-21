@@ -23,6 +23,7 @@ export const iconButtonStyles = css`
     padding: 0;
     border: none;
     border-radius: var(--md-sys-shape-corner-full, 50%);
+    overflow: hidden;
     background-color: transparent;
     color: var(--md-sys-color-on-surface-variant, #49454F);
     cursor: pointer;

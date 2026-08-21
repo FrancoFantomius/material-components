@@ -17,7 +17,7 @@ export const checkboxStyles = css`
 
   :host([disabled]) {
     cursor: not-allowed;
-    color: rgba(29, 27, 32, 0.38);
+    opacity: 0.38;
     pointer-events: none;
   }
 
@@ -46,6 +46,10 @@ export const checkboxStyles = css`
                 border-color 150ms cubic-bezier(0.2, 0, 0, 1);
   }
 
+  .box md-ripple {
+    inset: -2px;
+  }
+
   :host([checked]) .box,
   :host([indeterminate]) .box {
     background-color: var(--md-sys-color-primary, #6750A4);
@@ -63,12 +67,12 @@ export const checkboxStyles = css`
   }
 
   :host([disabled]) .box {
-    border-color: rgba(29, 27, 32, 0.38);
+    border-color: var(--md-sys-color-on-surface, #1D1B20);
   }
 
   :host([disabled][checked]) .box,
   :host([disabled][indeterminate]) .box {
-    background-color: rgba(29, 27, 32, 0.38);
+    background-color: var(--md-sys-color-on-surface, #1D1B20);
     border-color: transparent;
   }
 
@@ -83,6 +87,7 @@ export const checkboxStyles = css`
     stroke-linejoin: round;
     opacity: 0;
     transition: opacity 150ms ease;
+    z-index: 1;
   }
 
   :host([checked]) .mark.check {

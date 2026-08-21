@@ -25,4 +25,11 @@ export * from './components/chip/chip.js';
 export * from './components/tabs/tabs.js';
 export * from './components/list/list.js';
 export * from './components/snackbar/snackbar.js';
-
+export * from './components/top-app-bar/top-app-bar.js';
+export * from './components/navigation-drawer/navigation-drawer.js';
+export * from './components/table/table.js';
+export * from './components/search-bar/search-bar.js';
+export * from './components/code/code.js';
+export * from './components/player/player.js';
+export * from './components/app-drawer/app-drawer.js';
+export * from './components/account-menu/account-menu.js';

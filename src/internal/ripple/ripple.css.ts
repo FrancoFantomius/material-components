@@ -12,11 +12,19 @@ export const rippleStyles = css`
   }
 
   :host([unbounded]) {
-    overflow: visible;
+    overflow: hidden;
+    border-radius: inherit;
   }
 
   :host([disabled]) {
     opacity: 0;
+  }
+
+  .surface-container {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    overflow: hidden;
   }
 
   .surface {
@@ -25,12 +33,6 @@ export const rippleStyles = css`
     border-radius: inherit;
     background-color: currentColor;
     opacity: 0;
-    transition: opacity 150ms linear;
-  }
-
-  :host(:hover) .surface,
-  .surface.hovered {
-    opacity: var(--md-sys-state-hover-opacity, 0.08);
   }
 
   :host(:focus-visible) .surface,
@@ -45,7 +47,7 @@ export const rippleStyles = css`
     opacity: var(--md-sys-state-pressed-opacity, 0.12);
     transform: scale(0);
     pointer-events: none;
-    animation: md-ripple-expand 350ms cubic-bezier(0.2, 0, 0, 1) forwards;
+    animation: md-ripple-expand 300ms cubic-bezier(0.2, 0, 0, 1) forwards;
   }
 
   .ripple.fading {
@@ -58,7 +60,7 @@ export const rippleStyles = css`
       opacity: var(--md-sys-state-pressed-opacity, 0.12);
     }
     to {
-      transform: scale(2.5);
+      transform: scale(1);
       opacity: var(--md-sys-state-pressed-opacity, 0.12);
     }
   }
@@ -72,4 +74,3 @@ export const rippleStyles = css`
     }
   }
 `;
-

@@ -6,6 +6,8 @@ export const textFieldStyles = css`
     flex-direction: column;
     min-width: 240px;
     vertical-align: top;
+    align-self: flex-start;
+    box-sizing: border-box;
     font-family: var(--md-sys-typescale-font-family, inherit);
     -webkit-tap-highlight-color: transparent;
   }
@@ -67,37 +69,50 @@ export const textFieldStyles = css`
     top: 50%;
     transform: translateY(-50%);
     font-size: 16px;
+    line-height: 16px;
     color: var(--md-sys-color-on-surface-variant, #49454F);
     pointer-events: none;
     transition: transform 150ms cubic-bezier(0.2, 0, 0, 1),
                 font-size 150ms cubic-bezier(0.2, 0, 0, 1),
-                color 150ms cubic-bezier(0.2, 0, 0, 1);
+                color 150ms cubic-bezier(0.2, 0, 0, 1),
+                left 150ms cubic-bezier(0.2, 0, 0, 1),
+                top 150ms cubic-bezier(0.2, 0, 0, 1);
     transform-origin: top left;
+    white-space: nowrap;
+    max-width: calc(100% - 32px);
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   :host([has-leading-icon]) .label {
-    left: 48px;
+    left: 52px;
+    max-width: calc(100% - 68px);
   }
 
-  :host([focused]) .label,
-  :host([has-value]) .label,
-  :host([has-placeholder]) .label {
-    transform: translateY(-110%) scale(0.75);
-  }
-
+  /* Filled Variant Floating Label */
+  :host(:not([variant])[focused]) .label,
+  :host(:not([variant])[has-value]) .label,
+  :host(:not([variant])[has-placeholder]) .label,
   :host([variant="filled"][focused]) .label,
   :host([variant="filled"][has-value]) .label,
   :host([variant="filled"][has-placeholder]) .label {
-    top: 35%;
+    top: 8px;
+    transform: translateY(0) scale(0.75);
+    transform-origin: top left;
   }
 
+  /* Outlined Variant Floating Label */
   :host([variant="outlined"][focused]) .label,
   :host([variant="outlined"][has-value]) .label,
   :host([variant="outlined"][has-placeholder]) .label {
     top: 0;
     left: 12px;
+    transform: translateY(-50%) scale(0.75);
+    transform-origin: left center;
     background-color: var(--md-sys-color-surface, #FEF7FF);
     padding: 0 4px;
+    max-width: calc(100% - 24px);
+    z-index: 1;
   }
 
   :host([focused]) .label {
@@ -143,6 +158,11 @@ export const textFieldStyles = css`
     font-size: 16px;
     color: var(--md-sys-color-on-surface-variant, #49454F);
     user-select: none;
+    transition: opacity 150ms ease;
+  }
+
+  :host(:not([focused]):not([has-value]):not([has-placeholder])) .affix {
+    opacity: 0;
   }
 
   .prefix { margin-right: 4px; }
@@ -153,6 +173,7 @@ export const textFieldStyles = css`
     align-items: center;
     justify-content: center;
     color: var(--md-sys-color-on-surface-variant, #49454F);
+    flex-shrink: 0;
   }
 
   .leading-icon { margin-right: 12px; }

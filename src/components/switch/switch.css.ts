@@ -17,7 +17,7 @@ export const switchStyles = css`
 
   :host([disabled]) {
     cursor: not-allowed;
-    color: rgba(29, 27, 32, 0.38);
+    opacity: 0.38;
     pointer-events: none;
   }
 
@@ -41,15 +41,21 @@ export const switchStyles = css`
   }
 
   :host([disabled]) .switch {
-    background-color: rgba(29, 27, 32, 0.12);
-    border-color: rgba(29, 27, 32, 0.12);
+    background-color: var(--md-sys-color-surface-container-highest, #E6E0E9);
+    border-color: var(--md-sys-color-outline, #79747E);
+  }
+
+  :host([disabled][selected]) .switch {
+    background-color: var(--md-sys-color-on-surface, #1D1B20);
+    border-color: transparent;
   }
 
   .thumb-container {
     position: absolute;
-    left: 4px;
-    width: 20px;
-    height: 20px;
+    top: 2px;
+    left: 2px;
+    width: 24px;
+    height: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,8 +67,10 @@ export const switchStyles = css`
   }
 
   .thumb {
+    position: relative;
     width: 16px;
     height: 16px;
+    flex-shrink: 0;
     border-radius: 50%;
     background-color: var(--md-sys-color-outline, #79747E);
     display: flex;
@@ -73,21 +81,36 @@ export const switchStyles = css`
                 background-color 200ms cubic-bezier(0.2, 0, 0, 1);
   }
 
+  :host([icons]) .thumb,
   :host([selected]) .thumb {
     width: 24px;
     height: 24px;
+  }
+
+  :host([selected]) .thumb {
     background-color: var(--md-sys-color-on-primary, #FFFFFF);
   }
 
   :host([disabled]) .thumb {
-    background-color: rgba(29, 27, 32, 0.38);
+    background-color: var(--md-sys-color-on-surface, #1D1B20);
+  }
+
+  :host([disabled][selected]) .thumb {
+    background-color: var(--md-sys-color-surface, #FEF7FF);
   }
 
   .icon {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     font-size: 16px;
     color: var(--md-sys-color-on-primary-container, #21005D);
     opacity: 0;
     transition: opacity 150ms ease;
+    pointer-events: none;
   }
 
   :host([selected]) .icon.check {

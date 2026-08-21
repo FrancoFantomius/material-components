@@ -42,27 +42,6 @@ export class MdListItem extends MdBaseElement {
   };
 
   override render() {
-    const inner = html`
-      ${this.interactive ? html`<md-ripple ?disabled=${this.disabled}></md-ripple><md-focus-ring></md-focus-ring>` : nothing}
-
-      <div class="start">
-        <slot name="start"></slot>
-      </div>
-
-      <div class="content">
-        <slot>
-          ${this.headline ? html`<span class="headline">${this.headline}</span>` : nothing}
-          ${this.supportingText ? html`<span class="supporting-text">${this.supportingText}</span>` : nothing}
-        </slot>
-      </div>
-
-      <div class="end">
-        <slot name="end">
-          ${this.trailingSupportingText ? html`<span>${this.trailingSupportingText}</span>` : nothing}
-        </slot>
-      </div>
-    `;
-
     if (this.href) {
       return html`
         <a
@@ -73,7 +52,19 @@ export class MdListItem extends MdBaseElement {
           tabindex=${this.disabled ? '-1' : '0'}
           @click=${this.handleClick}
         >
-          ${inner}
+          ${this.interactive ? html`<md-ripple ?disabled=${this.disabled}></md-ripple><md-focus-ring></md-focus-ring>` : nothing}
+          <div class="start">
+            <slot name="start"></slot>
+          </div>
+          <div class="content">
+            ${this.headline ? html`<span class="headline">${this.headline}</span>` : nothing}
+            ${this.supportingText ? html`<span class="supporting-text">${this.supportingText}</span>` : nothing}
+            <slot></slot>
+          </div>
+          <div class="end">
+            ${this.trailingSupportingText ? html`<span class="trailing-supporting-text">${this.trailingSupportingText}</span>` : nothing}
+            <slot name="end"></slot>
+          </div>
         </a>
       `;
     }
@@ -84,7 +75,19 @@ export class MdListItem extends MdBaseElement {
         tabindex=${this.interactive && !this.disabled ? '0' : nothing}
         @click=${this.handleClick}
       >
-        ${inner}
+        ${this.interactive ? html`<md-ripple ?disabled=${this.disabled}></md-ripple><md-focus-ring></md-focus-ring>` : nothing}
+        <div class="start">
+          <slot name="start"></slot>
+        </div>
+        <div class="content">
+          ${this.headline ? html`<span class="headline">${this.headline}</span>` : nothing}
+          ${this.supportingText ? html`<span class="supporting-text">${this.supportingText}</span>` : nothing}
+          <slot></slot>
+        </div>
+        <div class="end">
+          ${this.trailingSupportingText ? html`<span class="trailing-supporting-text">${this.trailingSupportingText}</span>` : nothing}
+          <slot name="end"></slot>
+        </div>
       </div>
     `;
   }

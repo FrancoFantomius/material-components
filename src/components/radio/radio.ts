@@ -88,9 +88,9 @@ export class MdRadio extends MdFormAssociatedElement {
   override render() {
     return html`
       <div class="container">
-        <md-ripple ?disabled=${this.disabled} unbounded></md-ripple>
-        <md-focus-ring></md-focus-ring>
         <div class="outer-circle">
+          <md-ripple ?disabled=${this.disabled}></md-ripple>
+          <md-focus-ring></md-focus-ring>
           <div class="inner-circle"></div>
         </div>
       </div>

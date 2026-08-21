@@ -85,8 +85,8 @@ export class MdSwitch extends MdFormAssociatedElement {
           <div class="thumb">
             ${this.icons
               ? html`
-                  <md-icon class="icon check" size="14">check</md-icon>
-                  <md-icon class="icon cross" size="14">close</md-icon>
+                  <md-icon class="icon check" size="16">check</md-icon>
+                  <md-icon class="icon cross" size="16">close</md-icon>
                 `
               : html`<slot name="icon"></slot>`}
           </div>
