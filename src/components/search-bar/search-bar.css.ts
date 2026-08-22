@@ -110,6 +110,24 @@ export const searchBarStyles = css`
     padding: 0 4px;
     margin: 0;
     box-sizing: border-box;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  input::-webkit-search-decoration,
+  input::-webkit-search-cancel-button,
+  input::-webkit-search-results-button,
+  input::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+  }
+
+  input::-ms-clear,
+  input::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
   }
 
   input::placeholder {

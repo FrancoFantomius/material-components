@@ -757,8 +757,8 @@ p code, li code, td code {
 #docs-search-bar {
   position: absolute;
   left: 50%;
-  top: 10px;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: 480px;
   max-width: calc(100% - 340px);
   z-index: 50;
@@ -767,6 +767,9 @@ p code, li code, td code {
 }
 
 #docs-search-bar[active] {
+  top: 50%;
+  transform: translateX(-50%);
+  margin-top: -28px;
   width: 580px;
   max-width: min(580px, calc(100vw - 32px));
   z-index: 100;
@@ -791,6 +794,7 @@ p code, li code, td code {
     left: auto;
     width: auto;
     max-width: none;
+    margin-top: 0;
   }
 }
 
