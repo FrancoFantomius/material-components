@@ -119,7 +119,7 @@ function generateColorScheme(paletteId, isDark) {
       outline: '#938F99',
       outlineVariant: '#49454F',
       shadow: '#000000',
-      scrim: '#000000',
+      scrim: 'rgba(0, 0, 0, 0.32)',
       inverseSurface: '#E6E0E9',
       inverseOnSurface: '#313033',
       inversePrimary: palette.hex,
@@ -159,7 +159,7 @@ function generateColorScheme(paletteId, isDark) {
     outline: '#79747E',
     outlineVariant: '#CAC4D0',
     shadow: '#000000',
-    scrim: '#000000',
+    scrim: 'rgba(0, 0, 0, 0.32)',
     inverseSurface: '#313033',
     inverseOnSurface: '#F4EFF4',
     inversePrimary: hslToHex(h, Math.max(s, 60), 80),
@@ -1063,6 +1063,46 @@ function attachPostRenderHandlers() {
       showToast(`Selected app: ${e.detail.label}`);
     });
   }
+
+  // Demo: Side Sheet Component
+  const demoModalSideSheet = document.getElementById('demo-modal-sheet');
+  const openModalSideSheetBtn = document.getElementById('open-modal-sheet-btn');
+  const resetSideSheetBtn = document.getElementById('reset-sheet-btn');
+  const applySideSheetBtn = document.getElementById('apply-sheet-btn');
+  const demoStandardSideSheet = document.getElementById('demo-standard-sheet');
+  const toggleStandardSideSheetBtn = document.getElementById('toggle-standard-sheet-btn');
+
+  openModalSideSheetBtn?.addEventListener('click', () => {
+    demoModalSideSheet?.show();
+  });
+  resetSideSheetBtn?.addEventListener('click', () => {
+    showToast('Filters reset');
+    demoModalSideSheet?.close();
+  });
+  applySideSheetBtn?.addEventListener('click', () => {
+    showToast('Filters applied');
+    demoModalSideSheet?.close();
+  });
+  toggleStandardSideSheetBtn?.addEventListener('click', () => {
+    demoStandardSideSheet?.toggle();
+  });
+
+  // Demo: Bottom Sheet Component
+  const demoModalBottomSheet = document.getElementById('demo-modal-bottom-sheet');
+  const openModalBottomSheetBtn = document.getElementById('open-modal-bottom-sheet-btn');
+  const cancelBottomSheetBtn = document.getElementById('cancel-sheet-btn');
+  const demoStandardBottomSheet = document.getElementById('demo-standard-bottom-sheet');
+  const toggleStandardBottomSheetBtn = document.getElementById('toggle-standard-bottom-sheet-btn');
+
+  openModalBottomSheetBtn?.addEventListener('click', () => {
+    demoModalBottomSheet?.show();
+  });
+  cancelBottomSheetBtn?.addEventListener('click', () => {
+    demoModalBottomSheet?.close();
+  });
+  toggleStandardBottomSheetBtn?.addEventListener('click', () => {
+    demoStandardBottomSheet?.toggle();
+  });
 }
 
 // --- SPA Router ---

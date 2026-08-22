@@ -5,6 +5,45 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-08-22
+
+### Added
+
+#### Components & Features
+- **Button Groups (`md-button-group`)**: Connected button group container supporting horizontal and vertical orientations with interactive shape-shifting motion on press.
+- **Split Button (`md-split-button`)**: Composite component pairing a primary action button with a connected dropdown menu button for secondary actions.
+- **FAB Menu (`md-fab-menu`, `md-fab-menu-item`)**: Speed-dial Floating Action Button menu with animated expandable actions, custom icons, and labels.
+- **Date Picker (`md-date-picker`)**: Accessible calendar date picker modal and docked view with month/year navigation, selection modes, and date formatting.
+- **Time Picker (`md-time-picker`)**: Interactive clock dial and text input time picker with 12h/24h formats, AM/PM toggle, and hour/minute selectors.
+- **Loading Indicator (`md-loading-indicator`)**: M3 Expressive indeterminate loading animations featuring morphing shapes, dots, and bars.
+- **Navigation Bar (`md-navigation-bar`, `md-navigation-bar-item`)**: Bottom navigation bar designed for compact window widths with active-indicator pill, badge counters, and labels.
+- **Navigation Rail (`md-navigation-rail`, `md-navigation-rail-item`)**: Vertical side navigation rail for medium screens with header, FAB, and destination slots.
+- **Segmented Buttons (`md-segmented-button`, `md-segmented-button-set`)**: Single-selection and multi-selection segmented button groups with checkmark feedback and dense layouts.
+- **Side Sheets (`md-side-sheet`)**: Standard and modal side sheet containers for supplementary tasks, filters, and settings.
+- **Bottom Sheets (`md-bottom-sheet`)**: Modal bottom sheet drawer with drag handle gestures, scrim dismissal, and action layouts.
+- **Carousel (`md-carousel`, `md-carousel-item`)**: Multi-browse, hero, and uncontained carousel layouts with smooth touch scrolling and scroll snapping.
+- **Menus (`md-menu`, `md-menu-item`)**: Floating popover menus anchored to trigger elements with full keyboard navigation, icons, shortcuts, and submenus.
+- **Sliders (`md-slider`)**: Continuous and discrete sliders supporting single-value and range selection with value indicator popups and tick marks.
+- **Toolbars (`md-toolbar`)**: Flexible M3 Expressive action toolbar container for organizing frequent page actions.
+- **Tooltips (`md-tooltip`)**: Plain and rich tooltips supporting hover and focus triggers, customizable positioning, and timeout management.
+
+#### Testing & Documentation
+- **Unit Test Suites**: Added 16 modular unit test suites covering all newly added components (`bottom-sheet`, `button-group`, `carousel`, `date-picker`, `fab-menu`, `loading-indicator`, `menu`, `navigation-bar`, `navigation-rail`, `segmented-button`, `side-sheet`, `slider`, `split-button`, `time-picker`, `toolbar`, `tooltip`).
+- **Interactive Documentation**: Added interactive component demo pages and playgrounds for all 16 new components in the documentation site.
+- **LLM Specifications**: Expanded `llms.txt` with full API reference, slots, properties, and usage examples for all new components.
+
+### Fixed
+- **Tooltip Theming**: Corrected container and text color token mapping for plain and rich tooltips.
+
+---
+
+## [1.0.2] - 2026-08-22
+
+### Fixed
+- **Distribution Package**: Included `llms.txt` in the `files` array in `package.json` to ensure AI documentation is bundled with the npm distribution.
+
+---
+
 ## [1.0.1] - 2026-08-22
 
 ### Added

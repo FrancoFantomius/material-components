@@ -53,13 +53,13 @@ Runs natively in all modern browsers and integrates seamlessly with **React** (1
 
 ## Features
 
-- 🎨 **Material Design 3**: Fully tokenized CSS design tokens for dynamic theming, tonal color palettes, surface containers, elevations 0–5, and light/dark modes.
-- 🧩 **23+ Core Components**: Complete suite including Top App Bars, Navigation Drawers, Data Tables, Media Players, Code Blocks/Linters, Search Bars, Form Elements, Dialogs, Cards, and more.
-- 📋 **Form-Associated Custom Elements (FACE)**: Native `<form>` integration, `FormData` compatibility, and standard constraint validation (`required`, `checkValidity()`, `reportValidity()`).
-- ⚡ **Lightweight & Tree-Shakeable**: Pure ESM modules with granular subpath exports (e.g. `@francofantomius/material-components/button`).
-- 🔷 **TypeScript & Custom Elements Manifest**: First-class TypeScript declarations (`.d.ts`), inline sourcemaps, and standard `custom-elements.json` for IDE autocomplete.
-- ♿ **Accessible (a11y)**: WCAG 2.1 AA compliant contrast ratios, high-visibility focus rings (`<md-focus-ring>`), keyboard navigation, and ARIA state handling.
-- 🌐 **Framework Agnostic**: Works out of the box with React, Vue, Angular, Svelte, Solid, or vanilla HTML/JS.
+- **Material Design 3**: Fully tokenized CSS design tokens for dynamic theming, tonal color palettes, surface containers, elevations 0–5, and light/dark modes.
+- **40+ Core Components & Utilities**: Complete suite including Navigation Bars, Rails & Drawers, Date & Time Pickers, Carousels, Menus, Toolbars, Tooltips, Sliders, Bottom/Side Sheets, Data Tables, Media Players, Code Blocks/Linters, Search Bars, Form Elements, Dialogs, Cards, and more.
+- **Form-Associated Custom Elements (FACE)**: Native `<form>` integration, `FormData` compatibility, and standard constraint validation (`required`, `checkValidity()`, `reportValidity()`).
+- **Lightweight & Tree-Shakeable**: Pure ESM modules with granular subpath exports (e.g. `@francofantomius/material-components/button`).
+- **TypeScript & Custom Elements Manifest**: First-class TypeScript declarations (`.d.ts`), inline sourcemaps, and standard `custom-elements.json` for IDE autocomplete.
+- **Accessible (a11y)**: WCAG 2.1 AA compliant contrast ratios, high-visibility focus rings (`<md-focus-ring>`), keyboard navigation, and ARIA state handling.
+- **Framework Agnostic**: Works out of the box with React, Vue, Angular, Svelte, Solid, or vanilla HTML/JS.
 
 ---
 
@@ -152,26 +152,42 @@ import '@francofantomius/material-components';
 | Category | Component Tag(s) | Subpath Export | Key Properties & Attributes |
 | :--- | :--- | :--- | :--- |
 | **Actions** | `<md-button>` | `/button` | `variant` (filled, elevated, tonal, outlined, text), `icon`, `trailing-icon`, `loading`, `disabled`, `href`, `target`, `type` |
+| **Actions** | `<md-button-group>` | `/button-group` | `orientation` (horizontal, vertical), `connected` |
+| **Actions** | `<md-split-button>` | `/split-button` | `variant` (filled, elevated, tonal, outlined), `icon`, `trailing-icon`, `disabled`, `open` |
+| **Actions** | `<md-segmented-button>`, `<md-segmented-button-set>` | `/segmented-button` | `selected`, `disabled`, `value`, `label`, `icon`, `no-checkmark`, `multiselect` |
 | **Actions** | `<md-icon-button>` | `/icon-button` | `variant` (standard, filled, tonal, outlined), `icon`, `selected-icon`, `toggle`, `selected`, `disabled` |
 | **Actions** | `<md-fab>` | `/fab` | `size` (small, medium, large), `label`, `icon`, `lowered`, `disabled` |
+| **Actions** | `<md-fab-menu>`, `<md-fab-menu-item>` | `/fab-menu` | `open`, `icon`, `active-icon`, `direction` (up, down, left, right), `lowered`, `label` |
 | **Actions** | `<md-icon>` | `/icon` | `name`, `filled`, `size` |
+| **Actions** | `<md-toolbar>` | `/toolbar` | `variant` (floating, docked), `center-aligned` |
 | **Inputs & Controls** | `<md-text-field>` | `/text-field` | `variant` (filled, outlined), `label`, `value`, `type`, `placeholder`, `prefix-text`, `suffix-text`, `error`, `error-text`, `supporting-text`, `leading-icon`, `trailing-icon`, `maxlength`, `required` |
 | **Inputs & Controls** | `<md-checkbox>` | `/checkbox` | `checked`, `indeterminate`, `error`, `disabled`, `required`, `name`, `value` |
 | **Inputs & Controls** | `<md-switch>` | `/switch` | `selected`, `icons`, `disabled`, `name`, `value` |
 | **Inputs & Controls** | `<md-radio>`, `<md-radio-group>` | `/radio` | `checked`, `value`, `name`, `row`, `disabled` |
+| **Inputs & Controls** | `<md-slider>` | `/slider` | `value`, `range-start`, `range-end`, `min`, `max`, `step`, `discrete`, `with-ticks`, `with-label`, `disabled` |
 | **Inputs & Controls** | `<md-chip>`, `<md-chip-set>` | `/chip` | `variant` (assist, filter, input, suggestion), `label`, `icon`, `selected`, `removable`, `disabled` |
 | **Inputs & Controls** | `<md-search-bar>`, `<md-search>` | `/search-bar` | `value`, `placeholder`, `active`, `suggestions`, `leading-icon`, `trailing-icon`, `responsive`, `collapse-on-mobile`, `fullscreen` |
+| **Date & Time** | `<md-date-picker>` | `/date-picker` | `value`, `min`, `max`, `view` (calendar, input), `open`, `headline`, `modal` |
+| **Date & Time** | `<md-time-picker>` | `/time-picker` | `value`, `format` (12h, 24h), `view` (dial, input), `open`, `headline`, `modal` |
 | **Surfaces & Layout** | `<md-card>` | `/card` | `variant` (elevated, filled, outlined), `interactive`, `disabled`, `href`, `target` |
 | **Surfaces & Layout** | `<md-dialog>` | `/dialog` | `open`, `headline`, `icon`, `cancelable`, `showModal()`, `close()` |
+| **Surfaces & Layout** | `<md-side-sheet>` | `/side-sheet` | `open`, `type` (modal, standard), `pivot` (left, right), `headline` |
+| **Surfaces & Layout** | `<md-bottom-sheet>` | `/bottom-sheet` | `open`, `scrim`, `has-handle`, `headline` |
 | **Surfaces & Layout** | `<md-divider>` | `/divider` | `vertical`, `inset`, `inset-start`, `inset-end` |
 | **Surfaces & Layout** | `<md-list>`, `<md-list-item>` | `/list` | `headline`, `supporting-text`, `trailing-supporting-text`, `interactive`, `disabled`, `href` |
 | **Surfaces & Layout** | `<md-table>`, `<md-data-table>` | `/table` | `columns`, `rows`, `selectable`, `sortable`, `paginated`, `page`, `page-size`, `bordered`, `striped`, `sticky-header`, `loading` |
+| **Surfaces & Layout** | `<md-carousel>`, `<md-carousel-item>` | `/carousel` | `layout` (multi-browse, hero, uncontained), `loop`, `autoplay`, `interval` |
 | **Communication** | `<md-badge>` | `/badge` | `value`, `dot`, `max` |
 | **Communication** | `<md-progress>` | `/progress` | `type` (linear, circular), `value` (0 to 1, or indeterminate), `buffer`, `wavy` |
+| **Communication** | `<md-loading-indicator>` | `/loading-indicator` | `active`, `size` (small, medium, large), `shape` |
 | **Communication** | `<md-snackbar>` | `/snackbar` | `open`, `message`, `action-text`, `closeable`, `timeout-ms`, `stacked` |
+| **Communication** | `<md-tooltip>` | `/tooltip` | `content`, `rich`, `headline`, `position` (top, bottom, left, right), `delay-ms`, `interactive` |
 | **Navigation** | `<md-top-app-bar>`, `<md-top-bar>` | `/top-app-bar` | `variant` (center-aligned, small, medium, large), `headline`, `subtitle`, `elevated`, `fixed` |
+| **Navigation** | `<md-navigation-bar>`, `<md-navigation-bar-item>` | `/navigation-bar` | `value`, `hide-inactive-labels`, `icon`, `label`, `badge`, `active` |
+| **Navigation** | `<md-navigation-rail>`, `<md-navigation-rail-item>` | `/navigation-rail` | `value`, `alignment` (top, center, bottom), `hide-inactive-labels`, `icon`, `label`, `badge`, `active` |
 | **Navigation** | `<md-navigation-drawer>`, `<md-drawer>` | `/navigation-drawer` | `open`, `type` (modal, standard, responsive), `pivot` (left, right), `headline`, `responsive` |
 | **Navigation** | `<md-tabs>`, `<md-tab>` | `/tabs` | `active-index`, `icon`, `label`, `secondary` |
+| **Navigation** | `<md-menu>`, `<md-menu-item>` | `/menu` | `open`, `anchor`, `headline`, `icon`, `trailing-icon`, `shortcut`, `disabled`, `selected` |
 | **Navigation** | `<md-app-drawer>`, `<md-app-launcher>` | `/app-drawer` | `open`, `headline`, `icon`, `columns`, `reorderable`, `editable`, `modal`, `alignment`, `pivot` |
 | **Navigation** | `<md-account-menu>`, `<md-account-drawer>` | `/account-menu` | `open`, `name`, `email`, `avatar`, `initials`, `storage-used`, `storage-total`, `storage-progress`, `show-tabs`, `modal`, `alignment` |
 | **Media & Dev Tools** | `<md-code>`, `<md-code-block>` | `/code` | `code`, `language`, `filename`, `line-numbers`, `highlight-lines`, `lint`, `copyable`, `wrap-lines`, `max-height` |
@@ -443,28 +459,44 @@ Each component can be imported individually with full TypeScript type definition
 ```typescript
 import { applyTheme } from '@francofantomius/material-components/theme';
 import { MdButton } from '@francofantomius/material-components/button';
+import { MdButtonGroup } from '@francofantomius/material-components/button-group';
+import { MdSplitButton } from '@francofantomius/material-components/split-button';
+import { MdSegmentedButton, MdSegmentedButtonSet } from '@francofantomius/material-components/segmented-button';
 import { MdIconButton } from '@francofantomius/material-components/icon-button';
 import { MdFab } from '@francofantomius/material-components/fab';
+import { MdFabMenu, MdFabMenuItem } from '@francofantomius/material-components/fab-menu';
 import { MdIcon } from '@francofantomius/material-components/icon';
+import { MdToolbar } from '@francofantomius/material-components/toolbar';
 import { MdTextField } from '@francofantomius/material-components/text-field';
 import { MdCheckbox } from '@francofantomius/material-components/checkbox';
 import { MdSwitch } from '@francofantomius/material-components/switch';
 import { MdRadio, MdRadioGroup } from '@francofantomius/material-components/radio';
+import { MdSlider } from '@francofantomius/material-components/slider';
+import { MdDatePicker } from '@francofantomius/material-components/date-picker';
+import { MdTimePicker } from '@francofantomius/material-components/time-picker';
+import { MdChip, MdChipSet } from '@francofantomius/material-components/chip';
 import { MdCard } from '@francofantomius/material-components/card';
 import { MdDialog } from '@francofantomius/material-components/dialog';
+import { MdSideSheet } from '@francofantomius/material-components/side-sheet';
+import { MdBottomSheet } from '@francofantomius/material-components/bottom-sheet';
 import { MdDivider } from '@francofantomius/material-components/divider';
 import { MdProgress } from '@francofantomius/material-components/progress';
+import { MdLoadingIndicator } from '@francofantomius/material-components/loading-indicator';
 import { MdBadge } from '@francofantomius/material-components/badge';
-import { MdChip, MdChipSet } from '@francofantomius/material-components/chip';
+import { MdSnackbar } from '@francofantomius/material-components/snackbar';
+import { MdTooltip } from '@francofantomius/material-components/tooltip';
 import { MdTabs, MdTab } from '@francofantomius/material-components/tabs';
 import { MdList, MdListItem } from '@francofantomius/material-components/list';
-import { MdSnackbar } from '@francofantomius/material-components/snackbar';
+import { MdMenu, MdMenuItem } from '@francofantomius/material-components/menu';
 import { MdTopAppBar, MdTopBar } from '@francofantomius/material-components/top-app-bar';
+import { MdNavigationBar, MdNavigationBarItem } from '@francofantomius/material-components/navigation-bar';
+import { MdNavigationRail, MdNavigationRailItem } from '@francofantomius/material-components/navigation-rail';
 import { MdNavigationDrawer, MdDrawer, MdMenuBar, MdNavigationDrawerItem } from '@francofantomius/material-components/navigation-drawer';
 import { MdAppDrawer, MdAppDrawerItem, MdAppLauncher, MdAppsMenu } from '@francofantomius/material-components/app-drawer';
 import { MdAccountMenu, MdAccountItem, MdAccountDrawer, MdAccountProfile } from '@francofantomius/material-components/account-menu';
 import { MdTable, MdDataTable, MdTableHeaderCell, MdTableCell, MdTableRow } from '@francofantomius/material-components/table';
 import { MdSearchBar, MdSearch } from '@francofantomius/material-components/search-bar';
+import { MdCarousel, MdCarouselItem } from '@francofantomius/material-components/carousel';
 import { MdCode, MdCodeBlock } from '@francofantomius/material-components/code';
 import { MdPlayer, MdMediaPlayer, MdAudioPlayer, MdVideoPlayer } from '@francofantomius/material-components/player';
 ```
