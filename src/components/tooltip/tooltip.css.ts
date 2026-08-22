@@ -77,12 +77,18 @@ export const tooltipStyles = css`
     margin: 0;
   }
 
-  .supporting-text,
-  .content {
+  .supporting-text {
     color: var(--md-sys-color-on-surface-variant, #49454E);
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
+  }
+
+  .content {
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
   }
 
   .actions {
