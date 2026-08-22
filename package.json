@@ -1,6 +1,6 @@
 {
   "name": "@francofantomius/material-components",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Reusable, accessible, and lightweight Material Design 3 Web Components built with Lit.",
   "repository": {
     "type": "git",
@@ -20,7 +20,8 @@
     "README.md",
     "CHANGELOG.md",
     "LICENSE",
-    "custom-elements.json"
+    "custom-elements.json",
+    "llms.txt"
   ],
   "exports": {
     ".": {

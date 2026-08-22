@@ -16,9 +16,6 @@ vite.config.ts
 vitest.config.ts
 custom-elements-manifest.config.mjs
 
-# Development HTML
-index.html
-
 # Logs & Coverage
 *.log
 coverage/
