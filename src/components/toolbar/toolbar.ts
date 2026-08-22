@@ -60,7 +60,7 @@ export class MdToolbar extends MdBaseElement {
    * Accessible label describing the toolbar for screen readers.
    */
   @property({ type: String, attribute: 'aria-label' })
-  ariaLabel = '';
+  override ariaLabel = '';
 
   override connectedCallback() {
     super.connectedCallback();

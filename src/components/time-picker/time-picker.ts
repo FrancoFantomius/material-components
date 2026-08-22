@@ -108,9 +108,9 @@ export class MdTimePicker extends MdFormAssociatedElement {
     const is24hMatch = trimmed.match(/^(\d{1,2}):(\d{2})$/);
 
     if (is12hMatch) {
-      let h = parseInt(is12hMatch[1], 10);
-      const m = Math.min(59, Math.max(0, parseInt(is12hMatch[2], 10)));
-      const p = (is12hMatch[3].toUpperCase() as TimePeriod);
+      let h = parseInt(is12hMatch[1]!, 10);
+      const m = Math.min(59, Math.max(0, parseInt(is12hMatch[2]!, 10)));
+      const p = (is12hMatch[3]!.toUpperCase() as TimePeriod);
       if (this.format === '24h') {
         if (p === 'PM' && h < 12) h += 12;
         if (p === 'AM' && h === 12) h = 0;
@@ -121,8 +121,8 @@ export class MdTimePicker extends MdFormAssociatedElement {
       this.selectedMinute = m;
       this.selectedPeriod = p;
     } else if (is24hMatch) {
-      let h = parseInt(is24hMatch[1], 10);
-      const m = Math.min(59, Math.max(0, parseInt(is24hMatch[2], 10)));
+      let h = parseInt(is24hMatch[1]!, 10);
+      const m = Math.min(59, Math.max(0, parseInt(is24hMatch[2]!, 10)));
       if (this.format === '12h') {
         const p: TimePeriod = h >= 12 ? 'PM' : 'AM';
         h = h % 12 || 12;
@@ -451,7 +451,7 @@ export class MdTimePicker extends MdFormAssociatedElement {
         const outerRadius = 98;
         const outerHours = [12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
         for (let i = 0; i < 12; i++) {
-          const hVal = outerHours[i] === 12 ? 0 : outerHours[i] + 12;
+          const hVal = outerHours[i]! === 12 ? 0 : outerHours[i]! + 12;
           const display = hVal.toString().padStart(2, '0');
           const angle = (i * 30 - 90) * (Math.PI / 180);
           const x = center + outerRadius * Math.cos(angle);
@@ -471,7 +471,7 @@ export class MdTimePicker extends MdFormAssociatedElement {
         const innerRadius = 64;
         const innerHours = [12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
         for (let i = 0; i < 12; i++) {
-          const hVal = innerHours[i];
+          const hVal = innerHours[i]!;
           const display = hVal.toString();
           const angle = (i * 30 - 90) * (Math.PI / 180);
           const x = center + innerRadius * Math.cos(angle);

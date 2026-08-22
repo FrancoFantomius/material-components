@@ -295,7 +295,7 @@ export class MdSplitButton extends MdBaseElement {
   focusFirstItem(): void {
     const items = this.getItems(true);
     if (items.length > 0) {
-      items[0].focus();
+      items[0]!.focus();
     } else if (this.menuSurfaceElement) {
       this.menuSurfaceElement.focus();
     }
@@ -307,7 +307,7 @@ export class MdSplitButton extends MdBaseElement {
   focusLastItem(): void {
     const items = this.getItems(true);
     if (items.length > 0) {
-      items[items.length - 1].focus();
+      items[items.length - 1]!.focus();
     }
   }
 
@@ -317,7 +317,7 @@ export class MdSplitButton extends MdBaseElement {
   focusItemAtIndex(index: number): void {
     const items = this.getItems(true);
     if (index >= 0 && index < items.length) {
-      items[index].focus();
+      items[index]!.focus();
     }
   }
 

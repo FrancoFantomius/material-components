@@ -109,8 +109,8 @@ export class MdButtonGroup extends MdBaseElement {
       }
 
       if (buttons.length === 1) {
-        buttons[0].style.setProperty('--md-button-border-radius', outer);
-        buttons[0].style.borderRadius = outer;
+        buttons[0]!.style.setProperty('--md-button-border-radius', outer);
+        buttons[0]!.style.borderRadius = outer;
       } else {
         buttons.forEach((btn, index) => {
           let radius = '';
@@ -169,7 +169,7 @@ export class MdButtonGroup extends MdBaseElement {
     }
 
     if (nextIndex !== -1 && buttons[nextIndex]) {
-      buttons[nextIndex].focus();
+      buttons[nextIndex]?.focus();
     }
   };
 

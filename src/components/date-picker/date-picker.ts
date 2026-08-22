@@ -31,9 +31,9 @@ function parseDateString(dateStr: string): { year: number; month: number; day: n
   if (!dateStr || typeof dateStr !== 'string') return null;
   const parts = dateStr.split('-');
   if (parts.length !== 3) return null;
-  const year = parseInt(parts[0], 10);
-  const month = parseInt(parts[1], 10) - 1;
-  const day = parseInt(parts[2], 10);
+  const year = parseInt(parts[0]!, 10);
+  const month = parseInt(parts[1]!, 10) - 1;
+  const day = parseInt(parts[2]!, 10);
   if (isNaN(year) || isNaN(month) || isNaN(day)) return null;
   return { year, month, day };
 }
@@ -180,7 +180,7 @@ export class MdDatePicker extends MdFormAssociatedElement {
   }
 
   private syncInitialState() {
-    const targetDate = this.startDate || (this.range ? this.value.split('/')[0] : this.value);
+    const targetDate = this.startDate || (this.range ? (this.value.split('/')[0] ?? '') : this.value);
     const parsed = parseDateString(targetDate);
     if (parsed) {
       this.viewYear = parsed.year;
