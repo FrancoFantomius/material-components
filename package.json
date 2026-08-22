@@ -1,6 +1,6 @@
 {
   "name": "@francofantomius/material-components",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Reusable, accessible, and lightweight Material Design 3 Web Components built with Lit.",
   "repository": {
     "type": "git",
@@ -159,6 +159,14 @@
     "./account-profile": {
       "types": "./dist/components/account-menu/account-menu.d.ts",
       "import": "./dist/components/account-menu/account-menu.js"
+    },
+    "./segmented-button": {
+      "types": "./dist/components/segmented-button/segmented-button.d.ts",
+      "import": "./dist/components/segmented-button/segmented-button.js"
+    },
+    "./segmented-button-set": {
+      "types": "./dist/components/segmented-button/segmented-button.d.ts",
+      "import": "./dist/components/segmented-button/segmented-button.js"
     },
     "./ripple": {
       "types": "./dist/internal/ripple/ripple.d.ts",

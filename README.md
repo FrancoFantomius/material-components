@@ -152,6 +152,7 @@ import '@francofantomius/material-components';
 | Category | Component Tag(s) | Subpath Export | Key Properties & Attributes |
 | :--- | :--- | :--- | :--- |
 | **Actions** | `<md-button>` | `/button` | `variant` (filled, elevated, tonal, outlined, text), `icon`, `trailing-icon`, `loading`, `disabled`, `href`, `target`, `type` |
+| **Actions** | `<md-segmented-button>`, `<md-segmented-button-set>` | `/segmented-button` | `selected`, `disabled`, `value`, `label`, `icon`, `no-checkmark`, `multiselect` |
 | **Actions** | `<md-icon-button>` | `/icon-button` | `variant` (standard, filled, tonal, outlined), `icon`, `selected-icon`, `toggle`, `selected`, `disabled` |
 | **Actions** | `<md-fab>` | `/fab` | `size` (small, medium, large), `label`, `icon`, `lowered`, `disabled` |
 | **Actions** | `<md-icon>` | `/icon` | `name`, `filled`, `size` |

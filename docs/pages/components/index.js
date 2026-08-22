@@ -23,6 +23,7 @@ import code from './code.js';
 import player from './player.js';
 import appDrawer from './app-drawer.js';
 import accountMenu from './account-menu.js';
+import segmentedButton from './segmented-button.js';
 
 export const COMPONENTS = [
   button,
@@ -50,6 +51,7 @@ export const COMPONENTS = [
   player,
   appDrawer,
   accountMenu,
+  segmentedButton,
 ];
 
 export {
@@ -78,6 +80,7 @@ export {
   player,
   appDrawer,
   accountMenu,
+  segmentedButton,
 };
 
 export default COMPONENTS;

@@ -20,6 +20,7 @@
 - [Component Reference](#component-reference)
   - [Actions](#actions)
     - [Button (`md-button`)](#button-md-button)
+    - [Segmented Button (`md-segmented-button`, `md-segmented-button-set`)](#segmented-button-md-segmented-button-md-segmented-button-set)
     - [Icon Button (`md-icon-button`)](#icon-button-md-icon-button)
     - [Floating Action Button (`md-fab`)](#floating-action-button-md-fab)
   - [Inputs & Controls](#inputs--controls)
@@ -320,6 +321,7 @@ const isEnabled = ref(true);
 | Category | Component Tag | Subpath Import | Description |
 | :--- | :--- | :--- | :--- |
 | **Actions** | `<md-button>` | `@francofantomius/material-components/button` | Buttons with 5 visual emphasis levels |
+| **Actions** | `<md-segmented-button>`, `<md-segmented-button-set>` | `@francofantomius/material-components/segmented-button` | Compact single or multi-select option groups |
 | **Actions** | `<md-icon-button>` | `@francofantomius/material-components/icon-button` | Compact action & toggle buttons |
 | **Actions** | `<md-fab>` | `@francofantomius/material-components/fab` | Floating Action Button (small, medium, large, extended) |
 | **Inputs & Controls** | `<md-text-field>` | `@francofantomius/material-components/text-field` | Filled & outlined inputs with validation |
@@ -381,6 +383,46 @@ const isEnabled = ref(true);
 <md-button variant="outlined" href="https://material.io" target="_blank" trailing-icon="open_in_new">
   Material Design Docs
 </md-button>
+```
+
+---
+
+#### Segmented Button (`md-segmented-button`, `md-segmented-button-set`)
+
+- **Subpath**: `@francofantomius/material-components/segmented-button`
+- **Description**: Segmented buttons help users select options, switch views, or sort elements in compact single-select or multi-select groups.
+
+##### Properties & Attributes (`md-segmented-button-set`)
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `multiselect` | `boolean` | `false` | Enables multi-selection mode across segments |
+| `disabled` | `boolean` | `false` | Disables all child segmented buttons in the set |
+
+##### Properties & Attributes (`md-segmented-button`)
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `selected` | `boolean` | `false` | Active selection state of the segment |
+| `disabled` | `boolean` | `false` | Disables segment interactions |
+| `value` | `string` | `''` | Value associated with the segment |
+| `label` | `string` | `''` | Label text of the segment |
+| `icon` | `string` | `''` | Leading Material Symbols icon name |
+| `no-checkmark` | `boolean` | `false` | Hides the automatic checkmark indicator when selected |
+
+##### Code Example
+```html
+<!-- Single select (e.g. view filter) -->
+<md-segmented-button-set>
+  <md-segmented-button selected label="Songs"></md-segmented-button>
+  <md-segmented-button label="Albums"></md-segmented-button>
+  <md-segmented-button label="Podcasts"></md-segmented-button>
+</md-segmented-button-set>
+
+<!-- Multi select (e.g. text formatting) -->
+<md-segmented-button-set multiselect>
+  <md-segmented-button icon="format_bold" label="Bold" selected></md-segmented-button>
+  <md-segmented-button icon="format_italic" label="Italic"></md-segmented-button>
+  <md-segmented-button icon="format_underlined" label="Underline"></md-segmented-button>
+</md-segmented-button-set>
 ```
 
 ---

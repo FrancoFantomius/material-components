@@ -33,3 +33,4 @@ export * from './components/code/code.js';
 export * from './components/player/player.js';
 export * from './components/app-drawer/app-drawer.js';
 export * from './components/account-menu/account-menu.js';
+export * from './components/segmented-button/segmented-button.js';
