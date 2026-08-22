@@ -4,6 +4,8 @@ import { MdFormAssociatedElement } from '../../internal/form-associated.js';
 import '../icon/icon.js';
 import { searchBarStyles } from './search-bar.css.js';
 
+export type SearchBarSize = 'small' | 'compact' | 'medium' | 'large';
+
 export interface SearchSuggestion {
   id?: string;
   label: string;
@@ -17,6 +19,12 @@ export interface SearchSuggestion {
 @customElement('md-search-bar')
 export class MdSearchBar extends MdFormAssociatedElement {
   static override styles = [MdFormAssociatedElement.styles, searchBarStyles];
+
+  @property({ type: String, reflect: true })
+  size: SearchBarSize = 'medium';
+
+  @property({ type: Boolean, reflect: true })
+  compact = false;
 
   @property({ type: String })
   value = '';

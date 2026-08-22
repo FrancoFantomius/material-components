@@ -135,5 +135,11 @@ export const topAppBarStyles = css`
     line-height: 36px;
     font-weight: 400;
   }
+
+  ::slotted(md-search-bar),
+  ::slotted(md-search) {
+    --md-search-bar-height: var(--md-top-app-bar-search-bar-height, 44px);
+    align-self: center;
+  }
 `;
 

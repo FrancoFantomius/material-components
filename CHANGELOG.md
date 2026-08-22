@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.2] - 2026-08-22
+
+### Added
+- **Search Bar Sizing Variants (`md-search-bar`, `md-search`)**:
+  - Added `size` property supporting `'small'`, `'compact'`, `'medium'`, and `'large'` variants (`size="small"` / `size="compact"` provides a 40px height ideal for navbars and compact headers).
+  - Added `compact` boolean property/attribute shorthand.
+  - Added customizable CSS custom properties: `--md-search-bar-height`, `--md-search-bar-shape`, `--md-search-bar-font-size`, `--md-search-bar-padding`, `--md-search-bar-icon-size`, and `--md-search-bar-icon-button-size`.
+- **Top App Bar Integration (`md-top-app-bar`, `md-top-bar`)**: Slotted search bars within top app bars now default to an optimized 44px height (`--md-top-app-bar-search-bar-height`) to align with top app bar rows.
+
+### Changed
+- **Documentation Site**: Updated the header search bar in `docs/index.html` to use `size="small"` for a sleek, proportionate navbar presentation.
+
+---
+
 ## [1.1.1] - 2026-08-22
 
 ### Fixed

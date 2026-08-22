@@ -282,4 +282,28 @@ describe('md-search-bar & md-search', () => {
 
     expect(searchBar.active).toBe(true);
   });
+
+  it('should support size property (small, compact, medium, large) and compact attribute', async () => {
+    const searchBar = document.createElement('md-search-bar') as MdSearchBar;
+    document.body.appendChild(searchBar);
+    await searchBar.updateComplete;
+
+    expect(searchBar.size).toBe('medium');
+
+    searchBar.size = 'small';
+    await searchBar.updateComplete;
+    expect(searchBar.getAttribute('size')).toBe('small');
+
+    searchBar.size = 'compact';
+    await searchBar.updateComplete;
+    expect(searchBar.getAttribute('size')).toBe('compact');
+
+    searchBar.compact = true;
+    await searchBar.updateComplete;
+    expect(searchBar.hasAttribute('compact')).toBe(true);
+
+    searchBar.size = 'large';
+    await searchBar.updateComplete;
+    expect(searchBar.getAttribute('size')).toBe('large');
+  });
 });

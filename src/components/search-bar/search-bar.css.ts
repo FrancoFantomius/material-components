@@ -10,6 +10,42 @@ export const searchBarStyles = css`
     font-family: var(--md-sys-typescale-font-family, inherit);
     color: var(--md-sys-color-on-surface, #1D1B20);
     vertical-align: middle;
+
+    --_height: var(--md-search-bar-height, 56px);
+    --_shape: var(--md-search-bar-shape, var(--md-search-bar-border-radius, var(--md-sys-shape-corner-full, 28px)));
+    --_shape-active: var(--md-search-bar-shape-active, var(--md-sys-shape-corner-extra-large, 28px 28px 16px 16px));
+    --_bg: var(--md-search-bar-container-color, var(--md-search-bar-bg, var(--md-sys-color-surface-container-high, #ECE6F0)));
+    --_elevation: var(--md-search-bar-elevation, var(--md-sys-elevation-level1, 0px 1px 3px 1px rgba(0, 0, 0, 0.15)));
+    --_elevation-active: var(--md-search-bar-elevation-active, var(--md-sys-elevation-level3, 0px 4px 8px 3px rgba(0, 0, 0, 0.15)));
+    --_btn-size: var(--md-search-bar-icon-button-size, 40px);
+    --_icon-size: var(--md-search-bar-icon-size, 24px);
+    --_font-size: var(--md-search-bar-font-size, var(--md-sys-typescale-body-large-size, 16px));
+    --_line-height: var(--md-search-bar-line-height, var(--md-sys-typescale-body-large-line-height, 24px));
+    --_padding: var(--md-search-bar-padding, 0 8px 0 16px);
+  }
+
+  :host([size="small"]),
+  :host([size="compact"]),
+  :host([compact]) {
+    --_height: var(--md-search-bar-height, 40px);
+    --_shape: var(--md-search-bar-shape, var(--md-search-bar-border-radius, 20px));
+    --_shape-active: var(--md-search-bar-shape-active, 20px 20px 12px 12px);
+    --_btn-size: var(--md-search-bar-icon-button-size, 32px);
+    --_icon-size: var(--md-search-bar-icon-size, 20px);
+    --_font-size: var(--md-search-bar-font-size, var(--md-sys-typescale-body-medium-size, 14px));
+    --_line-height: var(--md-search-bar-line-height, 20px);
+    --_padding: var(--md-search-bar-padding, 0 6px 0 12px);
+  }
+
+  :host([size="large"]) {
+    --_height: var(--md-search-bar-height, 64px);
+    --_shape: var(--md-search-bar-shape, var(--md-search-bar-border-radius, 32px));
+    --_shape-active: var(--md-search-bar-shape-active, 32px 32px 20px 20px);
+    --_btn-size: var(--md-search-bar-icon-button-size, 48px);
+    --_icon-size: var(--md-search-bar-icon-size, 24px);
+    --_font-size: var(--md-search-bar-font-size, 18px);
+    --_line-height: var(--md-search-bar-line-height, 26px);
+    --_padding: var(--md-search-bar-padding, 0 12px 0 20px);
   }
 
   :host([disabled]) {
@@ -40,9 +76,9 @@ export const searchBarStyles = css`
     flex-direction: column;
     width: 100%;
     box-sizing: border-box;
-    background-color: var(--md-search-bar-container-color, var(--md-sys-color-surface-container-high, #ECE6F0));
-    border-radius: var(--md-sys-shape-corner-full, 28px);
-    box-shadow: var(--md-sys-elevation-level1, 0px 1px 3px 1px rgba(0, 0, 0, 0.15));
+    background-color: var(--_bg);
+    border-radius: var(--_shape);
+    box-shadow: var(--_elevation);
     transition: box-shadow 200ms cubic-bezier(0.2, 0, 0, 1),
                 border-radius 200ms cubic-bezier(0.2, 0, 0, 1),
                 background-color 200ms cubic-bezier(0.2, 0, 0, 1);
@@ -51,9 +87,9 @@ export const searchBarStyles = css`
   .search-bar-header {
     display: flex;
     align-items: center;
-    min-height: 56px;
-    height: 56px;
-    padding: 0 8px 0 16px;
+    min-height: var(--_height);
+    height: var(--_height);
+    padding: var(--_padding);
     box-sizing: border-box;
     gap: 8px;
   }
@@ -69,8 +105,8 @@ export const searchBarStyles = css`
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: var(--_btn-size);
+    height: var(--_btn-size);
     border: none;
     background: transparent;
     border-radius: 50%;
@@ -80,6 +116,11 @@ export const searchBarStyles = css`
     outline: none;
     position: relative;
     transition: background-color 150ms ease;
+  }
+
+  .icon-btn md-icon {
+    font-size: var(--_icon-size);
+    --md-icon-size: var(--_icon-size);
   }
 
   .icon-btn:hover {
@@ -104,8 +145,8 @@ export const searchBarStyles = css`
     background: transparent;
     outline: none;
     font-family: inherit;
-    font-size: var(--md-sys-typescale-body-large-size, 16px);
-    line-height: var(--md-sys-typescale-body-large-line-height, 24px);
+    font-size: var(--_font-size);
+    line-height: var(--_line-height);
     color: var(--md-sys-color-on-surface, #1D1B20);
     padding: 0 4px;
     margin: 0;
@@ -138,8 +179,8 @@ export const searchBarStyles = css`
   /* Active Docked Mode */
   :host([active]) .search-container {
     z-index: 50;
-    border-radius: var(--md-sys-shape-corner-extra-large, 28px 28px 16px 16px);
-    box-shadow: var(--md-sys-elevation-level3, 0px 4px 8px 3px rgba(0, 0, 0, 0.15));
+    border-radius: var(--_shape-active);
+    box-shadow: var(--_elevation-active);
   }
 
   /* Divider when active */
@@ -199,6 +240,11 @@ export const searchBarStyles = css`
     flex-shrink: 0;
   }
 
+  .suggestion-icon md-icon {
+    font-size: var(--_icon-size);
+    --md-icon-size: var(--_icon-size);
+  }
+
   .suggestion-text {
     display: flex;
     flex-direction: column;
@@ -208,7 +254,7 @@ export const searchBarStyles = css`
   }
 
   .suggestion-label {
-    font-size: var(--md-sys-typescale-body-large-size, 16px);
+    font-size: var(--_font-size);
     line-height: 20px;
     white-space: nowrap;
     overflow: hidden;
@@ -262,12 +308,12 @@ export const searchBarStyles = css`
 
     :host([responsive]:not([active]):not([collapse-on-mobile="false"])) .search-trigger-container.has-trailing,
     :host([collapse-on-mobile]:not([active]):not([collapse-on-mobile="false"])) .search-trigger-container.has-trailing {
-      height: 48px;
+      height: var(--_height);
       padding: 0 4px;
       gap: 2px;
-      background-color: var(--md-search-bar-container-color, var(--md-sys-color-surface-container-high, #ECE6F0));
-      border-radius: var(--md-sys-shape-corner-full, 28px);
-      box-shadow: var(--md-sys-elevation-level1, 0px 1px 3px 1px rgba(0, 0, 0, 0.15));
+      background-color: var(--_bg);
+      border-radius: var(--_shape);
+      box-shadow: var(--_elevation);
     }
 
     :host([responsive]:not([active]):not([collapse-on-mobile="false"])) .search-trigger-container.has-trailing:hover,
@@ -285,10 +331,10 @@ export const searchBarStyles = css`
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 40px;
-      height: 40px;
-      min-width: 40px;
-      min-height: 40px;
+      width: var(--_btn-size);
+      height: var(--_btn-size);
+      min-width: var(--_btn-size);
+      min-height: var(--_btn-size);
       border-radius: 50%;
       border: none;
       background: transparent;
@@ -300,6 +346,11 @@ export const searchBarStyles = css`
       position: relative;
       transition: background-color 150ms ease, color 150ms ease;
       -webkit-tap-highlight-color: transparent;
+    }
+
+    .trigger-btn md-icon {
+      font-size: var(--_icon-size);
+      --md-icon-size: var(--_icon-size);
     }
 
     .trigger-btn:hover {
@@ -370,7 +421,7 @@ export const searchBarStyles = css`
       border-radius: 0;
       box-shadow: none;
       z-index: 99999;
-      background-color: var(--md-search-bar-container-color, var(--md-sys-color-surface-container-high, #ECE6F0));
+      background-color: var(--_bg);
     }
 
     :host([responsive][active]) .suggestions-container,
@@ -418,7 +469,7 @@ export const searchBarStyles = css`
     border-radius: 0;
     box-shadow: none;
     z-index: 99999;
-    background-color: var(--md-search-bar-container-color, var(--md-sys-color-surface-container-high, #ECE6F0));
+    background-color: var(--_bg);
   }
 
   :host([fullscreen][active]) .suggestions-container {

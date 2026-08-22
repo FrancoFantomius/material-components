@@ -907,6 +907,8 @@ const isEnabled = ref(true);
 | :--- | :--- | :--- | :--- |
 | `value` | `string` | `''` | Current query value in the search bar |
 | `placeholder` | `string` | `'Search'` | Placeholder label for the input |
+| `size` | `'small' \| 'compact' \| 'medium' \| 'large'` | `'medium'` | Visual size variant (use `'small'` or `'compact'` for 40px navbar/toolbar sizing) |
+| `compact` | `boolean` | `false` | Shorthand boolean attribute for compact / small navbar sizing |
 | `active` | `boolean` | `false` | Controls whether search view is expanded and showing suggestions |
 | `suggestions` | `Array<string \| SearchSuggestion>` | `[]` | List of search suggestions with labels, supporting text, and icons |
 | `leading-icon` | `string` | `'search'` | Leading icon displayed when inactive |

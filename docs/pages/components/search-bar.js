@@ -10,6 +10,8 @@ export default {
   properties: [
     { name: 'value', type: 'string', default: "''", description: 'Current query value in the search bar' },
     { name: 'placeholder', type: 'string', default: "'Search'", description: 'Placeholder label for the input' },
+    { name: 'size', type: "'small' | 'compact' | 'medium' | 'large'", default: "'medium'", description: 'Visual size of the search bar. Use "small" or "compact" (40px height) for navbars, toolbars, and headers' },
+    { name: 'compact', type: 'boolean', default: 'false', description: 'Shorthand boolean for compact / small navbar sizing' },
     { name: 'active', type: 'boolean', default: 'false', description: 'Controls whether the search view is expanded and showing suggestions' },
     { name: 'suggestions', type: 'Array<string | SearchSuggestion>', default: '[]', description: 'List of search suggestions with labels, supporting text, and icons' },
     { name: 'leading-icon', type: 'string', default: "'search'", description: 'Leading icon displayed when inactive' },
@@ -44,6 +46,17 @@ export default {
     id="demo-search-bar"
     placeholder="Search destinations, hotels, flights..."
     trailing-icon="mic"
+  ></md-search-bar>
+</div>`
+    },
+    {
+      title: 'Compact Navbar / App Bar Search Bar',
+      description: 'Compact 40px search bar ideal for navigation bars, toolbars, and compact headers using size="small" or compact.',
+      html: `<div style="width: 100%; display: flex; flex-direction: column; gap: 16px;">
+  <md-search-bar
+    size="small"
+    placeholder="Compact search in navbar..."
+    trailing-icon="tune"
   ></md-search-bar>
 </div>`
     },

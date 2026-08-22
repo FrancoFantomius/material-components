@@ -759,7 +759,7 @@ p code, li code, td code {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 480px;
+  width: 440px;
   max-width: calc(100% - 340px);
   z-index: 50;
   --md-search-bar-container-color: var(--md-sys-color-surface-container-high);
@@ -769,19 +769,19 @@ p code, li code, td code {
 #docs-search-bar[active] {
   top: 50%;
   transform: translateX(-50%);
-  margin-top: -28px;
-  width: 580px;
-  max-width: min(580px, calc(100vw - 32px));
+  margin-top: -20px;
+  width: 540px;
+  max-width: min(540px, calc(100vw - 32px));
   z-index: 100;
 }
 
 @media (max-width: 960px) and (min-width: 769px) {
   #docs-search-bar {
-    width: 320px;
+    width: 300px;
     max-width: calc(100% - 280px);
   }
   #docs-search-bar[active] {
-    width: 440px;
+    width: 420px;
   }
 }
 
