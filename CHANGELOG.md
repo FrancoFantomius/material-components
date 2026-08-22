@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2026-08-22
+
+### Added
+- **LLM / AI Developer Specification (`llms.txt`)**: Complete API specifications, component hierarchies, properties, events, slots, and ready-to-use patterns for AI coding assistants.
+- **CDN Support & Documentation**: Added CDN quick-start guides and ESM links (`esm.sh`, `jsdelivr`, `unpkg`) in `README.md`.
+- **Framework Integration Guides**: Expanded usage examples and recipes for React (18 & 19), Next.js, Vue 3, Nuxt, Angular, and Svelte.
+- **Modular Test Suites**: Refactored monolithic component tests into dedicated modular test files covering all 21 core component modules.
+
+### Fixed
+- **npm Deployment Configuration**: Configured `allowScripts` in `package.json` to streamline automated npm publishing and package installation.
+- **TypeScript Typecheck**: Resolved strict TypeScript type issues across `app-drawer`, `code`, and `search-bar`.
+- **Vite & Custom Elements Manifest Build**: Fixed build script pipeline and Custom Elements Manifest generation output.
+
+### Changed
+- **Documentation (`README.md`)**: Comprehensive documentation overhaul with structured Table of Contents, full Component Index matrix, FACE form validation examples, and theming guide.
+
+---
+
 ## [1.0.0] - 2026-08-21
 
 ### Added

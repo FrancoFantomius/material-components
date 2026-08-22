@@ -1,0 +1,1407 @@
+# @francofantomius/material-components
+
+> Reusable, accessible, and lightweight Material Design 3 Web Components built with Lit.
+
+`@francofantomius/material-components` is a comprehensive suite of modern, accessible, and lightweight **Material Design 3 (M3)** Web Components built with [Lit](https://lit.dev/). They run natively in all modern browsers and integrate seamlessly with React (18/19), Vue 3, Angular, Svelte, Solid, or vanilla HTML and JavaScript.
+
+## Table of Contents
+
+- [Overview & Core Features](#overview--core-features)
+- [Installation & Setup](#installation--setup)
+- [Typography & Icons Setup](#typography--icons-setup)
+- [Import Strategies](#import-strategies)
+- [Theming & Color Palettes](#theming--color-palettes)
+- [Form Integration (FACE)](#form-integration-face)
+- [Framework Integration Guidelines](#framework-integration-guidelines)
+  - [React (18 / 19)](#react-18--19)
+  - [Vue 3](#vue-3)
+  - [Angular & Svelte](#angular--svelte)
+- [Component Index](#component-index)
+- [Component Reference](#component-reference)
+  - [Actions](#actions)
+    - [Button (`md-button`)](#button-md-button)
+    - [Icon Button (`md-icon-button`)](#icon-button-md-icon-button)
+    - [Floating Action Button (`md-fab`)](#floating-action-button-md-fab)
+  - [Inputs & Controls](#inputs--controls)
+    - [Text Field (`md-text-field`)](#text-field-md-text-field)
+    - [Checkbox (`md-checkbox`)](#checkbox-md-checkbox)
+    - [Radio & Radio Group (`md-radio`, `md-radio-group`)](#radio--radio-group-md-radio-md-radio-group)
+    - [Switch (`md-switch`)](#switch-md-switch)
+    - [Chip & Chip Set (`md-chip`, `md-chip-set`)](#chip--chip-set-md-chip-md-chip-set)
+    - [Search Bar (`md-search-bar`)](#search-bar-md-search-bar)
+  - [Surfaces & Containment](#surfaces--containment)
+    - [Card (`md-card`)](#card-md-card)
+    - [Dialog (`md-dialog`)](#dialog-md-dialog)
+    - [Divider (`md-divider`)](#divider-md-divider)
+    - [List & List Item (`md-list`, `md-list-item`)](#list--list-item-md-list-md-list-item)
+    - [Table & Data Table (`md-table`)](#table--data-table-md-table)
+  - [Communication & Feedback](#communication--feedback)
+    - [Badge (`md-badge`)](#badge-md-badge)
+    - [Progress Indicators (`md-progress`)](#progress-indicators-md-progress)
+    - [Snackbar (`md-snackbar`)](#snackbar-md-snackbar)
+  - [Navigation](#navigation)
+    - [Navigation Drawer (`md-navigation-drawer`, `md-navigation-drawer-item`)](#navigation-drawer-md-navigation-drawer-md-navigation-drawer-item)
+    - [Top App Bar (`md-top-app-bar`)](#top-app-bar-md-top-app-bar)
+    - [Tabs (`md-tabs`, `md-tab`)](#tabs-md-tabs-md-tab)
+    - [App Drawer (`md-app-drawer`, `md-app-drawer-item`)](#app-drawer-md-app-drawer-md-app-drawer-item)
+    - [Account Menu (`md-account-menu`, `md-account-item`)](#account-menu-md-account-menu-md-account-item)
+  - [Media & Playback](#media--playback)
+    - [Player (`md-player`)](#player-md-player)
+  - [Utilities & Data](#utilities--data)
+    - [Icon (`md-icon`)](#icon-md-icon)
+    - [Code Block & Highlighter (`md-code`)](#code-block--highlighter-md-code)
+
+---
+
+## Overview & Core Features
+
+- **Material Design 3 Specifications**: Adheres to official M3 guidelines for tokenized color systems, dynamic elevation, state layers, rounded shapes, and typography.
+- **Form-Associated Custom Elements (FACE)**: Text fields, checkboxes, switches, and radios utilize browser-native `ElementInternals` to participate in standard `<form>` submission, `FormData`, and native constraint validation (`required`, `checkValidity()`, `reportValidity()`).
+- **Tree-Shakeable Subpaths**: Import only the elements you need (e.g., `@francofantomius/material-components/button`) to keep bundle sizes minimal.
+- **Accessibility (a11y)**: Built-in WCAG 2.1 AA focus rings, full keyboard interactions, high-contrast support, and ARIA attributes.
+- **TypeScript Support**: Full `.d.ts` type declarations and `custom-elements.json` (Custom Elements Manifest) for IDE autocomplete and linting.
+- **Framework Agnostic**: Native Custom Elements work across React, Vue, Angular, Svelte, Solid, and vanilla HTML.
+
+---
+
+## Installation & Setup
+
+Install the library and its peer dependency `lit`:
+
+```bash
+npm install @francofantomius/material-components lit
+```
+
+---
+
+## Typography & Icons Setup
+
+Material 3 relies on **Roboto** for typography and **Material Symbols Outlined** for scalable vector icons. Include the Google Fonts stylesheets in your HTML `<head>`:
+
+```html
+<!-- Google Material Symbols Outlined font -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<!-- Google Roboto font -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" />
+```
+
+---
+
+## Import Strategies
+
+### 1. Subpath Imports (Recommended for Production)
+
+Import individual component modules to optimize tree-shaking:
+
+```javascript
+import '@francofantomius/material-components/button';
+import '@francofantomius/material-components/text-field';
+import '@francofantomius/material-components/card';
+```
+
+### 2. Full Component Bundle
+
+For quick prototyping or full component registration:
+
+```javascript
+import '@francofantomius/material-components';
+```
+
+---
+
+## Theming & Color Palettes
+
+### Material Design 3 CSS Custom Properties
+
+Configure tokens globally on `:root` or scope them to a container. Dark mode can be toggled using the `[data-theme='dark']` attribute:
+
+```css
+:root {
+  --md-sys-color-primary: #6750A4;
+  --md-sys-color-on-primary: #FFFFFF;
+  --md-sys-color-primary-container: #EADDFF;
+  --md-sys-color-on-primary-container: #21005D;
+  --md-sys-color-secondary: #625B71;
+  --md-sys-color-on-secondary: #FFFFFF;
+  --md-sys-color-surface: #FEF7FF;
+  --md-sys-color-on-surface: #1D1B20;
+  --md-sys-color-outline: #79747E;
+  --md-sys-color-error: #B3261E;
+}
+
+[data-theme='dark'] {
+  --md-sys-color-primary: #D0BCFF;
+  --md-sys-color-on-primary: #381E72;
+  --md-sys-color-primary-container: #4F378B;
+  --md-sys-color-on-primary-container: #EADDFF;
+  --md-sys-color-secondary: #CCC2DC;
+  --md-sys-color-on-secondary: #332D41;
+  --md-sys-color-surface: #141218;
+  --md-sys-color-on-surface: #E6E0E9;
+  --md-sys-color-outline: #938F99;
+  --md-sys-color-error: #F2B8B5;
+}
+```
+
+### TypeScript Theme Helper API
+
+The `@francofantomius/material-components/theme` module provides utilities for dynamic runtime palette assignment:
+
+```typescript
+import { applyTheme, darkColorScheme, lightColorScheme } from '@francofantomius/material-components/theme';
+
+// Switch to Dark Color Scheme
+applyTheme(darkColorScheme);
+
+// Switch back to Light Color Scheme
+applyTheme(lightColorScheme);
+
+// Apply Custom Brand Colors
+applyTheme({
+  primary: '#006A60',
+  onPrimary: '#FFFFFF',
+  primaryContainer: '#74F8E5',
+  onPrimaryContainer: '#00201C',
+});
+```
+
+---
+
+## Form Integration (FACE)
+
+Form controls (`<md-text-field>`, `<md-checkbox>`, `<md-switch>`, `<md-radio>`) are Form-Associated Custom Elements. They automatically participate in standard HTML forms and `FormData`.
+
+### HTML Form Example
+
+```html
+<form id="signup-form">
+  <md-text-field
+    name="fullname"
+    label="Full Name"
+    required
+    supporting-text="Enter your first and last name"
+  ></md-text-field>
+
+  <md-text-field
+    name="email"
+    label="Email Address"
+    type="email"
+    required
+  ></md-text-field>
+
+  <md-checkbox name="newsletter" checked>
+    Receive monthly newsletter
+  </md-checkbox>
+
+  <md-switch name="telemetry" selected icons>
+    Anonymous analytics
+  </md-switch>
+
+  <div style="margin-top: 16px; display: flex; gap: 12px;">
+    <md-button type="reset" variant="outlined">Reset</md-button>
+    <md-button type="submit" variant="filled">Submit Form</md-button>
+  </div>
+</form>
+```
+
+### JavaScript Handling
+
+```javascript
+const form = document.getElementById('signup-form');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries());
+  console.log('Submitted Payload:', data);
+});
+```
+
+---
+
+## Framework Integration Guidelines
+
+### React (18 / 19)
+
+React 19 supports Custom Elements natively (properties, attributes, and custom events). In React 18, use standard props/attributes or refs for complex events and properties.
+
+```tsx
+import React, { useState } from 'react';
+import '@francofantomius/material-components/button';
+import '@francofantomius/material-components/text-field';
+import '@francofantomius/material-components/switch';
+
+export function UserSettings() {
+  const [username, setUsername] = useState('Alice');
+  const [notifications, setNotifications] = useState(true);
+
+  return (
+    <div>
+      <md-text-field
+        label="Username"
+        value={username}
+        onInput={(e: any) => setUsername(e.target.value)}
+      />
+      <md-switch
+        selected={notifications}
+        onChange={(e: any) => setNotifications(e.target.selected)}
+      >
+        Notifications
+      </md-switch>
+      <md-button variant="filled" onClick={() => console.log('Saved!')}>
+        Save Settings
+      </md-button>
+    </div>
+  );
+}
+```
+
+### Vue 3
+
+Configure Vue's compiler to recognize `md-` tags as custom elements in `vite.config.js`:
+
+```javascript
+// vite.config.js
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+
+export default defineConfig({
+  plugins: [
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => tag.startsWith('md-')
+        }
+      }
+    })
+  ]
+});
+```
+
+Use inside SFC template:
+
+```html
+<script setup>
+import { ref } from 'vue';
+import '@francofantomius/material-components/button';
+import '@francofantomius/material-components/switch';
+
+const isEnabled = ref(true);
+</script>
+
+<template>
+  <div>
+    <md-switch :selected="isEnabled" @change="isEnabled = !isEnabled">
+      Enable Feature
+    </md-switch>
+    <md-button variant="filled" :disabled="!isEnabled">
+      Proceed
+    </md-button>
+  </div>
+</template>
+```
+
+### Angular & Svelte
+
+- **Angular**: Include `CUSTOM_ELEMENTS_SCHEMA` in `@NgModule({ schemas: [CUSTOM_ELEMENTS_SCHEMA] })` or standalone component definition.
+- **Svelte**: Custom elements work natively with standard property and event bindings without extra wrappers.
+
+---
+
+## Component Index
+
+| Category | Component Tag | Subpath Import | Description |
+| :--- | :--- | :--- | :--- |
+| **Actions** | `<md-button>` | `@francofantomius/material-components/button` | Buttons with 5 visual emphasis levels |
+| **Actions** | `<md-icon-button>` | `@francofantomius/material-components/icon-button` | Compact action & toggle buttons |
+| **Actions** | `<md-fab>` | `@francofantomius/material-components/fab` | Floating Action Button (small, medium, large, extended) |
+| **Inputs & Controls** | `<md-text-field>` | `@francofantomius/material-components/text-field` | Filled & outlined inputs with validation |
+| **Inputs & Controls** | `<md-checkbox>` | `@francofantomius/material-components/checkbox` | Checkbox with indeterminate and error states |
+| **Inputs & Controls** | `<md-radio>`, `<md-radio-group>` | `@francofantomius/material-components/radio` | Mutually exclusive radio selections |
+| **Inputs & Controls** | `<md-switch>` | `@francofantomius/material-components/switch` | Toggle switch with optional thumb icons |
+| **Inputs & Controls** | `<md-chip>`, `<md-chip-set>` | `@francofantomius/material-components/chip` | Assist, filter, input, and suggestion chips |
+| **Inputs & Controls** | `<md-search-bar>` | `@francofantomius/material-components/search-bar` | Docked and fullscreen search view |
+| **Surfaces & Containment** | `<md-card>` | `@francofantomius/material-components/card` | Elevated, filled, and outlined surface containers |
+| **Surfaces & Containment** | `<md-dialog>` | `@francofantomius/material-components/dialog` | Modal dialogs for prompts & confirmation |
+| **Surfaces & Containment** | `<md-divider>` | `@francofantomius/material-components/divider` | Horizontal, vertical, and inset separators |
+| **Surfaces & Containment** | `<md-list>`, `<md-list-item>` | `@francofantomius/material-components/list` | 1-line, 2-line, and 3-line structured lists |
+| **Surfaces & Containment** | `<md-table>` | `@francofantomius/material-components/table` | Data table with sorting, selection, and pagination |
+| **Communication & Feedback** | `<md-badge>` | `@francofantomius/material-components/badge` | Numeric count and status dot indicators |
+| **Communication & Feedback** | `<md-progress>` | `@francofantomius/material-components/progress` | Linear and circular progress with M3 wavy lines |
+| **Communication & Feedback** | `<md-snackbar>` | `@francofantomius/material-components/snackbar` | Temporary bottom toast messages |
+| **Navigation** | `<md-navigation-drawer>` | `@francofantomius/material-components/navigation-drawer` | Side drawer navigation (modal / standard / responsive) |
+| **Navigation** | `<md-top-app-bar>` | `@francofantomius/material-components/top-app-bar` | Header bar (small, center-aligned, medium, large) |
+| **Navigation** | `<md-tabs>`, `<md-tab>` | `@francofantomius/material-components/tabs` | Top tab navigation with sliding active indicator |
+| **Navigation** | `<md-app-drawer>` | `@francofantomius/material-components/app-drawer` | Popover application grid launcher with drag reordering |
+| **Navigation** | `<md-account-menu>` | `@francofantomius/material-components/account-menu` | Account switcher, credentials, security & storage popover |
+| **Media & Playback** | `<md-player>` | `@francofantomius/material-components/player` | Audio & video player with scrubber, queue, and volume |
+| **Utilities & Data** | `<md-icon>` | `@francofantomius/material-components/icon` | Material Symbols font icon wrapper |
+| **Utilities & Data** | `<md-code>` | `@francofantomius/material-components/code` | Syntax highlighter with real-time multi-language linting |
+
+---
+
+## Component Reference
+
+### Actions
+
+#### Button (`md-button`)
+
+- **Subpath**: `@francofantomius/material-components/button`
+- **Description**: Buttons help users initiate actions and choices with five distinct levels of visual emphasis: filled, elevated, tonal, outlined, and text.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `variant` | `'filled' \| 'elevated' \| 'tonal' \| 'outlined' \| 'text'` | `'filled'` | Visual emphasis style of the button |
+| `disabled` | `boolean` | `false` | Whether the button is interactive or disabled |
+| `loading` | `boolean` | `false` | Displays an internal circular progress spinner and disables click |
+| `icon` | `string` | `''` | Leading Material Symbols icon name |
+| `trailing-icon` | `string` | `''` | Trailing Material Symbols icon name |
+| `type` | `'button' \| 'submit' \| 'reset'` | `'button'` | HTML form button type |
+| `href` | `string` | `''` | When provided, renders as an accessible anchor link |
+| `target` | `string` | `''` | Link target attribute (e.g., `_blank`) |
+
+##### Code Example
+```html
+<md-button variant="filled">Filled</md-button>
+<md-button variant="elevated">Elevated</md-button>
+<md-button variant="tonal">Tonal</md-button>
+<md-button variant="outlined">Outlined</md-button>
+<md-button variant="text">Text</md-button>
+<md-button variant="filled" icon="add">Create New</md-button>
+<md-button variant="outlined" trailing-icon="arrow_forward">Next Step</md-button>
+<md-button variant="tonal" loading>Saving...</md-button>
+<md-button variant="outlined" href="https://material.io" target="_blank" trailing-icon="open_in_new">
+  Material Design Docs
+</md-button>
+```
+
+---
+
+#### Icon Button (`md-icon-button`)
+
+- **Subpath**: `@francofantomius/material-components/icon-button`
+- **Description**: Icon buttons allow users to take compact actions and toggle choices with a single tap, supporting standard, filled, tonal, and outlined variants.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `variant` | `'standard' \| 'filled' \| 'tonal' \| 'outlined'` | `'standard'` | Visual container style |
+| `icon` | `string` | `''` | Material Symbols icon name |
+| `selected-icon` | `string` | `''` | Icon displayed when toggle button is active |
+| `toggle` | `boolean` | `false` | Enables two-state toggle behavior |
+| `selected` | `boolean` | `false` | Active selection state for toggle buttons |
+| `disabled` | `boolean` | `false` | Disables button interactions |
+| `href` | `string` | `''` | Renders as hyperlink when present |
+
+##### Code Example
+```html
+<md-icon-button icon="favorite" variant="standard" aria-label="Favorite"></md-icon-button>
+<md-icon-button icon="star" variant="filled" aria-label="Bookmark"></md-icon-button>
+<md-icon-button icon="settings" variant="tonal" aria-label="Settings"></md-icon-button>
+<md-icon-button icon="share" variant="outlined" aria-label="Share"></md-icon-button>
+
+<!-- Toggle Icon Buttons -->
+<md-icon-button toggle icon="bookmark_border" selected-icon="bookmark" aria-label="Bookmark"></md-icon-button>
+<md-icon-button toggle variant="tonal" icon="notifications_none" selected-icon="notifications" aria-label="Alerts"></md-icon-button>
+```
+
+---
+
+#### Floating Action Button (`md-fab`)
+
+- **Subpath**: `@francofantomius/material-components/fab`
+- **Description**: A Floating Action Button (FAB) performs the primary, most common action on a screen. Supports small, medium, large, and extended modes.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `size` | `'small' \| 'medium' \| 'large'` | `'medium'` | Container dimension |
+| `icon` | `string` | `''` | Material Symbols icon name |
+| `label` | `string` | `''` | Extended text label (renders extended FAB) |
+| `lowered` | `boolean` | `false` | Applies lower elevation level 1 instead of level 3 |
+| `disabled` | `boolean` | `false` | Disables button interaction |
+
+##### Code Example
+```html
+<md-fab size="small" icon="edit" aria-label="Edit"></md-fab>
+<md-fab icon="add" label="New Message"></md-fab>
+<md-fab size="large" icon="palette" aria-label="Palette"></md-fab>
+<md-fab icon="download" lowered aria-label="Download"></md-fab>
+```
+
+---
+
+### Inputs & Controls
+
+#### Text Field (`md-text-field`)
+
+- **Subpath**: `@francofantomius/material-components/text-field`
+- **Description**: Text fields allow users to enter and edit text, supporting filled and outlined variants, floating labels, validation states, and prefix/suffix text.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `variant` | `'filled' \| 'outlined'` | `'filled'` | Container visual style |
+| `label` | `string` | `''` | Floating label text |
+| `value` | `string` | `''` | Current input value |
+| `type` | `string` | `'text'` | Input type (`text`, `email`, `password`, `number`, etc.) |
+| `placeholder` | `string` | `''` | Placeholder displayed when focused |
+| `prefix-text` | `string` | `''` | Affix text before the value |
+| `suffix-text` | `string` | `''` | Affix text after the value |
+| `supporting-text` | `string` | `''` | Helper text below the field |
+| `error` | `boolean` | `false` | Forces input into error visual state |
+| `error-text` | `string` | `''` | Error message shown when error is true |
+| `leading-icon` | `string` | `''` | Material Symbols leading icon |
+| `trailing-icon` | `string` | `''` | Material Symbols trailing icon |
+| `maxlength` | `number` | `-1` | Maximum character length with visual counter |
+| `required` | `boolean` | `false` | Form validation required constraint |
+| `disabled` | `boolean` | `false` | Disables user input |
+| `readonly` | `boolean` | `false` | Prevents text editing |
+
+##### Code Example
+```html
+<md-text-field label="Full Name" supporting-text="Your legal name"></md-text-field>
+<md-text-field variant="outlined" label="Email Address" type="email" leading-icon="mail"></md-text-field>
+<md-text-field variant="outlined" label="Price" prefix-text="$" suffix-text=".00" value="99"></md-text-field>
+<md-text-field variant="outlined" label="Bio" maxlength="50" supporting-text="Max 50 characters"></md-text-field>
+<md-text-field variant="outlined" label="Password" type="password" error error-text="Password must be at least 8 characters" value="pass"></md-text-field>
+```
+
+---
+
+#### Checkbox (`md-checkbox`)
+
+- **Subpath**: `@francofantomius/material-components/checkbox`
+- **Description**: Checkboxes allow users to select one or more items from a set, or toggle between checked, unchecked, and indeterminate states.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `checked` | `boolean` | `false` | Checked state |
+| `indeterminate` | `boolean` | `false` | Partially selected state |
+| `disabled` | `boolean` | `false` | Disables user interaction |
+| `required` | `boolean` | `false` | Form validation constraint |
+| `error` | `boolean` | `false` | Applies error color styling |
+| `name` | `string` | `''` | HTML form input name |
+| `value` | `string` | `'on'` | HTML form submitted value |
+
+##### Code Example
+```html
+<md-checkbox checked>I agree to terms</md-checkbox>
+<md-checkbox indeterminate>Select all children</md-checkbox>
+<md-checkbox>Unchecked option</md-checkbox>
+<md-checkbox disabled checked>Disabled selection</md-checkbox>
+```
+
+---
+
+#### Radio & Radio Group (`md-radio`, `md-radio-group`)
+
+- **Subpath**: `@francofantomius/material-components/radio`
+- **Description**: Radio buttons allow users to select exactly one option from a set of mutually exclusive choices, organized within an `md-radio-group`.
+
+##### `<md-radio>` Properties
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `checked` | `boolean` | `false` | Checked state of `md-radio` |
+| `value` | `string` | `'on'` | Value associated with `md-radio` |
+| `disabled` | `boolean` | `false` | Disables this radio button |
+
+##### `<md-radio-group>` Properties
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `name` | `string` | `''` | Group name shared across radio buttons |
+| `value` | `string` | `''` | Currently selected radio value |
+| `row` | `boolean` | `false` | Arranges radio items horizontally |
+
+##### Code Example
+```html
+<md-radio-group name="shipping" value="express">
+  <md-radio value="standard">Standard Shipping (3-5 days)</md-radio>
+  <md-radio value="express">Express Delivery (1-2 days)</md-radio>
+  <md-radio value="overnight" disabled>Overnight Priority (Unavailable)</md-radio>
+</md-radio-group>
+
+<md-radio-group row name="size" value="m">
+  <md-radio value="s">Small</md-radio>
+  <md-radio value="m">Medium</md-radio>
+  <md-radio value="l">Large</md-radio>
+</md-radio-group>
+```
+
+---
+
+#### Switch (`md-switch`)
+
+- **Subpath**: `@francofantomius/material-components/switch`
+- **Description**: Switches toggle the state of a single setting on or off, with optional check and cross icons inside the thumb.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `selected` | `boolean` | `false` | On/Off toggle state |
+| `icons` | `boolean` | `false` | Displays check and cross icons inside thumb |
+| `disabled` | `boolean` | `false` | Disables user interaction |
+| `name` | `string` | `''` | HTML form input name |
+| `value` | `string` | `'on'` | HTML form submitted value |
+
+##### Code Example
+```html
+<md-switch selected icons>Wi-Fi</md-switch>
+<md-switch selected>Bluetooth</md-switch>
+<md-switch disabled>Airplane Mode</md-switch>
+```
+
+---
+
+#### Chip & Chip Set (`md-chip`, `md-chip-set`)
+
+- **Subpath**: `@francofantomius/material-components/chip`
+- **Description**: Chips help users enter information, make selections, filter content, or trigger actions across assist, filter, input, and suggestion variants.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `variant` | `'assist' \| 'filter' \| 'input' \| 'suggestion'` | `'assist'` | Chip visual and interaction style |
+| `label` | `string` | `''` | Chip text content |
+| `icon` | `string` | `''` | Material Symbols leading icon |
+| `selected` | `boolean` | `false` | Selected state for filter chips |
+| `removable` | `boolean` | `false` | Shows trailing remove button for input chips |
+| `disabled` | `boolean` | `false` | Disables chip interactions |
+
+##### Code Example
+```html
+<md-chip-set>
+  <md-chip variant="assist" icon="event" label="Add to Calendar"></md-chip>
+  <md-chip variant="filter" selected label="Material 3"></md-chip>
+  <md-chip variant="input" label="Removable Tag" removable></md-chip>
+  <md-chip variant="suggestion" label="Suggested Query"></md-chip>
+</md-chip-set>
+```
+
+---
+
+#### Search Bar (`md-search-bar`)
+
+- **Subpath**: `@francofantomius/material-components/search-bar`
+- **Description**: Search bars allow users to enter queries and view search suggestions in docked or full-screen responsive views, following Material Design 3 guidelines.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `value` | `string` | `''` | Current query value in the search bar |
+| `placeholder` | `string` | `'Search'` | Placeholder label for the input |
+| `active` | `boolean` | `false` | Controls whether search view is expanded and showing suggestions |
+| `suggestions` | `Array<string \| SearchSuggestion>` | `[]` | List of search suggestions with labels, supporting text, and icons |
+| `leading-icon` | `string` | `'search'` | Leading icon displayed when inactive |
+| `active-leading-icon` | `string` | `'arrow_back'` | Leading icon displayed when active |
+| `trailing-icon` | `string` | `''` | Optional trailing action icon |
+| `show-back-button` | `boolean` | `true` | Whether to show the back button in active mode |
+| `responsive` | `boolean` | `true` | Automatically switches to full-screen view and collapsed search icon on mobile (<= 768px) |
+| `collapse-on-mobile` | `boolean` | `true` | Collapses search bar into a compact search icon button on mobile screens when inactive |
+| `fullscreen` | `boolean` | `false` | Forces full-screen search view overlay when active |
+| `disabled` | `boolean` | `false` | Disables user interaction |
+
+##### Slots
+- `leading-icon`: Custom leading icon or button element.
+- `trailing-icon`: Custom trailing action buttons, avatar, or mic.
+- `suggestions`: Custom slotted suggestions list.
+- `(default)`: Additional content rendered inside active search surface.
+
+##### Events
+- `input`: Fired as user types (`detail: { value: string }`).
+- `change`: Fired on committed input change (`detail: { value: string }`).
+- `search`: Fired when user presses Enter or selects a suggestion (`detail: { value: string, suggestion?: object }`).
+- `active-change`: Fired when search bar expands/collapses (`detail: { active: boolean }`).
+- `suggestion-select`: Fired when a suggestion is selected (`detail: { suggestion: object, value: string, index: number }`).
+- `clear`: Fired when search value is cleared.
+
+##### Code Example
+```html
+<md-search-bar
+  id="demo-search-bar"
+  placeholder="Search destinations, hotels, flights..."
+  trailing-icon="mic"
+></md-search-bar>
+
+<!-- Custom Slotted Content in Active State -->
+<md-search-bar placeholder="Search files & documents">
+  <div style="padding: 12px 16px;">
+    <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 500;">Recent Searches</p>
+    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+      <md-chip label="Q4 Financial Report" icon="history"></md-chip>
+      <md-chip label="Design System M3" icon="history"></md-chip>
+    </div>
+  </div>
+</md-search-bar>
+```
+
+---
+
+### Surfaces & Containment
+
+#### Card (`md-card`)
+
+- **Subpath**: `@francofantomius/material-components/card`
+- **Description**: Cards contain content and actions about a single subject, available in elevated, filled, and outlined styles with optional ripple interactivity.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `variant` | `'elevated' \| 'filled' \| 'outlined'` | `'elevated'` | Card visual style |
+| `interactive` | `boolean` | `false` | Enables hover elevation and ripple effect |
+| `disabled` | `boolean` | `false` | Disables card interactions |
+| `href` | `string` | `''` | Renders card as anchor link |
+| `target` | `string` | `''` | Anchor target when href is provided |
+
+##### Slots
+- `header`: Top card header content.
+- `actions`: Bottom actions button container.
+- `(default)`: Main card body content.
+
+##### Code Example
+```html
+<md-card variant="outlined" style="max-width: 340px;">
+  <div slot="header">
+    <h3 style="margin: 0; font-size: 18px;">Outlined Card</h3>
+  </div>
+  Explore our Material Design 3 component library with built-in interactive feedback.
+  <div slot="actions">
+    <md-button variant="text">Dismiss</md-button>
+    <md-button variant="filled">Learn More</md-button>
+  </div>
+</md-card>
+```
+
+---
+
+#### Dialog (`md-dialog`)
+
+- **Subpath**: `@francofantomius/material-components/dialog`
+- **Description**: Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `open` | `boolean` | `false` | Reflects open/closed state of modal |
+| `headline` | `string` | `''` | Header title text |
+| `icon` | `string` | `''` | Material Symbols header icon |
+
+##### Slots
+- `actions`: Modal action buttons (Cancel, Confirm).
+- `(default)`: Dialog message body content.
+
+##### Events
+- `open`: Dispatched when dialog modal opens.
+- `close`: Dispatched when dialog closes (`detail: { returnValue?: string }`).
+- `cancel`: Dispatched when dialog is dismissed via Escape key.
+
+##### Code Example
+```html
+<md-button variant="filled" id="open-dialog-btn">Open Dialog</md-button>
+
+<md-dialog id="demo-dialog" headline="Discard Draft?" icon="warning">
+  Are you sure you want to discard your changes? This action cannot be undone.
+  <div slot="actions">
+    <md-button variant="text" id="cancel-btn">Cancel</md-button>
+    <md-button variant="filled" id="confirm-btn">Discard</md-button>
+  </div>
+</md-dialog>
+```
+
+---
+
+#### Divider (`md-divider`)
+
+- **Subpath**: `@francofantomius/material-components/divider`
+- **Description**: A divider is a thin line that groups content in lists and page layouts, supporting inset and vertical orientations.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `vertical` | `boolean` | `false` | Renders a vertical divider |
+| `inset` | `boolean` | `false` | Adds 16px start and end margins |
+| `inset-start` | `boolean` | `false` | Adds 16px margin only to the start |
+| `inset-end` | `boolean` | `false` | Adds 16px margin only to the end |
+
+##### Code Example
+```html
+<div>Section Item Alpha</div>
+<md-divider></md-divider>
+<div>Section Item Beta</div>
+<md-divider inset></md-divider>
+<div>Section Item Gamma</div>
+```
+
+---
+
+#### List & List Item (`md-list`, `md-list-item`)
+
+- **Subpath**: `@francofantomius/material-components/list`
+- **Description**: Lists are continuous, vertical indexes of text and images, supporting 1-line, 2-line, and 3-line items with icons, avatars, and trailing text.
+
+##### `<md-list-item>` Properties
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `headline` | `string` | `''` | Primary headline text |
+| `supporting-text` | `string` | `''` | Secondary supporting text description |
+| `trailing-supporting-text` | `string` | `''` | Metadata timestamp or trailing text |
+| `interactive` | `boolean` | `false` | Enables ripple hover and click response |
+| `disabled` | `boolean` | `false` | Disables item |
+| `href` | `string` | `''` | Renders item as hyperlink |
+
+##### `<md-list-item>` Slots
+- `start`: Leading icon, checkbox, or avatar.
+- `end`: Trailing icon, button, or switch.
+
+##### Code Example
+```html
+<md-list style="max-width: 400px; background: var(--md-sys-color-surface-container-low); border-radius: 12px;">
+  <md-list-item headline="Sarah Connor" supporting-text="Uploaded project roadmap" trailing-supporting-text="10:30 AM" interactive>
+    <md-icon slot="start" name="account_circle" size="32"></md-icon>
+  </md-list-item>
+  <md-divider inset></md-divider>
+  <md-list-item headline="Security Update" supporting-text="All packages upgraded to v2.0" trailing-supporting-text="Yesterday" interactive>
+    <md-icon slot="start" name="shield" size="32"></md-icon>
+  </md-list-item>
+</md-list>
+```
+
+---
+
+#### Table & Data Table (`md-table`)
+
+- **Subpath**: `@francofantomius/material-components/table`
+- **Description**: Data tables display information in a structured grid of rows and columns, featuring automatic sorting, pagination, zebra striping, loading states, and multi-row selection.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `bordered` | `boolean` | `false` | Adds outer container and cell grid borders |
+| `elevated` | `boolean` | `false` | Applies Material elevation shadow |
+| `striped` | `boolean` | `false` | Zebra stripes alternating rows |
+| `hoverable` | `boolean` | `true` | Highlights rows on mouse hover |
+| `dense` | `boolean` | `false` | Compact cell and row padding |
+| `sticky-header` | `boolean` | `false` | Pins table header during scroll |
+| `loading` | `boolean` | `false` | Displays indeterminate top progress bar |
+| `selectable` | `boolean` | `false` | Enables row selection checkboxes |
+| `columns` | `TableColumn[]` | `[]` | Data-driven column configuration array |
+| `rows` | `Record<string, any>[]` | `[]` | Data-driven row data array |
+| `paginated` | `boolean` | `false` | Renders built-in pagination footer |
+| `page` | `number` | `1` | Active page index (1-based) |
+| `page-size` | `number` | `10` | Items per page |
+| `total` | `number` | `0` | Total row count |
+
+##### Events
+- `sort-change`: Fired when column sorting is toggled (`detail: { column: string, direction: "asc" | "desc" | "none" }`).
+- `row-click`: Fired when a row is clicked (`detail: { row: any, index: number }`).
+- `selection-change`: Fired when row selection changes (`detail: { selectedRows: any[] }`).
+- `page-change`: Fired when page changes (`detail: { page: number, pageSize: number }`).
+
+##### Code Example
+```html
+<md-table
+  id="demo-table"
+  bordered
+  striped
+  hoverable
+  elevated
+  selectable
+  paginated
+  page-size="5"
+  style="width: 100%;"
+></md-table>
+
+<script>
+  const table = document.getElementById('demo-table');
+  table.columns = [
+    { key: 'name', label: 'Name', sortable: true },
+    { key: 'role', label: 'Role', sortable: true },
+    { key: 'status', label: 'Status' }
+  ];
+  table.rows = [
+    { name: 'Alice Smith', role: 'Architect', status: 'Active' },
+    { name: 'Bob Jones', role: 'Developer', status: 'Away' }
+  ];
+</script>
+```
+
+---
+
+### Communication & Feedback
+
+#### Badge (`md-badge`)
+
+- **Subpath**: `@francofantomius/material-components/badge`
+- **Description**: Badges show notification counts, alert statuses, or small indicators anchored to icon buttons or list elements.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `value` | `string` | `''` | Badge numeric or text value |
+| `dot` | `boolean` | `false` | Renders a small 6px dot without text |
+
+##### Code Example
+```html
+<div style="display: flex; gap: 24px; align-items: center;">
+  <md-badge value="4">
+    <md-icon-button icon="mail" aria-label="Mail"></md-icon-button>
+  </md-badge>
+  <md-badge value="99+">
+    <md-icon-button icon="notifications" aria-label="Notifications"></md-icon-button>
+  </md-badge>
+  <md-badge dot>
+    <md-icon-button icon="chat" aria-label="Messages"></md-icon-button>
+  </md-badge>
+</div>
+```
+
+---
+
+#### Progress Indicators (`md-progress`)
+
+- **Subpath**: `@francofantomius/material-components/progress`
+- **Description**: Progress indicators express an unspecified wait time or display the length of a process in linear and circular formats, featuring Material 3 wavy lines for determinate values.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `type` | `'linear' \| 'circular'` | `'linear'` | Indicator shape |
+| `value` | `number \| null` | `null` | Determinate value between 0 and 1. `null` indicates indeterminate. |
+| `max` | `number` | `1` | Maximum progress value |
+| `buffer` | `number` | `1` | Buffer value for linear progress indicator |
+| `wavy` | `boolean` | `true` | Enables Material 3 wavy line for determinate values |
+
+##### Code Example
+```html
+<!-- Linear Progress with Wavy Line -->
+<md-progress type="linear" value="0.7"></md-progress>
+<md-progress type="linear"></md-progress>
+
+<!-- Circular Progress with Wavy Line -->
+<md-progress type="circular" value="0.65"></md-progress>
+<md-progress type="circular"></md-progress>
+```
+
+---
+
+#### Snackbar (`md-snackbar`)
+
+- **Subpath**: `@francofantomius/material-components/snackbar`
+- **Description**: Snackbars provide brief feedback about an operation through an elevated message toast at the bottom of the viewport.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `open` | `boolean` | `false` | Visibility state |
+| `message` | `string` | `''` | Message toast content |
+| `action-text` | `string` | `''` | Action button label |
+| `closeable` | `boolean` | `false` | Renders a close icon button |
+| `timeout-ms` | `number` | `4000` | Auto-dismiss timeout in milliseconds (0 for indefinite) |
+
+##### Events
+- `open`: Fired when snackbar appears.
+- `close`: Fired when snackbar dismisses.
+- `action`: Fired when user clicks action button.
+
+##### Code Example
+```html
+<md-button variant="tonal" id="show-toast-btn">Show Snackbar</md-button>
+<md-snackbar id="demo-toast" message="Email message moved to Trash." action-text="Undo" closeable></md-snackbar>
+
+<script>
+  document.getElementById('show-toast-btn').addEventListener('click', () => {
+    document.getElementById('demo-toast').open = true;
+  });
+</script>
+```
+
+---
+
+### Navigation
+
+#### Navigation Drawer (`md-navigation-drawer`, `md-navigation-drawer-item`)
+
+- **Subpath**: `@francofantomius/material-components/navigation-drawer`
+- **Description**: Navigation drawers provide side navigation access to top-level destinations and app features in standard or modal configurations.
+
+##### `<md-navigation-drawer>` Properties
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `open` | `boolean` | `false` | Reflects open/closed state |
+| `type` | `'modal' \| 'standard' \| 'responsive'` | `'modal'` | Drawer presentation mode |
+| `responsive` | `boolean` | `false` | Enables responsive mode (docked on desktop >960px, modal on mobile) |
+| `pivot` | `'left' \| 'right'` | `'left'` | Anchoring screen edge |
+| `headline` | `string` | `''` | Drawer title header |
+
+##### `<md-navigation-drawer-item>` Properties
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `icon` | `string` | `''` | Material Symbols destination icon |
+| `label` | `string` | `''` | Destination title |
+| `badge` | `string` | `''` | Trailing counter or status badge |
+| `active` | `boolean` | `false` | Highlights item with active pill indicator |
+| `disabled` | `boolean` | `false` | Disables item |
+| `href` | `string` | `''` | Optional navigation link |
+
+##### Events
+- `open`: Dispatched when drawer opens.
+- `close`: Dispatched when drawer closes.
+- `item-click`: Dispatched when a drawer item is selected.
+
+##### Code Example
+```html
+<md-navigation-drawer id="demo-drawer" headline="Mail Destinations">
+  <md-navigation-drawer-item icon="inbox" label="Inbox" badge="12" active></md-navigation-drawer-item>
+  <md-navigation-drawer-item icon="star" label="Starred"></md-navigation-drawer-item>
+  <md-navigation-drawer-item icon="send" label="Sent"></md-navigation-drawer-item>
+  <md-navigation-drawer-item icon="drafts" label="Drafts" badge="2"></md-navigation-drawer-item>
+  <div slot="footer">
+    <md-navigation-drawer-item icon="settings" label="Settings"></md-navigation-drawer-item>
+  </div>
+</md-navigation-drawer>
+```
+
+---
+
+#### Top App Bar (`md-top-app-bar`)
+
+- **Subpath**: `@francofantomius/material-components/top-app-bar`
+- **Description**: Top app bars display branding, titles, navigation controls, and actions at the top of a screen across small, center-aligned, medium, and large variants.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `variant` | `'center-aligned' \| 'small' \| 'medium' \| 'large'` | `'center-aligned'` | Layout format of the top bar |
+| `headline` | `string` | `''` | Main title headline |
+| `subtitle` | `string` | `''` | Secondary supporting text |
+| `elevated` | `boolean` | `false` | Applies elevation shadow and surface container color |
+| `fixed` | `boolean` | `false` | Pins app bar to top of viewport (sticky) |
+
+##### Slots
+- `navigation`: Leading icon button (e.g. Hamburger menu or back arrow).
+- `actions`: Trailing action buttons and overflow menu triggers.
+
+##### Code Example
+```html
+<md-top-app-bar variant="small" headline="Inbox" subtitle="3 unread messages">
+  <md-icon-button slot="navigation" icon="menu" aria-label="Menu"></md-icon-button>
+  <md-icon-button slot="actions" icon="search" aria-label="Search"></md-icon-button>
+  <md-icon-button slot="actions" icon="more_vert" aria-label="More"></md-icon-button>
+</md-top-app-bar>
+
+<md-top-app-bar variant="center-aligned" headline="Settings" elevated>
+  <md-icon-button slot="navigation" icon="arrow_back" aria-label="Back"></md-icon-button>
+  <md-icon-button slot="actions" icon="help" aria-label="Help"></md-icon-button>
+</md-top-app-bar>
+```
+
+---
+
+#### Tabs (`md-tabs`, `md-tab`)
+
+- **Subpath**: `@francofantomius/material-components/tabs`
+- **Description**: Tabs organize content across different screens, data sets, and other interactions with smooth sliding active indicator bars.
+
+##### `<md-tabs>` Properties
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `active-index` | `number` | `0` | 0-based index of currently active tab |
+
+##### `<md-tab>` Properties
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `label` | `string` | `''` | Tab text title |
+| `icon` | `string` | `''` | Material Symbols icon |
+| `active` | `boolean` | `false` | Active selection state |
+| `disabled` | `boolean` | `false` | Disables tab selection |
+
+##### Events
+- `change`: Fired when active tab selection changes (`detail: { activeIndex: number }`).
+
+##### Code Example
+```html
+<md-tabs active-index="0" id="demo-tab-bar">
+  <md-tab icon="home" label="Home"></md-tab>
+  <md-tab icon="explore" label="Explore"></md-tab>
+  <md-tab icon="person" label="Profile"></md-tab>
+  <md-tab icon="settings" label="Settings"></md-tab>
+</md-tabs>
+```
+
+---
+
+#### App Drawer (`md-app-drawer`, `md-app-drawer-item`)
+
+- **Subpath**: `@francofantomius/material-components/app-drawer`
+- **Description**: App drawers provide a popover grid menu of applications, shortcuts, and services, typically positioned next to the account avatar or in top app bars. Includes drag-and-drop & keyboard reordering.
+
+##### `<md-app-drawer>` Properties
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `open` | `boolean` | `false` | Controls whether app drawer popover is open |
+| `headline` | `string` | `''` | Optional header title displayed at the top |
+| `icon` | `string` | `'apps'` | Material icon name for default trigger button |
+| `aria-label` | `string` | `'App launcher'` | Accessible label for trigger button & popover |
+| `trigger` | `boolean` | `true` | Whether to render built-in trigger icon button |
+| `alignment` | `'start' \| 'end'` | `'end'` | Horizontal alignment of popover relative to trigger |
+| `pivot` | `'left' \| 'right'` | `'right'` | Anchor pivot edge |
+| `modal` | `boolean` | `false` | Shows dimming modal backdrop when open |
+| `fullscreen` | `boolean` | `false` | Forces full-screen display (automatic on mobile viewports) |
+| `columns` | `number` | `3` | Number of columns in app grid |
+| `reorderable` | `boolean` | `true` | Enables drag-and-drop and keyboard reordering of apps |
+| `editable` | `boolean` | `true` | Shows edit icon button on top-right to toggle reordering |
+| `editing` | `boolean` | `false` | Controls whether app drawer is in reordering/editing mode |
+| `storage-key` | `string` | `''` | Custom localStorage key for persisting app order |
+| `disable-storage` | `boolean` | `false` | Disables automatic saving and loading of app order |
+
+##### `<md-app-drawer-item>` Properties
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `label` | `string` | `''` | Primary label for app |
+| `headline` | `string` | `''` | Alias for label |
+| `icon` | `string` | `''` | Material Symbols icon name |
+| `src` | `string` | `''` | Optional image or logo URL |
+| `badge` | `string` | `''` | Optional counter or notification badge |
+| `href` | `string` | `''` | Navigation URL |
+| `target` | `string` | `''` | Link target attribute |
+| `disabled` | `boolean` | `false` | Disables user interaction |
+| `active` | `boolean` | `false` | Active / highlighted state |
+
+##### Slots
+- `trigger`: Custom trigger element replacing default icon button.
+- `back-button`: Custom back/close button element for full-screen/mobile view.
+- `header`: Header content above app grid.
+- `edit-button`: Custom edit button replacing header reorder toggle button.
+- `reset-button`: Custom reset button restoring default order.
+- `(default)`: Container for `md-app-drawer-item` elements.
+- `footer`: Footer content below app grid.
+
+##### Events
+- `open`: Dispatched when app drawer opens.
+- `close`: Dispatched when app drawer closes.
+- `item-click`: Dispatched when an app item is selected.
+- `reorder`: Dispatched when apps are reordered.
+- `reset`: Dispatched when app order is reset to default.
+- `edit-toggle`: Dispatched when reordering edit mode is toggled.
+
+##### Code Example
+```html
+<md-app-drawer id="demo-app-drawer" headline="Apps">
+  <md-app-drawer-item icon="mail" label="Mail" badge="5"></md-app-drawer-item>
+  <md-app-drawer-item icon="calendar_today" label="Calendar"></md-app-drawer-item>
+  <md-app-drawer-item icon="folder" label="Drive"></md-app-drawer-item>
+  <md-app-drawer-item icon="chat" label="Chat"></md-app-drawer-item>
+  <md-app-drawer-item icon="videocam" label="Meet"></md-app-drawer-item>
+  <md-app-drawer-item icon="contacts" label="Contacts"></md-app-drawer-item>
+  <div slot="footer" style="padding: 4px 0; display: flex; justify-content: center;">
+    <md-button variant="outlined">More apps</md-button>
+  </div>
+</md-app-drawer>
+```
+
+---
+
+#### Account Menu (`md-account-menu`, `md-account-item`)
+
+- **Subpath**: `@francofantomius/material-components/account-menu`
+- **Description**: Profile menu and account switcher that displays user credentials, role details, security status, storage quotas, and multiple account management.
+
+##### `<md-account-menu>` Properties
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `open` | `boolean` | `false` | Controls whether account menu popover is open |
+| `name` | `string` | `'Franco Fantomius'` | Display name of active user |
+| `email` | `string` | `'franco.fantomius@example.com'` | Primary email address |
+| `avatar` | `string` | `''` | URL to avatar image |
+| `initials` | `string` | `''` | Fallback initials if avatar is not set |
+| `headline` | `string` | `'Account'` | Header text |
+| `manage-text` | `string` | `'Manage your Account'` | Label for main account management button |
+| `manage-url` | `string` | `''` | Navigation URL for account management |
+| `organization` | `string` | `'Material Components'` | Company or organization name |
+| `role-title` | `string` | `'Lead Architect'` | User role or job title |
+| `status` | `string` | `'Active'` | Account status badge |
+| `storage-used` | `string` | `'10.4 GB'` | Storage amount currently used |
+| `storage-total` | `string` | `'15 GB'` | Total storage capacity |
+| `storage-progress` | `number` | `0.69` | Storage usage ratio between 0 and 1 |
+| `security-status` | `string` | `'Protected'` | Security and 2FA status |
+| `show-tabs` | `boolean` | `true` | Renders Overview, Security, Storage, and Accounts tabs |
+| `alignment` | `'start' \| 'end'` | `'end'` | Horizontal alignment of popover relative to trigger |
+| `pivot` | `'left' \| 'right'` | `'right'` | Anchor pivot edge |
+| `modal` | `boolean` | `false` | Shows dimming modal backdrop when open |
+| `fullscreen` | `boolean` | `false` | Forces full-screen display (automatic on mobile viewports) |
+
+##### `<md-account-item>` Properties
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `name` | `string` | `''` | Account profile name |
+| `email` | `string` | `''` | Account email address |
+| `avatar` | `string` | `''` | Avatar image URL |
+| `initials` | `string` | `''` | Avatar initials |
+| `icon` | `string` | `''` | Icon name |
+| `active` | `boolean` | `false` | Marks account as currently active |
+| `action` | `boolean` | `false` | Action item mode (e.g. Add another account) |
+| `disabled` | `boolean` | `false` | Disables interaction |
+
+##### Slots
+- `trigger`: Custom trigger element replacing default avatar button.
+- `back-button`: Custom back/close button element for full-screen/mobile view.
+- `header`: Custom header content.
+- `overview`: Custom content for Overview tab.
+- `security`: Custom content for Security tab.
+- `storage`: Custom content for Storage tab.
+- `accounts`: Container for `md-account-item` instances.
+- `footer`: Custom footer content (e.g. Sign out action).
+
+##### Events
+- `open`: Dispatched when account menu opens.
+- `close`: Dispatched when account menu closes.
+- `tab-change`: Dispatched when user switches tabs (`detail: { tab }`).
+- `account-select`: Dispatched when an account profile is chosen.
+- `manage-click`: Dispatched when Manage Account button is clicked.
+- `sign-out`: Dispatched when Sign out button is clicked.
+- `edit-avatar`: Dispatched when avatar photo edit button is clicked.
+
+##### Code Example
+```html
+<md-account-menu
+  id="demo-account-menu"
+  name="Franco Fantomius"
+  email="franco.fantomius@example.com"
+  initials="F"
+  role-title="Lead Architect"
+  organization="Material Components Team"
+  storage-used="10.4 GB"
+  storage-total="15 GB"
+  storage-progress="0.69"
+>
+  <md-account-item
+    slot="accounts"
+    name="Franco Fantomius"
+    email="franco.fantomius@example.com"
+    initials="F"
+    active
+  ></md-account-item>
+  <md-account-item
+    slot="accounts"
+    name="Work Workspace"
+    email="franco.dev@work.corp"
+    initials="W"
+  ></md-account-item>
+  <md-account-item
+    slot="accounts"
+    name="Add another account"
+    icon="person_add"
+    action
+  ></md-account-item>
+</md-account-menu>
+```
+
+---
+
+### Media & Playback
+
+#### Player (`md-player`)
+
+- **Subpath**: `@francofantomius/material-components/player`
+- **Description**: Material Design 3 media player component supporting audio and video playback, responsive compact and large-screen layouts, artwork/posters, interactive progress scrubbing, always-visible volume controls, queue toggle, playback rates, and keyboard shortcuts.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `src` | `string` | `''` | Media source URL for audio or video playback |
+| `type` | `'audio' \| 'video'` | `'audio'` | Type of media to render |
+| `variant` | `'elevated' \| 'filled' \| 'outlined' \| 'compact' \| 'full'` | `'elevated'` | Surface container style or layout variant |
+| `track-title` | `string` | `''` | Title of current track or video |
+| `artist` | `string` | `''` | Artist or author name |
+| `album` | `string` | `''` | Album or series name |
+| `poster` | `string` | `''` | Artwork / poster image URL |
+| `currentTime` | `number` | `0` | Current playback position in seconds |
+| `duration` | `number` | `0` | Total media duration in seconds |
+| `volume` | `number` | `1` | Audio volume level (0.0 to 1.0) |
+| `muted` | `boolean` | `false` | Mutes media audio output |
+| `playback-rate` | `number` | `1` | Speed multiplier (0.5x to 2x) |
+| `paused` | `boolean` | `true` | Playback pause state |
+| `loop` | `boolean` | `false` | Repeats track when finished |
+| `autoplay` | `boolean` | `false` | Automatically begins playback on load |
+| `compact` | `boolean` | `false` | Forces minimal single-row bar layout |
+| `show-skip` | `boolean` | `true` | Shows previous and next track buttons |
+| `show-seek` | `boolean` | `true` | Shows rewind and fast-forward 10s buttons |
+| `show-volume` | `boolean` | `true` | Shows always-visible volume button and slider |
+| `show-playback-rate` | `boolean` | `true` | Shows playback rate cycle button |
+| `show-queue` | `boolean` | `true` | Shows music queue toggle button |
+| `seek-step` | `number` | `10` | Seconds to skip with rewind/forward controls |
+
+##### Slots
+- `media`: Custom native `<audio>` or `<video>` element.
+- `artwork`: Custom album artwork or video thumbnail element.
+- `title`: Custom title header content.
+- `artist`: Custom artist or subtitle content.
+- `actions`: Custom action buttons (like, share, playlist).
+- `(default)`: Additional content below controls (lyrics, playlist).
+
+##### Events
+- `play`: Fired when playback begins.
+- `pause`: Fired when playback is paused.
+- `timeupdate`: Fired periodically as time updates (`detail: { currentTime: number, duration: number, progress: number }`).
+- `seeked`: Fired after seeking (`detail: { currentTime: number }`).
+- `volumechange`: Fired when volume or mute changes (`detail: { volume: number, muted: boolean }`).
+- `ratechange`: Fired when playback rate is modified (`detail: { playbackRate: number }`).
+- `queue`: Fired when queue button is toggled (`detail: { open: boolean }`).
+- `previous`: Fired on previous button click.
+- `next`: Fired on next button click.
+- `ended`: Fired when media playback ends.
+- `fullscreenchange`: Fired when fullscreen state changes in video mode (`detail: { fullscreen: boolean }`).
+
+##### JavaScript API Methods
+- `play()`: Begins or resumes playback.
+- `pause()`: Pauses active playback.
+- `togglePlay()`: Toggles between play and pause.
+- `seek(timeInSeconds)`: Jumps directly to timestamp.
+- `seekBy(deltaSeconds)`: Relative seek forward/backward.
+- `setVolume(level)`: Sets volume (0.0 to 1.0).
+- `toggleMute()`: Toggles audio mute state.
+- `toggleQueue()`: Toggles music queue state.
+- `cyclePlaybackRate()`: Cycles speed rates (0.5x, 0.75x, 1x, 1.25x, 1.5x, 2x).
+- `toggleFullscreen()`: Toggles fullscreen video mode.
+
+##### Code Example
+```html
+<!-- Full Audio Player -->
+<md-player
+  track-title="Midnight City Dreams"
+  artist="Synthetic Horizons"
+  album="Future Echoes (2026)"
+  poster="https://picsum.photos/seed/music/300/300"
+  duration="214"
+  current-time="45"
+></md-player>
+
+<!-- Compact Bar Player -->
+<md-player
+  compact
+  variant="outlined"
+  track-title="Episode 42: Modern Web Design"
+  artist="Tech Talk Daily"
+  poster="https://picsum.photos/seed/podcast/200/200"
+  duration="1820"
+></md-player>
+
+<!-- Video Player Mode -->
+<md-player
+  type="video"
+  src="https://example.com/sample.mp4"
+  track-title="Material Design 3 Interactive Experience"
+  poster="https://picsum.photos/seed/video/800/450"
+></md-player>
+```
+
+---
+
+### Utilities & Data
+
+#### Icon (`md-icon`)
+
+- **Subpath**: `@francofantomius/material-components/icon`
+- **Description**: Icons visually communicate meaning, actions, and status using Google Material Symbols variable font glyphs or custom slotted SVGs.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `name` | `string` | `''` | Material Symbols font glyph identifier |
+| `filled` | `boolean` | `false` | Enables filled variation in variable font |
+| `size` | `string` | `''` | Custom CSS font size (e.g. `32`, `2rem`) |
+
+##### Code Example
+```html
+<md-icon name="favorite"></md-icon>
+<md-icon name="favorite" filled style="color: var(--md-sys-color-error);"></md-icon>
+<md-icon name="settings" size="32"></md-icon>
+<md-icon name="rocket_launch" size="48" style="color: var(--md-sys-color-primary);"></md-icon>
+```
+
+---
+
+#### Code Block & Highlighter (`md-code`)
+
+- **Subpath**: `@francofantomius/material-components/code`
+- **Description**: Code component with syntax highlighting for popular languages, real-time multi-language linting diagnostics, line numbers, line highlighting, and one-click copy to clipboard.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `code` | `string` | `''` | Source code content string (falls back to slot/textContent) |
+| `language` / `lang` | `string` | `'plaintext'` | Syntax language: `javascript`, `typescript`, `html`, `css`, `json`, `python`, `bash`, `sql`, `yaml`, `markdown` |
+| `label` / `filename` | `string` | `''` | Header label or filename (e.g. `"button.ts"`, `"package.json"`) |
+| `lint` | `boolean` | `false` | Enables built-in real-time multi-language syntax linting |
+| `diagnostics` | `LintDiagnostic[]` | `[]` | Array of custom diagnostic issues to display (`{ line, column, message, severity, rule }`) |
+| `show-lint-summary` | `boolean` | `true` | Whether to show the collapsible lint issues summary footer bar |
+| `line-numbers` | `boolean` | `false` | Renders line numbers gutter |
+| `highlight-lines` | `string` | `''` | Comma-separated line numbers or ranges to highlight (e.g. `"1, 3-5, 8"`) |
+| `copyable` | `boolean` | `true` | Enables clipboard copying functionality |
+| `hide-copy-button` | `boolean` | `false` | Hides the copy button from the header |
+| `wrap-lines` | `boolean` | `false` | Wraps long lines instead of horizontal scrolling |
+| `max-height` | `string` | `''` | Maximum height of code scroll area (e.g. `"300px"`) |
+
+##### Slots
+- `(default)`: Source code text when `code` property is omitted.
+- `actions`: Additional action buttons placed in header bar.
+
+##### Events
+- `copy`: Fired when code is copied to clipboard (`detail: { code: string }`).
+- `lint-complete`: Fired after linting finishes (`detail: { diagnostics: LintDiagnostic[], isValid: boolean }`).
+
+##### CSS Variables
+| Variable | Default | Description |
+| :--- | :--- | :--- |
+| `--md-code-bg` | `var(--md-sys-color-surface-container)` | Background color of code block |
+| `--md-code-header-bg` | `var(--md-sys-color-surface-container-high)` | Background color of header bar |
+| `--md-code-border` | `var(--md-sys-color-outline-variant)` | Border color of container |
+| `--md-code-color` | `var(--md-sys-color-on-surface)` | Default text color of code tokens |
+| `--md-code-gutter-color` | `var(--md-sys-color-outline)` | Text color of line numbers |
+| `--md-code-radius` | `var(--md-sys-shape-corner-medium, 12px)` | Corner border radius |
+| `--md-code-font-size` | `13.5px` | Font size of the code |
+| `--md-code-line-height` | `1.6` | Line height multiplier |
+
+##### Code Example
+```html
+<md-code
+  language="typescript"
+  label="src/index.ts"
+  line-numbers
+  highlight-lines="4, 7-9"
+>
+import { LitElement, html, css } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+
+@customElement('my-counter')
+export class MyCounter extends LitElement {
+  @property({ type: Number }) count = 0;
+
+  private increment() {
+    this.count += 1;
+  }
+
+  render() {
+    return html`<button @click=${this.increment}>Count: ${this.count}</button>`;
+  }
+}
+</md-code>
+
+<!-- Real-time Linting -->
+<md-code language="json" label="package.json" line-numbers lint>
+{
+  "name": "@francofantomius/material-components",
+  "version": "1.0.0"
+}
+</md-code>
+```
+
