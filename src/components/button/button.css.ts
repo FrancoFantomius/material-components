@@ -18,11 +18,12 @@ export const buttonStyles = css`
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    width: 100%;
     min-width: 64px;
     height: 40px;
     padding: 0 24px;
     border: none;
-    border-radius: var(--md-sys-shape-corner-full, 9999px);
+    border-radius: var(--md-button-border-radius, var(--md-button-shape, var(--md-sys-shape-corner-full, 9999px)));
     font-family: var(--md-sys-typescale-font-family, inherit);
     font-size: var(--md-sys-typescale-label-large-size, 14px);
     font-weight: 500;

@@ -40,6 +40,7 @@ export const themeStyles = css`
     --md-sys-color-inverse-surface: ${css([lightColorScheme.inverseSurface] as unknown as TemplateStringsArray)};
     --md-sys-color-inverse-on-surface: ${css([lightColorScheme.inverseOnSurface] as unknown as TemplateStringsArray)};
     --md-sys-color-inverse-primary: ${css([lightColorScheme.inversePrimary] as unknown as TemplateStringsArray)};
+    --md-sys-color-scrim: ${css([lightColorScheme.scrim] as unknown as TemplateStringsArray)};
 
     /* Typography */
     --md-sys-typescale-font-family: ${css([typographyTokens.fontFamily] as unknown as TemplateStringsArray)};
@@ -112,6 +113,7 @@ export const themeStyles = css`
     --md-sys-color-inverse-surface: ${css([darkColorScheme.inverseSurface] as unknown as TemplateStringsArray)};
     --md-sys-color-inverse-on-surface: ${css([darkColorScheme.inverseOnSurface] as unknown as TemplateStringsArray)};
     --md-sys-color-inverse-primary: ${css([darkColorScheme.inversePrimary] as unknown as TemplateStringsArray)};
+    --md-sys-color-scrim: ${css([darkColorScheme.scrim] as unknown as TemplateStringsArray)};
   }
 `;
 

@@ -20,28 +20,43 @@
 - [Component Reference](#component-reference)
   - [Actions](#actions)
     - [Button (`md-button`)](#button-md-button)
+    - [Button Group (`md-button-group`)](#button-group-md-button-group)
     - [Segmented Button (`md-segmented-button`, `md-segmented-button-set`)](#segmented-button-md-segmented-button-md-segmented-button-set)
+    - [Split Button (`md-split-button`)](#split-button-md-split-button)
     - [Icon Button (`md-icon-button`)](#icon-button-md-icon-button)
     - [Floating Action Button (`md-fab`)](#floating-action-button-md-fab)
+    - [FAB Menu (`md-fab-menu`, `md-fab-menu-item`)](#fab-menu-md-fab-menu-md-fab-menu-item)
+    - [Toolbar (`md-toolbar`)](#toolbar-md-toolbar)
   - [Inputs & Controls](#inputs--controls)
     - [Text Field (`md-text-field`)](#text-field-md-text-field)
     - [Checkbox (`md-checkbox`)](#checkbox-md-checkbox)
     - [Radio & Radio Group (`md-radio`, `md-radio-group`)](#radio--radio-group-md-radio-md-radio-group)
     - [Switch (`md-switch`)](#switch-md-switch)
+    - [Slider (`md-slider`)](#slider-md-slider)
+    - [Time Picker (`md-time-picker`)](#time-picker-md-time-picker)
+    - [Date Picker (`md-date-picker`)](#date-picker-md-date-picker)
     - [Chip & Chip Set (`md-chip`, `md-chip-set`)](#chip--chip-set-md-chip-md-chip-set)
     - [Search Bar (`md-search-bar`)](#search-bar-md-search-bar)
   - [Surfaces & Containment](#surfaces--containment)
     - [Card (`md-card`)](#card-md-card)
     - [Dialog (`md-dialog`)](#dialog-md-dialog)
     - [Divider (`md-divider`)](#divider-md-divider)
+    - [Menu (`md-menu`, `md-menu-item`)](#menu-md-menu-md-menu-item)
     - [List & List Item (`md-list`, `md-list-item`)](#list--list-item-md-list-md-list-item)
     - [Table & Data Table (`md-table`)](#table--data-table-md-table)
+    - [Side Sheet (`md-side-sheet`)](#side-sheet-md-side-sheet)
+    - [Bottom Sheet (`md-bottom-sheet`)](#bottom-sheet-md-bottom-sheet)
+    - [Carousel (`md-carousel`, `md-carousel-item`)](#carousel-md-carousel-md-carousel-item)
   - [Communication & Feedback](#communication--feedback)
     - [Badge (`md-badge`)](#badge-md-badge)
     - [Progress Indicators (`md-progress`)](#progress-indicators-md-progress)
+    - [Loading Indicator (`md-loading-indicator`)](#loading-indicator-md-loading-indicator)
     - [Snackbar (`md-snackbar`)](#snackbar-md-snackbar)
+    - [Tooltip (`md-tooltip`)](#tooltip-md-tooltip)
   - [Navigation](#navigation)
+    - [Navigation Bar (`md-navigation-bar`, `md-navigation-bar-item`)](#navigation-bar-md-navigation-bar-md-navigation-bar-item)
     - [Navigation Drawer (`md-navigation-drawer`, `md-navigation-drawer-item`)](#navigation-drawer-md-navigation-drawer-md-navigation-drawer-item)
+    - [Navigation Rail (`md-navigation-rail`, `md-navigation-rail-item`)](#navigation-rail-md-navigation-rail-md-navigation-rail-item)
     - [Top App Bar (`md-top-app-bar`)](#top-app-bar-md-top-app-bar)
     - [Tabs (`md-tabs`, `md-tab`)](#tabs-md-tabs-md-tab)
     - [App Drawer (`md-app-drawer`, `md-app-drawer-item`)](#app-drawer-md-app-drawer-md-app-drawer-item)
@@ -321,24 +336,39 @@ const isEnabled = ref(true);
 | Category | Component Tag | Subpath Import | Description |
 | :--- | :--- | :--- | :--- |
 | **Actions** | `<md-button>` | `@francofantomius/material-components/button` | Buttons with 5 visual emphasis levels |
+| **Actions** | `<md-button-group>` | `@francofantomius/material-components/button-group` | Button groups with connected shape-shifting or standard layouts |
 | **Actions** | `<md-segmented-button>`, `<md-segmented-button-set>` | `@francofantomius/material-components/segmented-button` | Compact single or multi-select option groups |
+| **Actions** | `<md-split-button>` | `@francofantomius/material-components/split-button` | Primary action button with connected dropdown trigger |
 | **Actions** | `<md-icon-button>` | `@francofantomius/material-components/icon-button` | Compact action & toggle buttons |
 | **Actions** | `<md-fab>` | `@francofantomius/material-components/fab` | Floating Action Button (small, medium, large, extended) |
+| **Actions** | `<md-fab-menu>`, `<md-fab-menu-item>` | `@francofantomius/material-components/fab-menu` | FAB Menu / Speed Dial expanding into stacked sub-actions with labels and modal scrim |
+| **Actions** | `<md-toolbar>` | `@francofantomius/material-components/toolbar` | M3 Expressive floating & docked action toolbar |
 | **Inputs & Controls** | `<md-text-field>` | `@francofantomius/material-components/text-field` | Filled & outlined inputs with validation |
 | **Inputs & Controls** | `<md-checkbox>` | `@francofantomius/material-components/checkbox` | Checkbox with indeterminate and error states |
 | **Inputs & Controls** | `<md-radio>`, `<md-radio-group>` | `@francofantomius/material-components/radio` | Mutually exclusive radio selections |
 | **Inputs & Controls** | `<md-switch>` | `@francofantomius/material-components/switch` | Toggle switch with optional thumb icons |
+| **Inputs & Controls** | `<md-slider>` | `@francofantomius/material-components/slider` | Continuous, discrete, and dual-thumb range sliders |
+| **Inputs & Controls** | `<md-time-picker>` | `@francofantomius/material-components/time-picker` | 12h/24h dial & input time picker with modal and docked modes |
+| **Inputs & Controls** | `<md-date-picker>` | `@francofantomius/material-components/date-picker` | Calendar grid, date range, month/year navigation in modal & docked modes |
 | **Inputs & Controls** | `<md-chip>`, `<md-chip-set>` | `@francofantomius/material-components/chip` | Assist, filter, input, and suggestion chips |
 | **Inputs & Controls** | `<md-search-bar>` | `@francofantomius/material-components/search-bar` | Docked and fullscreen search view |
 | **Surfaces & Containment** | `<md-card>` | `@francofantomius/material-components/card` | Elevated, filled, and outlined surface containers |
 | **Surfaces & Containment** | `<md-dialog>` | `@francofantomius/material-components/dialog` | Modal dialogs for prompts & confirmation |
 | **Surfaces & Containment** | `<md-divider>` | `@francofantomius/material-components/divider` | Horizontal, vertical, and inset separators |
+| **Surfaces & Containment** | `<md-menu>`, `<md-menu-item>` | `@francofantomius/material-components/menu` | Temporary surfaces displaying lists of choices anchored to triggers |
 | **Surfaces & Containment** | `<md-list>`, `<md-list-item>` | `@francofantomius/material-components/list` | 1-line, 2-line, and 3-line structured lists |
 | **Surfaces & Containment** | `<md-table>` | `@francofantomius/material-components/table` | Data table with sorting, selection, and pagination |
+| **Surfaces & Containment** | `<md-side-sheet>` | `@francofantomius/material-components/side-sheet` | Standard in-flow & modal overlay side sheets |
+| **Surfaces & Containment** | `<md-bottom-sheet>` | `@francofantomius/material-components/bottom-sheet` | Standard docked & modal overlay bottom sheets with drag gestures |
+| **Surfaces & Containment** | `<md-carousel>`, `<md-carousel-item>` | `@francofantomius/material-components/carousel` | Multi-browse, hero, and full-width image & content carousels |
 | **Communication & Feedback** | `<md-badge>` | `@francofantomius/material-components/badge` | Numeric count and status dot indicators |
 | **Communication & Feedback** | `<md-progress>` | `@francofantomius/material-components/progress` | Linear and circular progress with M3 wavy lines |
+| **Communication & Feedback** | `<md-loading-indicator>` | `@francofantomius/material-components/loading-indicator` | Contained & morphing shape loading indicator for short wait times |
 | **Communication & Feedback** | `<md-snackbar>` | `@francofantomius/material-components/snackbar` | Temporary bottom toast messages |
+| **Communication & Feedback** | `<md-tooltip>` | `@francofantomius/material-components/tooltip` | Plain & rich contextual tooltips with directional positioning and delays |
+| **Navigation** | `<md-navigation-bar>`, `<md-navigation-bar-item>` | `@francofantomius/material-components/navigation-bar` | Bottom navigation bar with 3-5 destinations, indicator pills, badges & label modes |
 | **Navigation** | `<md-navigation-drawer>` | `@francofantomius/material-components/navigation-drawer` | Side drawer navigation (modal / standard / responsive) |
+| **Navigation** | `<md-navigation-rail>`, `<md-navigation-rail-item>` | `@francofantomius/material-components/navigation-rail` | Vertical navigation rail for mid to large screens |
 | **Navigation** | `<md-top-app-bar>` | `@francofantomius/material-components/top-app-bar` | Header bar (small, center-aligned, medium, large) |
 | **Navigation** | `<md-tabs>`, `<md-tab>` | `@francofantomius/material-components/tabs` | Top tab navigation with sliding active indicator |
 | **Navigation** | `<md-app-drawer>` | `@francofantomius/material-components/app-drawer` | Popover application grid launcher with drag reordering |
@@ -387,6 +417,47 @@ const isEnabled = ref(true);
 
 ---
 
+#### Button Group (`md-button-group`)
+
+- **Subpath**: `@francofantomius/material-components/button-group`
+- **Description**: Button groups organize related action buttons into cohesive sets with standard or connected shape-shifting layouts according to Material Design 3 specifications.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `orientation` | `'horizontal' \| 'vertical'` | `'horizontal'` | Layout orientation of the button group |
+| `connected` | `boolean` | `false` | Connects adjacent buttons with seamless shared borders and shape-shifting corner radii |
+| `shape` | `'pill' \| 'rounded' \| 'square'` | `'pill'` | Corner shape morphing style when connected |
+| `variant` | `'filled' \| 'elevated' \| 'tonal' \| 'outlined' \| 'text'` | `''` | Cascades a visual emphasis style to child buttons |
+| `full-width` | `boolean` | `false` | Stretches child buttons evenly across the container width |
+| `disabled` | `boolean` | `false` | Disables all child buttons in the group |
+
+##### Code Example
+```html
+<!-- Standard Button Group -->
+<md-button-group>
+  <md-button variant="outlined" icon="edit">Edit</md-button>
+  <md-button variant="outlined" icon="content_copy">Copy</md-button>
+  <md-button variant="filled" icon="share">Share</md-button>
+</md-button-group>
+
+<!-- Connected Shape-Shifting Group -->
+<md-button-group connected variant="outlined">
+  <md-button icon="format_align_left">Left</md-button>
+  <md-button icon="format_align_center">Center</md-button>
+  <md-button icon="format_align_right">Right</md-button>
+</md-button-group>
+
+<!-- Vertical Connected Group -->
+<md-button-group connected orientation="vertical" variant="outlined">
+  <md-button icon="zoom_in">Zoom In</md-button>
+  <md-button icon="zoom_out">Zoom Out</md-button>
+  <md-button icon="fit_screen">Reset</md-button>
+</md-button-group>
+```
+
+---
+
 #### Segmented Button (`md-segmented-button`, `md-segmented-button-set`)
 
 - **Subpath**: `@francofantomius/material-components/segmented-button`
@@ -423,6 +494,45 @@ const isEnabled = ref(true);
   <md-segmented-button icon="format_italic" label="Italic"></md-segmented-button>
   <md-segmented-button icon="format_underlined" label="Underline"></md-segmented-button>
 </md-segmented-button-set>
+```
+
+---
+
+#### Split Button (`md-split-button`)
+
+- **Subpath**: `@francofantomius/material-components/split-button`
+- **Description**: Split buttons combine a primary action button with a connected dropdown trigger button for related contextual options.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `variant` | `'filled' \| 'elevated' \| 'tonal' \| 'outlined'` | `'filled'` | Visual emphasis style of the split button |
+| `disabled` | `boolean` | `false` | Disables both action and menu trigger buttons |
+| `label` | `string` | `''` | Primary action button text label |
+| `icon` | `string` | `''` | Leading icon for the primary action button |
+| `trailing-icon` | `string` | `'arrow_drop_down'` | Dropdown trigger icon name |
+| `open` | `boolean` | `false` | Whether the associated menu / options dropdown is open |
+| `type` | `'button' \| 'submit' \| 'reset'` | `'button'` | HTML form button type for the main action |
+| `action-aria-label` | `string` | `''` | Accessible label for the main action button |
+| `menu-aria-label` | `string` | `'More options'` | Accessible label for the trailing menu trigger button |
+
+##### Events
+| Name | Detail | Description |
+| :--- | :--- | :--- |
+| `action` | `{ target: MdSplitButton, open: boolean }` | Dispatched when the leading primary action button is clicked |
+| `trailing-click` | `{ target: MdSplitButton, open: boolean }` | Dispatched when the trailing dropdown menu button is clicked |
+| `toggle` | `{ target: MdSplitButton, open: boolean }` | Dispatched when the trailing menu trigger toggles open state |
+
+##### Code Example
+```html
+<!-- Default filled split button -->
+<md-split-button label="Save"></md-split-button>
+
+<!-- Split button with icons and tonal variant -->
+<md-split-button variant="tonal" icon="cloud_upload" label="Upload" trailing-icon="expand_more"></md-split-button>
+
+<!-- Outlined split button -->
+<md-split-button variant="outlined" label="Export"></md-split-button>
 ```
 
 ---
@@ -477,6 +587,112 @@ const isEnabled = ref(true);
 <md-fab icon="add" label="New Message"></md-fab>
 <md-fab size="large" icon="palette" aria-label="Palette"></md-fab>
 <md-fab icon="download" lowered aria-label="Download"></md-fab>
+```
+
+---
+
+#### FAB Menu (`md-fab-menu`, `md-fab-menu-item`)
+
+- **Subpath**: `@francofantomius/material-components/fab-menu`
+- **Description**: A Floating Action Button Menu (FAB Menu / Speed Dial) expands a primary FAB into a stack of contextual sub-actions with text labels, animated transitions, and optional modal scrim overlay.
+
+##### Properties & Attributes (`md-fab-menu`)
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `open` | `boolean` | `false` | Whether the menu stack is open |
+| `modal` | `boolean` | `false` | Displays a scrim backdrop overlay behind the open menu |
+| `direction` | `'up' \| 'down' \| 'left' \| 'right'` | `'up'` | Direction the sub-action stack expands |
+| `icon` | `string` | `'add'` | Material Symbols icon for the trigger FAB |
+| `open-icon` | `string` | `''` | Optional distinct icon shown when opened (defaults to 45° rotation) |
+| `label` | `string` | `''` | Extended text label for the trigger FAB |
+| `size` | `'small' \| 'medium' \| 'large'` | `'medium'` | Trigger FAB button size |
+| `lowered` | `boolean` | `false` | Applies lower elevation level 1 instead of level 3 |
+| `disabled` | `boolean` | `false` | Disables menu trigger and interactions |
+| `close-on-item-click` | `boolean` | `true` | Automatically closes menu when a sub-item is clicked |
+| `close-on-outside-click` | `boolean` | `true` | Automatically closes menu when clicking outside |
+
+##### Properties & Attributes (`md-fab-menu-item`)
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `icon` | `string` | `''` | Material Symbols icon name for the sub-action |
+| `label` | `string` | `''` | Text label displayed beside the mini-FAB |
+| `label-placement` | `'start' \| 'end' \| 'top' \| 'bottom'` | `'start'` | Positioning of the label pill relative to the sub-FAB |
+| `disabled` | `boolean` | `false` | Disables sub-action item interactions |
+| `value` | `string` | `''` | Value or identifier for the action |
+| `size` | `'small' \| 'medium'` | `'small'` | Size of the mini-FAB button |
+| `lowered` | `boolean` | `false` | Lower elevation level |
+
+##### Events
+| Name | Detail | Description |
+| :--- | :--- | :--- |
+| `open` | `undefined` | Dispatched when the FAB menu opens |
+| `close` | `undefined` | Dispatched when the FAB menu closes |
+| `toggle` | `{ open: boolean }` | Dispatched when the menu toggles open/close state |
+| `action` | `{ item: MdFabMenuItem, value: string, label: string }` | Dispatched when a sub-action item is activated |
+| `scrim-click` | `undefined` | Dispatched when modal scrim backdrop is clicked |
+
+##### Code Example
+```html
+<!-- Standard Upward FAB Menu -->
+<md-fab-menu icon="add">
+  <md-fab-menu-item icon="edit" label="Create Post" value="post"></md-fab-menu-item>
+  <md-fab-menu-item icon="photo_camera" label="Upload Photo" value="photo"></md-fab-menu-item>
+  <md-fab-menu-item icon="videocam" label="Go Live" value="live"></md-fab-menu-item>
+</md-fab-menu>
+
+<!-- Modal FAB Menu with Scrim -->
+<md-fab-menu modal icon="add" label="Actions">
+  <md-fab-menu-item icon="mail" label="New Message" value="email"></md-fab-menu-item>
+  <md-fab-menu-item icon="event" label="Schedule Event" value="event"></md-fab-menu-item>
+</md-fab-menu>
+```
+
+---
+
+#### Toolbar (`md-toolbar`)
+
+- **Subpath**: `@francofantomius/material-components/toolbar`
+- **Description**: Material Design 3 Expressive Action Toolbar for housing actions, tools, controls, and integrated floating action buttons in floating island or docked edge-to-edge layouts.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `mode` | `'floating' \| 'docked'` | `'floating'` | Layout mode: floating island or docked bar |
+| `docked` | `boolean` | `false` | Shorthand boolean to activate docked mode |
+| `orientation` | `'horizontal' \| 'vertical'` | `'horizontal'` | Controls layout orientation |
+| `elevated` | `boolean` | `false` | Increases elevation shadow depth |
+| `fixed` | `boolean` | `false` | Pins position relative to viewport |
+| `dock-position` | `'none' \| 'top' \| 'bottom' \| 'left' \| 'right'` | `'none'` | Viewport edge when docked and fixed |
+| `aria-label` | `string` | `''` | Accessible label for screen readers |
+
+##### Slots
+| Slot Name | Description |
+| :--- | :--- |
+| *(default)* | Primary action buttons, segmented buttons, switches, and dividers |
+| `leading` | Leading navigation or anchor icons |
+| `trailing` | Trailing action buttons or overflow menus |
+| `fab` / `action` | Slotted Primary Action / Floating Action Button (FAB) |
+
+##### Code Example
+```html
+<!-- Floating Action Toolbar -->
+<md-toolbar aria-label="Formatting Actions">
+  <md-icon-button icon="format_bold" aria-label="Bold"></md-icon-button>
+  <md-icon-button icon="format_italic" aria-label="Italic"></md-icon-button>
+  <md-divider vertical></md-divider>
+  <md-icon-button icon="format_align_left" aria-label="Align left"></md-icon-button>
+  <md-fab slot="fab" size="small" icon="edit" aria-label="Edit"></md-fab>
+</md-toolbar>
+
+<!-- Docked Bottom Toolbar -->
+<md-toolbar mode="docked" aria-label="Document Controls">
+  <div slot="leading">
+    <md-icon-button icon="attachment" aria-label="Attach"></md-icon-button>
+  </div>
+  <div slot="trailing">
+    <md-button variant="filled" label="Publish"></md-button>
+  </div>
+</md-toolbar>
 ```
 
 ---
@@ -604,6 +820,56 @@ const isEnabled = ref(true);
 
 ---
 
+#### Slider (`md-slider`)
+
+- **Subpath**: `@francofantomius/material-components/slider`
+- **Description**: Sliders allow users to view and select a value (or range of values) along a horizontal track, supporting continuous or discrete steps, dual-thumb range selection, value indicator balloon tooltips, and leading/trailing icons.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `value` | `number` | `50` | Current value for single slider mode |
+| `value-start` | `number` | `0` | Start value for dual-thumb range mode |
+| `value-end` | `number` | `100` | End value for dual-thumb range mode |
+| `min` | `number` | `0` | Minimum allowed value |
+| `max` | `number` | `100` | Maximum allowed value |
+| `step` | `number` | `1` | Granularity step increment |
+| `range` | `boolean` | `false` | Enables dual-thumb range selection mode |
+| `ticks` | `boolean` | `false` | Displays discrete step tick marks along the track |
+| `labeled` | `boolean` | `false` | Shows floating value indicator balloon tooltip above thumb |
+| `icon` | `string` | `''` | Leading Material Symbols icon name |
+| `leading-icon` | `string` | `''` | Leading Material Symbols icon name |
+| `trailing-icon` | `string` | `''` | Trailing Material Symbols icon name |
+| `disabled` | `boolean` | `false` | Disables user interaction |
+| `name` | `string` | `''` | HTML form input name |
+| `name-start` | `string` | `''` | HTML form input name for start value (range mode) |
+| `name-end` | `string` | `''` | HTML form input name for end value (range mode) |
+
+##### Slots
+- `leading-icon`: Custom leading icon or element.
+- `trailing-icon`: Custom trailing icon or element.
+
+##### Events
+- `input`: Dispatched continuously while dragging or adjusting with keys (`detail: { value, valueStart, valueEnd }`).
+- `change`: Dispatched on pointer release or committed keyboard change (`detail: { value, valueStart, valueEnd }`).
+
+##### Code Example
+```html
+<!-- Continuous Slider with Icons -->
+<md-slider value="60" icon="volume_down" trailing-icon="volume_up"></md-slider>
+
+<!-- Discrete Stepped Slider with Ticks & Value Indicator -->
+<md-slider min="0" max="100" step="10" value="40" ticks labeled></md-slider>
+
+<!-- Dual-Thumb Range Slider -->
+<md-slider range min="0" max="100" value-start="20" value-end="80" labeled></md-slider>
+
+<!-- Disabled Slider -->
+<md-slider value="50" disabled icon="lock"></md-slider>
+```
+
+---
+
 #### Chip & Chip Set (`md-chip`, `md-chip-set`)
 
 - **Subpath**: `@francofantomius/material-components/chip`
@@ -684,6 +950,121 @@ const isEnabled = ref(true);
     </div>
   </div>
 </md-search-bar>
+```
+
+---
+
+#### Time Picker (`md-time-picker`)
+
+- **Subpath**: `@francofantomius/material-components/time-picker`
+- **Description**: Time pickers help users select and set a specific time using an interactive Material Design 3 clock dial or numeric text inputs, in both 12-hour (AM/PM) and 24-hour formats with modal or docked modes.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `value` | `string` | `''` | Current time value string (e.g. `'08:30 AM'` or `'14:30'`) |
+| `format` | `'12h' \| '24h'` | `'12h'` | Time display and selection format |
+| `view` | `'dial' \| 'input'` | `'dial'` | Active presentation mode: interactive clock dial or numeric text fields |
+| `modal` | `boolean` | `false` | Displays picker as a modal dialog overlay with backdrop scrim |
+| `open` | `boolean` | `false` | Controls open/close visibility state when in modal mode |
+| `headline` | `string` | `'Select time'` | Header headline text |
+| `auto-switch-to-minute` | `boolean` | `true` | Automatically transitions active field from hour to minute on dial |
+| `disabled` | `boolean` | `false` | Disables user interaction |
+| `name` | `string` | `''` | HTML form input name (FACE) |
+| `required` | `boolean` | `false` | Form validation required constraint |
+
+##### Methods
+- `showModal()`: Opens the time picker as a modal dialog.
+- `show()`: Opens the time picker.
+- `close(returnValue?: string)`: Closes the modal time picker.
+- `confirm()`: Commits the selected time and fires `change` / `confirm` events.
+- `cancel()`: Cancels selection and dismisses modal dialog.
+- `getFormattedTime()`: Returns current formatted time according to `format`.
+- `getFormatted24()`: Returns current time in 24-hour `'HH:MM'` format.
+- `getFormatted12()`: Returns current time in 12-hour `'hh:mm A'` format.
+
+##### Events
+- `change`: Dispatched when a time value is confirmed or committed (`detail: { value, hour, minute, period, formatted24, formatted12 }`).
+- `input`: Dispatched during interactive time adjustment (`detail: { value, hour, minute, period, formatted24, formatted12 }`).
+- `confirm`: Dispatched when the user clicks OK (`detail: { value, hour, minute, period, formatted24, formatted12 }`).
+- `cancel`: Dispatched when selection is canceled or backdrop is clicked.
+- `open`: Dispatched when modal dialog opens.
+- `close`: Dispatched when modal dialog closes (`detail: { returnValue?: string }`).
+
+##### Code Example
+```html
+<!-- 12-hour Clock Dial Picker -->
+<md-time-picker format="12h" value="09:30 AM"></md-time-picker>
+
+<!-- 24-hour Text Input Mode -->
+<md-time-picker view="input" format="24h" value="14:45"></md-time-picker>
+
+<!-- Modal Time Picker with Trigger Button -->
+<md-button variant="filled" icon="schedule" onclick="document.getElementById('alarm-picker').showModal()">
+  Set Alarm
+</md-button>
+<md-time-picker id="alarm-picker" modal headline="Set Alarm" value="07:00 AM"></md-time-picker>
+```
+
+---
+
+#### Date Picker (`md-date-picker`)
+
+- **Subpath**: `@francofantomius/material-components/date-picker`
+- **Description**: Date pickers let people select a date or range of dates using an interactive calendar grid, month/year navigation, and Material Design 3 styling in docked and modal dialog formats.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `variant` | `'docked' \| 'modal'` | `'docked'` | Presentation format: inline/docked container or modal dialog overlay |
+| `range` | `boolean` | `false` | Enables date range selection mode (start date and end date) |
+| `value` | `string` | `''` | Selected date string (ISO `'YYYY-MM-DD'` or `'YYYY-MM-DD/YYYY-MM-DD'` for range) |
+| `start-date` | `string` | `''` | Start date in range selection mode |
+| `end-date` | `string` | `''` | End date in range selection mode |
+| `min` | `string` | `''` | Minimum selectable date constraint (ISO `'YYYY-MM-DD'`) |
+| `max` | `string` | `''` | Maximum selectable date constraint (ISO `'YYYY-MM-DD'`) |
+| `label` | `string` | `''` | Header subhead / supporting label text (e.g. `'Select date'`) |
+| `headline` | `string` | `''` | Custom header headline text (defaults to formatted date) |
+| `open` | `boolean` | `false` | Controls open/close visibility state when in modal mode |
+| `disabled` | `boolean` | `false` | Disables user interaction |
+| `required` | `boolean` | `false` | Form validation required constraint |
+| `first-day-of-week` | `number` | `0` | Starting day of week: `0` for Sunday, `1` for Monday |
+| `show-actions` | `boolean` | `false` | Displays bottom action buttons (Cancel / OK) in docked mode |
+| `error` | `boolean` | `false` | Applies error visual styling |
+| `error-text` | `string` | `''` | Validation error message |
+| `supporting-text` | `string` | `''` | Helper text below the date picker |
+| `name` | `string` | `''` | HTML form input name (FACE) |
+
+##### Methods
+- `showModal()`: Opens the date picker as a modal dialog overlay.
+- `show()`: Opens the date picker.
+- `close()`: Closes the modal date picker.
+- `reset()`: Clears the selected date(s) and form association.
+
+##### Events
+- `change`: Dispatched when date selection is committed (`detail: { value, startDate?, endDate? }`).
+- `input`: Dispatched when date input value updates (`detail: { value }`).
+- `select`: Dispatched when an individual day is clicked (`detail: { date, type: 'single' | 'start' | 'end' }`).
+- `open`: Dispatched when modal dialog opens.
+- `close`: Dispatched when modal dialog closes.
+- `cancel`: Dispatched when modal dialog is canceled or backdrop is clicked.
+
+##### Code Example
+```html
+<!-- Docked Single Date Picker -->
+<md-date-picker value="2026-08-22" label="Select date"></md-date-picker>
+
+<!-- Date Range Picker -->
+<md-date-picker range value="2026-08-10/2026-08-20" label="Select range"></md-date-picker>
+
+<!-- Min and Max Date Constraints -->
+<md-date-picker min="2026-08-05" max="2026-08-25" value="2026-08-15"></md-date-picker>
+
+<!-- Modal Date Picker with Trigger Button -->
+<md-button variant="filled" icon="calendar_month" onclick="document.getElementById('booking-datepicker').showModal()">
+  Select Date
+</md-button>
+<md-date-picker id="booking-datepicker" variant="modal" value="2026-08-22"></md-date-picker>
 ```
 
 ---
@@ -785,6 +1166,78 @@ const isEnabled = ref(true);
 
 ---
 
+#### Menu (`md-menu`, `md-menu-item`)
+
+- **Subpath**: `@francofantomius/material-components/menu`
+- **Description**: Menus display a list of choices on temporary surfaces when users interact with a trigger or contextual control, supporting anchoring, keyboard navigation, supporting text, and selection events.
+
+##### `<md-menu>` Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `open` | `boolean` | `false` | Reflects open/closed visibility state |
+| `anchor` | `string \| HTMLElement \| null` | `null` | Anchor element ID or HTMLElement reference |
+| `positioning` | `'absolute' \| 'fixed'` | `'absolute'` | Positioning strategy relative to trigger or viewport |
+| `placement` | `'bottom-start' \| 'bottom-end' \| 'top-start' \| 'top-end'` | `'bottom-start'` | Anchor edge placement for the menu surface |
+| `alignment` | `'start' \| 'end' \| 'center'` | `'start'` | Alignment of the menu relative to the anchor |
+| `x-offset` | `number` | `0` | Horizontal pixel offset from the anchor |
+| `y-offset` | `number` | `4` | Vertical pixel offset from the anchor |
+| `quick` | `boolean` | `false` | Disables open/close transition animations |
+| `dense` | `boolean` | `false` | Applies compact vertical spacing and smaller icon sizing |
+| `stay-open-on-focusout` | `boolean` | `false` | Prevents menu from closing when focus leaves the surface |
+
+##### `<md-menu-item>` Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `headline` | `string` | `''` | Main item label text |
+| `supporting-text` | `string` | `''` | Secondary helper text below headline |
+| `trailing-supporting-text` | `string` | `''` | Trailing text (e.g. keyboard shortcut) |
+| `icon` | `string` | `''` | Leading Material Symbols icon name |
+| `trailing-icon` | `string` | `''` | Trailing Material Symbols icon name |
+| `disabled` | `boolean` | `false` | Disables interaction and dims item |
+| `selected` | `boolean` | `false` | Displays active selection state with checkmark |
+| `value` | `string` | `''` | Value associated with the menu item |
+| `href` | `string` | `''` | Renders item as an anchor link |
+| `target` | `string` | `''` | Anchor target attribute (e.g., `_blank`) |
+| `keep-open` | `boolean` | `false` | Prevents menu from closing when item is selected |
+| `dense` | `boolean` | `false` | Applies compact vertical sizing |
+
+##### Slots (`md-menu`)
+- `trigger`: Slotted trigger element (e.g., button or icon-button).
+- `(default)`: Menu items (`md-menu-item`) and dividers.
+
+##### Slots (`md-menu-item`)
+- `start` / `icon`: Leading icon or custom graphic.
+- `(default)`: Headline / label text.
+- `end` / `trailing`: Trailing content, shortcut text, or custom indicator.
+
+##### Events
+- `open`: Dispatched on `md-menu` when the menu opens.
+- `close`: Dispatched on `md-menu` when the menu closes.
+- `select`: Dispatched on `md-menu` and `md-menu-item` when an item is selected (`detail: { item: MdMenuItem, value: string }`).
+
+##### Code Example
+```html
+<!-- Basic Action Menu with Trigger Button -->
+<md-menu>
+  <md-button slot="trigger" variant="filled" icon="menu">Options</md-button>
+  <md-menu-item icon="content_cut" headline="Cut" trailing-supporting-text="Ctrl+X" value="cut"></md-menu-item>
+  <md-menu-item icon="content_copy" headline="Copy" trailing-supporting-text="Ctrl+C" value="copy"></md-menu-item>
+  <md-menu-item icon="content_paste" headline="Paste" trailing-supporting-text="Ctrl+V" value="paste"></md-menu-item>
+  <md-divider></md-divider>
+  <md-menu-item icon="delete" headline="Delete" trailing-supporting-text="Del" value="delete"></md-menu-item>
+</md-menu>
+
+<!-- Menu Anchored to External Trigger with Supporting Text -->
+<md-icon-button id="context-btn" icon="more_vert" aria-label="More options"></md-icon-button>
+<md-menu anchor="context-btn">
+  <md-menu-item headline="Single view" supporting-text="Standard layout" selected value="single"></md-menu-item>
+  <md-menu-item headline="Grid view" supporting-text="Compact card layout" value="grid"></md-menu-item>
+  <md-menu-item headline="Table view" supporting-text="Detailed table row layout" disabled value="table"></md-menu-item>
+</md-menu>
+```
+
+---
+
 #### List & List Item (`md-list`, `md-list-item`)
 
 - **Subpath**: `@francofantomius/material-components/list`
@@ -878,6 +1331,233 @@ const isEnabled = ref(true);
 
 ---
 
+#### Side Sheet (`md-side-sheet`)
+
+- **Subpath**: `@francofantomius/material-components/side-sheet`
+- **Description**: Side sheets display secondary content anchored to the side of the screen, supporting standard in-flow side panels and modal overlays with backdrop scrims.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `open` | `boolean` | `false` | Reflects open/closed state of the side sheet |
+| `type` | `'standard' \| 'modal'` | `'standard'` | Presentation mode: in-flow side panel or modal overlay |
+| `modal` | `boolean` | `false` | Enables modal overlay mode with backdrop scrim |
+| `side` | `'start' \| 'end' \| 'left' \| 'right'` | `'end'` | Screen side placement (start / left or end / right) |
+| `headline` | `string` | `''` | Header title text |
+| `subhead` | `string` | `''` | Header subtitle text |
+| `hide-close-button` | `boolean` | `false` | Hides the default close icon button in the header |
+| `divider` | `boolean` | `false` | Renders a divider line below the header |
+
+##### Slots
+- `header`: Full custom header area.
+- `headline`: Custom headline / title content.
+- `subhead`: Custom subtitle / subhead content.
+- `header-actions`: Actions next to the close button in the header.
+- `close-button`: Custom close button element.
+- `(default)`: Main scrollable body content.
+- `footer`: Bottom footer / actions section.
+- `actions`: Action buttons inside the footer.
+
+##### Events
+- `open`: Dispatched when the side sheet opens.
+- `close`: Dispatched when the side sheet closes.
+- `cancel`: Dispatched when dismissed via Escape key in modal mode.
+- `scrim-click`: Dispatched when the modal scrim backdrop is clicked.
+- `close-click`: Dispatched when the header close button is clicked.
+
+##### Code Example
+```html
+<!-- Modal Side Sheet -->
+<md-button variant="filled" id="open-sheet-btn">Open Filters</md-button>
+
+<md-side-sheet id="filters-sheet" type="modal" headline="Filters" subhead="Refine product listing">
+  <md-checkbox checked>In Stock</md-checkbox>
+  <md-checkbox>Free Shipping</md-checkbox>
+  <div slot="actions">
+    <md-button variant="text">Reset</md-button>
+    <md-button variant="filled">Apply</md-button>
+  </div>
+</md-side-sheet>
+
+<!-- Standard In-Flow Side Sheet -->
+<div style="display: flex; height: 400px;">
+  <div style="flex: 1; padding: 16px;">Main Page Content</div>
+  <md-side-sheet open headline="Details" divider>
+    <p>Contextual tool details and metadata.</p>
+  </md-side-sheet>
+</div>
+```
+
+---
+
+#### Bottom Sheet (`md-bottom-sheet`)
+
+- **Subpath**: `@francofantomius/material-components/bottom-sheet`
+- **Description**: Bottom sheets display supplementary content anchored to the bottom of the screen, supporting standard (docked) and modal (overlay with backdrop scrim) modes, drag handle gestures, touch swipe-to-dismiss, and customizable headers and footers.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `open` | `boolean` | `false` | Reflects open/closed state of the bottom sheet |
+| `type` | `'standard' \| 'modal'` | `'standard'` | Presentation mode: standard in-flow panel or modal overlay |
+| `modal` | `boolean` | `false` | Enables modal overlay mode with backdrop scrim |
+| `headline` | `string` | `''` | Header title text |
+| `subhead` | `string` | `''` | Header subtitle text |
+| `hide-drag-handle` | `boolean` | `false` | Hides the top drag handle bar |
+| `hide-close-button` | `boolean` | `false` | Hides the default close icon button in the header |
+| `divider` | `boolean` | `false` | Renders a divider line below the header |
+| `fullscreen` | `boolean` | `false` | Expands bottom sheet to full viewport height |
+
+##### Slots
+- `drag-handle`: Custom drag handle element.
+- `header`: Full custom header area.
+- `headline`: Custom headline / title content.
+- `subhead`: Custom subtitle / subhead content.
+- `header-actions`: Actions next to the close button in the header.
+- `close-button`: Custom close button element.
+- `(default)`: Main scrollable body content.
+- `footer`: Bottom footer / actions section.
+- `actions`: Action buttons inside the footer.
+
+##### Events
+- `open`: Dispatched when the bottom sheet opens.
+- `close`: Dispatched when the bottom sheet closes.
+- `cancel`: Dispatched when dismissed via Escape key in modal mode.
+- `scrim-click`: Dispatched when the modal scrim backdrop is clicked.
+- `close-click`: Dispatched when the header close button is clicked.
+- `drag-start`: Dispatched when drag gesture begins.
+- `drag-end`: Dispatched when drag gesture ends.
+- `drag-dismiss`: Dispatched when dismissed via downward drag gesture.
+
+##### Code Example
+```html
+<!-- Modal Bottom Sheet with Drag Dismissal -->
+<md-button variant="filled" id="open-sheet-btn">Open Bottom Sheet</md-button>
+
+<md-bottom-sheet id="demo-bottom-sheet" type="modal" headline="Share" subhead="Select a sharing option">
+  <div style="display: flex; gap: 16px; padding: 12px 0;">
+    <md-icon-button icon="link" aria-label="Copy link"></md-icon-button>
+    <md-icon-button icon="mail" aria-label="Email"></md-icon-button>
+    <md-icon-button icon="chat" aria-label="Messages"></md-icon-button>
+  </div>
+  <div slot="actions">
+    <md-button variant="text">Cancel</md-button>
+  </div>
+</md-bottom-sheet>
+
+<!-- Standard Docked Bottom Sheet -->
+<md-bottom-sheet open headline="Now Playing" subhead="Song queue" divider>
+  <p>Track 1: Ambient Horizon (3:42)</p>
+</md-bottom-sheet>
+```
+
+---
+
+#### Carousel (`md-carousel`, `md-carousel-item`)
+
+- **Subpath**: `@francofantomius/material-components/carousel`
+- **Description**: Carousels present an interactive scrollable collection of items with support for multi-browse, hero, and full-width layouts, smooth scrolling, next/prev navigation buttons, swipe/drag gestures, and pagination indicators.
+
+##### Properties & Attributes (`<md-carousel>`)
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `layout` | `'multi-browse' \| 'hero' \| 'full-width' \| 'uncontained'` | `'multi-browse'` | Layout arrangement and sizing for carousel items |
+| `active-index` | `number` | `0` | 0-based index of the currently active item |
+| `hide-controls` | `boolean` | `false` | Hides next and previous navigation arrow buttons |
+| `hide-indicators` | `boolean` | `false` | Hides bottom pagination indicator dots |
+| `loop` | `boolean` | `false` | Enables continuous infinite wrap-around navigation |
+| `autoplay` | `boolean` | `false` | Automatically advances slides periodically |
+| `autoplay-interval` | `number` | `5000` | Autoplay transition interval in milliseconds |
+| `item-spacing` | `string \| number` | `'8px'` | Gap between carousel items |
+| `item-width` | `string` | `''` | Custom width applied to each item |
+| `item-height` | `string` | `''` | Custom height applied to each item |
+
+##### Properties & Attributes (`<md-carousel-item>`)
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `src` | `string` | `''` | Image source URL for the carousel item media |
+| `alt` | `string` | `''` | Alt text for image media |
+| `headline` | `string` | `''` | Title or headline overlay text |
+| `subhead` | `string` | `''` | Subtitle or description overlay text |
+| `href` | `string` | `''` | Optional navigation link URL |
+| `target` | `string` | `''` | Link target when href is set |
+| `interactive` | `boolean` | `false` | Enables ripple and hover interactive state |
+| `disabled` | `boolean` | `false` | Disables item interactions |
+| `snap-align` | `'start' \| 'center' \| 'end'` | `'start'` | Scroll snap alignment point |
+
+##### Methods (`<md-carousel>`)
+- `next()`: Scrolls to the next slide in the carousel.
+- `previous()`: Scrolls to the previous slide in the carousel.
+- `scrollToIndex(index: number, smooth: boolean = true)`: Smoothly scrolls to a specific item index.
+
+##### Events
+- `change`: Fired when the active slide changes (`detail: { activeIndex: number, item: MdCarouselItem }`).
+- `carousel-item-click`: Fired when an item is clicked (`detail: { item: MdCarouselItem }`).
+
+##### Slots (`<md-carousel>`)
+- `(default)`: Slot for `<md-carousel-item>` elements.
+- `prev-button`: Custom previous navigation button.
+- `next-button`: Custom next navigation button.
+
+##### Slots (`<md-carousel-item>`)
+- `(default)`: Custom card/slide body content.
+- `media`: Custom media element (image, video).
+- `headline`: Custom headline text element.
+- `subhead`: Custom subhead text element.
+
+##### Code Examples
+
+```html
+<!-- Multi-Browse Layout (Default) -->
+<md-carousel>
+  <md-carousel-item
+    src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=600&auto=format&fit=crop&q=80"
+    headline="Colorful Gradients"
+    subhead="Modern vibrant colors"
+  ></md-carousel-item>
+  <md-carousel-item
+    src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=80"
+    headline="Abstract Waves"
+    subhead="Smooth fluid motion"
+  ></md-carousel-item>
+  <md-carousel-item
+    src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=600&auto=format&fit=crop&q=80"
+    headline="Dark Aesthetics"
+    subhead="Geometric lighting"
+  ></md-carousel-item>
+</md-carousel>
+
+<!-- Hero Layout with Loop -->
+<md-carousel layout="hero" loop>
+  <md-carousel-item
+    src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&auto=format&fit=crop&q=80"
+    headline="Mountain Exploration"
+    subhead="Scenic landscapes and trails"
+  ></md-carousel-item>
+  <md-carousel-item
+    src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=800&auto=format&fit=crop&q=80"
+    headline="Forest Pathways"
+    subhead="Lush greenery and walks"
+  ></md-carousel-item>
+</md-carousel>
+
+<!-- Full-Width Layout with Autoplay -->
+<md-carousel layout="full-width" autoplay autoplay-interval="4000">
+  <md-carousel-item
+    src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1000&auto=format&fit=crop&q=80"
+    headline="Circuit Technology"
+    subhead="Microchip architecture"
+  ></md-carousel-item>
+  <md-carousel-item
+    src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1000&auto=format&fit=crop&q=80"
+    headline="Data Matrix"
+    subhead="Cybersecurity networks"
+  ></md-carousel-item>
+</md-carousel>
+```
+
+---
+
 ### Communication & Feedback
 
 #### Badge (`md-badge`)
@@ -935,6 +1615,39 @@ const isEnabled = ref(true);
 
 ---
 
+#### Loading Indicator (`md-loading-indicator`)
+
+- **Subpath**: `@francofantomius/material-components/loading-indicator`
+- **Description**: Loading indicators express an unspecified wait time for short operations with Material Design 3 Expressive animated morphing shapes and optional contained containers.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `size` | `'small' \| 'medium' \| 'large'` | `'medium'` | Visual size of the indicator |
+| `contained` | `boolean` | `false` | Encloses indicator within a contained surface container |
+| `shape` | `'morph' \| 'square' \| 'circle' \| 'clover' \| 'star'` | `'morph'` | Shape animation style |
+| `paused` | `boolean` | `false` | Pauses shape animation |
+| `label` | `string` | `'Loading'` | Accessible label for screen readers |
+
+##### Code Example
+```html
+<!-- Standard morphing loading indicators -->
+<div style="display: flex; gap: 24px; align-items: center;">
+  <md-loading-indicator size="small"></md-loading-indicator>
+  <md-loading-indicator size="medium"></md-loading-indicator>
+  <md-loading-indicator size="large"></md-loading-indicator>
+</div>
+
+<!-- Contained loading indicators -->
+<div style="display: flex; gap: 24px; align-items: center; margin-top: 16px;">
+  <md-loading-indicator contained size="small"></md-loading-indicator>
+  <md-loading-indicator contained size="medium"></md-loading-indicator>
+  <md-loading-indicator contained size="large"></md-loading-indicator>
+</div>
+```
+
+---
+
 #### Snackbar (`md-snackbar`)
 
 - **Subpath**: `@francofantomius/material-components/snackbar`
@@ -968,7 +1681,115 @@ const isEnabled = ref(true);
 
 ---
 
+#### Tooltip (`md-tooltip`)
+
+- **Subpath**: `@francofantomius/material-components/tooltip`
+- **Description**: Tooltips display informative text when users hover over, focus on, or tap an element. Plain tooltips describe an element briefly, while rich tooltips provide detailed context, headlines, and action buttons.
+
+##### Properties & Attributes
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `open` | `boolean` | `false` | Visibility state of the tooltip |
+| `position` | `'top' \| 'bottom' \| 'left' \| 'right'` | `'bottom'` | Preferred placement relative to anchor target |
+| `rich` | `boolean` | `false` | Enables rich tooltip styling with headline, supporting text, and actions |
+| `for` | `string` | `''` | ID of the target anchor element |
+| `value` | `string` | `''` | Plain tooltip label or rich tooltip supporting text |
+| `headline` | `string` | `''` | Headline / subhead for rich tooltips |
+| `action-text` | `string` | `''` | Action button label for rich tooltips |
+| `show-delay` | `number` | `500` | Delay in milliseconds before showing tooltip on hover |
+| `hide-delay` | `number` | `150` | Delay in milliseconds before hiding tooltip after pointer leaves |
+| `persistent` | `boolean` | `false` | Keeps rich tooltip open until dismissed explicitly |
+| `has-caret` | `boolean` | `false` | Renders a directional pointing caret |
+| `disabled` | `boolean` | `false` | Disables tooltip triggering |
+
+##### Events
+- `open`: Dispatched when tooltip becomes visible (`{ target: MdTooltip }`).
+- `close`: Dispatched when tooltip is dismissed (`{ target: MdTooltip }`).
+- `action`: Dispatched when rich tooltip action button is clicked (`{ target: MdTooltip }`).
+
+##### Slots
+- `(default)`: Plain tooltip text or rich tooltip supporting content.
+- `headline`: Custom headline or rich header element.
+- `actions`: Custom action buttons for rich tooltips.
+- `anchor`: Slotted anchor element (optional).
+
+##### Code Example
+```html
+<!-- Plain Tooltips on Icon Buttons -->
+<div style="display: flex; gap: 24px; align-items: center;">
+  <div>
+    <md-icon-button id="fav-btn" icon="favorite" aria-label="Favorite"></md-icon-button>
+    <md-tooltip for="fav-btn" value="Add to favorites" position="bottom"></md-tooltip>
+  </div>
+
+  <div>
+    <md-icon-button id="share-btn" icon="share" aria-label="Share"></md-icon-button>
+    <md-tooltip for="share-btn" value="Share link" position="top"></md-tooltip>
+  </div>
+</div>
+
+<!-- Rich Tooltip with Headline and Action -->
+<div>
+  <md-button id="help-btn" variant="tonal" icon="help_outline">Permissions</md-button>
+  <md-tooltip
+    for="help-btn"
+    rich
+    has-caret
+    position="bottom"
+    headline="Access Permissions"
+    value="Members with View permissions can read and comment on documents without editing."
+    action-text="Learn more"
+  ></md-tooltip>
+</div>
+```
+
+---
+
 ### Navigation
+
+#### Navigation Bar (`md-navigation-bar`, `md-navigation-bar-item`)
+
+- **Subpath**: `@francofantomius/material-components/navigation-bar`
+- **Description**: Navigation bars let users switch between 3 to 5 top-level destinations at the bottom of the screen with active indicator pills, badge notifications, and label visibility modes (`alwaysShow`, `selectedShow`, `hidden`).
+
+##### `<md-navigation-bar>` Properties
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `active-index` | `number` | `0` | Zero-based index of the currently active destination |
+| `value` | `string` | `''` | Value of the currently active destination |
+| `label-mode` | `'alwaysShow' \| 'selectedShow' \| 'hidden'` | `'alwaysShow'` | Controls label visibility across destination items |
+| `hide-inactive-labels` | `boolean` | `false` | Hides labels on inactive items (`selectedShow` behavior) |
+| `disabled` | `boolean` | `false` | Disables interaction on all items |
+
+##### `<md-navigation-bar-item>` Properties
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `icon` | `string` | `''` | Material Symbols destination icon |
+| `active-icon` | `string` | `''` | Optional icon displayed when item is active |
+| `label` | `string` | `''` | Destination title text |
+| `badge` | `string` | `''` | Numeric, text, or `"dot"` badge indicator |
+| `active` | `boolean` | `false` | Highlights item with active indicator pill |
+| `disabled` | `boolean` | `false` | Disables item interactions |
+| `value` | `string` | `''` | Value identifier for destination |
+| `href` | `string` | `''` | Optional navigation hyperlink |
+| `label-mode` | `'alwaysShow' \| 'selectedShow' \| 'hidden'` | `'alwaysShow'` | Per-item label visibility mode |
+
+##### Events
+- `change`: Dispatched on `<md-navigation-bar>` when the active destination changes (`{ activeIndex, selectedIndex, index, value, item }`).
+- `item-click`: Dispatched on `<md-navigation-bar-item>` when clicked (`{ item, value, label, active }`).
+
+##### Code Example
+```html
+<md-navigation-bar active-index="0" id="bottom-nav">
+  <md-navigation-bar-item icon="home" label="Home" value="home"></md-navigation-bar-item>
+  <md-navigation-bar-item icon="explore" label="Explore" value="explore"></md-navigation-bar-item>
+  <md-navigation-bar-item icon="mail" label="Mail" badge="12" value="mail"></md-navigation-bar-item>
+  <md-navigation-bar-item icon="chat" label="Chat" badge="dot" value="chat"></md-navigation-bar-item>
+  <md-navigation-bar-item icon="person" label="Profile" value="profile"></md-navigation-bar-item>
+</md-navigation-bar>
+```
+
+---
 
 #### Navigation Drawer (`md-navigation-drawer`, `md-navigation-drawer-item`)
 
@@ -1010,6 +1831,62 @@ const isEnabled = ref(true);
     <md-navigation-drawer-item icon="settings" label="Settings"></md-navigation-drawer-item>
   </div>
 </md-navigation-drawer>
+```
+
+---
+
+#### Navigation Rail (`md-navigation-rail`, `md-navigation-rail-item`)
+
+- **Subpath**: `@francofantomius/material-components/navigation-rail`
+- **Description**: Navigation rails provide side navigation access to primary destinations in apps on mid-sized to large screens (tablets, desktops), supporting leading menu/header/fab slots, active indicator pill destinations, badges, and top/center/bottom alignment.
+
+##### `<md-navigation-rail>` Properties
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `alignment` | `'top' \| 'center' \| 'bottom'` | `'top'` | Vertical alignment of destination items |
+| `hide-labels` | `boolean` | `false` | Hides all destination text labels |
+| `active-index` | `number` | `-1` | Zero-based index of the currently active destination |
+
+##### `<md-navigation-rail-item>` Properties
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `icon` | `string` | `''` | Material Symbols destination icon |
+| `active-icon` | `string` | `''` | Material Symbols icon displayed when active |
+| `label` | `string` | `''` | Destination title |
+| `badge` | `string` | `''` | Numeric or text badge indicator |
+| `badge-dot` | `boolean` | `false` | Small circular status dot badge |
+| `active` | `boolean` | `false` | Highlights destination with active indicator pill |
+| `disabled` | `boolean` | `false` | Disables destination interaction |
+| `hide-label` | `boolean` | `false` | Hides text label for this item |
+| `href` | `string` | `''` | Optional navigation hyperlink |
+| `value` | `string` | `''` | Custom item value identifier |
+
+##### Slots
+- `header`: Top header section (logo, title).
+- `menu`: Top menu button slot.
+- `fab`: Slotted Floating Action Button (FAB).
+- `(default)`: Main destination items (`md-navigation-rail-item`).
+- `footer`: Bottom actions or user profile slot.
+
+##### Events
+- `change`: Dispatched when active destination in the rail changes (`detail: { activeIndex: number, item: MdNavigationRailItem, value: string }`).
+- `item-click`: Dispatched when an individual rail item is clicked (`detail: { label: string, icon: string, active: boolean, value: string, item: MdNavigationRailItem }`).
+
+##### Code Example
+```html
+<md-navigation-rail alignment="top">
+  <md-icon-button slot="menu" icon="menu" aria-label="Menu"></md-icon-button>
+  <md-fab slot="fab" size="small" icon="edit" aria-label="Compose"></md-fab>
+
+  <md-navigation-rail-item icon="inbox" label="Inbox" badge="3" active></md-navigation-rail-item>
+  <md-navigation-rail-item icon="star" label="Starred"></md-navigation-rail-item>
+  <md-navigation-rail-item icon="send" label="Sent"></md-navigation-rail-item>
+  <md-navigation-rail-item icon="chat" label="Chat" badge-dot></md-navigation-rail-item>
+
+  <div slot="footer">
+    <md-icon-button icon="settings" aria-label="Settings"></md-icon-button>
+  </div>
+</md-navigation-rail>
 ```
 
 ---

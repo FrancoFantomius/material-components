@@ -22,7 +22,7 @@ export const iconButtonStyles = css`
     height: 40px;
     padding: 0;
     border: none;
-    border-radius: var(--md-sys-shape-corner-full, 50%);
+    border-radius: var(--md-icon-button-border-radius, var(--md-button-border-radius, var(--md-sys-shape-corner-full, 50%)));
     overflow: hidden;
     background-color: transparent;
     color: var(--md-sys-color-on-surface-variant, #49454F);

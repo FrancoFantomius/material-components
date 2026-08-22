@@ -39,6 +39,7 @@ export default defineConfig({
         'components/search-bar/search-bar': resolve(import.meta.dirname, 'src/components/search-bar/search-bar.ts'),
         'components/code/code': resolve(import.meta.dirname, 'src/components/code/code.ts'),
         'components/player/player': resolve(import.meta.dirname, 'src/components/player/player.ts'),
+        'components/date-picker/date-picker': resolve(import.meta.dirname, 'src/components/date-picker/date-picker.ts'),
         'internal/ripple/ripple': resolve(import.meta.dirname, 'src/internal/ripple/ripple.ts'),
         'internal/focus-ring/focus-ring': resolve(import.meta.dirname, 'src/internal/focus-ring/focus-ring.ts'),
       },
