@@ -1,9 +1,10 @@
 # Dependencies
-node_modules/
+node_modules
 
 # Production build outputs
 dist/
-dist-docs/
+_site/
+.docs-gen-cache/
 
 # Logs
 logs

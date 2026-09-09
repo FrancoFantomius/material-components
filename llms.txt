@@ -162,18 +162,36 @@ Configure tokens globally on `:root` or scope them to a container. Dark mode can
 
 ### TypeScript Theme Helper API
 
-The `@francofantomius/material-components/theme` module provides utilities for dynamic runtime palette assignment:
+The `@francofantomius/material-components/theme` module provides utilities for dynamic runtime palette assignment and automatic theme generation:
 
 ```typescript
-import { applyTheme, darkColorScheme, lightColorScheme } from '@francofantomius/material-components/theme';
+import {
+  generateTheme,
+  generateColorScheme,
+  applyTheme,
+  darkColorScheme,
+  lightColorScheme,
+} from '@francofantomius/material-components/theme';
 
-// Switch to Dark Color Scheme
+// 1. Automatically derive complete M3 light and dark themes from any single seed color:
+const theme = generateTheme('#006A6A');
+
+// Apply to document (or any element) with light or dark mode:
+theme.apply(); // applies light or dark based on data-theme attribute
+theme.apply({ dark: true }); // forces dark mode
+theme.apply({ target: myContainer }); // scopes theme to container element
+
+// Access generated 37-token schemes and CSS variables:
+console.log(theme.light.primary); // e.g. '#006A6A'
+console.log(theme.dark.primary);
+console.log(theme.cssVariables.light); // { '--md-sys-color-primary': '#006A6A', ... }
+console.log(theme.cssText); // Ready-to-inject CSS string
+
+// 2. Predefined color schemes:
 applyTheme(darkColorScheme);
-
-// Switch back to Light Color Scheme
 applyTheme(lightColorScheme);
 
-// Apply Custom Brand Colors
+// 3. Custom brand color overrides:
 applyTheme({
   primary: '#006A60',
   onPrimary: '#FFFFFF',
@@ -186,7 +204,7 @@ applyTheme({
 
 ## Form Integration (FACE)
 
-Form controls (`<md-text-field>`, `<md-checkbox>`, `<md-switch>`, `<md-radio>`) are Form-Associated Custom Elements. They automatically participate in standard HTML forms and `FormData`.
+Form controls (`<md-text-field>`, `<md-checkbox>`, `<md-switch>`, `<md-radio>`, `<md-slider>`, `<md-date-picker>`, `<md-time-picker>`) are Form-Associated Custom Elements (FACE). They automatically participate in standard HTML forms, `FormData`, constraint validation (`required`, `min`, `max`, `checkValidity()`, `reportValidity()`), and form resets without manual JavaScript syncing.
 
 ### HTML Form Example
 
@@ -206,6 +224,41 @@ Form controls (`<md-text-field>`, `<md-checkbox>`, `<md-switch>`, `<md-radio>`) 
     required
   ></md-text-field>
 
+  <!-- Slider input participating in form submission -->
+  <md-slider
+    name="budget"
+    min="0"
+    max="1000"
+    step="50"
+    value="250"
+    labeled
+  ></md-slider>
+
+  <!-- Dual-thumb range slider submitting two form values -->
+  <md-slider
+    range
+    name-start="min_price"
+    name-end="max_price"
+    value-start="100"
+    value-end="500"
+  ></md-slider>
+
+  <!-- Date picker participating in form submission -->
+  <md-date-picker
+    name="event_date"
+    label="Event Date"
+    required
+  ></md-date-picker>
+
+  <!-- Time picker with constraint validation -->
+  <md-time-picker
+    name="arrival_time"
+    format="24h"
+    min="08:00"
+    max="18:00"
+    required
+  ></md-time-picker>
+
   <md-checkbox name="newsletter" checked>
     Receive monthly newsletter
   </md-checkbox>
@@ -219,6 +272,7 @@ Form controls (`<md-text-field>`, `<md-checkbox>`, `<md-switch>`, `<md-radio>`) 
     <md-button type="submit" variant="filled">Submit Form</md-button>
   </div>
 </form>
+
 ```
 
 ### JavaScript Handling
@@ -841,6 +895,8 @@ const isEnabled = ref(true);
 | `leading-icon` | `string` | `''` | Leading Material Symbols icon name |
 | `trailing-icon` | `string` | `''` | Trailing Material Symbols icon name |
 | `disabled` | `boolean` | `false` | Disables user interaction |
+| `required` | `boolean` | `false` | Form validation required constraint |
+| `error` | `boolean` | `false` | Applies error visual styling |
 | `name` | `string` | `''` | HTML form input name |
 | `name-start` | `string` | `''` | HTML form input name for start value (range mode) |
 | `name-end` | `string` | `''` | HTML form input name for end value (range mode) |
@@ -972,8 +1028,13 @@ const isEnabled = ref(true);
 | `headline` | `string` | `'Select time'` | Header headline text |
 | `auto-switch-to-minute` | `boolean` | `true` | Automatically transitions active field from hour to minute on dial |
 | `disabled` | `boolean` | `false` | Disables user interaction |
+| `min` | `string` | `''` | Minimum time constraint (e.g. `'09:00'` or `'09:00 AM'`) |
+| `max` | `string` | `''` | Maximum time constraint (e.g. `'17:00'` or `'05:00 PM'`) |
+| `error` | `boolean` | `false` | Applies error visual styling |
+| `error-text` | `string` | `''` | Validation error message |
 | `name` | `string` | `''` | HTML form input name (FACE) |
 | `required` | `boolean` | `false` | Form validation required constraint |
+
 
 ##### Methods
 - `showModal()`: Opens the time picker as a modal dialog.
@@ -1036,6 +1097,9 @@ const isEnabled = ref(true);
 | `error-text` | `string` | `''` | Validation error message |
 | `supporting-text` | `string` | `''` | Helper text below the date picker |
 | `name` | `string` | `''` | HTML form input name (FACE) |
+| `name-start` | `string` | `''` | HTML form input name for start date (range mode) |
+| `name-end` | `string` | `''` | HTML form input name for end date (range mode) |
+
 
 ##### Methods
 - `showModal()`: Opens the date picker as a modal dialog overlay.

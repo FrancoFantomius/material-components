@@ -1,6 +1,6 @@
 {
   "name": "@francofantomius/material-components",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Reusable, accessible, and lightweight Material Design 3 Web Components built with Lit.",
   "repository": {
     "type": "git",
@@ -291,9 +291,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && node docs/generate.js && vite build --config vite.docs.config.ts && npm run analyze",
+    "build": "tsc && vite build && npm run analyze",
     "clean": "git clean -fdX",
-    "preview": "vite preview --config vite.docs.config.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -316,21 +315,9 @@
   },
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "^0.10.4",
-    "@typescript/typescript6": "^6.0.2",
-    "esbuild": "^0.28.2",
     "happy-dom": "^20.11.6",
     "typescript": "^7.0.2",
     "vite": "^8.2.2",
-    "vite-plugin-dts": "^5.0.3",
     "vitest": "^4.1.11"
-  },
-  "allowScripts": {
-    "esbuild": true,
-    "happy-dom": true,
-    "typescript": true,
-    "vite": true,
-    "vite-plugin-dts": true,
-    "vitest": true,
-    "rs-module-lexer@2.8.0": true
   }
 }

@@ -83,6 +83,12 @@ export class MdDatePicker extends MdFormAssociatedElement {
   @property({ type: String, attribute: 'end-date' })
   endDate = '';
 
+  @property({ type: String, attribute: 'name-start' })
+  nameStart = '';
+
+  @property({ type: String, attribute: 'name-end' })
+  nameEnd = '';
+
   @property({ type: String })
   min = '';
 
@@ -131,10 +137,21 @@ export class MdDatePicker extends MdFormAssociatedElement {
   @query('dialog')
   private dialogElement?: HTMLDialogElement;
 
+  private initialValue = '';
+  private initialStartDate = '';
+  private initialEndDate = '';
+
   override connectedCallback() {
     super.connectedCallback();
+    if (this.range && (this.startDate || this.endDate)) {
+      this.value = this.startDate && this.endDate ? `${this.startDate}/${this.endDate}` : (this.startDate || '');
+    }
+    this.initialValue = this.value;
+    this.initialStartDate = this.startDate;
+    this.initialEndDate = this.endDate;
     this.syncInitialState();
-    this.setFormValue(this.value);
+    this.updateFormValue();
+    this.validateInput();
   }
 
   override willUpdate(changedProperties: Map<string, unknown>) {
@@ -142,8 +159,6 @@ export class MdDatePicker extends MdFormAssociatedElement {
 
     if (changedProperties.has('value')) {
       this.handleValueChange();
-      this.setFormValue(this.value);
-      this.validateInput();
     }
 
     if (changedProperties.has('startDate') || changedProperties.has('endDate')) {
@@ -151,12 +166,24 @@ export class MdDatePicker extends MdFormAssociatedElement {
         const newVal = this.startDate && this.endDate ? `${this.startDate}/${this.endDate}` : (this.startDate || '');
         if (this.value !== newVal) {
           this.value = newVal;
-          this.setFormValue(this.value);
         }
       }
     }
 
-    if (changedProperties.has('min') || changedProperties.has('max') || changedProperties.has('required')) {
+    if (
+      changedProperties.has('value') ||
+      changedProperties.has('startDate') ||
+      changedProperties.has('endDate') ||
+      changedProperties.has('range') ||
+      changedProperties.has('name') ||
+      changedProperties.has('nameStart') ||
+      changedProperties.has('nameEnd') ||
+      changedProperties.has('disabled') ||
+      changedProperties.has('required') ||
+      changedProperties.has('min') ||
+      changedProperties.has('max')
+    ) {
+      this.updateFormValue();
       this.validateInput();
     }
   }
@@ -217,17 +244,41 @@ export class MdDatePicker extends MdFormAssociatedElement {
     }
   }
 
+  private updateFormValue() {
+    if (this.disabled) {
+      this.setFormValue(null);
+      return;
+    }
+
+    if (this.range) {
+      if (this.nameStart || this.nameEnd) {
+        const formData = new FormData();
+        if (this.nameStart) formData.append(this.nameStart, this.startDate);
+        if (this.nameEnd) formData.append(this.nameEnd, this.endDate);
+        this.setFormValue(formData);
+      } else {
+        const rangeVal = this.startDate && this.endDate ? `${this.startDate}/${this.endDate}` : (this.startDate || this.value || '');
+        this.setFormValue(rangeVal || null);
+      }
+    } else {
+      this.setFormValue(this.value || null);
+    }
+  }
+
+  override formDisabledCallback(disabled: boolean) {
+    this.disabled = disabled;
+    this.updateFormValue();
+    this.validateInput();
+  }
+
   override formResetCallback() {
-    this.value = '';
-    this.startDate = '';
-    this.endDate = '';
-    this.error = false;
+    this.value = this.initialValue;
+    this.startDate = this.initialStartDate;
+    this.endDate = this.initialEndDate;
     this.selectingEnd = false;
-    this.setFormValue(null);
-    const now = new Date();
-    this.viewYear = now.getFullYear();
-    this.viewMonth = now.getMonth();
-    this.viewMode = 'calendar';
+    this.syncInitialState();
+    this.updateFormValue();
+    this.validateInput();
   }
 
   showModal() {
@@ -247,10 +298,23 @@ export class MdDatePicker extends MdFormAssociatedElement {
   }
 
   private validateInput() {
-    if (this.required && !this.value) {
-      this.setValidity({ valueMissing: true }, this.errorText || 'A date is required');
-      this.error = true;
+    if (this.disabled) {
+      this.setValidity({});
+      if (!this.errorText) {
+        this.error = false;
+      }
       return;
+    }
+
+    if (this.required) {
+      const isMissing = this.range
+        ? (!this.startDate || !this.endDate)
+        : !this.value;
+      if (isMissing) {
+        this.setValidity({ valueMissing: true }, this.errorText || 'A date is required');
+        this.error = true;
+        return;
+      }
     }
 
     if (this.min && this.value) {
@@ -316,7 +380,8 @@ export class MdDatePicker extends MdFormAssociatedElement {
 
     if (!this.range) {
       this.value = dateStr;
-      this.setFormValue(this.value);
+      this.updateFormValue();
+      this.validateInput();
       this.emitEvent('input', { value: this.value });
       this.emitEvent('change', { value: this.value });
       this.emitEvent('select', { date: dateStr, type: 'single' });
@@ -330,7 +395,8 @@ export class MdDatePicker extends MdFormAssociatedElement {
       this.endDate = '';
       this.value = dateStr;
       this.selectingEnd = true;
-      this.setFormValue(this.value);
+      this.updateFormValue();
+      this.validateInput();
       this.emitEvent('select', { date: dateStr, type: 'start' });
       this.emitEvent('input', { value: this.value });
     } else {
@@ -341,14 +407,16 @@ export class MdDatePicker extends MdFormAssociatedElement {
         this.endDate = '';
         this.value = dateStr;
         this.selectingEnd = true;
-        this.setFormValue(this.value);
+        this.updateFormValue();
+        this.validateInput();
         this.emitEvent('select', { date: dateStr, type: 'start' });
         this.emitEvent('input', { value: this.value });
       } else {
         this.endDate = dateStr;
         this.value = `${this.startDate}/${this.endDate}`;
         this.selectingEnd = false;
-        this.setFormValue(this.value);
+        this.updateFormValue();
+        this.validateInput();
         this.emitEvent('select', { date: dateStr, type: 'end' });
         this.emitEvent('input', { value: this.value });
         this.emitEvent('change', {

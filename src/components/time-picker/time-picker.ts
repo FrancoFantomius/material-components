@@ -45,6 +45,18 @@ export class MdTimePicker extends MdFormAssociatedElement {
   @property({ type: String, attribute: 'confirm-label' })
   confirmLabel = 'OK';
 
+  @property({ type: String })
+  min = '';
+
+  @property({ type: String })
+  max = '';
+
+  @property({ type: Boolean, reflect: true })
+  error = false;
+
+  @property({ type: String, attribute: 'error-text' })
+  errorText = '';
+
   @state()
   activeField: TimePickerField = 'hour';
 
@@ -69,17 +81,42 @@ export class MdTimePicker extends MdFormAssociatedElement {
   @query('#minute-input')
   private minuteInputElement?: HTMLInputElement;
 
+  private initialValue = '';
+
   override connectedCallback() {
     super.connectedCallback();
+    this.initialValue = this.value;
     this.parseValue(this.value);
     this.syncFormValue();
+    this.validateInput();
   }
 
   override willUpdate(changedProperties: Map<string, unknown>) {
     super.willUpdate(changedProperties);
     if (changedProperties.has('value')) {
-      this.parseValue(this.value);
-      this.syncFormValue();
+      if (this.value) {
+        this.parseValue(this.value);
+        this.syncFormValue();
+      } else {
+        this.setFormValue(null);
+      }
+    }
+
+    if (
+      changedProperties.has('value') ||
+      changedProperties.has('name') ||
+      changedProperties.has('disabled') ||
+      changedProperties.has('required') ||
+      changedProperties.has('min') ||
+      changedProperties.has('max') ||
+      changedProperties.has('format')
+    ) {
+      if (this.disabled) {
+        this.setFormValue(null);
+      } else {
+        this.setFormValue(this.value || null);
+      }
+      this.validateInput();
     }
   }
 
@@ -179,13 +216,90 @@ export class MdTimePicker extends MdFormAssociatedElement {
   private syncFormValue() {
     const val = this.getFormattedTime();
     this.value = val;
-    this.setFormValue(val);
+    if (this.disabled) {
+      this.setFormValue(null);
+    } else {
+      this.setFormValue(val || null);
+    }
+  }
+
+  private timeToMinutes(timeStr: string): number | null {
+    if (!timeStr || typeof timeStr !== 'string') return null;
+    const trimmed = timeStr.trim();
+    const is12hMatch = trimmed.match(/^(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
+    const is24hMatch = trimmed.match(/^(\d{1,2}):(\d{2})$/);
+    if (is12hMatch) {
+      let h = parseInt(is12hMatch[1]!, 10);
+      const m = parseInt(is12hMatch[2]!, 10);
+      const p = is12hMatch[3]!.toUpperCase();
+      if (p === 'PM' && h < 12) h += 12;
+      if (p === 'AM' && h === 12) h = 0;
+      return h * 60 + m;
+    } else if (is24hMatch) {
+      const h = parseInt(is24hMatch[1]!, 10);
+      const m = parseInt(is24hMatch[2]!, 10);
+      return h * 60 + m;
+    }
+    return null;
+  }
+
+  private validateInput() {
+    if (this.disabled) {
+      this.setValidity({});
+      if (!this.errorText) {
+        this.error = false;
+      }
+      return;
+    }
+
+    if (this.required && !this.value) {
+      this.setValidity({ valueMissing: true }, this.errorText || 'A time is required');
+      this.error = true;
+      return;
+    }
+
+    const currentMins = this.timeToMinutes(this.getFormatted24());
+
+    if (this.min && currentMins !== null) {
+      const minMins = this.timeToMinutes(this.min);
+      if (minMins !== null && currentMins < minMins) {
+        this.setValidity({ rangeUnderflow: true }, this.errorText || `Time must be at or after ${this.min}`);
+        this.error = true;
+        return;
+      }
+    }
+
+    if (this.max && currentMins !== null) {
+      const maxMins = this.timeToMinutes(this.max);
+      if (maxMins !== null && currentMins > maxMins) {
+        this.setValidity({ rangeOverflow: true }, this.errorText || `Time must be at or before ${this.max}`);
+        this.error = true;
+        return;
+      }
+    }
+
+    this.setValidity({});
+    if (!this.errorText) {
+      this.error = false;
+    }
+  }
+
+  override formDisabledCallback(disabled: boolean) {
+    this.disabled = disabled;
+    this.syncFormValue();
+    this.validateInput();
   }
 
   override formResetCallback() {
-    this.parseValue('');
+    this.value = this.initialValue;
+    this.parseValue(this.initialValue);
     this.syncFormValue();
     this.activeField = 'hour';
+    this.validateInput();
+  }
+
+  reset() {
+    this.formResetCallback();
   }
 
   /**
@@ -554,6 +668,7 @@ export class MdTimePicker extends MdFormAssociatedElement {
                       inputmode="numeric"
                       maxlength="2"
                       .value=${hourFormatted}
+                      ?disabled=${this.disabled}
                       @input=${this.handleHourInput}
                       @blur=${this.handleHourBlur}
                       @focus=${() => this.setField('hour')}
@@ -565,6 +680,7 @@ export class MdTimePicker extends MdFormAssociatedElement {
                   <button
                     type="button"
                     class="time-card ${this.activeField === 'hour' ? 'active' : ''}"
+                    ?disabled=${this.disabled}
                     @click=${() => this.setField('hour')}
                     aria-label="Select hour"
                   >
@@ -587,6 +703,7 @@ export class MdTimePicker extends MdFormAssociatedElement {
                       inputmode="numeric"
                       maxlength="2"
                       .value=${minuteFormatted}
+                      ?disabled=${this.disabled}
                       @input=${this.handleMinuteInput}
                       @blur=${this.handleMinuteBlur}
                       @focus=${() => this.setField('minute')}
@@ -598,6 +715,7 @@ export class MdTimePicker extends MdFormAssociatedElement {
                   <button
                     type="button"
                     class="time-card ${this.activeField === 'minute' ? 'active' : ''}"
+                    ?disabled=${this.disabled}
                     @click=${() => this.setField('minute')}
                     aria-label="Select minute"
                   >

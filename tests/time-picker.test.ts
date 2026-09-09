@@ -203,9 +203,54 @@ describe('md-time-picker', () => {
     await picker.updateComplete;
 
     expect(picker.name).toBe('meeting_time');
+    picker.value = '08:00 AM';
+    await picker.updateComplete;
+
     picker.formResetCallback();
     await picker.updateComplete;
 
-    expect(picker.value).toBeTruthy();
+    expect(picker.value).toBe('04:15 PM');
+  });
+
+  it('should participate in constraint validation (FACE)', async () => {
+    const form = document.createElement('form');
+    const picker = document.createElement('md-time-picker') as MdTimePicker;
+    picker.name = 'shift_time';
+    picker.format = '24h';
+    picker.required = true;
+    picker.min = '09:00';
+    picker.max = '17:00';
+    picker.value = '10:00';
+    form.appendChild(picker);
+    document.body.appendChild(form);
+    await picker.updateComplete;
+
+    expect(picker.checkValidity()).toBe(true);
+
+    // Value before min
+    picker.value = '08:30';
+    await picker.updateComplete;
+    expect(picker.checkValidity()).toBe(false);
+
+    // Value after max
+    picker.value = '18:00';
+    await picker.updateComplete;
+    expect(picker.checkValidity()).toBe(false);
+
+    // Value within range
+    picker.value = '14:30';
+    await picker.updateComplete;
+    expect(picker.checkValidity()).toBe(true);
+
+    // Empty value with required
+    picker.value = '';
+    await picker.updateComplete;
+    expect(picker.checkValidity()).toBe(false);
+
+    // Disabled state bypasses validation
+    picker.disabled = true;
+    await picker.updateComplete;
+    expect(picker.willValidate).toBe(false);
   });
 });
+

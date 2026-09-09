@@ -5,7 +5,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-09-09
+
+### Added
+- **Dynamic Palette Generator Utility (`generateTheme`, `generateColorScheme`)**:
+  - Automatically derives full Material Design 3 (M3) light and dark color palettes, CSS variable records, and complete stylesheets from any single seed color hex string (`#RGB` or `#RRGGBB`).
+  - Provides convenience `apply({ dark?: boolean, target?: HTMLElement })` helper to apply dynamic themes at runtime to the document or specific DOM subtrees.
+  - Exported from root `@francofantomius/material-components` and `@francofantomius/material-components/theme`.
+- **Form-Association (FACE) for Remaining Inputs (`md-slider`, `md-date-picker`, `md-time-picker`)**:
+  - **`md-slider`**: Full form participation for single and dual-thumb range sliders with `name-start` and `name-end` (`FormData` support), reactive updates on attribute changes, `min`/`max`/`required` constraint validation, and spec-compliant form reset restoring initial values.
+  - **`md-date-picker`**: Form participation for single dates and ranges, adding `name-start` and `name-end` properties (`FormData`), range constraint validation, and form reset restoring configured defaults.
+  - **`md-time-picker`**: Added native constraint validation (`required`, `min`, `max`, `error`, `error-text`), 24-hour time range validation, disabled state nullification, and form reset restoring initial values.
+  - **`MdFormAssociatedElement`**: Added standard lifecycle hooks `formAssociatedCallback` and `formStateRestoreCallback`.
+- **Security Policy (`SECURITY.md`)**:
+  - Added repository security policy documenting supported versions and private vulnerability reporting channels.
+- **AI Developer Documentation (`llms.txt`)**:
+  - Documented the dynamic palette generator API (`generateTheme`, `generateColorScheme`) with TypeScript code examples.
+  - Expanded Form Integration (FACE) guide and component reference tables for `md-slider`, `md-date-picker`, and `md-time-picker`.
+
+### Changed
+- **Documentation Modernization & Deployment**:
+  - Re-architected documentation to Markdown files (`docs/index.md`, `docs/components/`, `docs/guides/`, `docs/docs.config.json`).
+  - Streamlined GitHub Pages deployment workflow (`.github/workflows/deploy-docs.yml`) using `FrancoFantomius/docs-gen@v1`.
+  - Removed legacy bespoke static site generator scripts (`docs/generate.js`) and bundle configurations (`vite.docs.config.ts`).
+- **Build & Tooling Configuration**:
+  - Streamlined `package.json` build scripts and removed redundant devDependencies.
+  - Configured Dependabot with the `npm` package ecosystem in `.github/dependabot.yml`.
+
+---
+
 ## [1.1.2] - 2026-08-22
+
 
 ### Added
 - **Search Bar Sizing Variants (`md-search-bar`, `md-search`)**:

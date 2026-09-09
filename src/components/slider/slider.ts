@@ -61,6 +61,9 @@ export class MdSlider extends MdFormAssociatedElement {
   @property({ type: String, attribute: 'value-end-text' })
   valueEndText = '';
 
+  @property({ type: Boolean, reflect: true })
+  error = false;
+
   @query('.slider-wrapper')
   private sliderWrapper!: HTMLElement;
 
@@ -98,11 +101,21 @@ export class MdSlider extends MdFormAssociatedElement {
       changedProperties.has('min') ||
       changedProperties.has('max') ||
       changedProperties.has('step') ||
-      changedProperties.has('range')
+      changedProperties.has('range') ||
+      changedProperties.has('name') ||
+      changedProperties.has('nameStart') ||
+      changedProperties.has('nameEnd') ||
+      changedProperties.has('disabled') ||
+      changedProperties.has('required')
     ) {
       this.clampValues();
       this.updateFormValue();
     }
+  }
+
+  override formDisabledCallback(disabled: boolean) {
+    this.disabled = disabled;
+    this.updateFormValue();
   }
 
   override formResetCallback() {
@@ -140,6 +153,13 @@ export class MdSlider extends MdFormAssociatedElement {
   }
 
   private updateFormValue() {
+    if (this.disabled) {
+      this.setFormValue(null);
+      this.setValidity({});
+      this.error = false;
+      return;
+    }
+
     if (this.range) {
       if (this.nameStart || this.nameEnd) {
         const formData = new FormData();
@@ -159,12 +179,26 @@ export class MdSlider extends MdFormAssociatedElement {
         : this.value === undefined || this.value === null;
       if (isMissing) {
         this.setValidity({ valueMissing: true }, 'Please select a value');
-      } else {
-        this.setValidity({});
+        this.error = true;
+        return;
       }
-    } else {
-      this.setValidity({});
     }
+
+    if (!this.range && typeof this.value === 'number') {
+      if (this.value < this.min) {
+        this.setValidity({ rangeUnderflow: true }, `Value must be at least ${this.min}`);
+        this.error = true;
+        return;
+      }
+      if (this.value > this.max) {
+        this.setValidity({ rangeOverflow: true }, `Value must be at most ${this.max}`);
+        this.error = true;
+        return;
+      }
+    }
+
+    this.setValidity({});
+    this.error = false;
   }
 
   private getPercentage(val: number): number {

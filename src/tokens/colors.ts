@@ -124,3 +124,6 @@ export function colorSchemeToCssVariables(scheme: Partial<M3ColorScheme>): Recor
   return vars;
 }
 
+export * from './palette-generator.js';
+
+

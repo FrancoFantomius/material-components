@@ -101,5 +101,9 @@ export class MdFormAssociatedElement extends MdBaseElement {
   formDisabledCallback(disabled: boolean): void {
     this.disabled = disabled;
   }
+
+  formAssociatedCallback?(form: HTMLFormElement | null): void;
+
+  formStateRestoreCallback?(state: unknown, mode: 'restore' | 'autocomplete'): void;
 }
 

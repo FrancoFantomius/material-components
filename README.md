@@ -2,6 +2,7 @@
 
 <p align="left">
   <a href="https://www.npmjs.com/package/@francofantomius/material-components"><img src="https://img.shields.io/npm/v/@francofantomius/material-components?color=6750A4&label=npm&logo=npm" alt="npm version" /></a>
+  <a href="https://github.com/FrancoFantomius/material-components/releases/tag/v1.2.0"><img src="https://img.shields.io/badge/version-1.2.0-6750A4" alt="version 1.2.0" /></a>
   <a href="https://lit.dev/"><img src="https://img.shields.io/badge/Lit-3.x-324FFF?logo=lit&logoColor=white" alt="Lit 3" /></a>
   <a href="https://vite.dev/"><img src="https://img.shields.io/badge/Vite-8.x-646CFF?logo=vite&logoColor=white" alt="Vite 8" /></a>
   <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-Ready-3178C6?logo=typescript&logoColor=white" alt="TypeScript" /></a>
@@ -96,7 +97,7 @@ For quick prototyping or usage directly in HTML without a bundler, import from a
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" />
 
     <!-- Import from CDN (esm.sh / jsdelivr / unpkg) -->
-    <script type="module" src="https://esm.sh/@francofantomius/material-components"></script>
+    <script type="module" src="https://esm.sh/@francofantomius/material-components@1.2.0"></script>
   </head>
   <body>
     <md-button variant="filled" icon="send">Get Started</md-button>

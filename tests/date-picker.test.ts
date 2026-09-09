@@ -227,4 +227,42 @@ describe('md-date-picker', () => {
     expect(picker.open).toBe(false);
     expect(closeFired).toBe(true);
   });
+
+  it('should support range date picker form association with name-start and name-end', async () => {
+    const form = document.createElement('form');
+    const picker = document.createElement('md-date-picker') as MdDatePicker;
+    picker.range = true;
+    picker.nameStart = 'checkin';
+    picker.nameEnd = 'checkout';
+    picker.startDate = '2026-09-01';
+    picker.endDate = '2026-09-05';
+    picker.required = true;
+    form.appendChild(picker);
+    document.body.appendChild(form);
+    await picker.updateComplete;
+
+    expect(picker.checkValidity()).toBe(true);
+    expect(picker.nameStart).toBe('checkin');
+    expect(picker.nameEnd).toBe('checkout');
+
+    // Test disabled state
+    picker.disabled = true;
+    await picker.updateComplete;
+    expect(picker.willValidate).toBe(false);
+
+    picker.disabled = false;
+    await picker.updateComplete;
+    expect(picker.checkValidity()).toBe(true);
+
+    // Form reset restores initial values
+    picker.startDate = '2026-09-10';
+    picker.endDate = '2026-09-15';
+    await picker.updateComplete;
+
+    picker.formResetCallback();
+    await picker.updateComplete;
+    expect(picker.startDate).toBe('2026-09-01');
+    expect(picker.endDate).toBe('2026-09-05');
+  });
 });
+

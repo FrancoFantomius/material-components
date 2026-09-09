@@ -181,4 +181,40 @@ describe('md-slider', () => {
     await slider.updateComplete;
     expect(slider.valueEnd).toBe(60);
   });
+
+  it('should support range slider form participation and validation', async () => {
+    const form = document.createElement('form');
+    const slider = document.createElement('md-slider') as MdSlider;
+    slider.range = true;
+    slider.nameStart = 'min_price';
+    slider.nameEnd = 'max_price';
+    slider.valueStart = 20;
+    slider.valueEnd = 80;
+    slider.required = true;
+    form.appendChild(slider);
+    document.body.appendChild(form);
+    await slider.updateComplete;
+
+    expect(slider.checkValidity()).toBe(true);
+
+    // Disable slider
+    slider.disabled = true;
+    await slider.updateComplete;
+    expect(slider.willValidate).toBe(false);
+
+    slider.disabled = false;
+    await slider.updateComplete;
+    expect(slider.checkValidity()).toBe(true);
+
+    // Form reset restores initial values
+    slider.valueStart = 40;
+    slider.valueEnd = 90;
+    await slider.updateComplete;
+
+    slider.formResetCallback();
+    await slider.updateComplete;
+    expect(slider.valueStart).toBe(20);
+    expect(slider.valueEnd).toBe(80);
+  });
 });
+
