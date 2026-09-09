@@ -314,7 +314,7 @@
     "lit": "^3.3.3"
   },
   "devDependencies": {
-    "@custom-elements-manifest/analyzer": "^0.10.4",
+    "@custom-elements-manifest/analyzer": "^0.11.0",
     "esbuild": "^0.28.2",
     "happy-dom": "^20.11.6",
     "typescript": "^7.0.2",
