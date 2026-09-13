@@ -19,6 +19,13 @@ import '@francofantomius/material-components/tooltip';
 
 ### Plain and Rich Tooltips
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+  <span id="target-icon">
+    <md-icon-button icon="help_outline" aria-label="Help"></md-icon-button>
+  </span>
+  <md-tooltip anchor="target-icon" position="top">Need help? Click to open guide.</md-tooltip>
+</div>
+
 ```html
 <div style="display: flex; gap: 24px; align-items: center;">
   <span id="target-icon">

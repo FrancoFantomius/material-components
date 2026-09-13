@@ -19,6 +19,12 @@ import '@francofantomius/material-components/slider';
 
 ### Continuous and Discrete Sliders
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; display: flex; flex-direction: column; gap: 24px; max-width: 480px;">
+  <md-slider value="40" min="0" max="100"></md-slider>
+  <md-slider discrete labeled step="10" value="70" min="0" max="100"></md-slider>
+  <md-slider range labeled value-start="20" value-end="80" min="0" max="100"></md-slider>
+</div>
+
 ```html
 <md-slider value="40" min="0" max="100"></md-slider>
 <md-slider discrete labeled step="10" value="70" min="0" max="100"></md-slider>

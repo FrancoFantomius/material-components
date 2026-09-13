@@ -5,6 +5,6 @@ export default defineConfig({
     environment: 'happy-dom',
     globals: true,
     include: ['tests/**/*.test.ts', 'src/**/*.test.ts'],
+    pool: 'vmThreads',
   },
 });
-

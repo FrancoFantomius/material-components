@@ -20,6 +20,14 @@ import '@francofantomius/material-components/fab-menu-item';
 
 ### Upward Speed Dial
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; min-height: 240px; display: flex; align-items: flex-end;">
+  <md-fab-menu icon="add">
+    <md-fab-menu-item icon="edit" label="Create Post" value="post"></md-fab-menu-item>
+    <md-fab-menu-item icon="photo_camera" label="Upload Photo" value="photo"></md-fab-menu-item>
+    <md-fab-menu-item icon="videocam" label="Go Live" value="live"></md-fab-menu-item>
+  </md-fab-menu>
+</div>
+
 ```html
 <md-fab-menu icon="add">
   <md-fab-menu-item icon="edit" label="Create Post" value="post"></md-fab-menu-item>
@@ -29,6 +37,13 @@ import '@francofantomius/material-components/fab-menu-item';
 ```
 
 ### Modal FAB Menu with Scrim
+
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; min-height: 200px; display: flex; align-items: flex-end;">
+  <md-fab-menu modal icon="add" label="Actions">
+    <md-fab-menu-item icon="mail" label="New Message" value="email"></md-fab-menu-item>
+    <md-fab-menu-item icon="event" label="Schedule Event" value="event"></md-fab-menu-item>
+  </md-fab-menu>
+</div>
 
 ```html
 <md-fab-menu modal icon="add" label="Actions">

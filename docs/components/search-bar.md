@@ -19,6 +19,15 @@ import '@francofantomius/material-components/search-bar';
 
 ### Docked and Responsive Search Bar
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; max-width: 520px;">
+  <md-search-bar
+    placeholder="Search documentation..."
+    show-back-button
+    show-clear-button
+    responsive
+  ></md-search-bar>
+</div>
+
 ```html
 <md-search-bar
   placeholder="Search documentation..."

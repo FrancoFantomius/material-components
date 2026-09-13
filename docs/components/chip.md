@@ -19,6 +19,15 @@ import '@francofantomius/material-components/chip';
 
 ### Chip Variants
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+  <md-chip-set>
+    <md-chip variant="assist" icon="event" label="Add to calendar"></md-chip>
+    <md-chip variant="filter" label="Vegetarian" selected></md-chip>
+    <md-chip variant="input" label="user@example.com" removeable></md-chip>
+    <md-chip variant="suggestion" label="Directions"></md-chip>
+  </md-chip-set>
+</div>
+
 ```html
 <md-chip-set>
   <md-chip variant="assist" icon="event" label="Add to calendar"></md-chip>

@@ -19,16 +19,28 @@ import '@francofantomius/material-components/dialog';
 
 ### Basic Confirmation Dialog
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0;">
+  <md-button variant="filled" onclick="document.getElementById('demo-dialog').show()">Open Dialog</md-button>
+
+  <md-dialog id="demo-dialog" headline="Discard Draft?">
+    <p>Are you sure you want to discard your unsaved draft? This action cannot be undone.</p>
+    <div slot="actions">
+      <md-button variant="text" onclick="document.getElementById('demo-dialog').close()">Cancel</md-button>
+      <md-button variant="filled" onclick="document.getElementById('demo-dialog').close()">Discard</md-button>
+    </div>
+  </md-dialog>
+</div>
+
 ```html
 <md-dialog id="demo-dialog" headline="Discard Draft?">
   <p>Are you sure you want to discard your unsaved draft? This action cannot be undone.</p>
   <div slot="actions">
-    <md-button variant="text" data-dialog-close>Cancel</md-button>
-    <md-button variant="filled" data-dialog-close>Discard</md-button>
+    <md-button variant="text" onclick="document.getElementById('demo-dialog').close()">Cancel</md-button>
+    <md-button variant="filled" onclick="document.getElementById('demo-dialog').close()">Discard</md-button>
   </div>
 </md-dialog>
 
-<md-button variant="filled" data-dialog-target="demo-dialog">Open Dialog</md-button>
+<md-button variant="filled" onclick="document.getElementById('demo-dialog').show()">Open Dialog</md-button>
 ```
 
 ## API Reference

@@ -19,6 +19,20 @@ import '@francofantomius/material-components/progress';
 
 ### Linear and Circular Progress
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; display: flex; flex-direction: column; gap: 20px; max-width: 480px;">
+  <!-- Indeterminate linear progress -->
+  <md-progress type="linear" indeterminate></md-progress>
+
+  <!-- Determinate linear progress -->
+  <md-progress type="linear" value="0.7"></md-progress>
+
+  <!-- Circular progress indicators -->
+  <div style="display: flex; gap: 24px; align-items: center;">
+    <md-progress type="circular" indeterminate></md-progress>
+    <md-progress type="circular" wavy indeterminate></md-progress>
+  </div>
+</div>
+
 ```html
 <!-- Indeterminate linear progress -->
 <md-progress type="linear" indeterminate></md-progress>

@@ -19,6 +19,12 @@ import '@francofantomius/material-components/split-button';
 
 ### Split Button Variants
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+  <md-split-button label="Save"></md-split-button>
+  <md-split-button variant="tonal" icon="cloud_upload" label="Upload" trailing-icon="expand_more"></md-split-button>
+  <md-split-button variant="outlined" label="Export"></md-split-button>
+</div>
+
 ```html
 <!-- Default filled split button -->
 <md-split-button label="Save"></md-split-button>

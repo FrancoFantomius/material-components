@@ -19,6 +19,14 @@ import '@francofantomius/material-components/text-field';
 
 ### Variants and Affixes
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; display: flex; flex-direction: column; gap: 16px; max-width: 420px;">
+  <md-text-field label="Full Name" supporting-text="Your legal name"></md-text-field>
+  <md-text-field variant="outlined" label="Email Address" type="email" leading-icon="mail"></md-text-field>
+  <md-text-field variant="outlined" label="Price" prefix-text="$" suffix-text=".00" value="99"></md-text-field>
+  <md-text-field variant="outlined" label="Bio" maxlength="50" supporting-text="Max 50 characters"></md-text-field>
+  <md-text-field variant="outlined" label="Password" type="password" error error-text="Password must be at least 8 characters" value="pass"></md-text-field>
+</div>
+
 ```html
 <md-text-field label="Full Name" supporting-text="Your legal name"></md-text-field>
 <md-text-field variant="outlined" label="Email Address" type="email" leading-icon="mail"></md-text-field>

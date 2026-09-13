@@ -19,6 +19,15 @@ import '@francofantomius/material-components/list';
 
 ### Two-Line List with Icons and Avatars
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; max-width: 480px;">
+  <md-list>
+    <md-list-item headline="Inbox" supporting-text="3 unread messages" leading-icon="inbox" trailing-icon="chevron_right" interactive></md-list-item>
+    <md-list-item headline="Starred" supporting-text="Important conversations" leading-icon="star" trailing-icon="chevron_right" interactive></md-list-item>
+    <md-divider></md-divider>
+    <md-list-item headline="Trash" leading-icon="delete" interactive></md-list-item>
+  </md-list>
+</div>
+
 ```html
 <md-list>
   <md-list-item headline="Inbox" supporting-text="3 unread messages" leading-icon="inbox" trailing-icon="chevron_right"></md-list-item>

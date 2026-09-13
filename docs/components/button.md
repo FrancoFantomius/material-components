@@ -21,6 +21,14 @@ import '@francofantomius/material-components/button';
 
 Five distinct emphasis levels for guiding user priority.
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+  <md-button variant="filled">Filled</md-button>
+  <md-button variant="elevated">Elevated</md-button>
+  <md-button variant="tonal">Tonal</md-button>
+  <md-button variant="outlined">Outlined</md-button>
+  <md-button variant="text">Text</md-button>
+</div>
+
 ```html
 <md-button variant="filled">Filled</md-button>
 <md-button variant="elevated">Elevated</md-button>
@@ -33,6 +41,12 @@ Five distinct emphasis levels for guiding user priority.
 
 Buttons with leading icons, trailing icons, and loading spinners.
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+  <md-button variant="filled" icon="add">Create New</md-button>
+  <md-button variant="outlined" trailing-icon="arrow_forward">Next Step</md-button>
+  <md-button variant="tonal" loading>Saving...</md-button>
+</div>
+
 ```html
 <md-button variant="filled" icon="add">Create New</md-button>
 <md-button variant="outlined" trailing-icon="arrow_forward">Next Step</md-button>
@@ -42,6 +56,12 @@ Buttons with leading icons, trailing icons, and loading spinners.
 ### Link Mode
 
 Renders an accessible hyperlink while maintaining button styling.
+
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+  <md-button variant="outlined" href="https://material.io" target="_blank" trailing-icon="open_in_new">
+    Material Design Docs
+  </md-button>
+</div>
 
 ```html
 <md-button variant="outlined" href="https://material.io" target="_blank" trailing-icon="open_in_new">

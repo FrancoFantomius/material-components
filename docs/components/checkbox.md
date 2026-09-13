@@ -19,6 +19,13 @@ import '@francofantomius/material-components/checkbox';
 
 ### Checkbox States
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+  <md-checkbox checked>Receive email updates</md-checkbox>
+  <md-checkbox indeterminate>Select all items</md-checkbox>
+  <md-checkbox disabled>Disabled option</md-checkbox>
+  <md-checkbox error>Must agree before proceeding</md-checkbox>
+</div>
+
 ```html
 <md-checkbox checked>Receive email updates</md-checkbox>
 <md-checkbox indeterminate>Select all items</md-checkbox>

@@ -20,6 +20,15 @@ import '@francofantomius/material-components/navigation-rail-item';
 
 ### Vertical Navigation Rail
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; min-height: 280px; display: inline-flex;">
+  <md-navigation-rail value="starred">
+    <md-fab slot="fab" size="small" icon="edit" aria-label="Compose"></md-fab>
+    <md-navigation-rail-item value="inbox" icon="inbox" label="Inbox"></md-navigation-rail-item>
+    <md-navigation-rail-item value="starred" icon="star" label="Starred"></md-navigation-rail-item>
+    <md-navigation-rail-item value="history" icon="history" label="History"></md-navigation-rail-item>
+  </md-navigation-rail>
+</div>
+
 ```html
 <md-navigation-rail value="starred">
   <md-fab slot="fab" size="small" icon="edit" aria-label="Compose"></md-fab>

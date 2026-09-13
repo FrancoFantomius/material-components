@@ -19,6 +19,14 @@ import '@francofantomius/material-components/button-group';
 
 ### Standard Button Group
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+  <md-button-group>
+    <md-button variant="outlined" icon="edit">Edit</md-button>
+    <md-button variant="outlined" icon="content_copy">Copy</md-button>
+    <md-button variant="filled" icon="share">Share</md-button>
+  </md-button-group>
+</div>
+
 ```html
 <md-button-group>
   <md-button variant="outlined" icon="edit">Edit</md-button>
@@ -29,6 +37,14 @@ import '@francofantomius/material-components/button-group';
 
 ### Connected Shape-Shifting Group
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+  <md-button-group connected variant="outlined">
+    <md-button icon="format_align_left">Left</md-button>
+    <md-button icon="format_align_center">Center</md-button>
+    <md-button icon="format_align_right">Right</md-button>
+  </md-button-group>
+</div>
+
 ```html
 <md-button-group connected variant="outlined">
   <md-button icon="format_align_left">Left</md-button>
@@ -38,6 +54,14 @@ import '@francofantomius/material-components/button-group';
 ```
 
 ### Vertical Connected Group
+
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+  <md-button-group connected orientation="vertical" variant="outlined">
+    <md-button icon="zoom_in">Zoom In</md-button>
+    <md-button icon="zoom_out">Zoom Out</md-button>
+    <md-button icon="fit_screen">Reset</md-button>
+  </md-button-group>
+</div>
 
 ```html
 <md-button-group connected orientation="vertical" variant="outlined">

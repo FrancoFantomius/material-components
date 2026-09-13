@@ -20,10 +20,22 @@ import '@francofantomius/material-components/menu-item';
 
 ### Anchored Menu
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; min-height: 200px;">
+  <div style="position: relative; display: inline-block;">
+    <md-menu>
+      <md-button slot="trigger" variant="tonal">Options</md-button>
+      <md-menu-item icon="edit">Edit File</md-menu-item>
+      <md-menu-item icon="content_copy">Duplicate</md-menu-item>
+      <md-divider></md-divider>
+      <md-menu-item icon="delete">Delete</md-menu-item>
+    </md-menu>
+  </div>
+</div>
+
 ```html
 <div style="position: relative; display: inline-block;">
-  <md-button id="menu-trigger-btn" variant="tonal">Options</md-button>
-  <md-menu anchor="menu-trigger-btn">
+  <md-menu>
+    <md-button slot="trigger" variant="tonal">Options</md-button>
     <md-menu-item icon="edit">Edit File</md-menu-item>
     <md-menu-item icon="content_copy">Duplicate</md-menu-item>
     <md-divider></md-divider>

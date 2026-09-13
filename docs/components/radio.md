@@ -19,6 +19,14 @@ import '@francofantomius/material-components/radio';
 
 ### Radio Group
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; display: flex; flex-direction: column; gap: 12px;">
+  <md-radio-group name="shipping" value="express">
+    <md-radio value="standard">Standard Shipping (3-5 days)</md-radio>
+    <md-radio value="express">Express Shipping (1-2 days)</md-radio>
+    <md-radio value="overnight">Overnight Delivery</md-radio>
+  </md-radio-group>
+</div>
+
 ```html
 <md-radio-group name="shipping" value="express">
   <md-radio value="standard">Standard Shipping (3-5 days)</md-radio>

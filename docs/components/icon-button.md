@@ -19,6 +19,13 @@ import '@francofantomius/material-components/icon-button';
 
 ### Variants
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+  <md-icon-button icon="favorite" variant="standard" aria-label="Favorite"></md-icon-button>
+  <md-icon-button icon="star" variant="filled" aria-label="Bookmark"></md-icon-button>
+  <md-icon-button icon="settings" variant="tonal" aria-label="Settings"></md-icon-button>
+  <md-icon-button icon="share" variant="outlined" aria-label="Share"></md-icon-button>
+</div>
+
 ```html
 <md-icon-button icon="favorite" variant="standard" aria-label="Favorite"></md-icon-button>
 <md-icon-button icon="star" variant="filled" aria-label="Bookmark"></md-icon-button>
@@ -27,6 +34,11 @@ import '@francofantomius/material-components/icon-button';
 ```
 
 ### Toggle Mode
+
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+  <md-icon-button toggle icon="bookmark_border" selected-icon="bookmark" aria-label="Bookmark"></md-icon-button>
+  <md-icon-button toggle variant="tonal" icon="notifications_none" selected-icon="notifications" aria-label="Alerts"></md-icon-button>
+</div>
 
 ```html
 <md-icon-button toggle icon="bookmark_border" selected-icon="bookmark" aria-label="Bookmark"></md-icon-button>

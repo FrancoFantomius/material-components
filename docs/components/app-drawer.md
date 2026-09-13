@@ -20,6 +20,18 @@ import '@francofantomius/material-components/app-drawer-item';
 
 ### Apps Launcher Grid
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; min-height: 200px;">
+  <div style="position: relative; display: inline-block;">
+    <md-icon-button id="app-btn" icon="apps" aria-label="Open App Launcher" onclick="this.nextElementSibling.open = !this.nextElementSibling.open"></md-icon-button>
+    <md-app-drawer anchor="app-btn">
+      <md-app-drawer-item icon="mail" label="Mail" badge="12"></md-app-drawer-item>
+      <md-app-drawer-item icon="calendar_today" label="Calendar"></md-app-drawer-item>
+      <md-app-drawer-item icon="description" label="Docs"></md-app-drawer-item>
+      <md-app-drawer-item icon="folder" label="Drive"></md-app-drawer-item>
+    </md-app-drawer>
+  </div>
+</div>
+
 ```html
 <div style="position: relative; display: inline-block;">
   <md-icon-button id="app-btn" icon="apps" aria-label="Open App Launcher"></md-icon-button>

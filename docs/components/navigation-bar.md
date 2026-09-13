@@ -20,6 +20,15 @@ import '@francofantomius/material-components/navigation-bar-item';
 
 ### Bottom Navigation Bar
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; max-width: 520px;">
+  <md-navigation-bar value="home">
+    <md-navigation-bar-item value="home" icon="home" label="Home"></md-navigation-bar-item>
+    <md-navigation-bar-item value="search" icon="search" label="Search"></md-navigation-bar-item>
+    <md-navigation-bar-item value="notifications" icon="notifications" label="Alerts" badge="5"></md-navigation-bar-item>
+    <md-navigation-bar-item value="profile" icon="person" label="Profile"></md-navigation-bar-item>
+  </md-navigation-bar>
+</div>
+
 ```html
 <md-navigation-bar value="home">
   <md-navigation-bar-item value="home" icon="home" label="Home"></md-navigation-bar-item>

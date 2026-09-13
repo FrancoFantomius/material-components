@@ -19,6 +19,17 @@ import '@francofantomius/material-components/side-sheet';
 
 ### Standard and Modal Side Sheet
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0;">
+  <md-button variant="outlined" onclick="document.getElementById('details-sheet').open = true">View Details</md-button>
+
+  <md-side-sheet id="details-sheet" headline="Order Details" side="right" modal>
+    <p>Detailed view of items, delivery addresses, and shipping statuses.</p>
+    <div slot="actions">
+      <md-button variant="filled" onclick="document.getElementById('details-sheet').open = false">Close</md-button>
+    </div>
+  </md-side-sheet>
+</div>
+
 ```html
 <md-side-sheet id="details-sheet" headline="Order Details" side="right">
   <p>Detailed view of items, delivery addresses, and shipping statuses.</p>
@@ -27,7 +38,7 @@ import '@francofantomius/material-components/side-sheet';
   </div>
 </md-side-sheet>
 
-<md-button variant="outlined" data-dialog-target="details-sheet">View Details</md-button>
+<md-button variant="outlined" onclick="document.getElementById('details-sheet').open = true">View Details</md-button>
 ```
 
 ## API Reference

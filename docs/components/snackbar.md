@@ -19,6 +19,11 @@ import '@francofantomius/material-components/snackbar';
 
 ### Triggering a Toast
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0;">
+  <md-snackbar id="demo-snack" message="File archived successfully" action-label="Undo"></md-snackbar>
+  <md-button variant="filled" onclick="document.getElementById('demo-snack').show()">Show Toast</md-button>
+</div>
+
 ```html
 <md-snackbar id="demo-snack" message="File archived successfully" action-label="Undo"></md-snackbar>
 

@@ -19,6 +19,12 @@ import '@francofantomius/material-components/icon';
 
 ### Icon Variants and Sizes
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+  <md-icon name="home"></md-icon>
+  <md-icon name="favorite" filled></md-icon>
+  <md-icon name="settings" size="36"></md-icon>
+</div>
+
 ```html
 <md-icon name="home"></md-icon>
 <md-icon name="favorite" filled></md-icon>

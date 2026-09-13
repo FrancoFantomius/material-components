@@ -19,6 +19,11 @@ import '@francofantomius/material-components/date-picker';
 
 ### Date Selection
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap;">
+  <md-date-picker label="Event Date" value="2026-09-15"></md-date-picker>
+  <md-date-picker modal label="Scheduled Flight" min="2026-01-01" max="2026-12-31"></md-date-picker>
+</div>
+
 ```html
 <md-date-picker label="Event Date" value="2026-09-15"></md-date-picker>
 <md-date-picker modal label="Scheduled Flight" min="2026-01-01" max="2026-12-31"></md-date-picker>

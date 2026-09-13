@@ -19,6 +19,15 @@ import '@francofantomius/material-components/player';
 
 ### Audio and Video Player
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; max-width: 560px;">
+  <md-player
+    src="https://www.w3schools.com/html/mov_bbb.mp4"
+    title="Big Buck Bunny"
+    artist="Blender Foundation"
+    type="video"
+  ></md-player>
+</div>
+
 ```html
 <md-player
   src="https://www.w3schools.com/html/mov_bbb.mp4"

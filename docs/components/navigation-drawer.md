@@ -19,6 +19,14 @@ import '@francofantomius/material-components/navigation-drawer';
 
 ### Navigation Drawer Setup
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; max-width: 360px;">
+  <md-navigation-drawer id="app-drawer" headline="My Application" open>
+    <md-navigation-drawer-item icon="inbox" label="Inbox" active></md-navigation-drawer-item>
+    <md-navigation-drawer-item icon="send" label="Outbox"></md-navigation-drawer-item>
+    <md-navigation-drawer-item icon="favorite" label="Favorites"></md-navigation-drawer-item>
+  </md-navigation-drawer>
+</div>
+
 ```html
 <md-navigation-drawer id="app-drawer" headline="My Application">
   <md-navigation-drawer-item icon="inbox" label="Inbox" active></md-navigation-drawer-item>

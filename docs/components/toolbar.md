@@ -19,6 +19,16 @@ import '@francofantomius/material-components/toolbar';
 
 ### Floating Action Toolbar
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; display: flex; align-items: center; justify-content: center;">
+  <md-toolbar aria-label="Formatting Actions">
+    <md-icon-button icon="format_bold" aria-label="Bold"></md-icon-button>
+    <md-icon-button icon="format_italic" aria-label="Italic"></md-icon-button>
+    <md-divider vertical></md-divider>
+    <md-icon-button icon="format_align_left" aria-label="Align left"></md-icon-button>
+    <md-fab slot="fab" size="small" icon="edit" aria-label="Edit"></md-fab>
+  </md-toolbar>
+</div>
+
 ```html
 <md-toolbar aria-label="Formatting Actions">
   <md-icon-button icon="format_bold" aria-label="Bold"></md-icon-button>
@@ -31,13 +41,24 @@ import '@francofantomius/material-components/toolbar';
 
 ### Docked Bottom Toolbar
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0;">
+  <md-toolbar mode="docked" aria-label="Document Controls">
+    <div slot="leading">
+      <md-icon-button icon="attachment" aria-label="Attach"></md-icon-button>
+    </div>
+    <div slot="trailing">
+      <md-button variant="filled">Publish</md-button>
+    </div>
+  </md-toolbar>
+</div>
+
 ```html
 <md-toolbar mode="docked" aria-label="Document Controls">
   <div slot="leading">
     <md-icon-button icon="attachment" aria-label="Attach"></md-icon-button>
   </div>
   <div slot="trailing">
-    <md-button variant="filled" label="Publish"></md-button>
+    <md-button variant="filled">Publish</md-button>
   </div>
 </md-toolbar>
 ```

@@ -19,6 +19,11 @@ import '@francofantomius/material-components/loading-indicator';
 
 ### Morphing Loading Indicator
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; display: flex; gap: 32px; align-items: center; flex-wrap: wrap;">
+  <md-loading-indicator></md-loading-indicator>
+  <md-loading-indicator contained></md-loading-indicator>
+</div>
+
 ```html
 <md-loading-indicator></md-loading-indicator>
 <md-loading-indicator contained></md-loading-indicator>

@@ -19,6 +19,14 @@ import '@francofantomius/material-components/top-app-bar';
 
 ### Variants and Actions
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0;">
+  <md-top-app-bar variant="small" headline="Document Title">
+    <md-icon-button slot="navigation" icon="arrow_back" aria-label="Back"></md-icon-button>
+    <md-icon-button slot="actions" icon="search" aria-label="Search"></md-icon-button>
+    <md-icon-button slot="actions" icon="more_vert" aria-label="More options"></md-icon-button>
+  </md-top-app-bar>
+</div>
+
 ```html
 <md-top-app-bar variant="small" headline="Document Title">
   <md-icon-button slot="navigation" icon="arrow_back" aria-label="Back"></md-icon-button>

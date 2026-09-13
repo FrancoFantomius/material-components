@@ -19,6 +19,18 @@ import '@francofantomius/material-components/bottom-sheet';
 
 ### Modal Bottom Sheet
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0;">
+  <md-button variant="tonal" onclick="document.getElementById('share-sheet').open = true">Share</md-button>
+
+  <md-bottom-sheet id="share-sheet" headline="Share with friends" modal>
+    <div style="display: flex; gap: 16px; padding: 16px 0;">
+      <md-icon-button icon="link" aria-label="Copy link"></md-icon-button>
+      <md-icon-button icon="mail" aria-label="Email"></md-icon-button>
+      <md-icon-button icon="chat" aria-label="Message"></md-icon-button>
+    </div>
+  </md-bottom-sheet>
+</div>
+
 ```html
 <md-bottom-sheet id="share-sheet" headline="Share with friends" modal>
   <div style="display: flex; gap: 16px; padding: 16px 0;">
@@ -28,7 +40,7 @@ import '@francofantomius/material-components/bottom-sheet';
   </div>
 </md-bottom-sheet>
 
-<md-button variant="tonal" data-dialog-target="share-sheet">Share</md-button>
+<md-button variant="tonal" onclick="document.getElementById('share-sheet').open = true">Share</md-button>
 ```
 
 ## API Reference

@@ -19,6 +19,18 @@ import '@francofantomius/material-components/badge';
 
 ### Dot and Numeric Badges
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; display: flex; gap: 32px; align-items: center; flex-wrap: wrap;">
+  <div style="position: relative; display: inline-block;">
+    <md-icon name="mail"></md-icon>
+    <md-badge value="3"></md-badge>
+  </div>
+
+  <div style="position: relative; display: inline-block;">
+    <md-icon name="notifications"></md-icon>
+    <md-badge></md-badge>
+  </div>
+</div>
+
 ```html
 <div style="position: relative; display: inline-block;">
   <md-icon name="mail"></md-icon>

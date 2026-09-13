@@ -19,6 +19,14 @@ import '@francofantomius/material-components/segmented-button';
 
 ### Single Select View Filter
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+  <md-segmented-button-set>
+    <md-segmented-button selected label="Songs"></md-segmented-button>
+    <md-segmented-button label="Albums"></md-segmented-button>
+    <md-segmented-button label="Podcasts"></md-segmented-button>
+  </md-segmented-button-set>
+</div>
+
 ```html
 <md-segmented-button-set>
   <md-segmented-button selected label="Songs"></md-segmented-button>
@@ -28,6 +36,14 @@ import '@francofantomius/material-components/segmented-button';
 ```
 
 ### Multi-Select Formatting Buttons
+
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+  <md-segmented-button-set multiselect>
+    <md-segmented-button icon="format_bold" label="Bold" selected></md-segmented-button>
+    <md-segmented-button icon="format_italic" label="Italic"></md-segmented-button>
+    <md-segmented-button icon="format_underlined" label="Underline"></md-segmented-button>
+  </md-segmented-button-set>
+</div>
 
 ```html
 <md-segmented-button-set multiselect>

@@ -19,6 +19,15 @@ import '@francofantomius/material-components/code';
 
 ### Syntax Highlighted Code
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0;">
+  <md-code
+    language="javascript"
+    label="JavaScript"
+    code="const greeting = 'Hello, Material Design 3!';
+console.log(greeting);"
+  ></md-code>
+</div>
+
 ```html
 <md-code
   language="javascript"

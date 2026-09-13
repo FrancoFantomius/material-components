@@ -19,6 +19,12 @@ import '@francofantomius/material-components/switch';
 
 ### Switch Configurations
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+  <md-switch selected>Wi-Fi</md-switch>
+  <md-switch selected icons>Bluetooth with Icons</md-switch>
+  <md-switch disabled>Airplane Mode (Disabled)</md-switch>
+</div>
+
 ```html
 <md-switch selected>Wi-Fi</md-switch>
 <md-switch selected icons>Bluetooth with Icons</md-switch>

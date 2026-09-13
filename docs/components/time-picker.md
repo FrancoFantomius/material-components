@@ -19,6 +19,11 @@ import '@francofantomius/material-components/time-picker';
 
 ### 24h and 12h Pickers
 
+<div style="padding: 24px; border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 12px; background: var(--md-sys-color-surface-container-low, #f7f2fa); margin: 16px 0; display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap;">
+  <md-time-picker format="24h" value="14:30" label="Select Departure Time"></md-time-picker>
+  <md-time-picker format="12h" value="09:15 AM" label="Meeting Start"></md-time-picker>
+</div>
+
 ```html
 <md-time-picker format="24h" value="14:30" label="Select Departure Time"></md-time-picker>
 <md-time-picker format="12h" value="09:15 AM" label="Meeting Start"></md-time-picker>
