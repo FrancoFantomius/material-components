@@ -101,6 +101,20 @@ export const searchBarStyles = css`
     flex-shrink: 0;
   }
 
+  .leading-slot.empty,
+  :host([has-no-leading]) .leading-slot {
+    display: none;
+  }
+
+  :host([has-no-leading]) input {
+    padding-left: 8px;
+  }
+
+  .leading-slot ::slotted(md-icon-button),
+  .trailing-slot ::slotted(md-icon-button) {
+    --md-icon-button-size: var(--_btn-size);
+  }
+
   .icon-btn {
     display: inline-flex;
     align-items: center;
@@ -115,6 +129,9 @@ export const searchBarStyles = css`
     padding: 0;
     outline: none;
     position: relative;
+    overflow: hidden;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
     transition: background-color 150ms ease;
   }
 
@@ -179,11 +196,15 @@ export const searchBarStyles = css`
   /* Active Docked Mode */
   :host([active]) .search-container {
     z-index: 50;
-    border-radius: var(--_shape-active);
+    border-radius: var(--_shape);
     box-shadow: var(--_elevation-active);
   }
 
-  /* Divider when active */
+  :host([active][has-suggestions]) .search-container {
+    border-radius: var(--_shape-active);
+  }
+
+  /* Divider when active and has suggestions */
   .divider {
     display: none;
     height: 1px;
@@ -191,7 +212,7 @@ export const searchBarStyles = css`
     margin: 0 16px;
   }
 
-  :host([active]) .divider {
+  :host([active][has-suggestions]) .divider {
     display: block;
   }
 
@@ -205,7 +226,7 @@ export const searchBarStyles = css`
     box-sizing: border-box;
   }
 
-  :host([active]) .suggestions-container {
+  :host([active][has-suggestions]) .suggestions-container {
     display: flex;
   }
 
@@ -344,6 +365,8 @@ export const searchBarStyles = css`
       margin: 0;
       outline: none;
       position: relative;
+      overflow: hidden;
+      user-select: none;
       transition: background-color 150ms ease, color 150ms ease;
       -webkit-tap-highlight-color: transparent;
     }

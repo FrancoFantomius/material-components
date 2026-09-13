@@ -967,9 +967,10 @@ const isEnabled = ref(true);
 | `compact` | `boolean` | `false` | Shorthand boolean attribute for compact / small navbar sizing |
 | `active` | `boolean` | `false` | Controls whether search view is expanded and showing suggestions |
 | `suggestions` | `Array<string \| SearchSuggestion>` | `[]` | List of search suggestions with labels, supporting text, and icons |
-| `leading-icon` | `string` | `'search'` | Leading icon displayed when inactive |
+| `search-icon-position` | `'leading' \| 'trailing' \| 'left' \| 'right'` | `'leading'` | Position of search icon (`'leading'` / left, or `'trailing'` / right) |
+| `leading-icon` | `string` | `'search'` | Leading icon displayed when inactive (e.g. `'search'`, `'menu'`) |
 | `active-leading-icon` | `string` | `'arrow_back'` | Leading icon displayed when active |
-| `trailing-icon` | `string` | `''` | Optional trailing action icon |
+| `trailing-icon` | `string` | `''` | Optional trailing action icon (e.g. `'mic'`, `'search'`) |
 | `show-back-button` | `boolean` | `true` | Whether to show the back button in active mode |
 | `responsive` | `boolean` | `true` | Automatically switches to full-screen view and collapsed search icon on mobile (<= 768px) |
 | `collapse-on-mobile` | `boolean` | `true` | Collapses search bar into a compact search icon button on mobile screens when inactive |
@@ -977,25 +978,41 @@ const isEnabled = ref(true);
 | `disabled` | `boolean` | `false` | Disables user interaction |
 
 ##### Slots
-- `leading-icon`: Custom leading icon or button element.
-- `trailing-icon`: Custom trailing action buttons, avatar, or mic.
+- `leading` / `leading-icon`: Custom leading icon or navigation button element.
+- `trailing` / `trailing-icon`: Custom trailing action buttons, avatar, or mic.
 - `suggestions`: Custom slotted suggestions list.
 - `(default)`: Additional content rendered inside active search surface.
 
 ##### Events
 - `input`: Fired as user types (`detail: { value: string }`).
 - `change`: Fired on committed input change (`detail: { value: string }`).
-- `search`: Fired when user presses Enter or selects a suggestion (`detail: { value: string, suggestion?: object }`).
+- `search`: Fired when user presses Enter or clicks the search button (`detail: { value: string, suggestion?: object }`).
+- `leading-icon-click`: Fired when custom leading button (e.g. menu) is clicked (`detail: { icon: string }`).
+- `trailing-icon-click`: Fired when trailing icon button is clicked (`detail: { icon: string }`).
 - `active-change`: Fired when search bar expands/collapses (`detail: { active: boolean }`).
 - `suggestion-select`: Fired when a suggestion is selected (`detail: { suggestion: object, value: string, index: number }`).
 - `clear`: Fired when search value is cleared.
 
 ##### Code Example
 ```html
+<!-- Standard Search Bar -->
 <md-search-bar
   id="demo-search-bar"
   placeholder="Search destinations, hotels, flights..."
   trailing-icon="mic"
+></md-search-bar>
+
+<!-- Search Icon on the Right -->
+<md-search-bar
+  placeholder="Search products..."
+  search-icon-position="right"
+></md-search-bar>
+
+<!-- Hamburger Menu Button on Left and Search Icon on Right -->
+<md-search-bar
+  placeholder="Search apps and files..."
+  leading-icon="menu"
+  search-icon-position="right"
 ></md-search-bar>
 
 <!-- Custom Slotted Content in Active State -->

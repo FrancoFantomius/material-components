@@ -1,6 +1,6 @@
 {
   "name": "@francofantomius/material-components",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Reusable, accessible, and lightweight Material Design 3 Web Components built with Lit.",
   "repository": {
     "type": "git",
@@ -297,6 +297,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "analyze": "cem analyze --litelement",
+    "build:example": "esbuild src/index.ts --bundle --format=iife --outfile=example.bundle.js",
     "prepublishOnly": "npm run typecheck && npm run test && npm run build"
   },
   "keywords": [

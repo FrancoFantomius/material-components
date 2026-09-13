@@ -306,4 +306,121 @@ describe('md-search-bar & md-search', () => {
     await searchBar.updateComplete;
     expect(searchBar.getAttribute('size')).toBe('large');
   });
+
+  it('should support search icon on the right (search-icon-position="right")', async () => {
+    const searchBar = document.createElement('md-search-bar') as MdSearchBar;
+    searchBar.searchIconPosition = 'right';
+    document.body.appendChild(searchBar);
+    await searchBar.updateComplete;
+
+    expect(searchBar.searchIconPosition).toBe('right');
+    expect(searchBar.hasAttribute('has-no-leading')).toBe(true);
+
+    // Trailing button should contain the search icon
+    const trailingBtn = searchBar.shadowRoot?.querySelector('.trailing-slot .trailing-btn md-icon');
+    expect(trailingBtn).not.toBeNull();
+    expect(trailingBtn?.getAttribute('name')).toBe('search');
+
+    // Leading slot should have .empty class
+    const leadingSlot = searchBar.shadowRoot?.querySelector('.leading-slot');
+    expect(leadingSlot?.classList.contains('empty')).toBe(true);
+
+    // Clicking trailing search button should emit trailing-icon-click and open search
+    let trailingIconClicked = false;
+    let searchFired = false;
+    searchBar.addEventListener('trailing-icon-click', (e: any) => {
+      trailingIconClicked = true;
+      expect(e.detail.icon).toBe('search');
+    });
+    searchBar.addEventListener('search', () => {
+      searchFired = true;
+    });
+
+    const trailingButtonEl = searchBar.shadowRoot?.querySelector('.trailing-slot .trailing-btn') as HTMLButtonElement;
+    trailingButtonEl.click();
+    await searchBar.updateComplete;
+
+    expect(trailingIconClicked).toBe(true);
+    expect(searchFired).toBe(true);
+    expect(searchBar.active).toBe(true);
+  });
+
+  it('should support custom button (hamburger menu) on the left and search icon on the right', async () => {
+    const searchBar = document.createElement('md-search-bar') as MdSearchBar;
+    searchBar.leadingIcon = 'menu';
+    searchBar.searchIconPosition = 'right';
+    document.body.appendChild(searchBar);
+    await searchBar.updateComplete;
+
+    expect(searchBar.hasAttribute('has-no-leading')).toBe(false);
+
+    // Leading button should have menu icon
+    const leadingIcon = searchBar.shadowRoot?.querySelector('.leading-slot .leading-btn md-icon');
+    expect(leadingIcon).not.toBeNull();
+    expect(leadingIcon?.getAttribute('name')).toBe('menu');
+
+    // Trailing button should have search icon
+    const trailingIcon = searchBar.shadowRoot?.querySelector('.trailing-slot .trailing-btn md-icon');
+    expect(trailingIcon).not.toBeNull();
+    expect(trailingIcon?.getAttribute('name')).toBe('search');
+
+    // Clicking menu button should emit leading-icon-click event
+    let leadingDetail: any = null;
+    searchBar.addEventListener('leading-icon-click', (e: any) => {
+      leadingDetail = e.detail;
+    });
+
+    const leadingButtonEl = searchBar.shadowRoot?.querySelector('.leading-slot .leading-btn') as HTMLButtonElement;
+    leadingButtonEl.click();
+    await searchBar.updateComplete;
+
+    expect(leadingDetail).toEqual({ icon: 'menu' });
+    // Inactive search bar shouldn't activate simply from custom leading menu click
+    expect(searchBar.active).toBe(false);
+
+    // Clicking search button on right should trigger search and activate
+    const trailingButtonEl = searchBar.shadowRoot?.querySelector('.trailing-slot .trailing-btn') as HTMLButtonElement;
+    trailingButtonEl.click();
+    await searchBar.updateComplete;
+
+    expect(searchBar.active).toBe(true);
+  });
+
+  it('should support slotted custom button on the left with slot="leading"', async () => {
+    const searchBar = document.createElement('md-search-bar') as MdSearchBar;
+    searchBar.searchIconPosition = 'right';
+    const menuBtn = document.createElement('button');
+    menuBtn.setAttribute('slot', 'leading');
+    menuBtn.id = 'custom-hamburger';
+    searchBar.appendChild(menuBtn);
+    document.body.appendChild(searchBar);
+    await searchBar.updateComplete;
+
+    const trailingIcon = searchBar.shadowRoot?.querySelector('.trailing-slot .trailing-btn md-icon');
+    expect(trailingIcon?.getAttribute('name')).toBe('search');
+  });
+
+  it('should retain default shape without divider or dropdown when active with no suggestions', async () => {
+    const searchBar = document.createElement('md-search-bar') as MdSearchBar;
+    searchBar.searchIconPosition = 'right';
+    document.body.appendChild(searchBar);
+    await searchBar.updateComplete;
+
+    expect(searchBar.hasAttribute('has-suggestions')).toBe(false);
+
+    // Focus input or activate search bar
+    searchBar.show();
+    await searchBar.updateComplete;
+
+    expect(searchBar.active).toBe(true);
+    expect(searchBar.hasAttribute('has-suggestions')).toBe(false);
+    expect(searchBar.hasAttribute('has-no-leading')).toBe(true);
+
+    // Divider and suggestions container should not be in DOM or shown
+    expect(searchBar.shadowRoot?.querySelector('.divider')).toBeNull();
+    expect(searchBar.shadowRoot?.querySelector('.suggestions-container')).toBeNull();
+
+    // No back button should replace the leading area in docked mode without suggestions
+    expect(searchBar.shadowRoot?.querySelector('.leading-slot .back-btn')).toBeNull();
+  });
 });

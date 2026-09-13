@@ -1,10 +1,13 @@
 import { html, nothing } from 'lit';
 import { customElement, property, state, query } from 'lit/decorators.js';
 import { MdFormAssociatedElement } from '../../internal/form-associated.js';
+import '../../internal/ripple/ripple.js';
+import '../../internal/focus-ring/focus-ring.js';
 import '../icon/icon.js';
 import { searchBarStyles } from './search-bar.css.js';
 
 export type SearchBarSize = 'small' | 'compact' | 'medium' | 'large';
+export type SearchIconPosition = 'leading' | 'trailing' | 'left' | 'right';
 
 export interface SearchSuggestion {
   id?: string;
@@ -38,6 +41,9 @@ export class MdSearchBar extends MdFormAssociatedElement {
   @property({ type: Array })
   suggestions: Array<string | SearchSuggestion> = [];
 
+  @property({ type: String, attribute: 'search-icon-position', reflect: true })
+  searchIconPosition: SearchIconPosition = 'leading';
+
   @property({ type: String, attribute: 'leading-icon' })
   leadingIcon = 'search';
 
@@ -68,8 +74,55 @@ export class MdSearchBar extends MdFormAssociatedElement {
   @state()
   private highlightedIndex = -1;
 
+  @state()
+  private hasLeadingSlotContent = false;
+
   @query('input')
   private inputElement?: HTMLInputElement;
+
+  get effectiveSearchIconPosition(): 'leading' | 'trailing' {
+    return (this.searchIconPosition === 'trailing' || this.searchIconPosition === 'right' || this.trailingIcon === 'search')
+      ? 'trailing'
+      : 'leading';
+  }
+
+  get effectiveLeadingIcon(): string {
+    if (this.effectiveSearchIconPosition === 'trailing') {
+      if (this.leadingIcon && this.leadingIcon !== 'search') {
+        return this.leadingIcon;
+      }
+      return '';
+    }
+    return this.leadingIcon || 'search';
+  }
+
+  get effectiveTrailingIcon(): string {
+    if (this.effectiveSearchIconPosition === 'trailing') {
+      return this.trailingIcon || 'search';
+    }
+    return this.trailingIcon;
+  }
+
+  @state()
+  private hasCustomContent = false;
+
+  get hasContent(): boolean {
+    return Boolean((this.suggestions && this.suggestions.length > 0) || this.hasCustomContent);
+  }
+
+  private handleLeadingSlotChange = (event: Event) => {
+    const slot = event.target as HTMLSlotElement;
+    const elements = slot.assignedElements({ flatten: true });
+    this.hasLeadingSlotContent = elements.length > 0;
+    this.requestUpdate();
+  };
+
+  private handleContentSlotChange = (event: Event) => {
+    const slot = event.target as HTMLSlotElement;
+    const elements = slot.assignedElements({ flatten: true });
+    this.hasCustomContent = elements.length > 0;
+    this.requestUpdate();
+  };
 
   override connectedCallback() {
     super.connectedCallback();
@@ -77,6 +130,8 @@ export class MdSearchBar extends MdFormAssociatedElement {
     this.toggleAttribute('has-value', Boolean(this.value));
     this.toggleAttribute('active', this.active);
     this.toggleAttribute('collapse-on-mobile', this.collapseOnMobile);
+    this.toggleAttribute('has-suggestions', this.hasContent);
+    this.toggleAttribute('has-no-leading', !this.effectiveLeadingIcon && (!this.active || !this.showBackButton || !this.hasContent) && !this.hasLeadingSlotContent);
   }
 
   override willUpdate(changedProperties: Map<string, unknown>) {
@@ -94,6 +149,8 @@ export class MdSearchBar extends MdFormAssociatedElement {
     if (changedProperties.has('collapseOnMobile')) {
       this.toggleAttribute('collapse-on-mobile', this.collapseOnMobile);
     }
+    this.toggleAttribute('has-suggestions', this.hasContent);
+    this.toggleAttribute('has-no-leading', !this.effectiveLeadingIcon && (!this.active || !this.showBackButton || !this.hasContent) && !this.hasLeadingSlotContent);
   }
 
   override formResetCallback() {
@@ -247,11 +304,38 @@ export class MdSearchBar extends MdFormAssociatedElement {
     }
   };
 
+  private handleLeadingClick = (event: MouseEvent) => {
+    event.stopPropagation();
+    const icon = this.effectiveLeadingIcon;
+    const allowed = this.emitEvent('leading-icon-click', { icon });
+    if (!allowed) return;
+    if (icon === 'search') {
+      this.show();
+    }
+  };
+
+  private handleTrailingClick = (event: MouseEvent) => {
+    event.stopPropagation();
+    const icon = this.effectiveTrailingIcon;
+    const allowed = this.emitEvent('trailing-icon-click', { icon });
+    if (!allowed) return;
+    if (icon === 'search' || this.effectiveSearchIconPosition === 'trailing') {
+      if (!this.active) {
+        this.show();
+      }
+      this.emitEvent('search', { value: this.value });
+    }
+  };
+
   private handleTrailingTriggerClick = (event: MouseEvent) => {
     event.stopPropagation();
-    const allowed = this.emitEvent('trailing-icon-click', { icon: this.trailingIcon });
+    const icon = this.effectiveTrailingIcon;
+    const allowed = this.emitEvent('trailing-icon-click', { icon });
     if (allowed) {
       this.show();
+      if (icon === 'search' || this.effectiveSearchIconPosition === 'trailing') {
+        this.emitEvent('search', { value: this.value });
+      }
     }
   };
 
@@ -312,12 +396,38 @@ export class MdSearchBar extends MdFormAssociatedElement {
   }
 
   override render() {
-    const showBack = this.active && this.showBackButton;
-    const hasTrailing = Boolean(this.trailingIcon);
+    const isFullscreenMode = this.fullscreen || (this.responsive && typeof window !== 'undefined' && window.matchMedia?.('(max-width: 768px)').matches);
+    const showBack = this.active && this.showBackButton && (this.hasContent || isFullscreenMode);
+    const effSearchPos = this.effectiveSearchIconPosition;
+    const effLeading = this.effectiveLeadingIcon;
+    const effTrailing = this.effectiveTrailingIcon;
+
+    let triggerLeadingIcon = 'search';
+    let triggerTrailingIcon = '';
+    let hasTrailingTrigger = false;
+
+    if (effSearchPos === 'trailing') {
+      if (effLeading) {
+        triggerLeadingIcon = effLeading;
+        triggerTrailingIcon = effTrailing || 'search';
+        hasTrailingTrigger = true;
+      } else {
+        triggerLeadingIcon = effTrailing || 'search';
+        hasTrailingTrigger = false;
+      }
+    } else {
+      triggerLeadingIcon = effLeading || 'search';
+      if (effTrailing) {
+        triggerTrailingIcon = effTrailing;
+        hasTrailingTrigger = true;
+      }
+    }
+
+    const hasLeadingHeader = showBack || Boolean(effLeading) || this.hasLeadingSlotContent;
 
     return html`
       <div
-        class="search-trigger-container ${hasTrailing ? 'has-trailing' : ''}"
+        class="search-trigger-container ${hasTrailingTrigger ? 'has-trailing' : ''}"
         role="button"
         tabindex="0"
         aria-label=${this.placeholder || 'Search'}
@@ -329,26 +439,36 @@ export class MdSearchBar extends MdFormAssociatedElement {
         <button
           class="trigger-btn"
           type="button"
-          aria-label=${this.placeholder || 'Search'}
-          title=${this.placeholder || 'Search'}
+          aria-label=${triggerLeadingIcon === 'menu' ? 'Menu' : (this.placeholder || 'Search')}
+          title=${triggerLeadingIcon === 'menu' ? 'Menu' : (this.placeholder || 'Search')}
           ?disabled=${this.disabled}
-          @click=${this.handleTriggerClick}
+          @click=${(e: MouseEvent) => {
+            if (effLeading && effLeading !== 'search') {
+              this.handleLeadingClick(e);
+            } else {
+              this.handleTriggerClick(e);
+            }
+          }}
         >
-          <md-icon name=${this.leadingIcon || 'search'}></md-icon>
+          <md-ripple ?disabled=${this.disabled}></md-ripple>
+          <md-focus-ring></md-focus-ring>
+          <md-icon name=${triggerLeadingIcon}></md-icon>
         </button>
 
-        ${hasTrailing
+        ${hasTrailingTrigger
           ? html`
               <div class="trigger-divider" aria-hidden="true"></div>
               <button
                 class="trigger-btn trigger-trailing-btn"
                 type="button"
-                aria-label=${this.trailingIcon}
-                title=${this.trailingIcon}
+                aria-label=${triggerTrailingIcon === 'search' ? 'Search' : triggerTrailingIcon}
+                title=${triggerTrailingIcon === 'search' ? 'Search' : triggerTrailingIcon}
                 ?disabled=${this.disabled}
                 @click=${this.handleTrailingTriggerClick}
               >
-                <md-icon name=${this.trailingIcon}></md-icon>
+                <md-ripple ?disabled=${this.disabled}></md-ripple>
+                <md-focus-ring></md-focus-ring>
+                <md-icon name=${triggerTrailingIcon}></md-icon>
               </button>
             `
           : nothing}
@@ -358,24 +478,38 @@ export class MdSearchBar extends MdFormAssociatedElement {
 
       <div class="search-container" role="search">
         <div class="search-bar-header">
-          <span class="leading-slot">
-            <slot name="leading-icon">
-              ${showBack
-                ? html`
-                    <button
-                      class="icon-btn"
-                      type="button"
-                      aria-label="Back"
-                      @click=${this.handleBackClick}
-                    >
-                      <md-icon name=${this.activeLeadingIcon}></md-icon>
-                    </button>
-                  `
-                : html`
-                    <span class="icon-btn" style="cursor: default;">
-                      <md-icon name=${this.leadingIcon}></md-icon>
-                    </span>
-                  `}
+          <span class="leading-slot ${hasLeadingHeader ? '' : 'empty'}">
+            <slot name="leading" @slotchange=${this.handleLeadingSlotChange}>
+              <slot name="leading-icon" @slotchange=${this.handleLeadingSlotChange}>
+                ${showBack
+                  ? html`
+                      <button
+                        class="icon-btn back-btn"
+                        type="button"
+                        aria-label="Back"
+                        @click=${this.handleBackClick}
+                      >
+                        <md-ripple ?disabled=${this.disabled}></md-ripple>
+                        <md-focus-ring></md-focus-ring>
+                        <md-icon name=${this.activeLeadingIcon}></md-icon>
+                      </button>
+                    `
+                  : (effLeading
+                      ? html`
+                          <button
+                            class="icon-btn leading-btn"
+                            type="button"
+                            aria-label=${effLeading === 'menu' ? 'Menu' : effLeading}
+                            ?disabled=${this.disabled}
+                            @click=${this.handleLeadingClick}
+                          >
+                            <md-ripple ?disabled=${this.disabled}></md-ripple>
+                            <md-focus-ring></md-focus-ring>
+                            <md-icon name=${effLeading}></md-icon>
+                          </button>
+                        `
+                      : nothing)}
+              </slot>
             </slot>
           </span>
 
@@ -406,33 +540,54 @@ export class MdSearchBar extends MdFormAssociatedElement {
                     aria-label="Clear search"
                     @click=${this.handleClearClick}
                   >
+                    <md-ripple ?disabled=${this.disabled}></md-ripple>
+                    <md-focus-ring></md-focus-ring>
                     <md-icon name="close"></md-icon>
                   </button>
                 `
               : nothing}
 
-            <slot name="trailing-icon">
-              ${this.trailingIcon
-                ? html`
-                    <span class="icon-btn" style="cursor: default;">
-                      <md-icon name=${this.trailingIcon}></md-icon>
-                    </span>
-                  `
-                : nothing}
+            <slot name="trailing">
+              <slot name="trailing-icon">
+                ${effTrailing
+                  ? html`
+                      <button
+                        class="icon-btn trailing-btn"
+                        type="button"
+                        aria-label=${effTrailing === 'search' ? 'Search' : effTrailing}
+                        ?disabled=${this.disabled}
+                        @click=${this.handleTrailingClick}
+                      >
+                        <md-ripple ?disabled=${this.disabled}></md-ripple>
+                        <md-focus-ring></md-focus-ring>
+                        <md-icon name=${effTrailing}></md-icon>
+                      </button>
+                    `
+                  : nothing}
+              </slot>
             </slot>
           </span>
         </div>
 
-        <div class="divider"></div>
+        ${this.hasContent
+          ? html`
+              <div class="divider"></div>
 
-        <div class="suggestions-container" role="listbox" aria-label="Suggestions">
-          <slot name="suggestions">
-            ${this.suggestions.map((item, idx) => this.renderSuggestionItem(item, idx))}
-          </slot>
-          <div class="extra-content">
-            <slot></slot>
-          </div>
-        </div>
+              <div class="suggestions-container" role="listbox" aria-label="Suggestions">
+                <slot name="suggestions" @slotchange=${this.handleContentSlotChange}>
+                  ${this.suggestions.map((item, idx) => this.renderSuggestionItem(item, idx))}
+                </slot>
+                <div class="extra-content">
+                  <slot @slotchange=${this.handleContentSlotChange}></slot>
+                </div>
+              </div>
+            `
+          : html`
+              <div class="extra-content" style="display: none;">
+                <slot name="suggestions" @slotchange=${this.handleContentSlotChange}></slot>
+                <slot @slotchange=${this.handleContentSlotChange}></slot>
+              </div>
+            `}
       </div>
     `;
   }

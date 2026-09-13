@@ -5,6 +5,35 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2026-09-13
+
+### Added
+- **Search Bar (`md-search-bar`, `md-search`) Enhancements**:
+  - Added `search-icon-position` property (`'leading'` | `'trailing'` | `'left'` | `'right'`), enabling placement of the search icon on the right/trailing edge of the search bar.
+  - Added support for leading navigation action buttons (e.g. hamburger drawer menu trigger via `leading-icon="menu"` or custom slotted elements via `slot="leading"` / `slot="leading-icon"`).
+  - Added `leading-icon-click` and `trailing-icon-click` custom events dispatched when respective action buttons are pressed.
+  - Added interactive ripples (`md-ripple`) and focus indicators (`md-focus-ring`) to leading, trailing, and clear icon buttons.
+  - Added smart slot change detection (`@slotchange`) to suppress divider lines and suggestions container when the search bar is active with no suggestions or slotted extra content.
+  - Improved collapsed mobile search bar trigger behavior, properly routing interactions between custom leading actions and trailing search triggers.
+- **Component Documentation & Live Examples (`docs/components/`)**:
+  - Added interactive demonstrations and copyable code snippets for right-aligned search icons and navigation menu triggers in `docs/components/search-bar.md`.
+  - Re-implemented interactive live previews and usage examples across all component documentation pages.
+- **AI Developer Documentation (`llms.txt`)**:
+  - Documented `search-icon-position`, `leading-icon-click`, and `trailing-icon-click` in the Search Bar API reference table.
+  - Added usage examples illustrating right-aligned search icons and hamburger menu triggers.
+- **Development Tooling**:
+  - Added `build:example` script in `package.json` for standalone IIFE bundling with `esbuild`.
+- **Testing**:
+  - Added unit test suites in `tests/search-bar.test.ts` covering right-aligned search icon configuration, hamburger menu leading button interactions, slotted leading elements, and empty active states.
+
+### Changed
+- **Dependencies & Build Infrastructure**:
+  - Upgraded development dependencies across `package.json` and `package-lock.json`.
+  - Tuned Vite build and Vitest testing configurations.
+  - Updated documentation deployment workflow (`.github/workflows/deploy-docs.yml`).
+
+---
+
 ## [1.2.0] - 2026-09-09
 
 ### Added
