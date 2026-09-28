@@ -75,6 +75,7 @@
 - **Form-Associated Custom Elements (FACE)**: Text fields, checkboxes, switches, and radios utilize browser-native `ElementInternals` to participate in standard `<form>` submission, `FormData`, and native constraint validation (`required`, `checkValidity()`, `reportValidity()`).
 - **Tree-Shakeable Subpaths**: Import only the elements you need (e.g., `@francofantomius/material-components/button`) to keep bundle sizes minimal.
 - **Accessibility (a11y)**: Built-in WCAG 2.1 AA focus rings, full keyboard interactions, high-contrast support, and ARIA attributes.
+- **Automatic ARIA Label Tooltips**: Any Material component with an `aria-label` (or `title`) automatically displays an accessible, floating Material Design tooltip on hover/focus positioned accurately in the viewport, suppressing ugly default browser tooltip UI without requiring manual `<md-tooltip>` tags.
 - **TypeScript Support**: Full `.d.ts` type declarations and `custom-elements.json` (Custom Elements Manifest) for IDE autocomplete and linting.
 - **Framework Agnostic**: Native Custom Elements work across React, Vue, Angular, Svelte, Solid, and vanilla HTML.
 
@@ -1798,16 +1799,16 @@ const isEnabled = ref(true);
 
 ##### Code Example
 ```html
-<!-- Plain Tooltips on Icon Buttons -->
+<!-- Automatic Tooltips directly via aria-label -->
+<md-icon-button icon="favorite" aria-label="Favorite"></md-icon-button>
+<md-icon-button icon="share" aria-label="Share" tooltip-position="top"></md-icon-button>
+<md-fab icon="edit" aria-label="Edit Profile" tooltip-position="left"></md-fab>
+
+<!-- Plain Tooltips on Custom Elements via md-tooltip -->
 <div style="display: flex; gap: 24px; align-items: center;">
   <div>
-    <md-icon-button id="fav-btn" icon="favorite" aria-label="Favorite"></md-icon-button>
+    <button id="fav-btn">Save</button>
     <md-tooltip for="fav-btn" value="Add to favorites" position="bottom"></md-tooltip>
-  </div>
-
-  <div>
-    <md-icon-button id="share-btn" icon="share" aria-label="Share"></md-icon-button>
-    <md-tooltip for="share-btn" value="Share link" position="top"></md-tooltip>
   </div>
 </div>
 
@@ -1825,6 +1826,13 @@ const isEnabled = ref(true);
   ></md-tooltip>
 </div>
 ```
+
+##### Automatic `aria-label` Tooltips
+All Material components automatically display a positioned Material Design floating tooltip whenever `aria-label` (or `title`) is defined:
+- **Zero Configuration**: Simply set `aria-label="Action description"` on any `<md-*>` element (e.g. `<md-icon-button>`, `<md-button>`, `<md-fab>`).
+- **Suppresses Default UI**: Browser default OS tooltips from `title` attributes are automatically suppressed and converted into Material Design tooltips.
+- **Positioning**: Automatically places and bounds-clamps tooltips within the viewport. Custom direction can be set via `tooltip-position="top|bottom|left|right|auto"`.
+- **Opt-Out**: Add `no-tooltip` or `disable-tooltip` attribute to disable the tooltip for a specific element.
 
 ---
 

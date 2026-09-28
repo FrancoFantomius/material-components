@@ -1,8 +1,9 @@
 import { LitElement, css, CSSResultGroup } from 'lit';
+import { AriaLabelTooltipController } from './aria-label-tooltip.js';
 
 /**
  * Base element class for all Material Web Components.
- * Provides standard reset styles and event dispatch helpers.
+ * Provides standard reset styles, aria-label tooltip support, and event dispatch helpers.
  */
 export class MdBaseElement extends LitElement {
   static override styles: CSSResultGroup = css`
@@ -17,6 +18,11 @@ export class MdBaseElement extends LitElement {
       box-sizing: inherit;
     }
   `;
+
+  constructor() {
+    super();
+    new AriaLabelTooltipController(this);
+  }
 
   /**
    * Helper to dispatch custom events with standard bubbles/composed defaults.

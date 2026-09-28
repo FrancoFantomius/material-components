@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - 2026-09-28
+
+### Added
+- **Automatic ARIA Label Tooltips (`AriaLabelTooltipController`)**:
+  - Integrated `AriaLabelTooltipController` into `MdBaseElement`, providing zero-configuration, floating Material Design tooltips for all Material components with an `aria-label` or `title` attribute.
+  - Automatically suppresses native browser OS `title` tooltips and seamlessly converts them into styled Material Design floating tooltips.
+  - Added smart viewport collision detection, auto-flipping (`top`, `bottom`, `left`, `right`), and bounds-clamping (`positionTooltip`) to keep tooltips safely within viewport boundaries.
+  - Added support for custom positioning via `tooltip-position` attribute (`'top'` | `'bottom'` | `'left'` | `'right'` | `'auto'`).
+  - Added opt-out support via `no-tooltip` or `disable-tooltip` attributes.
+  - Exported `AriaLabelTooltipController`, `showAriaTooltip`, `hideAriaTooltip`, and `positionTooltip` from `@francofantomius/material-components`.
+- **AI Developer Documentation (`llms.txt`)**:
+  - Documented Automatic ARIA Label Tooltip behavior, usage examples, positioning options, and opt-out attributes in the Tooltip reference section.
+- **Testing**:
+  - Added comprehensive test suite in `tests/aria-label-tooltip.test.ts` covering mouse hover/leave delays, keyboard focus (`focusin`/`focusout`), Escape key dismissal, dynamic attribute mutations, `title` sanitization, and viewport bounds positioning.
+
+---
+
 ## [1.3.0] - 2026-09-13
 
 ### Added

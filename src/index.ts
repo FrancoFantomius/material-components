@@ -3,6 +3,7 @@ export * from './tokens/index.js';
 
 // Base Elements and Mixins
 export * from './internal/base-component.js';
+export * from './internal/aria-label-tooltip.js';
 export * from './internal/form-associated.js';
 export * from './internal/ripple/ripple.js';
 export * from './internal/focus-ring/focus-ring.js';
