@@ -18,8 +18,8 @@ export const iconButtonStyles = css`
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    width: 40px;
-    height: 40px;
+    width: var(--md-icon-button-size, 40px);
+    height: var(--md-icon-button-size, 40px);
     padding: 0;
     border: none;
     border-radius: var(--md-icon-button-border-radius, var(--md-button-border-radius, var(--md-sys-shape-corner-full, 50%)));
@@ -101,6 +101,11 @@ export const iconButtonStyles = css`
     justify-content: center;
     position: relative;
     z-index: 1;
+  }
+
+  .content md-icon {
+    font-size: var(--md-icon-button-icon-size, var(--md-icon-size, 24px));
+    --md-icon-size: var(--md-icon-button-icon-size, var(--md-icon-size, 24px));
   }
 `;
 

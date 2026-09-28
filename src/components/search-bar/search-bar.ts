@@ -4,6 +4,7 @@ import { MdFormAssociatedElement } from '../../internal/form-associated.js';
 import '../../internal/ripple/ripple.js';
 import '../../internal/focus-ring/focus-ring.js';
 import '../icon/icon.js';
+import '../icon-button/icon-button.js';
 import { searchBarStyles } from './search-bar.css.js';
 
 export type SearchBarSize = 'small' | 'compact' | 'medium' | 'large';
@@ -483,30 +484,23 @@ export class MdSearchBar extends MdFormAssociatedElement {
               <slot name="leading-icon" @slotchange=${this.handleLeadingSlotChange}>
                 ${showBack
                   ? html`
-                      <button
+                      <md-icon-button
                         class="icon-btn back-btn"
-                        type="button"
+                        icon=${this.activeLeadingIcon}
                         aria-label="Back"
+                        ?disabled=${this.disabled}
                         @click=${this.handleBackClick}
-                      >
-                        <md-ripple ?disabled=${this.disabled}></md-ripple>
-                        <md-focus-ring></md-focus-ring>
-                        <md-icon name=${this.activeLeadingIcon}></md-icon>
-                      </button>
+                      ></md-icon-button>
                     `
                   : (effLeading
                       ? html`
-                          <button
+                          <md-icon-button
                             class="icon-btn leading-btn"
-                            type="button"
+                            icon=${effLeading}
                             aria-label=${effLeading === 'menu' ? 'Menu' : effLeading}
                             ?disabled=${this.disabled}
                             @click=${this.handleLeadingClick}
-                          >
-                            <md-ripple ?disabled=${this.disabled}></md-ripple>
-                            <md-focus-ring></md-focus-ring>
-                            <md-icon name=${effLeading}></md-icon>
-                          </button>
+                          ></md-icon-button>
                         `
                       : nothing)}
               </slot>
@@ -534,16 +528,13 @@ export class MdSearchBar extends MdFormAssociatedElement {
           <span class="trailing-slot">
             ${this.showClearButton && this.value
               ? html`
-                  <button
+                  <md-icon-button
                     class="icon-btn clear-btn"
-                    type="button"
+                    icon="close"
                     aria-label="Clear search"
+                    ?disabled=${this.disabled}
                     @click=${this.handleClearClick}
-                  >
-                    <md-ripple ?disabled=${this.disabled}></md-ripple>
-                    <md-focus-ring></md-focus-ring>
-                    <md-icon name="close"></md-icon>
-                  </button>
+                  ></md-icon-button>
                 `
               : nothing}
 
@@ -551,17 +542,13 @@ export class MdSearchBar extends MdFormAssociatedElement {
               <slot name="trailing-icon">
                 ${effTrailing
                   ? html`
-                      <button
+                      <md-icon-button
                         class="icon-btn trailing-btn"
-                        type="button"
+                        icon=${effTrailing}
                         aria-label=${effTrailing === 'search' ? 'Search' : effTrailing}
                         ?disabled=${this.disabled}
                         @click=${this.handleTrailingClick}
-                      >
-                        <md-ripple ?disabled=${this.disabled}></md-ripple>
-                        <md-focus-ring></md-focus-ring>
-                        <md-icon name=${effTrailing}></md-icon>
-                      </button>
+                      ></md-icon-button>
                     `
                   : nothing}
               </slot>

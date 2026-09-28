@@ -110,9 +110,13 @@ export const searchBarStyles = css`
     padding-left: 8px;
   }
 
+  .leading-slot md-icon-button,
+  .trailing-slot md-icon-button,
   .leading-slot ::slotted(md-icon-button),
   .trailing-slot ::slotted(md-icon-button) {
     --md-icon-button-size: var(--_btn-size);
+    --md-icon-button-icon-size: var(--_icon-size);
+    --md-icon-size: var(--_icon-size);
   }
 
   .icon-btn {

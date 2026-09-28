@@ -20,8 +20,8 @@ describe('md-search-bar & md-search', () => {
     expect(input).not.toBeNull();
     expect(input?.placeholder).toBe('Search items...');
 
-    const leadingIcon = searchBar.shadowRoot?.querySelector('.leading-slot md-icon');
-    expect(leadingIcon?.getAttribute('name')).toBe('search');
+    const leadingBtn = searchBar.shadowRoot?.querySelector('.leading-slot .leading-btn');
+    expect(leadingBtn?.getAttribute('icon')).toBe('search');
   });
 
   it('should manage active state and show/hide suggestions', async () => {
@@ -47,8 +47,9 @@ describe('md-search-bar & md-search', () => {
     expect(activeDetail).toEqual({ active: true });
 
     // Back icon should now be shown in leading slot
-    const backBtn = searchBar.shadowRoot?.querySelector('.leading-slot button');
+    const backBtn = searchBar.shadowRoot?.querySelector('.leading-slot .back-btn');
     expect(backBtn).not.toBeNull();
+    expect(backBtn?.getAttribute('icon')).toBe('arrow_back');
 
     // Suggestions should be rendered in shadow DOM
     const suggestionItems = searchBar.shadowRoot?.querySelectorAll('.suggestion-item');
@@ -84,8 +85,10 @@ describe('md-search-bar & md-search', () => {
     expect(inputDetail).toEqual({ value: 'Material 3' });
 
     // Clear button should be visible
-    const clearBtn = searchBar.shadowRoot?.querySelector('.clear-btn') as HTMLButtonElement;
+    const clearBtn = searchBar.shadowRoot?.querySelector('.clear-btn') as HTMLElement;
     expect(clearBtn).not.toBeNull();
+    expect(clearBtn.getAttribute('icon')).toBe('close');
+    expect(clearBtn.getAttribute('aria-label')).toBe('Clear search');
 
     let clearFired = false;
     searchBar.addEventListener('clear', () => {
@@ -317,9 +320,9 @@ describe('md-search-bar & md-search', () => {
     expect(searchBar.hasAttribute('has-no-leading')).toBe(true);
 
     // Trailing button should contain the search icon
-    const trailingBtn = searchBar.shadowRoot?.querySelector('.trailing-slot .trailing-btn md-icon');
+    const trailingBtn = searchBar.shadowRoot?.querySelector('.trailing-slot .trailing-btn');
     expect(trailingBtn).not.toBeNull();
-    expect(trailingBtn?.getAttribute('name')).toBe('search');
+    expect(trailingBtn?.getAttribute('icon')).toBe('search');
 
     // Leading slot should have .empty class
     const leadingSlot = searchBar.shadowRoot?.querySelector('.leading-slot');
@@ -336,7 +339,7 @@ describe('md-search-bar & md-search', () => {
       searchFired = true;
     });
 
-    const trailingButtonEl = searchBar.shadowRoot?.querySelector('.trailing-slot .trailing-btn') as HTMLButtonElement;
+    const trailingButtonEl = searchBar.shadowRoot?.querySelector('.trailing-slot .trailing-btn') as HTMLElement;
     trailingButtonEl.click();
     await searchBar.updateComplete;
 
@@ -355,14 +358,14 @@ describe('md-search-bar & md-search', () => {
     expect(searchBar.hasAttribute('has-no-leading')).toBe(false);
 
     // Leading button should have menu icon
-    const leadingIcon = searchBar.shadowRoot?.querySelector('.leading-slot .leading-btn md-icon');
-    expect(leadingIcon).not.toBeNull();
-    expect(leadingIcon?.getAttribute('name')).toBe('menu');
+    const leadingBtn = searchBar.shadowRoot?.querySelector('.leading-slot .leading-btn');
+    expect(leadingBtn).not.toBeNull();
+    expect(leadingBtn?.getAttribute('icon')).toBe('menu');
 
     // Trailing button should have search icon
-    const trailingIcon = searchBar.shadowRoot?.querySelector('.trailing-slot .trailing-btn md-icon');
-    expect(trailingIcon).not.toBeNull();
-    expect(trailingIcon?.getAttribute('name')).toBe('search');
+    const trailingBtn = searchBar.shadowRoot?.querySelector('.trailing-slot .trailing-btn');
+    expect(trailingBtn).not.toBeNull();
+    expect(trailingBtn?.getAttribute('icon')).toBe('search');
 
     // Clicking menu button should emit leading-icon-click event
     let leadingDetail: any = null;
@@ -370,7 +373,7 @@ describe('md-search-bar & md-search', () => {
       leadingDetail = e.detail;
     });
 
-    const leadingButtonEl = searchBar.shadowRoot?.querySelector('.leading-slot .leading-btn') as HTMLButtonElement;
+    const leadingButtonEl = searchBar.shadowRoot?.querySelector('.leading-slot .leading-btn') as HTMLElement;
     leadingButtonEl.click();
     await searchBar.updateComplete;
 
@@ -379,7 +382,7 @@ describe('md-search-bar & md-search', () => {
     expect(searchBar.active).toBe(false);
 
     // Clicking search button on right should trigger search and activate
-    const trailingButtonEl = searchBar.shadowRoot?.querySelector('.trailing-slot .trailing-btn') as HTMLButtonElement;
+    const trailingButtonEl = searchBar.shadowRoot?.querySelector('.trailing-slot .trailing-btn') as HTMLElement;
     trailingButtonEl.click();
     await searchBar.updateComplete;
 
@@ -396,8 +399,8 @@ describe('md-search-bar & md-search', () => {
     document.body.appendChild(searchBar);
     await searchBar.updateComplete;
 
-    const trailingIcon = searchBar.shadowRoot?.querySelector('.trailing-slot .trailing-btn md-icon');
-    expect(trailingIcon?.getAttribute('name')).toBe('search');
+    const trailingBtn = searchBar.shadowRoot?.querySelector('.trailing-slot .trailing-btn');
+    expect(trailingBtn?.getAttribute('icon')).toBe('search');
   });
 
   it('should retain default shape without divider or dropdown when active with no suggestions', async () => {
@@ -423,4 +426,18 @@ describe('md-search-bar & md-search', () => {
     // No back button should replace the leading area in docked mode without suggestions
     expect(searchBar.shadowRoot?.querySelector('.leading-slot .back-btn')).toBeNull();
   });
+
+  it('should render clear button as md-icon-button with aria-label for tooltip display', async () => {
+    const searchBar = document.createElement('md-search-bar') as MdSearchBar;
+    searchBar.value = 'hello';
+    document.body.appendChild(searchBar);
+    await searchBar.updateComplete;
+
+    const clearBtn = searchBar.shadowRoot?.querySelector('.clear-btn');
+    expect(clearBtn).not.toBeNull();
+    expect(clearBtn?.localName).toBe('md-icon-button');
+    expect(clearBtn?.getAttribute('aria-label')).toBe('Clear search');
+    expect(clearBtn?.getAttribute('icon')).toBe('close');
+  });
 });
+

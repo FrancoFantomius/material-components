@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.1] - 2026-09-28
+
+### Improved
+- **Search Bar (`md-search-bar`, `md-search`)**:
+  - Replaced internal raw button templates for leading, trailing, back, and clear actions with `<md-icon-button>`.
+  - Enables automatic floating Material Design tooltips (via `AriaLabelTooltipController`) for the clear button (`aria-label="Clear search"`), leading navigation buttons, and trailing action buttons.
+  - Added CSS custom property variable inheritance (`--md-icon-button-size`, `--md-icon-button-icon-size`, and `--md-icon-size`) for slotted and internal icon buttons.
+- **Icon Button (`md-icon-button`)**:
+  - Added CSS custom property overrides for `--md-icon-button-size` (container width/height) and `--md-icon-button-icon-size` (inner icon font size).
+
+### Testing
+- Added unit test asserting `<md-search-bar>` renders clear button as `<md-icon-button>` with `aria-label` for tooltip display.
+
+---
+
 ## [1.4.0] - 2026-09-28
 
 ### Added
